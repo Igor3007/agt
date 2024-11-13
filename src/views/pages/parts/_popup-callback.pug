@@ -1,0 +1,24 @@
+include ../../helpers/mixins.pug
+ 
+.popup-form
+    .popup-form__wrp
+        .popup-form__title Заказать звонок
+        .popup-form__desc Отправьте свои контактные данные, мы свяжемся с вами в самое ближайшее время.
+        .popup-form__form
+            form(action="/action.php")
+                .form
+                    .form__item
+                        .form__subitem
+                            input(type="text" placeholder="Ваше имя")
+                    .form__item
+                        .form__subitem
+                            input(type="text" placeholder="Контактный телефон *" data-maska="+7(###)###-##-##" required)
+                    .form__item
+                        .form__subitem.form__subitem--free
+                            button.btn.btn-full Отправить
+                    .form__item
+                        .form__subitem.form__subitem--free
+                            .form__note
+                                +checkbox('Нажимая на кнопку «Отправить», я соглашаюсь на обработку персональных данных', 'policy', 'checked')
+                                    
+                                    

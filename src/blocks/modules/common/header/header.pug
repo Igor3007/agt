@@ -1,0 +1,35 @@
+.header-top
+    .container
+        .header-top__wrp
+         
+.header
+    .container
+        .header__wrp
+            .header__logo
+                a(href='/'): +bgimage('/img/common/logo.png')
+            
+            .header__find
+
+            .header__contacts
+                .header-contact
+                    .header-contact__value: a(href='tel:+375292240765') +375 (29) 224-07-65
+                    .header-contact__label: a(href="mailto:info@maxcr.ru") info@maxcr.ru
+                
+            .header__burger
+                .btn-burger(data-menu="open") 
+                    i
+                    i
+                    i
+.header-menu
+    .container
+        .header-menu__wrp
+            ul  
+                each item in app.mainMenu
+                    li
+                        a(href=item.href)= item.text
+
+                        if item.sub
+                            ul.sub-menu
+                                each sub in item.sub
+                                    li
+                                        a(href=sub.href)= sub.text

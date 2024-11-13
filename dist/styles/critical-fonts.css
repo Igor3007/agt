@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'Inter';
+  src: url("/fonts/inter/Inter-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("/fonts/inter/Inter-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("/fonts/inter/Inter-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("/fonts/inter/subset-Inter-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geometria';
+  src: url("/fonts/geometria/subset-Geometria-ExtraBold.woff2") format("woff2"), url("/fonts/geometria/subset-Geometria-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Geometria';
+  src: url("/fonts/geometria/subset-Geometria-Bold.woff2") format("woff2"), url("/fonts/geometria/subset-Geometria-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+/*# sourceMappingURL=maps/critical-fonts.css.map */

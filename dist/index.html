@@ -28,44 +28,58 @@
     <link rel="apple-touch-icon" sizes="1024x1024" href="img/favicons/apple-touch-icon-1024x1024.png">
     <link rel="prefetch" href="/img/sprites/sprite.svg" as="image" crossorigin>
     <style>@font-face {
-  font-family: 'Inter';
-  src: url("/fonts/inter/Inter-Regular.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'Involve SemiBold Oblique';
+  src: url("/fonts/involve/subset-Involve-SemiBoldOblique.woff2") format("woff2"), url("/fonts/involve/subset-Involve-SemiBoldOblique.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url("/fonts/inter/Inter-SemiBold.woff2") format("woff2");
+  font-family: 'Involve Medium Oblique';
+  src: url("/fonts/involve/subset-Involve-MediumOblique.woff2") format("woff2"), url("/fonts/involve/subset-Involve-MediumOblique.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Involve';
+  src: url("/fonts/involve/subset-Involve-SemiBold.woff2") format("woff2"), url("/fonts/involve/subset-Involve-SemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url("/fonts/inter/Inter-Bold.woff2") format("woff2");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Inter';
-  src: url("/fonts/inter/subset-Inter-Medium.woff2") format("woff2");
+  font-family: 'Involve';
+  src: url("/fonts/involve/subset-Involve-Medium.woff2") format("woff2"), url("/fonts/involve/subset-Involve-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Geometria';
-  src: url("/fonts/geometria/subset-Geometria-ExtraBold.woff2") format("woff2"), url("/fonts/geometria/subset-Geometria-ExtraBold.woff") format("woff");
-  font-weight: 800;
+  font-family: 'Involve';
+  src: url("/fonts/involve/subset-Involve-Oblique.woff2") format("woff2"), url("/fonts/involve/subset-Involve-Oblique.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Involve';
+  src: url("/fonts/involve/subset-Involve-Bold.woff2") format("woff2"), url("/fonts/involve/subset-Involve-Bold.woff") format("woff");
+  font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Geometria';
-  src: url("/fonts/geometria/subset-Geometria-Bold.woff2") format("woff2"), url("/fonts/geometria/subset-Geometria-Bold.woff") format("woff");
+  font-family: 'Involve Bold Oblique';
+  src: url("/fonts/involve/subset-Involve-BoldOblique.woff2") format("woff2"), url("/fonts/involve/subset-Involve-BoldOblique.woff") format("woff");
   font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Involve';
+  src: url("/fonts/involve/subset-Involve-Regular.woff2") format("woff2"), url("/fonts/involve/subset-Involve-Regular.woff") format("woff");
+  font-weight: normal;
   font-style: normal;
 }
 /*# sourceMappingURL=maps/critical-fonts.css.map */
@@ -77,19 +91,76 @@
     <header> 
       <div class="header-top">
         <div class="container">
-          <div class="header-top__wrp"></div>
+          <div class="header-top__wrp">
+            <div class="header-top__left">
+              <div class="header-top__location"><span>г. Санкт-петербург,  ул. Егорова, 25</span>
+                <svg width="24" height="24">
+                  <use xlink:href="/img/sprites/sprite.svg#ic_arrow-down"></use>
+                </svg>
+              </div>
+              <div class="header-top__worktime"><span>Можно примерить( 8:00 - 20:00) </span>
+                <svg width="24" height="24">
+                  <use xlink:href="/img/sprites/sprite.svg#ic_cross"></use>
+                </svg>
+              </div>
+            </div>
+            <div class="header-top__right">
+              <div class="header-top__links">
+                <nav>
+                  <ul>
+                    <li><a href="#">Юр. лицам</a></li>
+                    <li><a href="#">География поставок</a></li>
+                    <li><a href="#">О компании</a></li>
+                    <li><a href="#">Контакты</a></li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="header-top__msgr">
+                <ul>
+                  <li><a href="#"><span class="bgimage" style="background-image: url(/img/icons/ic_wa.svg)"></span></a></li>
+                  <li><a href="#"><span class="bgimage" style="background-image: url(/img/icons/ic_tg.svg)"></span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="header">
         <div class="container">
           <div class="header__wrp">
-            <div class="header__logo"><a href="/"><span class="bgimage lazyload" data-bg="/img/common/logo.png"></span></a></div>
-            <div class="header__find"></div>
+            <div class="header__logo"><a href="/"><span class="bgimage" style="background-image: url(/img/common/logo.svg)"></span></a></div>
+            <div class="header__find">
+              <input type="text" placeholder="Найти...">
+            </div>
             <div class="header__contacts">
               <div class="header-contact">
-                <div class="header-contact__value"><a href="tel:+375292240765">+375 (29) 224-07-65</a></div>
-                <div class="header-contact__label"><a href="mailto:info@maxcr.ru">info@maxcr.ru</a></div>
+                <div class="header-contact__value"><a href="tel:+78123098028">+7 812 309 80 28</a></div>
+                <div class="header-contact__label"><a href="mailto:zakaz@ag-technologies.ru">
+                     zakaz@ag-technologies.ru <span class="copy-field">
+                      <svg width="24" height="24">
+                        <use xlink:href="/img/sprites/sprite.svg#ic_copy"></use>
+                      </svg></span></a></div>
               </div>
+            </div>
+            <div class="header__actions">
+              <ul>
+                <li><a href="/login.html">
+                    <svg width="40" height="40">
+                      <use xlink:href="/img/sprites/sprite.svg#ic_user"></use>
+                    </svg></a></li>
+                <li><a href="/compare.html">
+                    <svg width="40" height="40">
+                      <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
+                    </svg></a></li>
+                <li><a class="ic_heart" href="/wishlist.html">
+                    <svg width="40" height="40">
+                      <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
+                    </svg></a></li>
+                <li><a href="/cart.html">
+                    <svg width="40" height="40">
+                      <use xlink:href="/img/sprites/sprite.svg#ic_cart"></use>
+                    </svg></a></li>
+              </ul>
             </div>
             <div class="header__burger">
               <div class="btn-burger" data-menu="open"> <i></i><i></i><i></i></div>
@@ -101,32 +172,19 @@
         <div class="container">
           <div class="header-menu__wrp">
             <ul> 
-              <li><a href="/catalog.html">Передаточные окна</a>
+              <li class="menu-catalog"><a href="#">
+                  <svg width="24" height="24">
+                    <use xlink:href="/img/sprites/sprite.svg#ic_catalog"></use>
+                  </svg><span>Каталог</span></a></li>
+              <li><a href="/catalog.html">Новинки</a>
               </li>
-              <li><a href="/catalog.html">Воздушные души</a>
-                <ul class="sub-menu">
-                  <li><a href="/category.html">Высокой эффективности</a></li>
-                  <li><a href="/category.html">Автоматические</a></li>
-                  <li><a href="/category.html">Базовые серии SB</a></li>
-                  <li><a href="/category.html">Базовые серии SBN</a></li>
-                  <li><a href="/category.html">Высокоскоростные</a></li>
-                  <li><a href="/category.html">С вертикальным обдувом</a></li>
-                  <li><a href="/category.html">Из нержавеющей стали</a></li>
-                  <li><a href="/category.html">Туннельные</a></li>
-                  <li><a href="/category.html">С раздвижной автоматической дверью</a></li>
-                  <li><a href="/category.html">С роллетной автоматической дверью</a></li>
-                  <li><a href="/category.html">Грузовые</a></li>
-                </ul>
+              <li><a href="/catalog.html">Профессии</a>
               </li>
-              <li><a href="/catalog.html">Панели</a>
+              <li><a href="/catalog.html">Бренды</a>
               </li>
-              <li><a href="/catalog.html">Чистые зоны</a>
+              <li><a href="/catalog.html">Доставка и примерка</a>
               </li>
-              <li><a href="/catalog.html">Вентиляция</a>
-              </li>
-              <li><a href="/catalog.html">Потолочные конструкции</a>
-              </li>
-              <li><a href="/catalog.html">Двери</a>
+              <li><a href="/catalog.html">Нанесение логотипа</a>
               </li>
             </ul>
           </div>
@@ -134,6 +192,61 @@
       </div>
     </header>
     <main> 
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
+      <div>home</div>
       <div>home</div>
     </main>
     <footer>

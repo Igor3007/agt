@@ -1,38 +1,67 @@
 :root {
-
-    --color-text-03: rgba(126, 133, 143, 1);
-    --color-red-1: rgb(184, 0, 0);
-    --color-red-01: rgba(228, 88, 71, 1);
-    --color-white: rgba(255, 255, 255, 1);
-    --color-text-1: rgba(17, 17, 17, 1);
-    --color-text-2: rgba(118, 136, 173, 1);
-    --color-accent-1: rgba(1, 175, 210, 1);
-    --color-accent-2: rgba(0, 68, 204, 1);
-    --color-bg-1: rgba(247, 247, 247, 1);
-    --color-bg-2: rgba(240, 250, 252, 1);
-    --color-bg-3: rgba(245, 248, 255, 1);
-    --color-bg-4: rgba(222, 247, 252, 1);
-    --color-bg-5: rgba(229, 238, 255, 1);
-    --color-bg-6: rgba(0, 26, 77, 1);
-    --color-bg-7: rgba(0, 20, 61, 1);
-    --color-borders-1: rgba(224, 224, 224, 1);
-    --color-borders-2: rgba(211, 235, 240, 1);
-    --color-borders-3: rgba(215, 225, 245, 1);
-    --color-borders-4: rgba(34, 64, 122, 1);
-    --color-green-1: rgba(0, 184, 122, 1);
-    --color-bg-green-1: rgba(240, 255, 250, 1);
-
+    --gap-between-blocks: 50px;
+    --screen-padding: 20px;
+    --h1-font-size: 30px;
+    --h2-font-size: 24px;
+    --h3-font-size: 17px;
+    --h4-font-size: 15px;
+    --link_font_size: 15px;
+    --body_font_size: 15px;
 }
 
+/* colors light */
+
+:root {
+    --primary: #000;
+    --accent: #0090c3;
+    --accent-hover: #41BFF1;
+    --secondaty: #0009;
+    --disabled: #0006;
+    --critical: #ff3232;
+    --caution: #ffe816;
+    --success: #3df55b;
+    --inverse: #fff;
+    --Text-inverse: #FFF;
+    --dark: #2F3030;
+}
+
+@media screen and (min-width: $w992) {
+    :root {
+        --gap-between-blocks: 100px;
+        --screen-padding: 40px;
+        --h1-font-size: 40px;
+        --h2-font-size: 30px;
+        --h3-font-size: 24px;
+        --h4-font-size: 18px;
+        --link_font_size: 15px;
+        --body_font_size: 15px;
+    }
+}
+
+@media screen and (min-width: $w576) {
+    :root {
+        --gap-between-blocks: 80px;
+        --screen-padding: 30px;
+        --h1-font-size: 36px;
+        --h2-font-size: 27px;
+        --h3-font-size: 17px;
+        --h4-font-size: 16px;
+        --link_font_size: 15px;
+        --body_font_size: 15px;
+    }
+}
+
+// annshamal1@gmail.com
+// annshamal2024
 
 
 html,
 body {
 
-    font-family: "Inter", Helvetica, Arial, sans-serif;
+    font-family: "Involve", Helvetica, Arial, sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 150%;
     color: #111;
     letter-spacing: normal;
@@ -41,10 +70,10 @@ body {
     -moz-text-size-adjust: none;
     -ms-text-size-adjust: none;
     height: -webkit-fill-available;
-    -moz-scrollbar-color: var(--black) #fff;
+    -moz-scrollbar-color: var(--primary) #fff;
     -moz-scrollbar-width: thin;
     scrollbar-gutter: stable;
-    background-color: var(--color-bg-2);
+    background-color: var(--accent);
 
     @media screen and (min-width: $w1510) {
         font-size: 16px;
@@ -162,7 +191,7 @@ input[type="date"] {
 
 
 @mixin container-breakpoint {
-    padding: 0 16px;
+    padding: 0 24px;
     min-width: 316px;
 
     @media screen and (min-width: $w480) {
@@ -191,10 +220,11 @@ input[type="date"] {
     }
 
     @media screen and (min-width: $w1440) {
-        padding: 0 45px;
-        max-width: 1410px;
+        padding: 0 40px;
+        max-width: 1920px;
     }
 }
+
 
 .container {
     width: 100%;

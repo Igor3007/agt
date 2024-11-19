@@ -1,19 +1,49 @@
 .header-top
     .container
         .header-top__wrp
+            .header-top__left
+                .header-top__location
+                   span г. Санкт-петербург,  ул. Егорова, 25
+                   +icons('#ic_arrow-down')
+                .header-top__worktime
+                    span Можно примерить( 8:00 - 20:00) 
+                    +icons('#ic_cross')
+
+            .header-top__right
+                .header-top__links
+                    nav
+                        ul
+                            li: a(href='#') Юр. лицам
+                            li: a(href='#') География поставок
+                            li: a(href='#') О компании
+                            li: a(href='#') Контакты
+                .header-top__msgr
+                    ul
+                        li: a(href='#'): +bgimage--nolazy('/img/icons/ic_wa.svg')
+                        li: a(href='#'): +bgimage--nolazy('/img/icons/ic_tg.svg')
          
 .header
     .container
         .header__wrp
             .header__logo
-                a(href='/'): +bgimage('/img/common/logo.png')
+                a(href='/'): +bgimage--nolazy('/img/common/logo.svg')
             
             .header__find
+                input(type="text" placeholder="Найти...")
 
             .header__contacts
                 .header-contact
-                    .header-contact__value: a(href='tel:+375292240765') +375 (29) 224-07-65
-                    .header-contact__label: a(href="mailto:info@maxcr.ru") info@maxcr.ru
+                    .header-contact__value: a(href='tel:+78123098028') +7 812 309 80 28
+                    .header-contact__label: a(href="mailto:zakaz@ag-technologies.ru") 
+                        | zakaz@ag-technologies.ru 
+                        span.copy-field: +icons('#ic_copy')
+
+            .header__actions
+                ul
+                    li: a(href='/login.html'): +icons('#ic_user', 40)
+                    li: a(href='/compare.html'): +icons('#ic_compare', 40)
+                    li: a(href='/wishlist.html' class="ic_heart"): +icons('#ic_heart', 40)
+                    li: a(href='/cart.html'): +icons('#ic_cart', 40)
                 
             .header__burger
                 .btn-burger(data-menu="open") 
@@ -24,6 +54,12 @@
     .container
         .header-menu__wrp
             ul  
+
+                li.menu-catalog
+                    a(href='#')
+                        +icons('#ic_catalog')
+                        span Каталог
+
                 each item in app.mainMenu
                     li
                         a(href=item.href)= item.text

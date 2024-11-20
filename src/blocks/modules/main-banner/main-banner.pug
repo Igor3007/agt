@@ -1,0 +1,43 @@
+mixin main-banner
+
+    -
+        const mainbanner = [
+            {
+                title: 'Спецодежда <br> для профессионалов',
+                desc: 'Комфорт и функциональность <br> топовых брендов Европы и России',
+            },
+            {
+                title: 'Рассрочка для бизнеса',
+                desc: 'Бизнес и функциональность <br> топовых брендов Европы и России',
+            },
+            {
+                title: 'Промышленным предприятиям',
+                desc: 'Бизнес и функциональность <br> топовых брендов Европы и России',
+            },
+            {
+                title: 'Торговым партнерам',
+                desc: 'Функциональность топовых брендов Европы и России',
+            },
+        ]
+
+    section.section-main-banner
+     
+            .main-banner
+                .main-banner__slider
+                    .splide(data-slider="main-banner")
+                        .splide__track
+                            .splide__list
+                                each item in mainbanner
+                                    .splide__slide
+                                        .main-banner__slide
+
+                                            .main-banner__content
+                                                .container
+                                                    .main-banner__title!= item.title
+                                                    .main-banner__desc!= item.desc
+
+                                            .main-banner__picture
+                                                picture
+                                                    source(srcset="/img/common/mb-desktop.jpg" type="image/jpeg" media='(min-width: 480px)')
+                                                    img(src="/img/common/mb-mobile.jpg")
+

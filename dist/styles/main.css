@@ -3938,6 +3938,44 @@ footer a {
   background-color: #fff;
 }
 
+.main-banner__content {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.247);
+}
+
+.main-banner__content .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  min-height: 580px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.main-banner__title {
+  font-size: var(--h1-font-size);
+  color: #fff;
+  padding-bottom: 24px;
+  line-height: 100%;
+}
+
+.main-banner__desc {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.main-banner__picture {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
 /* common styles */
 
 .font-h2 {

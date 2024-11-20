@@ -1,0 +1,41 @@
+.main-banner {
+
+
+
+    &__content {
+        position: relative;
+        z-index: 2;
+
+        background-color: rgba(0, 0, 0, 0.247);
+
+        & .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            min-height: 580px;
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+    }
+
+    &__title {
+        font-size: var(--h1-font-size);
+        color: #fff;
+        padding-bottom: 24px;
+        line-height: 100%;
+    }
+
+    &__desc {
+        color: #fff;
+        font-size: 17px;
+        font-weight: 500
+    }
+
+    &__picture {
+        @include layer(1);
+
+    }
+
+
+}

@@ -1,0 +1,13 @@
+.section-product-slider {
+    padding: 8px 0;
+}
+
+.product-slider {
+
+
+
+    &__title {
+        @include font-h2;
+        padding-bottom: 36px;
+    }
+}

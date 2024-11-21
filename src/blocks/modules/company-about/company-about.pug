@@ -1,4 +1,51 @@
+mixin tile-about(text)
+    .company-tile__wrp
+        .company-tile__icon
+            +bgimage('/img/icons/at.svg')
+        .company-tile__bottom
+            .company-tile__text!= text
+            .company-tile__arrow
+                +icons('#ic_arr-right', 40)
+
 mixin company-about
     section.section-company-about
         .container
-            .company-about company-about
+            .company-about
+                .company-about__left
+                .company-about__right
+                    .company-about__top
+                        .company-about__main
+                            .company-about__logo
+                                +bgimage('/img/common/logo-min.svg')
+                            .company-about__title Высококлассный сервис подбора спецодежды
+                            .company-about__desc Мы - компания с 11-летним опытом работы и находимся в ТОП 50 компаний на рынке. Мы гордимся тем, что поддерживаем наличие товара на наших складах, чтобы удовлетворить потребности наших клиентов. У нас нет минимального заказа, и мы обеспечиваем одинаково высокий стандарт обслуживания для всех наших клиентов.
+                        .company-about__image
+                            +picture('/img/common/about')
+
+                    .company-about__tile
+                        .company-tile
+                            .company-tile__item: +tile-about('Выездная <br> примерка')
+                            .company-tile__item: +tile-about('Образцы <br> на тест')
+                            .company-tile__item: +tile-about('Индивидуальный <br> подход')
+                            .company-tile__item: +tile-about('Онлайн <br> показ')
+                            .company-tile__item
+
+
+                    .company-about__digits
+                        .company-digits
+
+                            .company-digits__col
+                                .company-digits__item
+                                    div входим в топ 
+                                    span 50
+                                    div компаний <br> рынка
+                            .company-digits__col
+                                .company-digits__item
+                                    div 
+                                    span 11
+                                    div лет опыта
+
+                            .company-digits__col
+                                p Одинаково высокий стандарт обслуживания для всех клиентов
+                                p Поддерживаем наличие товара на складах
+                                p Нет минимального заказа 

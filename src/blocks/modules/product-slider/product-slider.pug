@@ -1,4 +1,13 @@
+include ../minicard/minicard.pug
+
 mixin product-slider
     section.section-product-slider
         .container
-            .product-slider product-slider
+            .product-slider
+                .product-slider__title Хиты
+                .product-slider__splide
+                    .splide(data-slider="product")
+                        .splide__track
+                            .splide__list
+                                each item in products
+                                    .splide__slide: +minicard(item)

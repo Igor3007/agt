@@ -1,4 +1,60 @@
 mixin tile-catalog
+
+    -
+        const catalog = [
+            {
+                'img': false,
+                'name': 'Каталог'
+            },
+            {
+                'img': '/img/catalog/image351(1)',
+                'name': 'Спецодежда'
+            },
+            {
+                'img': '/img/catalog/image351(2)',
+                'name': 'Рабочая обувь'
+            },
+            {
+                'img': '/img/catalog/image351(3)',
+                'name': 'Защита слуха'
+            },
+            {
+                'img': '/img/catalog/image351(4)',
+                'name': 'Перчатки'
+            },
+            {
+                'img': '/img/catalog/image351(5)',
+                'name': 'Аксессуары'
+            },
+            {
+                'img': '/img/catalog/image351(6)',
+                'name': 'Очки'
+            },
+            {
+                'img': '/img/catalog/image351(7)',
+                'name': 'Альпинизм'
+            },
+            {
+                'img': '/img/catalog/image351(8)',
+                'name': 'Каски'
+            },
+            {
+                'img': '/img/catalog/image351(9)',
+                'name': 'Защита дыхания'
+            },
+        ]
+
+
     section.section-tile-catalog
         .container
-            .tile-catalog tile-catalog
+            .tile-catalog
+                .tile-catalog__list
+                    each item in catalog
+                        .tile-catalog__item
+                            a(href='/categoty.html')
+                                .tile-catalog__text= item.name
+                                .tile-catalog__image
+                                    +picture(item.img)
+                                .tile-catalog__arrow
+                                    +icons('#ic_arr-right', 40)
+

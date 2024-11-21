@@ -1,0 +1,44 @@
+mixin minicard(data)
+    .minicard(data-popup="product-preview" data-id="875")
+        .minicard__top
+
+            .minicard__head
+                .minicard__sticker
+                    span Новинка
+                .minicard__brand
+                    +bgimage('/img/brands/image2.png')
+
+
+            .minicard__images
+                each img in data.images
+                    .minicard__picture(class = img.class ? img.class : ''  data-image-color=img.color)
+                        .minicard__photo: +picturePng(img.main)
+                      
+               
+            .minicard__action
+                .minicard__tofav(data-wishlist=data.id): +icons('#ic_heart', 40)
+                .minicard__compare(data-compare=data.id): +icons('#ic_compare', 40)
+                .minicard__tocart(data-compare=data.id): +icons('#ic_to-cart', 40)
+             
+            
+                    
+
+        .minicard__main
+            .minicard__price
+                | 14 500 
+                span ₽
+
+            .minicard__desc
+                 span= data.desc
+
+            .minicard__vcode
+                 span Арт.: KS213RED
+
+            .minicard__colors
+                    ul
+                        each item in data.images
+                            if item.color 
+                                li(style="border-color: "+item.hex+" ")  
+                                    span(data-color=item.color style="background-color: "+item.hex+" " )
+                                    if item.hex2
+                                        span(data-color=item.color style="background-color: "+item.hex2+" " )

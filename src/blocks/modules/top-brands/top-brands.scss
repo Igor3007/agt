@@ -1,5 +1,9 @@
 .section-top-brands {
     padding: 50px 0;
+
+    @media screen and (min-width: $w992) {
+        padding: 85px 0;
+    }
 }
 
 .top-brands {
@@ -21,12 +25,27 @@
         & .bgimage {
             padding-top: 60%;
             @include bgimage-contain;
+            opacity: 0.5;
+
         }
 
         @media screen and (min-width: $w992) {
             width: calc(100% - 360px);
-            max-width: 1440px;
-            margin: 0 auto;
+            max-width: 1400px;
+            margin-left: auto;
+            padding: 0 40px;
+        }
+
+        & .splide {
+            &__arrow {
+                &--prev {
+                    left: -70px;
+                }
+
+                &--next {
+                    right: -50px;
+                }
+            }
         }
     }
 }

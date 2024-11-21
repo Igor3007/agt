@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function (event) {
 
     const API_YMAPS = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU&mode=debug';
-    const SLIDER_ARROW_PATH = 'M1.164.675a.9.9 0 011.272.044l6.222 6.666a.9.9 0 010 1.228L2.436 15.28a.9.9 0 11-1.316-1.228l5.65-6.053-5.65-6.052A.9.9 0 011.164.675z'
+    const SLIDER_ARROW_PATH = 'M16.2859 12.2421C16.6493 11.9029 17.2188 11.9225 17.558 12.2859L23.7802 18.9526C24.1029 19.2984 24.1029 19.835 23.7802 20.1808L17.558 26.8474C17.2188 27.2108 16.6493 27.2304 16.2859 26.8913C15.9225 26.5521 15.9029 25.9826 16.2421 25.6193L21.8911 19.5667L16.2421 13.5141C15.9029 13.1507 15.9225 12.5812 16.2859 12.2421Z'
 
 
     /* =================================================
@@ -414,10 +414,149 @@ document.addEventListener('DOMContentLoaded', function (event) {
             arrowPath: SLIDER_ARROW_PATH,
             pagination: false,
             start: 0,
-            perPage: 6,
+            perPage: 7,
+            perMove: 1,
+            gap: 36
         });
 
         topBrands.mount();
+    }
+
+    /* ========================================
+    SliderProduct
+    =========================================*/
+
+    if (document.querySelector('[data-slider="product"]')) {
+
+        const items = document.querySelectorAll('[data-slider="product"]')
+
+        items.forEach(slider => {
+
+            let splide = new Splide(slider, {
+
+                arrows: true,
+                arrowPath: SLIDER_ARROW_PATH,
+
+                pagination: false,
+                gap: 20,
+
+                start: 0,
+                perPage: 5,
+                perMove: 4,
+                flickMaxPages: 1,
+                flickPower: 100,
+
+
+                breakpoints: {
+
+                    1400: {
+                        perMove: 5,
+                        perPage: 5,
+                    },
+
+                    1200: {
+                        perMove: 3,
+                        perPage: 4,
+                    },
+
+                    992: {
+                        perMove: 2,
+                        perPage: 3,
+                    },
+
+                    576: {
+                        perPage: 2,
+                        gap: 16,
+                    },
+                },
+
+            });
+
+            const getTopArrowButtons = () => {
+
+                if (slider) {
+                    let heigthEl = slider.querySelector('picture').clientHeight
+                    slider.querySelectorAll('.splide__arrow').forEach(btn => {
+                        btn.style.top = (heigthEl / 2) + 'px'
+                    })
+                }
+            }
+
+            splide.on('mounted', (e) => {
+
+                if (splide.length == (splide.options.perPage)) {
+                    nextButton.setAttribute('aria-hidden', '')
+                    prevButton.setAttribute('aria-hidden', '')
+                }
+
+                //auto perMove
+                const getPerMove = () => {
+                    return Math.floor((splide.root.clientWidth / splide.root.querySelector('.splide__slide').clientWidth)) || 1
+                }
+
+                splide.options = {
+                    perMove: getPerMove(),
+                };
+
+                // top for nan button
+                getTopArrowButtons()
+            })
+
+            splide.on('resize', (e) => {
+                getTopArrowButtons()
+            })
+
+            splide.mount();
+        })
+
+
+
+    }
+
+    /* ================================================
+    Minicard
+    ================================================*/
+
+    if (document.querySelector('.minicard')) {
+
+        class Minicard {
+            constructor(el) {
+                this.$el = el;
+
+                this.addEvents()
+            }
+
+            changeColor(e, el) {
+                this.$el.querySelectorAll('[data-image-color]').forEach(item => {
+                    if (item.dataset.imageColor == e.target.dataset.color) {
+                        item.classList.add('is-active')
+                    } else {
+                        !item.classList.contains('is-active') || item.classList.remove('is-active')
+                    }
+                })
+
+                this.$el.querySelectorAll('[data-color]').forEach(item => {
+                    !item.closest('li').classList.contains('is-active') || item.closest('li').classList.remove('is-active')
+                })
+
+                el.classList.add('is-active')
+            }
+
+
+
+            addEvents() {
+                this.$el.querySelectorAll('[data-color]').forEach((item, index) => {
+                    item.addEventListener('click', e => this.changeColor(e, item.closest('li')))
+
+                    if (index == 0) item.closest('li').classList.add('is-active')
+                })
+
+
+            }
+        }
+
+        document.querySelectorAll('.minicard').forEach(item => new Minicard(item))
+
     }
 
 

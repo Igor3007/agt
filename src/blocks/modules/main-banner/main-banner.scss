@@ -18,10 +18,10 @@
             height: 100%;
             min-height: 100vw;
             padding-top: 60px;
-            padding-bottom: 60px;
+            padding-bottom: 120px;
 
             @media screen and (min-width: $w576) {
-                min-height: 580px;
+                min-height: 627px;
             }
         }
     }
@@ -103,7 +103,7 @@
                     height: 100%;
                     font-weight: 600;
                     line-height: 121%;
-                    padding: 12px 12px;
+                    padding: 8px 12px;
 
                 }
 

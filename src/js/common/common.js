@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function (event) {
 
     const API_YMAPS = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU&mode=debug';
-
+    const SLIDER_ARROW_PATH = 'M1.164.675a.9.9 0 011.272.044l6.222 6.666a.9.9 0 010 1.228L2.436 15.28a.9.9 0 11-1.316-1.228l5.65-6.053-5.65-6.052A.9.9 0 011.164.675z'
 
 
     /* =================================================
@@ -325,30 +325,99 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 
     /* ========================================
-    slider
+    MainBanner
     ========================================*/
 
 
     if (document.querySelector('[data-slider="main-banner"]')) {
 
-        var mainbanner = new Splide('[data-slider="main-banner"]', {
-
-            arrows: false,
-            start: 0,
-            perPage: 1,
-
-        });
-
         class MainBanner {
             constructor(params) {
+                this.$el = params.el
+                this.slider = params.slider
+                this.navСontainer = this.$el.querySelector('[data-mb=nav]')
+                this.init()
+            }
 
+            init() {
+                this.createPagination()
+            }
+
+            itemTemplate(data) {
+                return ` <span>${data.text}</span> `
+            }
+
+            createPagination() {
+
+                let ulContainer = document.createElement('ul')
+
+                this.slider.root.querySelectorAll('.main-banner__title').forEach((el, index) => {
+
+                    let itemNav = document.createElement('li')
+                    itemNav.innerHTML = this.itemTemplate({
+                        text: el.innerHTML
+                    })
+
+                    if (index == 0) itemNav.classList.add('is-active')
+
+                    itemNav.addEventListener('click', () => this.changeSlide(index))
+
+                    ulContainer.append(itemNav)
+
+                })
+
+                this.navСontainer.append(ulContainer)
+            }
+
+            changeSlide(index) {
+                this.slider.go(index)
+            }
+
+            changeSliderMain(index) {
+                this.navСontainer.querySelectorAll('li').forEach((item, i) => {
+                    !item.classList.contains('is-active') || item.classList.remove('is-active')
+
+                    if (i == index) item.classList.add('is-active')
+                })
             }
         }
 
+        const mainbanner = new Splide('[data-slider="main-banner"]', {
+            arrows: false,
+            pagination: false,
+            start: 0,
+            perPage: 1,
+        });
 
+        mainbanner.on('mounted', (e) => {
+            mainbanner['helper'] = new MainBanner({
+                slider: mainbanner,
+                el: document.querySelector('[data-mb="el"]')
+            })
+        })
 
+        mainbanner.on('moved', (index) => {
+            mainbanner['helper'].changeSliderMain(index)
+        })
 
         mainbanner.mount();
+    }
+
+    /* ========================================
+    TopBrands
+    ========================================*/
+
+    if (document.querySelector('[data-slider="topbrands"]')) {
+
+        const topBrands = new Splide('[data-slider="topbrands"]', {
+            arrows: true,
+            arrowPath: SLIDER_ARROW_PATH,
+            pagination: false,
+            start: 0,
+            perPage: 6,
+        });
+
+        topBrands.mount();
     }
 
 

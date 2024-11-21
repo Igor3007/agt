@@ -1,21 +1,28 @@
 .main-banner {
 
-
+    position: relative;
 
     &__content {
         position: relative;
         z-index: 2;
-
         background-color: rgba(0, 0, 0, 0.247);
+
+        @media screen and (min-width: $w992) {
+            padding-left: 40px;
+        }
 
         & .container {
             display: flex;
             flex-direction: column;
             justify-content: center;
             height: 100%;
-            min-height: 580px;
+            min-height: 100vw;
             padding-top: 60px;
             padding-bottom: 60px;
+
+            @media screen and (min-width: $w576) {
+                min-height: 580px;
+            }
         }
     }
 
@@ -35,6 +42,85 @@
     &__picture {
         @include layer(1);
 
+        & img,
+        & picture {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+    }
+
+    &__nav {
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow-x: auto;
+        background-color: rgba(0, 0, 0, 0.507);
+
+        & ul {
+            display: flex;
+
+            width: 100%;
+
+
+            & li {
+
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                max-width: 300px;
+                width: auto;
+                min-width: 245px;
+                font-size: 15px;
+                padding: 12px 24px;
+                position: relative;
+                transition: background 0.3s ease;
+                cursor: pointer;
+
+
+
+                &::after {
+                    content: '';
+                    width: 1px;
+                    top: 12px;
+                    bottom: 12px;
+                    right: -1px;
+                    position: absolute;
+                    background-color: var(--accent);
+                    display: block;
+                }
+
+
+                & span {
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                    font-weight: 600;
+                    line-height: 121%;
+                    padding: 12px 12px;
+
+                }
+
+                & br {
+                    display: none;
+                }
+
+                &.is-active {
+                    background-color: var(--accent);
+                    color: #fff;
+
+                    &::after {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
     }
 
 

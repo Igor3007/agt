@@ -1,0 +1,32 @@
+.section-top-brands {
+    padding: 50px 0;
+}
+
+.top-brands {
+
+    @media screen and (min-width: $w992) {
+        display: flex;
+        align-items: center;
+    }
+
+    &__title {
+        @include font-h2;
+
+        @media screen and (min-width: $w992) {
+            width: 360px;
+        }
+    }
+
+    &__slider {
+        & .bgimage {
+            padding-top: 60%;
+            @include bgimage-contain;
+        }
+
+        @media screen and (min-width: $w992) {
+            width: calc(100% - 360px);
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+    }
+}

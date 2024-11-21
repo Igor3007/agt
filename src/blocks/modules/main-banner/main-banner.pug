@@ -22,7 +22,7 @@ mixin main-banner
 
     section.section-main-banner
      
-            .main-banner
+            .main-banner(data-mb="el")
                 .main-banner__slider
                     .splide(data-slider="main-banner")
                         .splide__track
@@ -40,4 +40,5 @@ mixin main-banner
                                                 picture
                                                     source(srcset="/img/common/mb-desktop.jpg" type="image/jpeg" media='(min-width: 480px)')
                                                     img(src="/img/common/mb-mobile.jpg")
+                .main-banner__nav(data-mb="nav")
 

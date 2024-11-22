@@ -1,0 +1,128 @@
+.section-reviews-slider {
+    padding: 160px 0 60px 0;
+    background-color: #F2F6F9
+}
+
+.reviews-slider {
+    &__title {
+        @include font-h2;
+        padding-bottom: 55px;
+    }
+
+    &__slider {
+        padding-left: 80px;
+    }
+
+    & .splide {
+        &__arrow {
+            &--prev {
+                left: -60px;
+            }
+        }
+    }
+
+
+}
+
+.item-review {
+    max-width: 635px;
+    display: flex;
+
+
+
+    &__text {
+        font-size: 15px;
+        padding-bottom: 40px;
+
+        & span {
+            @include line-clamp(5);
+        }
+    }
+
+    &__media {}
+
+    &__main {
+        padding-right: 24px;
+        width: 100%;
+    }
+
+    &__video {
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+        width: 180px;
+        min-width: 180px;
+        margin-left: 40px;
+    }
+
+    &__image {
+        border-radius: 50%;
+        overflow: hidden;
+
+        width: 235px;
+        min-width: 235px;
+    }
+
+    &__preview {
+
+        position: relative;
+        z-index: 2;
+
+
+        & .bgimage {
+            padding-top: 100%;
+            @include bgimage-cover;
+        }
+    }
+
+    &__file {
+
+        @include layer(1);
+
+        & video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__play {
+        @include layer(3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+        & svg {
+            cursor: pointer;
+        }
+    }
+}
+
+.user-review {
+    display: flex;
+    align-items: center;
+
+    &__photo {
+        margin-right: 12px;
+
+        & picture {
+
+            width: 40px;
+            min-width: 40px;
+            display: block;
+
+            @include picture(100%, cover);
+        }
+    }
+
+    &__name {
+        font-size: 17px;
+        font-weight: 600;
+    }
+
+    &__desc {
+        font-size: 12px;
+    }
+
+}

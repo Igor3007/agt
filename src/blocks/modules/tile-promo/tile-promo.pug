@@ -1,4 +1,49 @@
 mixin tile-promo
+
+    -
+        const promo = [
+            {
+                title: 'Новинки сезона',
+                img: false,
+            },
+            {
+                title: 'Максимальная защита',
+                subtitle: 'С новой коллецией от бренда Brodeks',
+                img: '/img/other/promo/1',
+            },
+            {
+                title: 'Комфорт на первом месте',
+                subtitle: 'С новой коллецией от бренда Brodeks',
+                img: '/img/other/promo/2',
+            },
+            {
+                title: 'К зиме готовы',
+                subtitle: 'С новой коллецией от бренда Brodeks',
+                img: '/img/other/promo/3',
+            },
+            {
+                title: 'Сумки для рабочей одежды',
+                img: '/img/other/promo/4',
+                subtitle: '',
+            },
+        ]
+
     section.section-tile-promo
         .container
-            .tile-promo tile-promo
+            .tile-promo
+                .tile-promo
+                    .tile-promo__list
+                        each item in promo
+                            .tile-promo__item
+                                if !item.img
+                                    .tile-promo__colorbg
+                                        .tile-promo__h3= item.title
+                                        .tile-promo__arrow
+                                            +icons('#ic_arr-right', 40)
+                                else
+                                    .tile-promo__bg
+                                        +picture(item.img)
+                                    .tile-promo__content
+                                        .tile-promo__title= item.title
+                                        .tile-promo__subtitle= item.subtitle
+

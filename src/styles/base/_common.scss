@@ -8,6 +8,17 @@
     box-shadow: 0px 4px 9px 0px #00000012;
     display: flex;
 
+    &:disabled {
+
+        opacity: 0.7;
+        box-shadow: none;
+
+        & svg {
+            fill: #444;
+
+        }
+    }
+
 }
 
 .splide__arrow svg {
@@ -76,8 +87,6 @@
     opacity: 1;
 }
 
-
-
 #status.error #status_header {
     color: #fff;
 }
@@ -94,9 +103,6 @@
     color: #fff;
     text-decoration: underline;
 }
-
-
-
 
 #status_btn {
     background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.681818 0L15 14.3182L14.3182 15L1.62748e-08 0.681818L0.681818 0Z' fill='%23FFFFFF'/%3E%3Cpath d='M15 0.681818L0.681818 15L0 14.3182L14.3182 6.09593e-07L15 0.681818Z' fill='%23FFFFFF'/%3E%3C/svg%3E%0A");

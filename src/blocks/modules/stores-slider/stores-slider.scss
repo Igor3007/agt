@@ -1,0 +1,87 @@
+.section-stores-slider {
+    padding: 24px 0 98px 0;
+}
+
+.stores-slider {
+    @media screen and (min-width: $w992) {
+        display: flex;
+        gap: 12px;
+    }
+
+    &__left {
+        @media screen and (min-width: $w992) {
+            width: calc(22% - 12px);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+
+    &__right {
+        @media screen and (min-width: $w992) {
+            width: 78%;
+        }
+    }
+
+    &__title {
+        @include font-h2;
+
+        padding-bottom: 28px;
+    }
+
+    &__city {
+        font-size: 21px;
+        font-weight: 600;
+        color: var(--accent);
+        padding-bottom: 25px;
+    }
+
+    &__address {
+        font-size: 25px;
+        font-weight: bold;
+        padding-bottom: 12px;
+    }
+
+    &__worktime {
+        padding-bottom: 6px;
+    }
+
+    &__nav {
+
+        display: flex;
+        gap: 10px;
+
+        & div {
+            border: 2px solid var(--accent);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s ease;
+
+            & svg {
+                fill: var(--accent);
+                margin: -2px -2px;
+            }
+
+            &:hover {
+                background-color: var(--accent);
+
+                & svg {
+                    fill: #fff;
+                }
+            }
+        }
+    }
+
+    & .splide {
+        &__slide {
+            &>span {
+                display: none;
+            }
+        }
+    }
+
+
+}

@@ -1097,22 +1097,326 @@
             </section>
             <section class="section-stores-slider">
               <div class="container">
-                <div class="stores-slider">stores-slider</div>
+                <div class="stores-slider">
+                  <div class="stores-slider__left">
+                    <div class="stores-slider__top">
+                      <div class="stores-slider__title">Магазины</div>
+                      <div class="stores-slider__city">Санкт-Петербург</div>
+                      <div class="stores-slider__nav">
+                        <div class="stores-slider__nav-prev" data-slider-prev="store">
+                          <svg width="40" height="40">
+                            <use xlink:href="/img/sprites/sprite.svg#ic_arr-left"></use>
+                          </svg>
+                        </div>
+                        <div class="stores-slider__nav-next" data-slider-next="store">
+                          <svg width="40" height="40">
+                            <use xlink:href="/img/sprites/sprite.svg#ic_arr-right"></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="stores-slider__bottom">
+                      <div class="stores-slider__address">ул. Егорова, 25</div>
+                      <div class="stores-slider__worktime">Можно примерить: <br> 8:00 - 20:00</div>
+                    </div>
+                  </div>
+                  <div class="stores-slider__right">
+                    <div class="splide" data-slider="store">
+                      <div class="splide__track">
+                        <div class="splide__list">
+                          <div class="splide__slide">
+                            <picture>
+                              <source srcset="/img/other/store1.webp" type="image/webp"/><img src="/img/other/store1.jpg" loading="lazy" alt="image"/>
+                            </picture><span data-slide="city">Санкт-Петербург</span><span data-slide="address">ул. Егорова, 25</span><span data-slide="worktime">Можно примерить: <br> 8:00 - 20:00</span>
+                          </div>
+                          <div class="splide__slide">
+                            <picture>
+                              <source srcset="/img/other/store1.webp" type="image/webp"/><img src="/img/other/store1.jpg" loading="lazy" alt="image"/>
+                            </picture><span data-slide="city">Москва</span><span data-slide="address">ул. Пирагова, 16</span><span data-slide="worktime">Можно примерить: <br> 8:00 - 19:00</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
-            <section class="section-reviews-slider">
+            <section class="section-reviews-slider"> 
               <div class="container">
-                <div class="reviews-slider">reviews-slider</div>
+                <div class="reviews-slider">
+                  <div class="reviews-slider__title">Отзывы</div>
+                  <div class="reviews-slider__slider">
+                    <div class="splide" data-slider="review">
+                      <div class="splide__track">
+                        <div class="splide__list">
+                          <div class="splide__slide">
+                                  <div class="item-review">
+                                    <div class="item-review__main">
+                                      <div class="item-review__text"><span>Заказали спецодежду для своей команды в AGT, и остался очень доволен! Широкий выбор моделей, удобный интерфейс сайта и быстрая доставка. Особенно понравилось, что можно заказать нанесение логотипа — все сделано качественно и в срок. Рекомендуем всем, кто ищет надежного поставщика спецодежды!</span></div>
+                                      <div class="item-review__user">
+                                        <div class="user-review">
+                                          <div class="user-review__photo">
+                                            <picture>
+                                              <source srcset="/img/other/user-logo.webp" type="image/webp"/><img src="/img/other/user-logo.png" loading="lazy" alt="image"/>
+                                            </picture>
+                                          </div>
+                                          <div class="user-review__data">
+                                            <div class="user-review__name">Иван Петров</div>
+                                            <div class="user-review__desc">Отдел закупов ООО “Велес”</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="item-review__media">
+                                      <div class="item-review__video">
+                                        <div class="item-review__play">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_play"></use>
+                                          </svg>
+                                        </div>
+                                        <div class="item-review__preview"><span class="bgimage lazyload" data-bg="/img/other/review1.jpg"></span>
+                                        </div>
+                                        <div class="item-review__file">
+                                          <video src="/json/review.mp4"></video>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                          </div>
+                          <div class="splide__slide">
+                                  <div class="item-review">
+                                    <div class="item-review__main">
+                                      <div class="item-review__text"><span>Покупали спецодежду для своей компании в AGT. В целом, впечатление положительное. Большой ассортимент и возможность выездной примерки — это огромный плюс. Однако немного разочаровала скорость доставки, пришлось подождать чуть дольше, чем планировалось. Но качество одежды и нанесение логотипа полностью оправдали ожидания!</span></div>
+                                      <div class="item-review__user">
+                                        <div class="user-review">
+                                          <div class="user-review__photo">
+                                            <picture>
+                                              <source srcset="/img/other/user-logo.webp" type="image/webp"/><img src="/img/other/user-logo.png" loading="lazy" alt="image"/>
+                                            </picture>
+                                          </div>
+                                          <div class="user-review__data">
+                                            <div class="user-review__name">Максим</div>
+                                            <div class="user-review__desc">Отдел закупов ООО “Велес”</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="item-review__media">
+                                      <div class="item-review__image">
+                                        <picture>
+                                          <source srcset="/img/other/review2.webp" type="image/webp"/><img src="/img/other/review2.png" loading="lazy" alt="image"/>
+                                        </picture>
+                                      </div>
+                                    </div>
+                                  </div>
+                          </div>
+                          <div class="splide__slide">
+                                  <div class="item-review">
+                                    <div class="item-review__main">
+                                      <div class="item-review__text"><span>Заказали спецодежду для своей команды в AGT, и остался очень доволен! Широкий выбор моделей, удобный интерфейс сайта и быстрая доставка. Особенно понравилось, что можно заказать нанесение логотипа — все сделано качественно и в срок. Рекомендуем всем, кто ищет надежного поставщика спецодежды!</span></div>
+                                      <div class="item-review__user">
+                                        <div class="user-review">
+                                          <div class="user-review__photo">
+                                            <picture>
+                                              <source srcset="/img/other/user-logo.webp" type="image/webp"/><img src="/img/other/user-logo.png" loading="lazy" alt="image"/>
+                                            </picture>
+                                          </div>
+                                          <div class="user-review__data">
+                                            <div class="user-review__name">Иван Петров</div>
+                                            <div class="user-review__desc">Отдел закупов ООО “Велес”</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="item-review__media">
+                                      <div class="item-review__video">
+                                        <div class="item-review__play">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_play"></use>
+                                          </svg>
+                                        </div>
+                                        <div class="item-review__preview"><span class="bgimage lazyload" data-bg="/img/other/review1.jpg"></span>
+                                        </div>
+                                        <div class="item-review__file">
+                                          <video src="/json/review.mp4"></video>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                          </div>
+                          <div class="splide__slide">
+                                  <div class="item-review">
+                                    <div class="item-review__main">
+                                      <div class="item-review__text"><span>Покупали спецодежду для своей компании в AGT. В целом, впечатление положительное. Большой ассортимент и возможность выездной примерки — это огромный плюс. Однако немного разочаровала скорость доставки, пришлось подождать чуть дольше, чем планировалось. Но качество одежды и нанесение логотипа полностью оправдали ожидания!</span></div>
+                                      <div class="item-review__user">
+                                        <div class="user-review">
+                                          <div class="user-review__photo">
+                                            <picture>
+                                              <source srcset="/img/other/user-logo.webp" type="image/webp"/><img src="/img/other/user-logo.png" loading="lazy" alt="image"/>
+                                            </picture>
+                                          </div>
+                                          <div class="user-review__data">
+                                            <div class="user-review__name">Максим</div>
+                                            <div class="user-review__desc">Отдел закупов ООО “Велес”</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="item-review__media">
+                                      <div class="item-review__image">
+                                        <picture>
+                                          <source srcset="/img/other/review2.webp" type="image/webp"/><img src="/img/other/review2.png" loading="lazy" alt="image"/>
+                                        </picture>
+                                      </div>
+                                    </div>
+                                  </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
             <section class="section-tile-promo">
               <div class="container">
-                <div class="tile-promo">tile-promo</div>
+                <div class="tile-promo">
+                  <div class="tile-promo">
+                    <div class="tile-promo__list">
+                      <div class="tile-promo__item">
+                        <div class="tile-promo__colorbg">
+                          <div class="tile-promo__h3">Новинки сезона</div>
+                          <div class="tile-promo__arrow">
+                            <svg width="40" height="40">
+                              <use xlink:href="/img/sprites/sprite.svg#ic_arr-right"></use>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tile-promo__item">
+                        <div class="tile-promo__bg">
+                          <picture>
+                            <source srcset="/img/other/promo/1.webp" type="image/webp"/><img src="/img/other/promo/1.jpg" loading="lazy" alt="image"/>
+                          </picture>
+                        </div>
+                        <div class="tile-promo__content">
+                          <div class="tile-promo__title">Максимальная защита</div>
+                          <div class="tile-promo__subtitle">С новой коллецией от бренда Brodeks</div>
+                        </div>
+                      </div>
+                      <div class="tile-promo__item">
+                        <div class="tile-promo__bg">
+                          <picture>
+                            <source srcset="/img/other/promo/2.webp" type="image/webp"/><img src="/img/other/promo/2.jpg" loading="lazy" alt="image"/>
+                          </picture>
+                        </div>
+                        <div class="tile-promo__content">
+                          <div class="tile-promo__title">Комфорт на первом месте</div>
+                          <div class="tile-promo__subtitle">С новой коллецией от бренда Brodeks</div>
+                        </div>
+                      </div>
+                      <div class="tile-promo__item">
+                        <div class="tile-promo__bg">
+                          <picture>
+                            <source srcset="/img/other/promo/3.webp" type="image/webp"/><img src="/img/other/promo/3.jpg" loading="lazy" alt="image"/>
+                          </picture>
+                        </div>
+                        <div class="tile-promo__content">
+                          <div class="tile-promo__title">К зиме готовы</div>
+                          <div class="tile-promo__subtitle">С новой коллецией от бренда Brodeks</div>
+                        </div>
+                      </div>
+                      <div class="tile-promo__item">
+                        <div class="tile-promo__bg">
+                          <picture>
+                            <source srcset="/img/other/promo/4.webp" type="image/webp"/><img src="/img/other/promo/4.jpg" loading="lazy" alt="image"/>
+                          </picture>
+                        </div>
+                        <div class="tile-promo__content">
+                          <div class="tile-promo__title">Сумки для рабочей одежды</div>
+                          <div class="tile-promo__subtitle"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
             <section class="section-video-slider">
               <div class="container">
-                <div class="video-slider">video-slider</div>
+                <div class="video-slider">
+                  <div class="video-slider__title">Видео</div>
+                  <div class="video-slider__top">
+                    <div class="video-slider__all"><a href="#"> <span>Все видео</span>
+                        <svg width="24" height="24">
+                          <use xlink:href="/img/sprites/sprite.svg#ic_link-arrow"></use>
+                        </svg></a></div>
+                  </div>
+                  <div class="video-slider__list">
+                    <div class="splide" data-slider="default">
+                      <div class="splide__track">
+                        <div class="splide__list">
+                          <div class="splide__slide">
+                            <div class="video-slider__item">
+                                    <div class="card-video">
+                                      <div class="card-video__image"><span data-youtube="https://www.youtube.com/watch?v=wDKsTIUiBbQ">
+                                          <picture>
+                                            <source srcset="/img/news/v1.webp" type="image/webp"/><img src="/img/news/v1.jpg" loading="lazy" alt="image"/>
+                                          </picture></span></div>
+                                      <div class="card-video__main">
+                                        <div class="card-video__title"><a href="#">Обзор термобелья для ходьбы</a></div>
+                                        <div class="card-video__desc">Утепленная куртка с мембранным верхом и брызгозащитными молниями. В большей степени предназначена для города, однако может использоваться и в полевых условиях. Защищает от ветра, мелких осадков и мокрого снега. </div>
+                                      </div>
+                                    </div>
+                            </div>
+                          </div>
+                          <div class="splide__slide">
+                            <div class="video-slider__item">
+                                    <div class="card-video">
+                                      <div class="card-video__image"><span data-youtube="https://www.youtube.com/watch?v=wDKsTIUiBbQ">
+                                          <picture>
+                                            <source srcset="/img/news/v2.webp" type="image/webp"/><img src="/img/news/v2.jpg" loading="lazy" alt="image"/>
+                                          </picture></span></div>
+                                      <div class="card-video__main">
+                                        <div class="card-video__title"><a href="#">Обзор брюк для ходьбы</a></div>
+                                        <div class="card-video__desc">Утепленная куртка с мембранным верхом и брызгозащитными молниями. В большей степени предназначена для города, однако может использоваться и в полевых условиях. Защищает от ветра, мелких осадков и мокрого снега. </div>
+                                      </div>
+                                    </div>
+                            </div>
+                          </div>
+                          <div class="splide__slide">
+                            <div class="video-slider__item">
+                                    <div class="card-video">
+                                      <div class="card-video__image"><span data-youtube="https://www.youtube.com/watch?v=wDKsTIUiBbQ">
+                                          <picture>
+                                            <source srcset="/img/news/v3.webp" type="image/webp"/><img src="/img/news/v3.jpg" loading="lazy" alt="image"/>
+                                          </picture></span></div>
+                                      <div class="card-video__main">
+                                        <div class="card-video__title"><a href="#">Обзор. Утеплённая куртка BW206</a></div>
+                                        <div class="card-video__desc">Утепленная куртка с мембранным верхом и брызгозащитными молниями. В большей степени предназначена для города, однако может использоваться и в полевых условиях. Защищает от ветра, мелких осадков и мокрого снега. </div>
+                                      </div>
+                                    </div>
+                            </div>
+                          </div>
+                          <div class="splide__slide">
+                            <div class="video-slider__item">
+                                    <div class="card-video">
+                                      <div class="card-video__image"><span data-youtube="https://www.youtube.com/watch?v=wDKsTIUiBbQ">
+                                          <picture>
+                                            <source srcset="/img/news/v1.webp" type="image/webp"/><img src="/img/news/v1.jpg" loading="lazy" alt="image"/>
+                                          </picture></span></div>
+                                      <div class="card-video__main">
+                                        <div class="card-video__title"><a href="#">Обзор термобелья для ходьбы</a></div>
+                                        <div class="card-video__desc">Утепленная куртка с мембранным верхом и брызгозащитными молниями. В большей степени предназначена для города, однако может использоваться и в полевых условиях. Защищает от ветра, мелких осадков и мокрого снега. </div>
+                                      </div>
+                                    </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
             <section class="section-home-faq">
@@ -1122,7 +1426,87 @@
             </section>
             <section class="section-news-slider">
               <div class="container">
-                <div class="news-slider">news-slider</div>
+                <div class="news-slider">
+                  <div class="news-slider__title">Новости</div>
+                  <div class="news-slider__top">
+                    <div class="news-slider__all"><a href="#"> <span>Все новости</span>
+                        <svg width="24" height="24">
+                          <use xlink:href="/img/sprites/sprite.svg#ic_link-arrow"></use>
+                        </svg></a></div>
+                  </div>
+                  <div class="news-slider__list">
+                    <div class="splide" data-slider="default">
+                      <div class="splide__track">
+                        <div class="splide__list">
+                          <div class="splide__slide">
+                            <div class="news-slider__item">
+                                    <div class="card-news">
+                                      <div class="card-news__image">
+                                        <picture>
+                                          <source srcset="/img/news/n1.webp" type="image/webp"/><img src="/img/news/n1.jpg" loading="lazy" alt="image"/>
+                                        </picture>
+                                      </div>
+                                      <div class="card-news__main">
+                                        <div class="card-news__title"><a href="#">Мы в тройке лидеров!</a></div>
+                                        <div class="card-news__desc"><span>Утепленная куртка с мембранным верхом и брызгозащитными молниями. В большей степени предназначена для города, однако может использоваться и в полевых условиях. Защищает от ветра, мелких осадков и мокрого снега. </span></div>
+                                        <div class="card-news__date">21.09.<sup>2024</sup></div>
+                                      </div>
+                                    </div>
+                            </div>
+                          </div>
+                          <div class="splide__slide">
+                            <div class="news-slider__item">
+                                    <div class="card-news">
+                                      <div class="card-news__image">
+                                        <picture>
+                                          <source srcset="/img/news/n2.webp" type="image/webp"/><img src="/img/news/n2.jpg" loading="lazy" alt="image"/>
+                                        </picture>
+                                      </div>
+                                      <div class="card-news__main">
+                                        <div class="card-news__title"><a href="#">Обзор брюк для ходьбы</a></div>
+                                        <div class="card-news__desc"><span>Утепленная куртка с мембранным верхом и брызгозащитными молниями. В большей степени предназначена для города, однако может использоваться и в полевых условиях. Защищает от ветра, мелких осадков и мокрого снега. </span></div>
+                                        <div class="card-news__date">21.09.<sup>2024</sup></div>
+                                      </div>
+                                    </div>
+                            </div>
+                          </div>
+                          <div class="splide__slide">
+                            <div class="news-slider__item">
+                                    <div class="card-news">
+                                      <div class="card-news__image">
+                                        <picture>
+                                          <source srcset="/img/news/n3.webp" type="image/webp"/><img src="/img/news/n3.jpg" loading="lazy" alt="image"/>
+                                        </picture>
+                                      </div>
+                                      <div class="card-news__main">
+                                        <div class="card-news__title"><a href="#">Обзор. Утеплённая куртка BW206</a></div>
+                                        <div class="card-news__desc"><span>Утепленная куртка с мембранным верхом и брызгозащитными молниями. В большей степени предназначена для города, однако может использоваться и в полевых условиях. Защищает от ветра, мелких осадков и мокрого снега. </span></div>
+                                        <div class="card-news__date">21.09.<sup>2024</sup></div>
+                                      </div>
+                                    </div>
+                            </div>
+                          </div>
+                          <div class="splide__slide">
+                            <div class="news-slider__item">
+                                    <div class="card-news">
+                                      <div class="card-news__image">
+                                        <picture>
+                                          <source srcset="/img/news/n1.webp" type="image/webp"/><img src="/img/news/n1.jpg" loading="lazy" alt="image"/>
+                                        </picture>
+                                      </div>
+                                      <div class="card-news__main">
+                                        <div class="card-news__title"><a href="#">Мы в тройке лидеров!</a></div>
+                                        <div class="card-news__desc"><span>Утепленная куртка с мембранным верхом и брызгозащитными молниями. В большей степени предназначена для города, однако может использоваться и в полевых условиях. Защищает от ветра, мелких осадков и мокрого снега. </span></div>
+                                        <div class="card-news__date">21.09.<sup>2024</sup></div>
+                                      </div>
+                                    </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
     </main>

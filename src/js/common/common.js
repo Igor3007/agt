@@ -559,6 +559,148 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     }
 
+    /* ================================================
+    SliderStore
+    ================================================*/
+
+    if (document.querySelector('[data-slider="store"]')) {
+
+        const SliderStore = new Splide('[data-slider="store"]', {
+            arrows: false,
+            arrowPath: SLIDER_ARROW_PATH,
+            pagination: false,
+            start: 0,
+            perPage: 1,
+            perMove: 1,
+        });
+
+        const btnPrev = document.querySelector('[data-slider-prev="store"]')
+        const btnNext = document.querySelector('[data-slider-next="store"]')
+
+        btnPrev.addEventListener('click', () => {
+            SliderStore.go('<')
+        })
+        btnNext.addEventListener('click', () => {
+            SliderStore.go('>')
+        })
+
+        SliderStore.mount();
+    }
+
+    /* ================================================
+    SliderReview
+    ================================================*/
+
+    if (document.querySelector('[data-slider="review"]')) {
+
+        const SliderReview = new Splide('[data-slider="review"]', {
+            arrows: true,
+            arrowPath: SLIDER_ARROW_PATH,
+            pagination: false,
+            autoWidth: true,
+            start: 0,
+            perPage: 1,
+            perMove: 1,
+            gap: 112
+
+        });
+
+
+
+        SliderReview.mount();
+    }
+
+
+    /* ================================
+    slider default
+    ================================*/
+
+    if (document.querySelector('[data-slider="default"]')) {
+
+        const items = document.querySelectorAll('[data-slider="default"]')
+
+        items.forEach(slider => {
+
+            let splide = new Splide(slider, {
+
+                arrows: true,
+                arrowPath: SLIDER_ARROW_PATH,
+
+                pagination: false,
+                gap: 20,
+                autoWidth: true,
+                start: 0,
+                perPage: 1,
+                perMove: 4,
+                flickMaxPages: 1,
+                flickPower: 100,
+
+
+                breakpoints: {
+
+                    1400: {
+                        perMove: 4,
+                    },
+
+                    1200: {
+                        perMove: 3,
+                    },
+
+                    992: {
+                        perMove: 2,
+                    },
+
+                    576: {
+                        perPage: 1,
+                        gap: 16,
+                    },
+                },
+
+            });
+
+            const getTopArrowButtons = () => {
+
+                if (slider) {
+                    let heigthEl = slider.querySelector('picture').clientHeight
+                    slider.querySelectorAll('.splide__arrow').forEach(btn => {
+                        btn.style.top = (heigthEl / 2) + 'px'
+                    })
+                }
+            }
+
+            splide.on('mounted', (e) => {
+
+                if (splide.length == (splide.options.perPage)) {
+                    nextButton.setAttribute('aria-hidden', '')
+                    prevButton.setAttribute('aria-hidden', '')
+                }
+
+                //auto perMove
+                const getPerMove = () => {
+                    return Math.floor((splide.root.clientWidth / splide.root.querySelector('.splide__slide').clientWidth)) || 1
+                }
+
+                splide.options = {
+                    perMove: getPerMove(),
+                };
+
+                // top for nan button
+                getTopArrowButtons()
+
+            })
+
+            splide.on('resize', (e) => {
+                getTopArrowButtons()
+            })
+
+
+            splide.mount();
+        })
+
+
+
+    }
+
 
 
 

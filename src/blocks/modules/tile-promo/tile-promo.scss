@@ -1,0 +1,73 @@
+.tile-promo {
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        flex-grow: 1;
+        flex-basis: 550px;
+        position: relative;
+
+    }
+
+    &__bg {
+
+        position: relative;
+        z-index: 1;
+
+
+        & img {
+            height: 460px;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &__content {
+        @include layer(2);
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.61) 100%);
+        padding: 24px;
+
+        display: flex;
+        flex-direction: column;
+        color: #fff;
+        justify-content: flex-end;
+    }
+
+    &__title {
+        font-size: 21px;
+        font-weight: 500;
+        padding-bottom: 12px;
+    }
+
+    &__colorbg {
+
+        background-color: var(--accent);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+    }
+
+    &__h3 {
+        color: #fff;
+        font-size: 21px;
+        font-weight: 600;
+        padding-bottom: 12px;
+    }
+
+    &__arrow {
+        & svg {
+            background-color: #fff;
+            border-radius: 50%;
+
+            & svg {
+                fill: var(--accent)
+            }
+        }
+    }
+
+}

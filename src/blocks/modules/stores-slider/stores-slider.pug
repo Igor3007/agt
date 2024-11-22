@@ -1,4 +1,32 @@
 mixin stores-slider
     section.section-stores-slider
         .container
-            .stores-slider stores-slider
+            .stores-slider
+                .stores-slider__left
+                    .stores-slider__top
+                        .stores-slider__title Магазины
+                        .stores-slider__city Санкт-Петербург
+                        .stores-slider__nav
+                            .stores-slider__nav-prev(data-slider-prev="store")
+                                +icons('#ic_arr-left', 40)
+                            .stores-slider__nav-next(data-slider-next="store")
+                                +icons('#ic_arr-right', 40)
+                    .stores-slider__bottom
+                        .stores-slider__address ул. Егорова, 25
+                        .stores-slider__worktime Можно примерить: <br> 8:00 - 20:00
+                        
+                .stores-slider__right
+                    .splide(data-slider="store")
+                        .splide__track
+                            .splide__list
+                                .splide__slide
+                                    +picture('/img/other/store1')
+                                    span(data-slide="city") Санкт-Петербург
+                                    span(data-slide="address") ул. Егорова, 25
+                                    span(data-slide="worktime") Можно примерить: <br> 8:00 - 20:00
+
+                                .splide__slide
+                                    +picture('/img/other/store1')
+                                    span(data-slide="city") Москва
+                                    span(data-slide="address") ул. Пирагова, 16
+                                    span(data-slide="worktime") Можно примерить: <br> 8:00 - 19:00

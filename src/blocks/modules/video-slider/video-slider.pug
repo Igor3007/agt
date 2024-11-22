@@ -1,4 +1,39 @@
+mixin card-video(data)
+    .card-video
+        .card-video__image
+            span(data-youtube="https://www.youtube.com/watch?v=wDKsTIUiBbQ")
+                +picture(data.img)
+        .card-video__main
+            .card-video__title: a(href='#')=data.name
+            .card-video__desc Утепленная куртка с мембранным верхом и брызгозащитными молниями. В большей степени предназначена для города, однако может использоваться и в полевых условиях. Защищает от ветра, мелких осадков и мокрого снега. 
+            
+
+
+
 mixin video-slider
+
+    -
+        const reviews = [
+            {img: '/img/news/v1', 'name':'Обзор термобелья для ходьбы'}, 
+            {img: '/img/news/v2', 'name':'Обзор брюк для ходьбы'}, 
+            {img: '/img/news/v3', 'name':'Обзор. Утеплённая куртка BW206'}, 
+            {img: '/img/news/v1', 'name':'Обзор термобелья для ходьбы'}, 
+        ]
+
     section.section-video-slider
         .container
-            .video-slider video-slider
+            .video-slider
+                .video-slider__title Видео
+                .video-slider__top
+                            
+                    .video-slider__all
+                        a(href='#') 
+                            span Все видео
+                            +icons('#ic_link-arrow')
+                .video-slider__list
+                    .splide(data-slider="default")
+                        .splide__track
+                            .splide__list
+                                each item in reviews
+                                    .splide__slide: .video-slider__item: +card-video(item)
+                        

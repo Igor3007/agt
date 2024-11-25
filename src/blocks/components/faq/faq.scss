@@ -13,19 +13,10 @@
         margin: 0;
     }
 
-    &:nth-child(even) {
-        background-color: #fff;
 
-        & .faq-item {
-            &__answer {
-                background-color: var(--bg-01);
-            }
-        }
-
-    }
 
     @media screen and (min-width: $w1440) {
-        padding: 15px 80px;
+        padding: 15px 0;
     }
 
     @media screen and (min-width: $w480) {
@@ -36,6 +27,17 @@
     @media screen and (max-width: $w480) {
         margin-left: -15px;
         margin-right: -15px;
+    }
+
+    &:nth-child(even) {
+        background-color: #fff;
+
+        & .faq-item {
+            &__answer {
+                background-color: var(--bg-01);
+            }
+        }
+
     }
 
     &.open {
@@ -51,25 +53,23 @@
 
         & .faq-item__answer {
             max-height: rem(1000);
-
-            margin-top: 15px;
-            padding: 18px 37px;
-            margin-bottom: 10px;
             opacity: 1;
+            padding: 18px 0;
 
-            @media screen and (min-width: $w760) {
-                // padding: 0 rem(37) rem(25);
-            }
 
         }
 
         & .icon-cross {
-            transform: rotate(360deg);
+            transform: rotate(315deg);
 
             &::after {
-                transition: 0.5s ease 0.45s;
-                transform: rotate(90deg);
+                // transition: 0.5s ease 0.45s;
+                // transform: rotate(90deg);
             }
+        }
+
+        & .icon-cross-border {
+            border-color: var(--accent);
         }
     }
 
@@ -87,11 +87,11 @@
     &__answer {
         max-height: 0;
         overflow: hidden;
-        transition: 0.3s ease;
+        transition: 0.5s ease;
         color: #555;
         font-size: 15px;
         line-height: 125%;
-        padding: 0 37px;
+        padding: 0 0;
         background-color: #fff;
         border-radius: 8px;
         line-height: 150%;
@@ -103,6 +103,16 @@
 
         @media screen and (min-width: $w1440) {
             font-size: 18px;
+        }
+
+        & p {
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
 
 
@@ -141,25 +151,25 @@
 
 
 .icon-cross {
-    width: 20px;
-    min-width: 20px;
-    height: 20px;
+    width: 16px;
+    min-width: 16px;
+    height: 16px;
     display: inline-block;
     position: relative;
-    margin-left: 10px;
+
     transition: 0.8s ease;
 
     @media screen and (min-width: $w576) {
-        width: 24px;
-        min-width: 24px;
-        height: 24px;
+        width: 16px;
+        min-width: 16px;
+        height: 16px;
     }
 }
 
 .icon-cross::after,
 .icon-cross::before {
     display: inline-block;
-    background: #6a6a6a;
+    background: var(--accent);
     position: absolute;
     content: ""
 }
@@ -180,4 +190,16 @@
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s
+}
+
+.icon-cross-border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid transparent;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
 }

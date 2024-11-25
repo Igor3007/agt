@@ -1,6 +1,106 @@
-include ../../common/main-menu/main-menu.pug
+include ../../common/main-menu/main-menu.pug 
+
+.container
+    .footer-subscribe
+        .footer-subscribe__left
+            .footer-subscribe__title Подписывайтесь на наши рассылки 
+            .footer-subscribe__desc и будьте в курсе новинок, распродаж и скидок на спец одежду и товары индивидуальной защиты
+        .footer-subscribe__right
+            .footer-subscribe__form
+                form
+                    .form
+                        .form__item
+                            .form__subitem: input(type="email" placeholder="Email")
+                            .form__subitem.form__subitem--btn
+                                button.btn Подписаться
+                        .form__item
+                            .form__subitem
+                                .form__note
+                                    +checkbox('Даю согласие на получение информационных рассылок')
+
 
 .footer  
-    .container footer
-        
+    .container 
+        .footer__row.footer--top
+            .footer__left
+                .footer__logo: +bgimage('/img/common/logo.svg')
+                .footer__sl Спецодежда для профессионалов
+            .footer__right
+                .footer__email: a(href='email:zakaz@ag-technologies.ru') zakaz@ag-technologies.ru
+                .footer__phone: a(href='tel:8 800 777 35 68') 8 800 777 35 68
+
+        .footer__row
+            .footer__left
+                .footer__menu
+                    .footer__col.footer__col--strong
+                        .footer__label
+                        ul
+                            li: a(href='#') Спецодежда
+                            li: a(href='#') Спецобувь
+                            li: a(href='#') СИЗ
+                            li: a(href='#') Аксессуары
+                            li: a(href='#') Новинки
+                            li: a(href='#') Акции
+
+
+                    .footer__col
+                        .footer__label Информация
+                        ul
+                            li: a(href='#') Как купить
+                            li: a(href='#') Возврат товара
+                            li: a(href='#') Увидеть товар онлайн
+                            li: a(href='#') Доставка и оплата
+                            li: a(href='#') Нанесение лого
+
+                    .footer__col
+                        .footer__label Компания
+                        ul
+                            li: a(href='#') О компании
+                            li: a(href='#') Наши магазины
+                            li: a(href='#') Юр. лицам
+                            li: a(href='#') Физ. лицам
+                            li: a(href='#') Сотрудничество с нами
+
+                     
+            .footer__right
+                .footer__store
+                    .footer__h3 Магазины
+                    .footer-store
+                        .footer-store__list
+                            .footer-store__item
+                                .footer-store__city Москва
+                                .footer-store__tel: a(href='#')  +7 499 703 30 58
+                                .footer-store__desc ул. Малая Калитниковская, д. 9
+                            .footer-store__item
+                                .footer-store__city Санкт-Петербург
+                                .footer-store__tel: a(href='#')  +7 812 309 80 28
+                                .footer-store__desc 
+                                    | ул. Егорова, 25 <br>
+                                    | ст. м. Технологический институт или ст. м. Фрунзенская
+                .footer__code
+
+        .footer__row.footer--bottom
+            .footer__left
+                .footer__rules
+                    .footer__policy: a(href='/policy.html') Политика приватности
+                    .footer__dev: a(href='#') Сделано в Grammers
+
+                .footer__agreement Пользуясь сайтом ag-technologies.ru, Вы автоматически принимаете правила передачи и обработки персональных данных.
+
+            .footer__right
+                .footer__msgr
+                    ul
+                        li: a(href='#'): +bgimage('/img/icons/socialmeddia.svg')
+                        li: a(href='#'): +bgimage('/img/icons/socialmeddia-1.svg')
+                        li: a(href='#'): +bgimage('/img/icons/socialmeddia-2.svg')
+                        li: a(href='#'): +bgimage('/img/icons/socialmeddia-3.svg')
+            
 +main-menu()
+
+
+
+
+
+
+
+

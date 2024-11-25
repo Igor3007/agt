@@ -53,4 +53,11 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url("/fonts/montserrat/subset-Montserrat-Regular.woff2") format("woff2"), url("/fonts/montserrat/subset-Montserrat-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 /*# sourceMappingURL=maps/critical-fonts.css.map */

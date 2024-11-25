@@ -1,0 +1,44 @@
+.home-faq {
+
+    @media screen and (min-width: $w992) {
+        display: flex;
+        gap: 12px;
+    }
+
+    &__left {
+        @media screen and (min-width: $w992) {
+            width: 67%
+        }
+    }
+
+    &__right {
+        @media screen and (min-width: $w992) {
+            width: calc(33% - 12px)
+        }
+    }
+
+    &__title {
+        @include font-h2;
+        padding-bottom: 14px;
+    }
+
+    &__desc {
+        padding-bottom: 24px;
+    }
+
+    &__form {
+        background-color: rgba(0, 0, 0, 0.04);
+        max-width: 440px;
+        padding: 56px;
+        border-radius: 8px;
+    }
+
+    & .faq {
+        max-width: 1050px;
+
+        &__item {
+            border-bottom: 1px solid #cdcdcd;
+        }
+
+    }
+}

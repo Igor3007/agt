@@ -19,11 +19,13 @@
 
     &__title {
         @include font-h2;
-        padding-bottom: 14px;
+        padding-bottom: 24px;
     }
 
     &__desc {
-        padding-bottom: 24px;
+        padding-bottom: 26px;
+        font-family: var(--font-montserrat);
+        font-size: 14px;
     }
 
     &__form {
@@ -31,6 +33,14 @@
         max-width: 440px;
         padding: 56px;
         border-radius: 8px;
+
+        & .home-faq__title {
+            padding-bottom: 30px;
+        }
+
+        & .btn {
+            width: 100%;
+        }
     }
 
     & .faq {

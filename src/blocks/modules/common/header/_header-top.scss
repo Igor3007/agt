@@ -3,6 +3,52 @@
     color: #fff;
     padding: 10px 0;
 
+    & .container {
+        @media screen and (max-width: $w480) {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+    }
+
+    &__mobile {
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        width: 100%;
+
+        @media screen and (min-width: $w576) {
+            display: none;
+        }
+
+        & .copy-field {
+            display: inline-flex;
+            align-items: center;
+            height: 20px;
+            width: 20px;
+
+            & svg {
+                fill: var(--accent);
+            }
+        }
+
+        & a {
+            font-weight: 700;
+            font-size: 14px;
+        }
+    }
+
+    &__email {
+        margin-left: auto;
+
+        & a {
+            display: flex;
+            align-items: center;
+
+        }
+    }
+
     & a {
         color: #fff;
     }
@@ -13,22 +59,34 @@
     }
 
     &__left {
-        display: flex;
+        display: none;
         align-items: center;
         gap: 36px;
+
+        @media screen and (min-width: $w760) {
+            display: flex;
+        }
     }
 
     &__right {
         margin-left: auto;
-        display: flex;
+        display: none;
         align-items: center;
+
+        @media screen and (min-width: $w576) {
+            display: flex;
+        }
     }
 
     &__links {
         & ul {
             display: flex;
             align-items: center;
-            gap: 36px;
+            gap: 18px;
+
+            @media screen and (min-width: $w1200) {
+                gap: 36px;
+            }
 
             & li {
                 display: flex;
@@ -75,10 +133,14 @@
     }
 
     &__worktime {
-        display: flex;
         align-items: center;
         font-size: 13px;
         font-weight: 600;
+        display: none;
+
+        @media screen and (min-width: $w1200) {
+            display: flex;
+        }
 
         & svg {
             margin-left: 6px;

@@ -15,9 +15,27 @@
 
     &__title {
         @include font-h2;
+        padding-bottom: 24px;
+        font-size: 23px;
+
+        @media screen and (min-width: $w480) {
+            padding-bottom: 12px;
+        }
+
+        @media screen and (min-width: $w760) {
+            font-size: 27px;
+        }
 
         @media screen and (min-width: $w992) {
             width: 360px;
+            padding-bottom: 0;
+            font-size: 30px;
+        }
+
+        & br {
+            @media screen and (max-width: $w992) {
+                display: none;
+            }
         }
     }
 
@@ -37,13 +55,52 @@
         }
 
         & .splide {
+
+            &__track {
+
+                width: calc(100% - 50px);
+
+                @media screen and (min-width: $w760) {
+                    width: calc(100% - 100px);
+                }
+
+                @media screen and (min-width: $w992) {
+                    width: auto;
+                }
+
+
+                margin: 0 auto;
+
+            }
+
             &__arrow {
                 &--prev {
-                    left: -70px;
+
+                    left: -12px;
+
+                    @media screen and (min-width: $w480) {
+                        left: 0;
+
+                    }
+
+                    @media screen and (min-width: $w992) {
+                        left: -70px;
+                    }
+
                 }
 
                 &--next {
-                    right: -50px;
+
+                    right: -12px;
+
+                    @media screen and (min-width: $w480) {
+                        right: 0;
+                    }
+
+                    @media screen and (min-width: $w992) {
+                        right: -50px;
+                    }
+
                 }
             }
         }

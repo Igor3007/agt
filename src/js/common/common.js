@@ -416,7 +416,21 @@ document.addEventListener('DOMContentLoaded', function (event) {
             start: 0,
             perPage: 7,
             perMove: 1,
-            gap: 36
+            gap: 36,
+            breakpoints: {
+
+                992: {
+                    perMove: 4,
+                    perPage: 4,
+                },
+
+                576: {
+                    perMove: 3,
+                    perPage: 3,
+                    gap: 16,
+                },
+            },
+
         });
 
         topBrands.mount();

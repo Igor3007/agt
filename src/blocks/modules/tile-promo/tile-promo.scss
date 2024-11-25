@@ -33,12 +33,22 @@
         flex-direction: column;
         color: #fff;
         justify-content: flex-end;
+
+        @media screen and (min-width: $w992) {
+            padding: 50px;
+        }
     }
 
     &__title {
         font-size: 21px;
         font-weight: 500;
         padding-bottom: 12px;
+        line-height: 140%;
+    }
+
+    &__subtitle {
+        font-size: 14px;
+        font-family: montserrat;
     }
 
     &__colorbg {
@@ -54,19 +64,15 @@
 
     &__h3 {
         color: #fff;
-        font-size: 21px;
-        font-weight: 600;
-        padding-bottom: 12px;
+        @include font-h2;
+        padding-bottom: 22px;
     }
 
     &__arrow {
         & svg {
             background-color: #fff;
             border-radius: 50%;
-
-            & svg {
-                fill: var(--accent)
-            }
+            fill: var(--accent)
         }
     }
 

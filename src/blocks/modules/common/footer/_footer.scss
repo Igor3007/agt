@@ -43,6 +43,7 @@ footer {
         &__text {
             font-size: 13px;
             font-weight: 500;
+            font-family: var(--font-montserrat);
         }
     }
 
@@ -145,6 +146,14 @@ footer {
         }
     }
 
+    &__email {
+        & a {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 13px;
+        }
+    }
+
     &__sl {
         color: var(--accent);
         font-size: 14px;
@@ -154,6 +163,16 @@ footer {
         font-weight: 600;
         font-size: 15px;
         padding-bottom: 20px;
+    }
+
+    &__code {
+        width: 93px;
+
+        & .bgimage {
+
+            padding-top: 100%;
+            @include bgimage-contain;
+        }
     }
 
 
@@ -182,6 +201,24 @@ footer {
             display: flex;
             align-items: center;
             justify-content: space-between;
+        }
+
+
+    }
+}
+
+.footer--main {
+
+    padding-bottom: 28px;
+
+    & .footer {
+
+
+        &__right {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+
         }
 
 

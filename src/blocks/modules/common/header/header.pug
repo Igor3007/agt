@@ -1,6 +1,11 @@
 .header-top
     .container
         .header-top__wrp
+            .header-top__mobile
+                .header-top__phone: a(href="tel:+78123098028") +7 812 309 80 28
+                .header-top__email: a(href="mailto:zakaz@ag-technologies.ru")
+                    | zakaz@ag-technologies.ru 
+                    span.copy-field: +icons('#ic_copy')
             .header-top__left
                 .header-top__location
                    span г. Санкт-петербург,  ул. Егорова, 25
@@ -30,6 +35,8 @@
             
             .header__find
                 input(type="text" placeholder="Найти...")
+                span.find-icon
+                    +icons('#ic_find', 40)
 
             .header__contacts
                 .header-contact

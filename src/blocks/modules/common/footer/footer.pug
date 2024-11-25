@@ -29,7 +29,7 @@ include ../../common/main-menu/main-menu.pug
                 .footer__email: a(href='email:zakaz@ag-technologies.ru') zakaz@ag-technologies.ru
                 .footer__phone: a(href='tel:8 800 777 35 68') 8 800 777 35 68
 
-        .footer__row
+        .footer__row.footer--main
             .footer__left
                 .footer__menu
                     .footer__col.footer__col--strong
@@ -78,6 +78,7 @@ include ../../common/main-menu/main-menu.pug
                                     | ул. Егорова, 25 <br>
                                     | ст. м. Технологический институт или ст. м. Фрунзенская
                 .footer__code
+                    +bgimage('/img/other/qrcode.jpg')
 
         .footer__row.footer--bottom
             .footer__left

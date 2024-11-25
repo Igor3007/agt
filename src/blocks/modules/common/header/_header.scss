@@ -5,12 +5,20 @@ header {
 
 .header {
 
-    padding: 20px 0;
+    padding: 15px 0;
+
+    @media screen and (min-width: $w576) {
+        padding: 20px 0;
+    }
 
     &__wrp {
         display: flex;
         align-items: center;
-        gap: 36px;
+        gap: 18px;
+
+        @media screen and (min-width: $w992) {
+            gap: 36px;
+        }
     }
 
     &__find {
@@ -29,11 +37,29 @@ header {
             background-size: 20px;
             background-repeat: no-repeat;
             font-size: 14px;
+
+            @media screen and (max-width: $w760) {
+                display: none;
+            }
+
+        }
+
+        & .find-icon {
+
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-left: auto;
+
+            @media screen and (min-width: $w760) {
+                display: none;
+            }
         }
 
     }
-
-
 
     &__logo {
 
@@ -48,10 +74,10 @@ header {
             background-position: left center;
             background-repeat: no-repeat;
 
-            width: 237px;
+            width: 236px;
             height: 25px;
 
-            @media screen and (min-width: $w992) {
+            @media screen and (min-width: $w1200) {
                 width: 260px;
                 height: 28px;
             }
@@ -64,11 +90,22 @@ header {
     }
 
     &__actions {
+
+        display: none;
+
+        @media screen and (min-width: $w576) {
+            display: block;
+        }
+
         & ul {
             display: flex;
             align-items: center;
             gap: 6px;
-            margin-top: -7px;
+
+
+            @media screen and (min-width: $w992) {
+                margin-top: -7px;
+            }
 
             & li {
                 & a {
@@ -116,7 +153,22 @@ header {
 
     &__burger {
         display: none;
+
+        @media screen and (max-width: $w576) {
+            display: block;
+        }
     }
+
+    &__contacts {
+
+        display: none;
+
+        @media screen and (min-width: $w992) {
+            display: block;
+        }
+    }
+
+
 }
 
 .header-contact {

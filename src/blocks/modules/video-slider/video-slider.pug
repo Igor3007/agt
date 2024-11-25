@@ -5,7 +5,7 @@ mixin card-video(data)
                 +picture(data.img)
         .card-video__main
             .card-video__title: a(href='#')=data.name
-            .card-video__desc Утепленная куртка с мембранным верхом и брызгозащитными молниями. В большей степени предназначена для города, однако может использоваться и в полевых условиях. Защищает от ветра, мелких осадков и мокрого снега. 
+            .card-video__desc: span Утепленная куртка с мембранным верхом и брызгозащитными молниями. В большей степени предназначена для города, однако может использоваться и в полевых условиях. Защищает от ветра, мелких осадков и мокрого снега. 
             
 
 
@@ -23,13 +23,11 @@ mixin video-slider
     section.section-video-slider
         .container
             .video-slider
-                .video-slider__title Видео
                 .video-slider__top
-                            
+                    .video-slider__title Видео
                     .video-slider__all
                         a(href='#') 
                             span Все видео
-                            +icons('#ic_link-arrow')
                 .video-slider__list
                     .splide(data-slider="default")
                         .splide__track

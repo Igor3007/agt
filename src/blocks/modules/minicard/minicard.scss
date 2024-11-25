@@ -67,6 +67,13 @@
     }
 
     &__sticker {
+
+        display: none;
+
+        @media screen and (min-width: $w576) {
+            display: block;
+        }
+
         & span {
             font-size: 12px;
             font-weight: 600;
@@ -74,6 +81,7 @@
             background-color: #fff;
             border-radius: 30px;
             padding: 5px 12px;
+            font-family: var(--font-montserrat);
         }
     }
 

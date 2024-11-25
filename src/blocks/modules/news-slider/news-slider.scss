@@ -3,7 +3,7 @@
     padding: 50px 0;
 
     @media screen and (min-width: $w1440) {
-        padding: 60px 0 120px 0;
+        padding: 104px 0 48px 0;
     }
 }
 
@@ -25,8 +25,8 @@
         }
 
         @media screen and (min-width: $w992) {
-            width: calc(33vw - 24px);
-            max-width: 583px;
+            width: calc(33.33vw - 24px);
+            max-width: 597px;
         }
 
 
@@ -114,6 +114,7 @@
 
     &__title {
         @include font-h2;
+        padding-bottom: 15px;
     }
 
     &__all {
@@ -131,7 +132,7 @@
             display: flex;
             align-items: center;
             font-size: 15px;
-            font-weight: 500;
+            font-weight: 600;
             flex-grow: 1;
 
             @media screen and (min-width: $w1440) {
@@ -195,7 +196,7 @@
         font-size: 18px;
         font-weight: 600;
         line-height: 100%;
-        padding-bottom: 12px;
+        padding-bottom: 24px;
 
         &:hover {
             text-decoration: underline;
@@ -213,7 +214,7 @@
     }
 
     &__main {
-        padding-top: 16px;
+        padding-top: 26px;
     }
 
     &__desc {
@@ -222,7 +223,8 @@
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
-        line-height: 140%;
+        line-height: 165%;
+        font-family: montserrat;
 
         & span {
             @include line-clamp(3);

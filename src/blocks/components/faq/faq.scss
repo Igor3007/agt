@@ -46,9 +46,7 @@
                 transform: rotate(-45deg);
             }
 
-            &__title {
-                color: var(--main);
-            }
+
         }
 
         & .faq-item__answer {
@@ -76,7 +74,8 @@
     &__question {
         display: flex;
         align-items: center;
-        padding: 14px 0;
+        padding: 0 0;
+
 
         @media screen and (min-width: $w760) {
             // padding: rem(25) rem(37);
@@ -96,13 +95,12 @@
         border-radius: 8px;
         line-height: 150%;
         opacity: 0;
+        font-family: var(--font-montserrat);
 
-        @media screen and (min-width: $w760) {
-            font-size: 16px;
-        }
+
 
         @media screen and (min-width: $w1440) {
-            font-size: 18px;
+            font-size: 15px;
         }
 
         & p {
@@ -132,7 +130,7 @@
         }
 
         @media screen and (min-width: $w1440) {
-            font-size: 20px;
+            font-size: 17px;
         }
 
     }

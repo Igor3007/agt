@@ -7,12 +7,12 @@ mixin tile-promo
                 img: false,
             },
             {
-                title: 'Максимальная защита',
+                title: 'Максимальная <br> защита',
                 subtitle: 'С новой коллецией от бренда Brodeks',
                 img: '/img/other/promo/1',
             },
             {
-                title: 'Комфорт на первом месте',
+                title: 'Комфорт <br> на первом месте',
                 subtitle: 'С новой коллецией от бренда Brodeks',
                 img: '/img/other/promo/2',
             },
@@ -22,14 +22,13 @@ mixin tile-promo
                 img: '/img/other/promo/3',
             },
             {
-                title: 'Сумки для рабочей одежды',
+                title: 'Сумки для <br> рабочей одежды',
                 img: '/img/other/promo/4',
                 subtitle: '',
             },
         ]
 
     section.section-tile-promo
-        .container
             .tile-promo
                 .tile-promo
                     .tile-promo__list
@@ -44,6 +43,6 @@ mixin tile-promo
                                     .tile-promo__bg
                                         +picture(item.img)
                                     .tile-promo__content
-                                        .tile-promo__title= item.title
+                                        .tile-promo__title!= item.title
                                         .tile-promo__subtitle= item.subtitle
 

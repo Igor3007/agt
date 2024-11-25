@@ -1,6 +1,11 @@
 .header-menu {
 
     padding: 3px 0 24px 0;
+    display: none;
+
+    @media screen and (min-width: $w760) {
+        display: block;
+    }
 
     &__wrp {
         & ul {

@@ -2,6 +2,10 @@
     padding: 40px 0;
 
     @media screen and (min-width: $w576) {
+        padding: 52px 0;
+    }
+
+    @media screen and (min-width: $w992) {
         padding: 75px 0;
     }
 }
@@ -56,9 +60,14 @@
     }
 
     &__title {
-        padding-bottom: 40px;
-        font-size: 24px;
+        padding-bottom: 34px;
+        font-size: 17px;
         font-weight: 600;
+
+        @media screen and (min-width: $w992) {
+            font-size: 24px;
+            padding-bottom: 40px;
+        }
     }
 
     &__desc {
@@ -66,21 +75,31 @@
         font-size: 15px;
         padding-bottom: 0px;
 
+        line-height: 157%;
+
         @media screen and (min-width: $w480) {
             padding-bottom: 50px;
         }
     }
 
     &__tile {
-        padding: 40px 0;
+        padding: 33px 0;
+
+        @media screen and (min-width: $w992) {
+            padding: 40px 0;
+        }
     }
 
     &__digits {
 
 
 
-        @media screen and (min-width: $w760) {
+        @media screen and (min-width: $w992) {
             padding-top: 55px;
+        }
+
+        @media screen and (min-width: $w760) {
+            padding-top: 43px;
         }
     }
 
@@ -247,9 +266,15 @@
             text-align: center;
             margin-top: 30px;
 
+            @media screen and (min-width: $w760) {
+                text-align: left;
+            }
+
             & p {
-                font-size: 16px;
-                margin: 24px 0;
+                @media screen and (min-width: $w992) {
+                    font-size: 16px;
+                    margin: 24px 0;
+                }
             }
 
 
@@ -358,7 +383,11 @@
         }
 
         & picture {
-            @include picture(121%, contain);
+            @include picture(116%, contain);
+
+            @media screen and (min-width: $w992) {
+                padding-top: 121%;
+            }
         }
     }
 

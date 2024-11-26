@@ -146,6 +146,10 @@
                     &::after {
                         opacity: 0;
                     }
+
+                    &:hover {
+                        color: #fff;
+                    }
                 }
 
                 &:hover {

@@ -30,6 +30,14 @@
         padding-bottom: 26px;
         font-family: var(--font-montserrat);
         font-size: 14px;
+
+        @media screen and (min-width: $w760) {
+            text-align: center;
+        }
+
+        @media screen and (min-width: $w992) {
+            text-align: left;
+        }
     }
 
     &__form {
@@ -49,6 +57,15 @@
 
         & .home-faq__title {
             padding-bottom: 30px;
+
+
+            @media screen and (min-width: $w760) {
+                text-align: center;
+            }
+
+            @media screen and (min-width: $w992) {
+                text-align: left;
+            }
         }
 
         & .btn {

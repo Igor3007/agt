@@ -115,6 +115,11 @@
         }
 
         @media screen and (min-width: $w760) {
+            width: calc(22vw - 80px - 32px);
+            min-width: calc(22vw - 80px - 32px);
+        }
+
+        @media screen and (min-width: $w992) {
             width: calc(25vw - 80px - 32px);
             min-width: calc(25vw - 80px - 32px);
         }

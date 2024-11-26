@@ -3,6 +3,10 @@
     background-color: #F2F6F9;
 
     @media screen and (min-width: $w576) {
+        padding: 60px 0 60px 0;
+    }
+
+    @media screen and (min-width: $w992) {
         padding: 160px 0 155px 0;
     }
 }

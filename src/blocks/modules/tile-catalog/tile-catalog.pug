@@ -53,8 +53,9 @@ mixin tile-catalog
                         .tile-catalog__item
                             a(href='/categoty.html')
                                 .tile-catalog__text= item.name
-                                .tile-catalog__image
-                                    +picture(item.img)
+                                if(item.img)
+                                    .tile-catalog__image
+                                        +picture(item.img)
                                 .tile-catalog__arrow
                                     +icons('#ic_arr-right', 40)
 

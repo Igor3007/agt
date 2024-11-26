@@ -1,5 +1,9 @@
 .section-product-slider {
-    padding: 8px 0;
+    padding: 12px 0;
+
+    @media screen and (min-width: $w992) {
+        padding: 8px 0;
+    }
 }
 
 .product-slider {

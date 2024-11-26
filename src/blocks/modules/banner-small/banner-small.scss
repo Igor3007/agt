@@ -1,5 +1,9 @@
 .section-banner-small {
-    padding: 87px 0;
+    padding: 40px 0;
+
+    @media screen and (min-width: $w760) {
+        padding: 87px 0;
+    }
 }
 
 .banner-small {
@@ -14,14 +18,31 @@
         position: relative;
         z-index: 2;
         background-color: rgba(0, 0, 0, 0.527);
-        padding: 50px 0;
-        border-radius: 8px;
-        min-height: 207px;
-
+        padding: 16px 0;
+        min-height: 90px;
         display: flex;
+        justify-content: center;
+        border-radius: 8px;
+
+
+        @media screen and (min-width: $w576) {
+            padding: 50px 0;
+            min-height: 207px;
+        }
+
+
+    }
+
+    &__wrp {
+        display: inline-flex;
         align-items: center;
         justify-content: center;
-        flex-direction: column
+        flex-direction: row;
+        position: relative;
+
+        @media screen and (min-width: $w992) {
+            flex-direction: column;
+        }
     }
 
     &__bg {
@@ -38,18 +59,40 @@
     }
 
     &__title {
-        font-size: 57px;
+        font-size: 36px;
         font-weight: 600;
         text-align: center;
         line-height: 100%;
         padding-bottom: 12px;
         padding-top: 12px;
+
+        @media screen and (min-width: $w480) {
+            font-size: 57px;
+        }
     }
 
     &__subtitle {
         text-align: center;
-        font-size: 27px;
+        font-size: 18px;
         font-weight: 600;
         line-height: 100%;
+
+        position: absolute;
+        left: 110%;
+        text-align: left;
+
+        @media screen and (min-width: $w480) {
+            font-size: 27px;
+        }
+
+        @media screen and (min-width: $w992) {
+            position: static;
+            text-align: center;
+            left: auto;
+        }
+
+
+
+
     }
 }

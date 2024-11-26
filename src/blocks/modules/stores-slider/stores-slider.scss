@@ -1,5 +1,9 @@
 .section-stores-slider {
-    padding: 24px 0 98px 0;
+    padding: 24px 0 0 0;
+
+    @media screen and (min-width: $w576) {
+        padding: 24px 0 98px 0;
+    }
 }
 
 .stores-slider {
@@ -9,6 +13,15 @@
     }
 
     &__left {
+
+        position: relative;
+
+        @media screen and (min-width: $w576) {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 40px;
+        }
+
         @media screen and (min-width: $w992) {
             width: calc(22% - 12px);
 
@@ -19,15 +32,37 @@
     }
 
     &__right {
+
+
         @media screen and (min-width: $w992) {
             width: 78%;
+        }
+
+        & picture {
+            @include picture(65%, cover);
+            border-radius: 8px;
+            margin-top: 36px;
+
+            @media screen and (min-width: $w576) {
+                padding-top: 46%;
+                margin-top: 0;
+            }
+
+            & img {
+                border-radius: 8px
+            }
         }
     }
 
     &__title {
         @include font-h2;
-
         padding-bottom: 28px;
+
+        text-align: center;
+
+        @media screen and (min-width: $w576) {
+            text-align: left;
+        }
     }
 
     &__city {
@@ -35,22 +70,48 @@
         font-weight: 600;
         color: var(--accent);
         padding-bottom: 25px;
+
+        text-align: center;
+
+        @media screen and (min-width: $w576) {
+            text-align: left;
+        }
     }
 
     &__address {
         font-size: 25px;
         font-weight: bold;
         padding-bottom: 12px;
+
+        text-align: center;
+
+        @media screen and (min-width: $w576) {
+            text-align: left;
+        }
     }
 
     &__worktime {
         padding-bottom: 6px;
+
+        text-align: center;
+
+        @media screen and (min-width: $w576) {
+            text-align: left;
+        }
     }
 
     &__nav {
 
         display: flex;
         gap: 10px;
+
+        @media screen and (max-width: $w576) {
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 100%;
+            justify-content: space-between;
+        }
 
         & div {
             border: 2px solid var(--accent);

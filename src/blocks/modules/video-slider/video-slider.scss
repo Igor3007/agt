@@ -114,18 +114,16 @@
     &__top {
 
         padding-bottom: 20px;
+        flex-direction: row;
         display: flex;
-        flex-direction: column-reverse;
+        align-items: center;
 
         @media screen and (min-width: $w576) {
-            flex-direction: row;
+
             padding-bottom: 33px;
         }
 
-        @media screen and (min-width: $w576) {
-            display: flex;
-            align-items: center;
-        }
+
     }
 
     &__title {
@@ -133,13 +131,9 @@
     }
 
     &__all {
-        margin-right: auto;
 
-        @media screen and (min-width: $w576) {
-            margin-left: auto;
-            margin-right: 0;
-        }
 
+        margin-left: auto;
 
 
         & a {
@@ -193,7 +187,11 @@
         font-size: 18px;
         font-weight: 600;
         line-height: 120%;
-        padding-bottom: 24px;
+        padding-bottom: 0;
+
+        @media screen and (min-width: $w576) {
+            padding-bottom: 24px;
+        }
 
 
 
@@ -213,18 +211,25 @@
     }
 
     &__main {
-        padding: 24px 0px;
+        padding: 24px 0px 0 0;
+
+        @media screen and (min-width: $w576) {
+            padding: 24px 0px;
+        }
     }
 
     &__desc {
         color: #000;
-
         font-size: 15px;
         font-style: normal;
         font-weight: 400;
         line-height: 164%;
         padding-bottom: 14px;
         font-family: var(--font-montserrat);
+
+        @media screen and (max-width: $w576) {
+            display: none;
+        }
 
         & span {
             @include line-clamp(3);

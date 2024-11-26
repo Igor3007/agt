@@ -95,10 +95,35 @@ include ../../common/main-menu/main-menu.pug
                         li: a(href='#'): +bgimage('/img/icons/socialmeddia-1.svg')
                         li: a(href='#'): +bgimage('/img/icons/socialmeddia-2.svg')
                         li: a(href='#'): +bgimage('/img/icons/socialmeddia-3.svg')
-            
+
+.bottom-panel
+    .bottom-panel__list
+        .bottom-panel__item
+            a(href='#')
+                +icons('#ic_catalog2', 40)
+                span Каталог
+        .bottom-panel__item
+            a(href='#')
+                +icons('#ic_compare', 40)
+                span Сравнить
+        .bottom-panel__item
+            a(href='#')
+                .count-wrapper
+                    +icons('#ic_cart', 40)
+                    div.tooltip-count 6
+                span Корзина
+                
+        .bottom-panel__item
+            a(href='#')
+                +icons('#ic_heart', 40)
+                span Избранное
+        .bottom-panel__item
+            a(href='#')
+                +icons('#ic_user', 40)
+                span Войти
+
 +main-menu()
-
-
+ 
 
 
 

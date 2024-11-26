@@ -13,16 +13,40 @@
         border-radius: 8px;
         background: #F2F6F9;
         flex-grow: 1;
-        width: calc(25% - 12px);
-        height: 245px;
+        width: calc(50% - 12px);
+        height: auto;
+        position: relative;
+
+
+        @media screen and (min-width: $w1440) {
+            height: 245px;
+        }
+
+        @media screen and (min-width: $w992) {
+            height: calc(25vw - 80px - 32px);
+        }
+
+        @media screen and (min-width: $w760) {
+            width: calc(25% - 12px);
+        }
+
+        @media screen and (min-width: $w576) {
+            width: calc(33.33% - 12px);
+        }
+
 
         & a {
             display: flex;
+            flex-direction: column;
 
+            @media screen and (min-width: $w992) {
+                flex-direction: row;
+            }
         }
 
         & picture {
             @include picture(100%, contain);
+            transition: 0.3s ease;
 
             & img {
                 mix-blend-mode: multiply;
@@ -30,8 +54,17 @@
         }
 
         &:nth-child(1) {
-            max-width: 320px;
+            max-width: 190px;
             background-color: rgba(0, 0, 0, 0.80);
+            display: none;
+
+            @media screen and (min-width: $w992) {
+                max-width: 320px;
+            }
+
+            @media screen and (min-width: $w576) {
+                display: block;
+            }
 
             & .tile-catalog {
                 &__arrow {
@@ -46,26 +79,69 @@
 
         &:nth-child(3),
         &:nth-child(2) {
-            max-width: calc(50% - 160px - 12px);
+
+
             width: 100%;
+
+            @media screen and (min-width: $w576) {
+                max-width: calc(50% - 95px - 12px);
+            }
+
+            @media screen and (min-width: $w992) {
+                max-width: calc(50% - 160px - 12px);
+            }
+
+            & .tile-catalog {
+                &__image {
+                    @media screen and (max-width: $w576) {
+                        margin-top: -48px;
+                        width: calc(60vw - 80px - 32px);
+                        min-width: calc(60vw - 80px - 32px);
+                    }
+                }
+            }
         }
     }
 
     &__image {
-        width: 245px;
-        min-width: 245px;
+        width: calc(50vw - 80px - 32px);
+        min-width: calc(50vw - 80px - 32px);
         margin-left: auto;
         margin-right: 30px;
+
+        @media screen and (min-width: $w1440) {
+            width: 245px;
+            min-width: 245px;
+        }
+
+        @media screen and (min-width: $w760) {
+            width: calc(25vw - 80px - 32px);
+            min-width: calc(25vw - 80px - 32px);
+        }
+
+        @media screen and (min-width: $w576) {
+            width: calc(33.33vw - 80px - 32px);
+            min-width: calc(33.33vw - 80px - 32px);
+        }
 
     }
 
     &__text {
-        padding: 28px 0 28px 28px;
-        font-size: 21px;
+        padding: 15px 0 15px 15px;
+        font-size: 17px;
         font-weight: 600;
         line-height: 100%;
         color: #2F3030;
         transition: 0.4s ease;
+
+
+        @media screen and (min-width: $w1440) {
+            font-size: 21px;
+        }
+
+        @media screen and (min-width: $w1200) {
+            padding: 28px 0 28px 28px;
+        }
     }
 
     &__arrow {
@@ -75,6 +151,15 @@
         opacity: 0;
         transition: 0.4s ease;
         margin-right: 17px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+
+        @media screen and (min-width: $w992) {
+            position: relative;
+            right: auto;
+            top: auto;
+        }
 
         & svg {
             fill: var(--accent);
@@ -85,13 +170,22 @@
         &:hover {
             & .tile-catalog {
                 &__arrow {
-                    margin-left: 0;
+                    margin-left: -36px;
                     opacity: 1;
 
                 }
 
                 &__text {
                     margin-right: -80px;
+                }
+
+
+                &__image {
+                    & picture {
+                        @media screen and (max-width: $w992) {
+                            margin-left: -30px;
+                        }
+                    }
                 }
 
 

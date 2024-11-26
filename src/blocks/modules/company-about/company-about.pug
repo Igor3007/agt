@@ -29,6 +29,14 @@ mixin company-about
                             .company-tile__item: +tile-about('Индивидуальный <br> подход')
                             .company-tile__item: +tile-about('Онлайн <br> показ')
                             .company-tile__item
+                                .tile-lg-about
+                                    .tile-lg-about__title Нанесение <br> логотипа
+                                    .tile-lg-about__image
+                                        +picturePng('/img/other/print')
+                                    .tile-lg-about__icon
+                                        +bgimage('/img/icons/at-lg.svg')
+                                    .tile-lg-about__arrow
+                                        +icons('#ic_arr-right', 40)
 
 
                     .company-about__digits

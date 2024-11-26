@@ -18,9 +18,19 @@
 
 
         & img {
-            height: 460px;
+
             object-fit: cover;
             object-position: center;
+
+            height: 200px;
+
+            @media screen and (min-width: $w375) {
+                height: 320px;
+            }
+
+            @media screen and (min-width: $w576) {
+                height: 460px;
+            }
         }
     }
 
@@ -40,10 +50,14 @@
     }
 
     &__title {
-        font-size: 21px;
+        font-size: 19px;
         font-weight: 500;
         padding-bottom: 12px;
         line-height: 140%;
+
+        @media screen and (min-width: $w480) {
+            font-size: 21px;
+        }
     }
 
     &__subtitle {
@@ -59,6 +73,17 @@
         align-items: center;
         flex-direction: column;
         justify-content: center;
+        min-height: 200px;
+
+        @media screen and (min-width: $w375) {
+            min-height: 320px;
+        }
+
+
+
+        @media screen and (min-width: $w576) {
+            min-height: 460px;
+        }
 
     }
 

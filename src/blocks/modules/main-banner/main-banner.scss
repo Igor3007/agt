@@ -147,6 +147,10 @@
                         opacity: 0;
                     }
                 }
+
+                &:hover {
+                    color: var(--accent)
+                }
             }
         }
     }

@@ -1,5 +1,10 @@
 .section-top-brands {
-    padding: 50px 0;
+    padding: 36px 0;
+
+    @media screen and (min-width: $w576) {
+        padding: 50px 0;
+    }
+
 
     @media screen and (min-width: $w992) {
         padding: 85px 0;

@@ -1,6 +1,10 @@
 .section-news-slider {
 
-    padding: 50px 0;
+    padding: 30px 0;
+
+    @media screen and (min-width: $w576) {
+        padding: 50px 0;
+    }
 
     @media screen and (min-width: $w1440) {
         padding: 104px 0 48px 0;
@@ -99,17 +103,14 @@
 
         padding-bottom: 20px;
         display: flex;
-        flex-direction: column-reverse;
+
 
         @media screen and (min-width: $w576) {
-            flex-direction: row;
+
             padding-bottom: 40px;
         }
 
-        @media screen and (min-width: $w576) {
-            display: flex;
-            align-items: center;
-        }
+
     }
 
     &__title {
@@ -118,12 +119,8 @@
     }
 
     &__all {
-        margin-right: auto;
+        margin-left: auto;
 
-        @media screen and (min-width: $w576) {
-            margin-left: auto;
-            margin-right: 0;
-        }
 
 
 
@@ -196,7 +193,11 @@
         font-size: 18px;
         font-weight: 600;
         line-height: 100%;
-        padding-bottom: 24px;
+        padding-bottom: 6px;
+
+        @media screen and (min-width: $w576) {
+            padding-bottom: 24px;
+        }
 
         &:hover {
             text-decoration: underline;
@@ -219,12 +220,16 @@
 
     &__desc {
         color: #000;
-
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
         line-height: 165%;
         font-family: montserrat;
+        display: none;
+
+        @media screen and (min-width: $w576) {
+            display: block;
+        }
 
         & span {
             @include line-clamp(3);

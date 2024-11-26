@@ -15,6 +15,10 @@
         @media screen and (min-width: $w992) {
             width: calc(33% - 12px)
         }
+
+        @media screen and (max-width: $w992) {
+            background-color: rgba(0, 0, 0, 0.04);
+        }
     }
 
     &__title {
@@ -31,8 +35,17 @@
     &__form {
         background-color: rgba(0, 0, 0, 0.04);
         max-width: 440px;
-        padding: 56px;
+        padding: 36px;
         border-radius: 8px;
+
+        @media screen and (min-width: $w576) {
+            padding: 56px;
+        }
+
+        @media screen and (max-width: $w992) {
+            background-color: transparent;
+            margin: 30px auto;
+        }
 
         & .home-faq__title {
             padding-bottom: 30px;

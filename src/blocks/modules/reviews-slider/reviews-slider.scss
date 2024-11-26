@@ -1,6 +1,10 @@
 .section-reviews-slider {
-    padding: 160px 0 155px 0;
-    background-color: #F2F6F9
+    padding: 40px 0 40px 0;
+    background-color: #F2F6F9;
+
+    @media screen and (min-width: $w576) {
+        padding: 160px 0 155px 0;
+    }
 }
 
 .reviews-slider {
@@ -10,13 +14,20 @@
     }
 
     &__slider {
-        padding-left: 80px;
+
+        @media screen and (min-width: $w760) {
+            padding-left: 80px;
+        }
     }
 
     & .splide {
         &__arrow {
             &--prev {
-                left: -60px;
+
+
+                @media screen and (min-width: $w760) {
+                    left: -60px;
+                }
             }
         }
     }
@@ -25,8 +36,17 @@
 }
 
 .item-review {
-    max-width: 635px;
+
+    width: calc(100vw - 32px);
     display: flex;
+    flex-direction: column;
+
+
+
+    @media screen and (min-width: $w576) {
+        flex-direction: row;
+        max-width: 635px;
+    }
 
 
 
@@ -39,7 +59,17 @@
         }
     }
 
-    &__media {}
+    &__media {
+        margin-top: 35px;
+        display: flex;
+        justify-content: center;
+
+        @media screen and (min-width: $w576) {
+            margin-top: 0;
+            display: block;
+        }
+
+    }
 
     &__main {
         padding-right: 24px;
@@ -52,7 +82,11 @@
         position: relative;
         width: 180px;
         min-width: 180px;
-        margin-left: 40px;
+
+
+        @media screen and (min-width: $w576) {
+            margin-left: 40px;
+        }
     }
 
     &__image {

@@ -1,5 +1,9 @@
 .section-company-about {
-    padding: 75px 0;
+    padding: 40px 0;
+
+    @media screen and (min-width: $w576) {
+        padding: 75px 0;
+    }
 }
 
 .company-about {
@@ -60,7 +64,11 @@
     &__desc {
         max-width: 745px;
         font-size: 15px;
-        padding-bottom: 50px;
+        padding-bottom: 0px;
+
+        @media screen and (min-width: $w480) {
+            padding-bottom: 50px;
+        }
     }
 
     &__tile {
@@ -68,21 +76,77 @@
     }
 
     &__digits {
-        padding-top: 55px;
+
+
+
+        @media screen and (min-width: $w760) {
+            padding-top: 55px;
+        }
     }
+
+    &__top {
+
+        @media screen and (max-width: $w760) {
+            flex-direction: column-reverse;
+            display: flex;
+
+            & .company-about {
+                &__image {
+                    padding-bottom: 50px;
+
+                    & picture {
+                        padding-top: 100%;
+                    }
+                }
+            }
+        }
+
+        @media screen and (min-width: $w760) and (max-width: $w992) {
+            display: flex;
+            gap: 36px;
+
+            & .company-about {
+                &__main {
+                    width: 50%;
+                }
+
+                &__image {
+                    width: 50%;
+                    max-width: 240px;
+                    margin-left: auto;
+
+                    & picture {
+                        padding-top: 139%;
+                    }
+
+                }
+            }
+
+        }
+    }
+
 }
 
 .company-tile {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     display: grid;
     gap: 12px;
 
+    @media screen and (min-width: $w760) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
     &__wrp {
-        height: 184px;
+        height: 100%;
+        min-height: 120px;
         padding: 26px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        @media screen and (min-width: $w480) {
+            min-height: 184px;
+        }
     }
 
     &__icon {
@@ -97,20 +161,45 @@
     &__item {
         background-color: #F2F6F9;
         border-radius: 8px;
+        transition: 0.3s ease;
 
         &:nth-child(5) {
-            grid-column-start: 3;
-            grid-column-end: 5;
+            grid-column-start: 1;
+            grid-column-end: 3;
             grid-row-start: 1;
-            grid-row-end: 3;
+            grid-row-end: 1;
+
+            @media screen and (min-width: $w760) {
+                grid-column-start: 3;
+                grid-column-end: 5;
+                grid-row-start: 1;
+                grid-row-end: 3;
+            }
+        }
+
+        &:hover {
+            background-color: var(--accent);
+            color: #fff;
+
+            & svg {
+                fill: #fff;
+            }
+
+            & .bgimage {
+                filter: invert(100%) brightness(8000);
+            }
         }
 
     }
 
     &__text {
-        font-size: 17px;
+        font-size: 12px;
         font-weight: 600;
         line-height: 100%;
+
+        @media screen and (min-width: $w576) {
+            font-size: 17px;
+        }
     }
 
     &__arrow {
@@ -135,22 +224,44 @@
 
 .company-digits {
 
-
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     display: grid;
     gap: 12px;
 
-
-
-
+    @media screen and (min-width: $w760) {
+        grid-template-columns: repeat(4, 1fr);
+    }
 
     &__col {
 
+
+
         &:nth-child(3) {
-            grid-column-start: 3;
-            grid-column-end: 5;
-            grid-row-start: 1;
+
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 2;
             grid-row-end: 2;
+            background-color: #F2F6F9;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 30px;
+
+            & p {
+                font-size: 16px;
+                margin: 24px 0;
+            }
+
+
+            @media screen and (min-width: $w760) {
+                grid-column-start: 3;
+                grid-column-end: 5;
+                grid-row-start: 1;
+                grid-row-end: 2;
+                background-color: transparent;
+
+            }
+
             padding: 0 16px;
         }
 
@@ -163,8 +274,14 @@
     &__item {
 
         text-align: center;
-        display: inline-flex;
+        display: flex;
         flex-direction: column;
+
+
+        @media screen and (min-width: $w760) {
+            display: inline-flex;
+        }
+
 
 
         & div {
@@ -176,10 +293,73 @@
         & span {
 
             display: block;
-            font-size: 119px;
+            font-size: 46px;
             font-weight: 600;
             line-height: 100%;
-            padding-bottom: 5px;
+            padding-bottom: 15px;
+            padding-top: 15px;
+
+            @media screen and (min-width: $w576) {
+                font-size: 119px;
+                padding-top: 0;
+                padding-bottom: 5px;
+            }
         }
     }
+}
+
+.tile-lg-about {
+
+    padding: 20px;
+    position: relative;
+
+    @media screen and (min-width: $w760) {
+        padding: 40px;
+    }
+
+
+    &__icon {
+        & .bgimage {
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            @include bgimage-contain;
+        }
+    }
+
+    &__title {
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 100%;
+    }
+
+    &__arrow {
+        display: flex;
+        align-items: flex-end;
+        position: absolute;
+        right: 23px;
+        bottom: 22px;
+
+        & svg {
+            width: 40px;
+            height: 40px;
+
+        }
+    }
+
+    &__image {
+        margin-top: -40px;
+        margin-bottom: -40px;
+        max-width: 165px;
+        margin-left: auto;
+
+        @media screen and (min-width: $w576) {
+            max-width: 264px;
+        }
+
+        & picture {
+            @include picture(121%, contain);
+        }
+    }
+
 }

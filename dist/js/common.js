@@ -615,7 +615,17 @@ document.addEventListener('DOMContentLoaded', function (event) {
             start: 0,
             perPage: 1,
             perMove: 1,
-            gap: 112
+            gap: 112,
+
+            breakpoints: {
+
+                1400: {
+                    gap: 0
+                },
+
+
+
+            },
 
         });
 
@@ -730,6 +740,26 @@ document.addEventListener('DOMContentLoaded', function (event) {
         })
 
     }
+
+    /* ==============================
+    header
+    ==============================*/
+
+    const header = document.querySelector('.header')
+    const headerTop = document.querySelector('.header-top')
+    const htg = header.clientHeight
+
+    window.addEventListener('scroll', () => {
+
+        if (window.scrollY >= 44) {
+            header.classList.add('is-fixed')
+            headerTop.style.marginBottom = htg + 'px'
+        } else {
+            !header.classList.contains('is-fixed') || header.classList.remove('is-fixed')
+            headerTop.style.marginBottom = 0
+        }
+
+    })
 
 
 }); //dcl

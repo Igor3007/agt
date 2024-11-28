@@ -19,7 +19,7 @@ footer {
     flex-direction: column;
     gap: 36px;
 
-    @media screen and (max-width: $w576) {
+    @media screen and (max-width: $w760) {
         display: none;
     }
 
@@ -92,7 +92,7 @@ footer {
             width: calc(100% - 425px);
         }
 
-        @media screen and (min-width: $w576) {
+        @media screen and (min-width: $w760) {
             width: 70%;
         }
     }
@@ -102,14 +102,19 @@ footer {
             width: 425px;
         }
 
-        @media screen and (min-width: $w576) {
+        @media screen and (min-width: $w760) {
             width: 30%;
         }
     }
 
     &__menu {
         display: flex;
+        justify-content: center;
         gap: 5.5%;
+
+        @media screen and (min-width: $w992) {
+            justify-content: flex-start;
+        }
 
         @media screen and (max-width: $w576) {
             flex-direction: column;
@@ -120,6 +125,12 @@ footer {
     &__logo {
 
 
+        padding-bottom: 12px;
+
+        @media screen and (min-width: $w760) {
+            padding-bottom: 0;
+        }
+
 
         & .bgimage {
             width: 294px;
@@ -129,8 +140,10 @@ footer {
             background-position-x: left;
             margin: 0 auto;
 
-            @media screen and (min-width: $w576) {
+
+            @media screen and (min-width: $w760) {
                 margin: none;
+                margin: 0;
             }
         }
     }
@@ -144,7 +157,7 @@ footer {
 
 
 
-        @media screen and (min-width: $w576) {
+        @media screen and (min-width: $w760) {
             text-align: left;
         }
     }
@@ -160,10 +173,14 @@ footer {
             margin-top: auto;
 
             & li {
-                padding-bottom: 19px;
+                padding-bottom: 12px;
                 text-align: center;
 
-                @media screen and (min-width: $w576) {
+                @media screen and (min-width: $w480) {
+                    padding-bottom: 19px;
+                }
+
+                @media screen and (min-width: $w760) {
                     text-align: left;
                 }
 
@@ -185,9 +202,11 @@ footer {
 
             margin-right: 0;
 
-            @media screen and (min-width: $w576) {
+            @media screen and (min-width: $w760) {
                 margin-right: 8%;
             }
+
+
 
 
             & li {
@@ -201,7 +220,7 @@ footer {
 
         text-align: center;
 
-        @media screen and (min-width: $w576) {
+        @media screen and (min-width: $w760) {
             text-align: left;
         }
 
@@ -215,7 +234,7 @@ footer {
 
         text-align: center;
 
-        @media screen and (min-width: $w576) {
+        @media screen and (min-width: $w760) {
             text-align: left;
         }
 
@@ -230,9 +249,13 @@ footer {
         color: var(--accent);
         font-size: 14px;
         text-align: center;
+        padding-bottom: 12px;
+        display: none;
 
-        @media screen and (min-width: $w576) {
+        @media screen and (min-width: $w760) {
             text-align: left;
+            padding-bottom: 0;
+            display: block;
         }
     }
 
@@ -242,7 +265,7 @@ footer {
         padding-bottom: 20px;
         display: none;
 
-        @media screen and (min-width: $w576) {
+        @media screen and (min-width: $w760) {
             display: block;
         }
     }
@@ -276,7 +299,7 @@ footer {
 
     &__item {
         &:first-child {
-            @media screen and (max-width: $w576) {
+            @media screen and (max-width: $w760) {
                 display: none;
             }
         }
@@ -331,7 +354,7 @@ footer {
             text-align: center;
             margin-top: 32px;
 
-            @media screen and (min-width: $w576) {
+            @media screen and (min-width: $w760) {
                 justify-content: flex-start;
                 text-align: left;
                 margin-top: 0;
@@ -349,9 +372,12 @@ footer {
     padding-top: 11px;
     font-size: 14px;
 
+    @media screen and (min-width: $w992) {
+        padding-top: 132px;
+    }
 
-    @media screen and (min-width: $w576) {
-        padding-top: 103px;
+    @media screen and (min-width: $w760) {
+        padding-top: 35px;
     }
 
     & a {
@@ -363,12 +389,18 @@ footer {
             display: flex;
             align-items: flex-start;
             gap: 16px;
-            flex-direction: column;
+            flex-direction: column-reverse;
             align-items: center;
             text-align: center;
 
-            @media screen and (min-width: $w576) {
+            @media screen and (min-width: $w992) {
                 flex-direction: row;
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            @media screen and (min-width: $w760) {
+                flex-direction: column;
                 align-items: flex-start;
                 text-align: left;
             }
@@ -376,6 +408,7 @@ footer {
 
         &__policy {
             padding-bottom: 12px;
+            white-space: nowrap;
 
             & a {
                 font-size: 15px;
@@ -386,9 +419,29 @@ footer {
             }
         }
 
+        &__rules {
+
+            display: flex;
+            align-items: center;
+            gap: 24px;
+
+            @media screen and (min-width: $w992) {
+                display: block;
+            }
+
+            @media screen and (min-width: $w760) {
+                display: flex;
+                gap: 24px;
+            }
+        }
+
         &__agreement {
-            padding-left: 24px;
+
             font-size: 14px;
+
+            @media screen and (min-width: $w992) {
+                padding-left: 24px;
+            }
         }
 
         &__dev {
@@ -426,7 +479,7 @@ footer {
         margin-top: 32px;
 
 
-        @media screen and (min-width: $w576) {
+        @media screen and (min-width: $w760) {
             margin-top: 0;
             justify-content: flex-start;
         }
@@ -538,4 +591,50 @@ footer {
             }
         }
     }
+}
+
+.show-hide {
+
+    @media screen and (max-width: $w760) {
+        margin-bottom: -28px;
+
+        &::after {
+            content: '';
+            position: relative;
+            top: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+            width: 18px;
+            height: 18px;
+            margin-right: -18px;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: inline-block;
+            transition: 0.3s ease;
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iOSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMS43NjEgMS42OTRMNy41IDcuMjA5bDUuNzM5LTUuNTE1IiBzdHJva2U9IiMwMDkwQzMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+);
+        }
+
+
+
+        &~ul {
+
+            display: none;
+
+        }
+
+        &.is-open {
+
+            margin-bottom: 0;
+
+            &::after {
+                transform: rotate(180deg);
+            }
+
+            &~ul {
+                display: block;
+            }
+        }
+    }
+
+
 }

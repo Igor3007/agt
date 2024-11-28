@@ -58,8 +58,12 @@ $color-bg-green-1: rgba(240, 255, 250, 1);
     font-weight: 600;
     line-height: 100%;
 
-    @media screen and (min-width: $w576) {
+    @media screen and (min-width: $w992) {
         font-size: 30px;
+    }
+
+    @media screen and (min-width: $w576) {
+        font-size: 27px;
     }
 }
 

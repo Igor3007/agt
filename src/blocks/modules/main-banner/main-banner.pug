@@ -5,19 +5,27 @@ mixin main-banner
             {
                 title: 'Спецодежда <br> для профессионалов',
                 desc: 'Комфорт и функциональность <br> топовых брендов Европы и России',
+                img: '/img/common/mb-desktop.jpg',
+                imgNobile: '/img/common/mb-mobile.jpg'
             },
             {
                 title: 'Рассрочка для бизнеса',
                 desc: 'Бизнес и функциональность <br> топовых брендов Европы и России',
+                img: '/img/common/cover_screen.jpg',
+                imgNobile: '/img/common/cover_screen-mobile.jpg'
                 button: 'Перейти',
             },
             {
                 title: 'Промышленным предприятиям',
                 desc: 'Бизнес и функциональность <br> топовых брендов Европы и России',
+                img: '/img/common/dlr2.jpg',
+                imgNobile: '/img/common/dlr2-mobile.jpg'
             },
             {
                 title: 'Торговым партнерам',
                 desc: 'Функциональность топовых брендов Европы и России',
+                img: '/img/common/lines-main-bg.jpg',
+                imgNobile: '/img/common/lines-main-bg-mobile.jpg'
             },
         ]
 
@@ -28,7 +36,7 @@ mixin main-banner
                     .splide(data-slider="main-banner")
                         .splide__track
                             .splide__list
-                                each item in mainbanner
+                                each item, index in mainbanner
                                     .splide__slide
                                         .main-banner__slide
 
@@ -42,7 +50,10 @@ mixin main-banner
 
                                             .main-banner__picture
                                                 picture
-                                                    source(srcset="/img/common/mb-desktop.jpg" type="image/jpeg" media='(min-width: 480px)')
-                                                    img(src="/img/common/mb-mobile.jpg")
+                                                    source(srcset=item.img type="image/jpeg" media='(min-width: 480px)')
+                                                    if(index > 0)
+                                                        img.lazyload(data-src=item.imgNobile  )
+                                                    else
+                                                        img(src=item.imgNobile  )
                 .main-banner__nav(data-mb="nav")
 

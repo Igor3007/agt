@@ -2,6 +2,14 @@
 
     padding: 50px 0;
 
+    @media screen and (min-width: $w992) {
+        padding: 50px 0;
+    }
+
+    @media screen and (min-width: $w760) {
+        padding: 80px 0 40px;
+    }
+
     @media screen and (min-width: $w1440) {
         padding: 96px 0 116px 0;
     }
@@ -37,12 +45,12 @@
         height: 100%;
 
         @media screen and (min-width: $w760) {
-            width: 360px;
+            width: calc(64vw - 24px - 19px);
         }
 
         @media screen and (min-width: $w992) {
             width: calc(33.33vw - 24px - 19px);
-            //max-width: 597px;
+
         }
 
 
@@ -128,6 +136,11 @@
 
     &__title {
         @include font-h2;
+        padding-bottom: 20px;
+
+        @media screen and (min-width: $w992) {
+            padding-bottom: 0;
+        }
     }
 
     &__all {

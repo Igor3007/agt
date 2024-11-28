@@ -32,11 +32,22 @@
         .header__wrp
             .header__logo
                 a(href='/'): +bgimage--nolazy('/img/common/logo.svg')
+
+            .header__catalog
+                div.menu-catalog
+                    a(href='#')
+                        +icons('#ic_catalog')
+                        span Каталог
             
             .header__find
                 input(type="text" placeholder="Найти...")
                 span.find-icon
                     +icons('#ic_find', 40)
+
+            .header__msgr
+                ul
+                    li: a(href='#'): +bgimage--nolazy('/img/icons/ic_wa.svg')
+                    li: a(href='#'): +bgimage--nolazy('/img/icons/ic_tg.svg')
 
             .header__contacts
                 .header-contact
@@ -48,6 +59,7 @@
             .header__actions
                 ul
                     li: a(href='/login.html'): +icons('#ic_user', 40)
+                    li.icon-kp: a(href='/kp.html'): +icons('#ic_kp', 40)
                     li: a(href='/compare.html'): +icons('#ic_compare', 40)
                     li: a(href='/wishlist.html' class="ic_heart"): +icons('#ic_heart', 40)
                     li: a(href='/cart.html'): +icons('#ic_cart', 40)

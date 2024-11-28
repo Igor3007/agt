@@ -143,11 +143,23 @@
         <div class="container">
           <div class="header__wrp">
             <div class="header__logo"><a href="/"><span class="bgimage" style="background-image: url(/img/common/logo.svg)"></span></a></div>
+            <div class="header__catalog">
+              <div class="menu-catalog"><a href="#">
+                  <svg width="24" height="24">
+                    <use xlink:href="/img/sprites/sprite.svg#ic_catalog"></use>
+                  </svg><span>Каталог</span></a></div>
+            </div>
             <div class="header__find">
               <input type="text" placeholder="Найти..."><span class="find-icon">
                 <svg width="40" height="40">
                   <use xlink:href="/img/sprites/sprite.svg#ic_find"></use>
                 </svg></span>
+            </div>
+            <div class="header__msgr">
+              <ul>
+                <li><a href="#"><span class="bgimage" style="background-image: url(/img/icons/ic_wa.svg)"></span></a></li>
+                <li><a href="#"><span class="bgimage" style="background-image: url(/img/icons/ic_tg.svg)"></span></a></li>
+              </ul>
             </div>
             <div class="header__contacts">
               <div class="header-contact">
@@ -164,6 +176,10 @@
                 <li><a href="/login.html">
                     <svg width="40" height="40">
                       <use xlink:href="/img/sprites/sprite.svg#ic_user"></use>
+                    </svg></a></li>
+                <li class="icon-kp"><a href="/kp.html">
+                    <svg width="40" height="40">
+                      <use xlink:href="/img/sprites/sprite.svg#ic_kp"></use>
                     </svg></a></li>
                 <li><a href="/compare.html">
                     <svg width="40" height="40">
@@ -242,7 +258,7 @@
                             </div>
                             <div class="main-banner__picture">
                               <picture>
-                                <source srcset="/img/common/mb-desktop.jpg" type="image/jpeg" media="(min-width: 480px)"><img src="/img/common/mb-mobile.jpg">
+                                <source srcset="/img/common/cover_screen.jpg" type="image/jpeg" media="(min-width: 480px)"><img class="lazyload" data-src="/img/common/cover_screen-mobile.jpg">
                               </picture>
                             </div>
                           </div>
@@ -257,7 +273,7 @@
                             </div>
                             <div class="main-banner__picture">
                               <picture>
-                                <source srcset="/img/common/mb-desktop.jpg" type="image/jpeg" media="(min-width: 480px)"><img src="/img/common/mb-mobile.jpg">
+                                <source srcset="/img/common/dlr2.jpg" type="image/jpeg" media="(min-width: 480px)"><img class="lazyload" data-src="/img/common/dlr2-mobile.jpg">
                               </picture>
                             </div>
                           </div>
@@ -272,7 +288,7 @@
                             </div>
                             <div class="main-banner__picture">
                               <picture>
-                                <source srcset="/img/common/mb-desktop.jpg" type="image/jpeg" media="(min-width: 480px)"><img src="/img/common/mb-mobile.jpg">
+                                <source srcset="/img/common/lines-main-bg.jpg" type="image/jpeg" media="(min-width: 480px)"><img class="lazyload" data-src="/img/common/lines-main-bg-mobile.jpg">
                               </picture>
                             </div>
                           </div>
@@ -319,11 +335,6 @@
                   <div class="tile-catalog__list">
                     <div class="tile-catalog__item"><a href="/categoty.html">
                         <div class="tile-catalog__text">Каталог</div>
-                        <div class="tile-catalog__image">
-                          <picture>
-                            <source srcset="false.webp" type="image/webp"/><img src="false.jpg" loading="lazy" alt="image"/>
-                          </picture>
-                        </div>
                         <div class="tile-catalog__arrow">
                           <svg width="40" height="40">
                             <use xlink:href="/img/sprites/sprite.svg#ic_arr-right"></use>
@@ -1692,7 +1703,7 @@
                   </ul>
                 </div>
                 <div class="footer__col">
-                  <div class="footer__label">Информация</div>
+                  <div class="footer__label show-hide">Информация</div>
                   <ul>
                     <li><a href="#">Как купить</a></li>
                     <li><a href="#">Возврат товара</a></li>
@@ -1702,7 +1713,7 @@
                   </ul>
                 </div>
                 <div class="footer__col">
-                  <div class="footer__label">Компания</div>
+                  <div class="footer__label show-hide">Компания</div>
                   <ul>
                     <li><a href="#">О компании</a></li>
                     <li><a href="#">Наши магазины</a></li>

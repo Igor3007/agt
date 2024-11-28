@@ -39,7 +39,7 @@
 
         & picture {
 
-            @include picture(132%, contain);
+            @include picture(135%, contain);
             background-color: #F2F6F9;
             border-radius: 8px;
 
@@ -86,7 +86,7 @@
         }
 
         & span {
-            font-size: 12px;
+            font-size: 10px;
             font-weight: 600;
             text-transform: uppercase;
             background-color: #fff;
@@ -259,7 +259,7 @@
 
     &__desc {
         padding-bottom: 10px;
-        min-height: 85px;
+        min-height: 89px;
         flex-grow: 1;
 
         & span {

@@ -2,6 +2,10 @@
     padding: 40px 0;
 
     @media screen and (min-width: $w760) {
+        padding: 64px 0;
+    }
+
+    @media screen and (min-width: $w1200) {
         padding: 87px 0;
     }
 }

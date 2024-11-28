@@ -23,6 +23,10 @@
             padding-bottom: 0;
         }
 
+        @media screen and (min-width: $w760) {
+            padding-bottom: 60px;
+        }
+
         @media screen and (min-width: $w992) {
             width: calc(22% - 12px);
 
@@ -30,6 +34,12 @@
             flex-direction: column;
             justify-content: space-between;
         }
+    }
+
+    &__bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
     }
 
     &__right {
@@ -67,12 +77,15 @@
     }
 
     &__city {
-        font-size: 21px;
+        font-size: 17px;
         font-weight: 600;
         color: var(--accent);
         padding-bottom: 25px;
-
         text-align: center;
+
+        @media screen and (min-width: $w992) {
+            font-size: 21px;
+        }
 
         @media screen and (min-width: $w576) {
             text-align: left;

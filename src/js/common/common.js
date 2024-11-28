@@ -347,6 +347,28 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 return ` <span>${data.text}</span> `
             }
 
+            scrollToElem(elem, container) {
+                var rect = elem.getBoundingClientRect();
+                var rectContainer = container.getBoundingClientRect();
+
+                let elemOffset = {
+                    top: rect.top + document.body.scrollTop,
+                    left: rect.left + document.body.scrollLeft
+                }
+
+                let containerOffset = {
+                    top: rectContainer.top + document.body.scrollTop,
+                    left: rectContainer.left + document.body.scrollLeft
+                }
+
+                let leftPX = elemOffset.left - containerOffset.left + container.scrollLeft - (container.offsetWidth / 2) + ((elem.offsetWidth + 0) / 2)
+
+                container.scrollTo({
+                    left: leftPX,
+                    behavior: 'smooth'
+                });
+            }
+
             createPagination() {
 
                 let ulContainer = document.createElement('ul')
@@ -377,12 +399,18 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 this.navСontainer.querySelectorAll('li').forEach((item, i) => {
                     !item.classList.contains('is-active') || item.classList.remove('is-active')
 
-                    if (i == index) item.classList.add('is-active')
+                    if (i == index) {
+                        this.scrollToElem(item, this.navСontainer)
+                        item.classList.add('is-active')
+                    }
                 })
+
+
             }
         }
 
         const mainbanner = new Splide('[data-slider="main-banner"]', {
+            type: 'fade',
             arrows: false,
             pagination: false,
             start: 0,
@@ -475,7 +503,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
                     992: {
                         perMove: 2,
-                        perPage: 3,
+                        perPage: 2.6,
                     },
 
                     576: {
@@ -656,13 +684,18 @@ document.addEventListener('DOMContentLoaded', function (event) {
             start: 0,
             perPage: 1,
             perMove: 1,
-            gap: 112,
+            gap: 24,
 
             breakpoints: {
 
                 1400: {
-                    gap: 0
+                    gap: 112
                 },
+
+                1400: {
+                    gap: 60
+                },
+
 
 
 
@@ -801,6 +834,18 @@ document.addEventListener('DOMContentLoaded', function (event) {
         }
 
     })
+
+    /* =================================
+    show-more
+    =================================*/
+
+    if (document.querySelector('.footer__label.show-hide')) {
+        document.querySelectorAll('.footer__label.show-hide').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('is-open')
+            })
+        })
+    }
 
     // remove worktime
     if (document.querySelector('.header-top__worktime')) {

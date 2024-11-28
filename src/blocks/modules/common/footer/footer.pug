@@ -16,14 +16,14 @@ include ../../common/main-menu/main-menu.pug
                         .form__item
                             .form__subitem
                                 .form__note
-                                    +checkbox('Даю согласие на получение информационных рассылок')
+                                    +checkbox('Даю согласие на получение информационных рассылок', true, true)
 
 
 .footer  
     .container 
         .footer__row.footer--top
             .footer__left
-                .footer__logo: +bgimage('/img/common/logo.svg')
+                .footer__logo: a(href='/'): +bgimage('/img/common/logo.svg')
                 .footer__sl Спецодежда для профессионалов
             .footer__right
                 .footer__email: a(href='email:zakaz@ag-technologies.ru') zakaz@ag-technologies.ru
@@ -69,11 +69,11 @@ include ../../common/main-menu/main-menu.pug
                         .footer-store__list
                             .footer-store__item
                                 .footer-store__city Москва
-                                .footer-store__tel: a(href='#')  +7 499 703 30 58
+                                .footer-store__tel: a(href='tel:+74997033058')  +7 499 703 30 58
                                 .footer-store__desc ул. Малая Калитниковская, д. 9
                             .footer-store__item
                                 .footer-store__city Санкт-Петербург
-                                .footer-store__tel: a(href='#')  +7 812 309 80 28
+                                .footer-store__tel: a(href='tel:+78123098028')  +7 812 309 80 28
                                 .footer-store__desc 
                                     | ул. Егорова, 25 <br>
                                     | ст. м. Технологический институт или ст. м. Фрунзенская

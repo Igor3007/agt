@@ -61,6 +61,10 @@
         }
     }
 
+    &__btn {
+        padding-top: 24px
+    }
+
     &__picture {
         @include layer(1);
 

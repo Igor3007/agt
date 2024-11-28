@@ -24,11 +24,11 @@ mixin company-about
 
                     .company-about__tile
                         .company-tile
-                            .company-tile__item: +tile-about('Выездная <br> примерка')
-                            .company-tile__item: +tile-about('Образцы <br> на тест')
-                            .company-tile__item: +tile-about('Индивидуальный <br> подход')
-                            .company-tile__item: +tile-about('Онлайн <br> показ')
-                            .company-tile__item
+                            a(href="/services.html").company-tile__item: +tile-about('Выездная <br> примерка')
+                            a(href="/services.html").company-tile__item: +tile-about('Образцы <br> на тест')
+                            a(href="/services.html").company-tile__item: +tile-about('Индивидуальный <br> подход')
+                            a(href="/services.html").company-tile__item: +tile-about('Онлайн <br> показ')
+                            a(href="/services.html").company-tile__item
                                 .tile-lg-about
                                     .tile-lg-about__title Нанесение <br> логотипа
                                     .tile-lg-about__image

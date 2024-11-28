@@ -607,6 +607,47 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     if (document.querySelector('[data-slider="review"]')) {
 
+        class BuilderVideo {
+            constructor(el) {
+                this.$el = el
+                this.button = this.$el.querySelector('[data-rv="play"]')
+                this.file = this.$el.querySelector('[data-rv="file"]')
+                this.isplay = false;
+                this.init()
+            }
+
+            init() {
+                this.addEvents()
+            }
+
+            playVideo() {
+                this.file.play()
+                //this.file.setAttribute('controls', true)
+                this.isplay = true;
+                this.$el.classList.add('is-play')
+            }
+
+            pauseVideo() {
+
+                this.file.removeAttribute('controls')
+                this.isplay = false;
+                this.$el.classList.remove('is-play')
+            }
+
+            addEvents() {
+                this.button.addEventListener('click', () => {
+                    if (!this.isplay) {
+                        this.playVideo()
+                    } else {
+                        this.pauseVideo()
+                    }
+                })
+                this.file.addEventListener('pause', () => this.pauseVideo())
+            }
+        }
+
+        document.querySelectorAll('[data-rv="el"]').forEach(el => new BuilderVideo(el))
+
         const SliderReview = new Splide('[data-slider="review"]', {
             arrows: true,
             arrowPath: SLIDER_ARROW_PATH,
@@ -760,6 +801,34 @@ document.addEventListener('DOMContentLoaded', function (event) {
         }
 
     })
+
+    // remove worktime
+    if (document.querySelector('.header-top__worktime')) {
+        const el = document.querySelector('.header-top__worktime')
+
+        el.querySelector('svg').addEventListener('click', e => el.remove())
+    }
+
+    //copy email
+
+    if (document.querySelector('.copy-field')) {
+        document.querySelectorAll('.copy-field').forEach(el => {
+            el.addEventListener('click', e => {
+                e.preventDefault()
+
+                navigator.clipboard.writeText(e.target.closest('a').innerText)
+                    .then(() => {
+                        window.STATUS.msg('Скопировано в буфер обмена!')
+                    })
+                    .catch(err => {
+                        console.log('Something went wrong', err);
+                    });
+
+            })
+        })
+    }
+
+
 
 
 }); //dcl

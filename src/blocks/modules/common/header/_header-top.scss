@@ -99,6 +99,10 @@
                 font-style: normal;
                 font-weight: 600;
                 line-height: 108.333%;
+
+                &:hover {
+                    color: var(--accent);
+                }
             }
         }
     }
@@ -120,6 +124,10 @@
                 & a {
                     display: flex;
                     align-items: center;
+
+                    &:hover {
+                        opacity: 0.8;
+                    }
                 }
 
 
@@ -147,7 +155,16 @@
             fill: #fff;
             width: 20px;
             height: 20px;
+            cursor: pointer;
+
+            &:hover {
+
+                fill: var(--accent);
+
+            }
         }
+
+
     }
 
     &__location {
@@ -155,12 +172,19 @@
         align-items: center;
         font-size: 13px;
         font-weight: 500;
+        cursor: pointer;
 
         & svg {
             margin-left: 6px;
             fill: #fff;
             width: 20px;
             height: 20px;
+        }
+
+        &:hover {
+            & svg {
+                fill: var(--accent);
+            }
         }
     }
 }

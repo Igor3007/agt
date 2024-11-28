@@ -28,4 +28,4 @@ mixin top-brands
                             .splide__list
                                 each item in brands
                                     .splide__slide
-                                        +bgimage(item)
+                                        a(href='/brand.html'): +bgimage(item)

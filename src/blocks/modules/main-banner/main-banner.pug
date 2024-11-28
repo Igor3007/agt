@@ -9,6 +9,7 @@ mixin main-banner
             {
                 title: 'Рассрочка для бизнеса',
                 desc: 'Бизнес и функциональность <br> топовых брендов Европы и России',
+                button: 'Перейти',
             },
             {
                 title: 'Промышленным предприятиям',
@@ -35,6 +36,9 @@ mixin main-banner
                                                 .container
                                                     .main-banner__title!= item.title
                                                     .main-banner__desc!= item.desc
+                                                    if item.button
+                                                        .main-banner__btn
+                                                            a(href='#'): button.btn= item.button
 
                                             .main-banner__picture
                                                 picture

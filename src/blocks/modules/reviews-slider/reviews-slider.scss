@@ -52,14 +52,37 @@
         max-width: 635px;
     }
 
+    &__more {
+        font-size: 14px;
+        color: var(--accent);
+        font-family: Montserrat;
+        cursor: pointer;
+        padding-bottom: 16px;
+        margin-top: -16px;
 
+        @media screen and (min-width: $w480) {
+            color: rgba(0, 0, 0, 0.445);
+        }
+
+        &:hover {
+            color: var(--accent);
+        }
+    }
 
     &__text {
         font-size: 15px;
         padding-bottom: 40px;
+        font-family: var(--font-montserrat);
+        line-height: 168%;
 
         & span {
             @include line-clamp(5);
+        }
+
+        &:not(.crop--text) {
+            & span {
+                -webkit-line-clamp: unset;
+            }
         }
     }
 
@@ -95,9 +118,7 @@
 
         &.is-play {
 
-            width: 220px;
-            min-width: 220px;
-            margin-right: -40px;
+
 
             & .item-review {
                 &__preview {

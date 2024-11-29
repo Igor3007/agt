@@ -684,7 +684,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             start: 0,
             perPage: 1,
             perMove: 1,
-            gap: 24,
+            gap: 112,
 
             breakpoints: {
 
@@ -694,10 +694,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
                 1400: {
                     gap: 60
-                },
-
-
-
+                }
 
             },
 
@@ -706,6 +703,34 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 
         SliderReview.mount();
+
+        //dsdds
+
+        let countChars = document.body.clientWidth > 576 ? 500 : 150
+
+        document.querySelectorAll('.item-review__text').forEach(item => {
+            if (item.innerText.length > countChars) {
+                item.classList.add('crop--text')
+
+                let showButton = document.createElement('div')
+                showButton.classList.add('item-review__more')
+                showButton.innerText = 'Читать полностью'
+
+                showButton.addEventListener('click', e => {
+                    if (item.classList.contains('crop--text')) {
+                        item.classList.remove('crop--text')
+                        showButton.innerText = 'Cвернуть'
+                    } else {
+                        item.classList.add('crop--text')
+                        showButton.innerText = 'Читать полностью'
+                    }
+                })
+
+                item.after(showButton)
+            }
+        })
+
+
     }
 
 
@@ -835,7 +860,18 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     })
 
-<<<<<<< HEAD
+    /* =================================
+    show-more
+    =================================*/
+
+    if (document.querySelector('.footer__label.show-hide')) {
+        document.querySelectorAll('.footer__label.show-hide').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('is-open')
+            })
+        })
+    }
+
     // remove worktime
     if (document.querySelector('.header-top__worktime')) {
         const el = document.querySelector('.header-top__worktime')
@@ -858,24 +894,131 @@ document.addEventListener('DOMContentLoaded', function (event) {
                         console.log('Something went wrong', err);
                     });
 
-=======
-    /* =================================
-    show-more
-    =================================*/
-
-    if (document.querySelector('.footer__label.show-hide')) {
-        document.querySelectorAll('.footer__label.show-hide').forEach(item => {
-            item.addEventListener('click', () => {
-                item.classList.toggle('is-open')
->>>>>>> 559092edd5f1ff694911150a7d20d35c4ff7beeb
             })
         })
     }
 
-<<<<<<< HEAD
+    /* ===========================================
+    Video
+    =========================================== */
+
+    if (document.querySelectorAll('[data-video], [data-youtube]').length) {
+
+        function patternsIframe() {
+
+            var $start = 0;
+            var $iframe = {
 
 
-=======
->>>>>>> 559092edd5f1ff694911150a7d20d35c4ff7beeb
+                youtube: {
+                    index: 'youtu',
+                    id: function (url) {
+
+                        var m = url.match(/^.*(?:youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/);
+                        if (!m || !m[1]) return null;
+
+                        if (url.indexOf('t=') != -1) {
+
+                            var $split = url.split('t=');
+                            var hms = $split[1].replace('h', ':').replace('m', ':').replace('s', '');
+                            var a = hms.split(':');
+
+                            if (a.length == 1) {
+
+                                $start = a[0];
+
+                            } else if (a.length == 2) {
+
+                                $start = (+a[0]) * 60 + (+a[1]);
+
+                            } else if (a.length == 3) {
+
+                                $start = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
+
+                            }
+                        }
+
+                        var suffix = '?autoplay=1';
+
+                        if ($start > 0) {
+
+                            suffix = '?start=' + $start + '&autoplay=1';
+                        }
+
+                        return m[1] + suffix;
+                    },
+                    src: '//www.youtube.com/embed/%id%'
+                },
+
+                vimeo: {
+                    index: 'vimeo.com/',
+                    id: function (url) {
+                        var m = url.match(/(https?:\/\/)?(www.)?(player.)?vimeo.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/);
+                        if (!m || !m[5]) return null;
+                        return m[5];
+                    },
+                    src: '//player.vimeo.com/video/%id%?autoplay=1&volume=10'
+                },
+
+                kinescope: {
+                    index: 'kinescope.io/',
+                    id: function (url) {
+                        var m = url.match(/io\/([^"]*)/);
+                        if (!m || !m[1]) return null;
+                        return m[1];
+                    },
+
+                    src: 'https://kinescope.io/embed/%id%',
+                    allow: 'autoplay'
+                }
+
+            };
+
+            return $iframe;
+
+        }
+
+        document.querySelectorAll('[data-youtube]').forEach(item => {
+            item.addEventListener('click', e => {
+
+                if (!item.dataset.youtube || !item.dataset.youtube.length) return false;
+
+                const patterns = patternsIframe()
+                const id = patterns.youtube.id(item.dataset.youtube)
+
+                const popup = new afLightbox()
+
+                popup.open(
+                    `<div class="player-embed" >
+                        <div class = "player-embed__iframe">
+                            <iframe allowfullscreen="" src="${patterns.youtube.src.replace('%id%', id)}"></iframe>
+                        </div>
+                    </div>`
+                )
+
+            })
+        })
+
+        document.querySelectorAll('[data-video]').forEach(item => {
+            item.addEventListener('click', e => {
+
+                if (!item.dataset.video || !item.dataset.video.length) return false;
+
+                const popup = new afLightbox()
+
+                popup.open(
+                    `<div class="player-embed" >
+                        <div class = "player-embed__video">
+                            <video src="${item.dataset.video}" autoplay="true" controls="true" ></video>
+                        </div>
+                    </div>`
+                )
+
+            })
+        })
+    }
+
+
+
 
 }); //dcl

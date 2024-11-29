@@ -132,3 +132,53 @@
 #status_btn {
     opacity: 1;
 }
+
+.player-embed {
+    width: 130vh;
+    background-color: var(--black);
+    margin: -10px;
+    max-width: calc(100% + 20px);
+
+    &__iframe {
+        padding-top: 60%;
+        background: var(--black);
+        position: relative;
+        max-width: 100%;
+
+        & iframe {
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            top: 0;
+            border: none;
+        }
+
+    }
+
+    &__video {
+        padding-top: 60%;
+        background: var(--black);
+        position: relative;
+        max-width: 100%;
+
+        & video {
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            top: 0;
+            border: none;
+        }
+
+    }
+
+    &__desc {
+        color: #fff;
+        padding: 15px 17px;
+    }
+}

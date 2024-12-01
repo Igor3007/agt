@@ -1750,8 +1750,17 @@ template {
 .btn.btn-small {
   height: 40px;
   font-size: 14px;
-  padding: 0.7em 2.5em 0.8em 2.5em;
-  border-radius: 8px;
+  padding: 0.7em 1.5em 0.8em 1.5em;
+}
+
+.btn.btn-gray {
+  background-color: #F2F6F9;
+  color: #000;
+}
+
+.btn.btn-gray:hover {
+  background-color: var(--accent);
+  color: #fff;
 }
 
 .btn.btn-xsmall {
@@ -6097,6 +6106,269 @@ footer {
   fill: var(--red);
 }
 
+.select-region__window {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0000007a;
+  display: none;
+  box-shadow: 0px 4px 51.5px 0px rgba(0, 0, 0, 0.21);
+}
+
+.select-region__content {
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  animation: 0.2s ease 0.2s both fade-drop-filter;
+  left: 0;
+  width: 100%;
+  height: 80vh;
+  bottom: 0;
+  top: auto;
+  border-radius: 12px 12px 0 0;
+}
+
+.select-region__popup {
+  background-color: #fff;
+  padding: 28px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 54;
+  box-shadow: 0px 4px 51.5px 0px rgba(0, 0, 0, 0.21);
+  display: none;
+}
+
+@keyframes show-popup-region {
+  from {
+    transform: translateY(-10px) translateX(-50%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0) translateX(-50%);
+    opacity: 1;
+  }
+}
+
+.select-region.is-open-popup .select-region__popup {
+  display: block;
+  animation: show-popup-region 0.6s ease forwards;
+}
+
+@keyframes slide-x {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.select-region.is-open-window .select-region__window {
+  display: block;
+}
+
+@keyframes hide-slide {
+  to {
+    transform: translateX(100%);
+    transition: 0.3s ease;
+    opacity: 0;
+  }
+}
+
+@keyframes hide-slide-bottom {
+  to {
+    transform: translateY(100%);
+    transition: 0.3s ease;
+    opacity: 0;
+  }
+}
+
+.select-region__content.is-close-animate {
+  animation: hide-slide-bottom 0.3s ease forwards;
+}
+
+.pane-selectcity {
+  position: absolute;
+  z-index: 3;
+  background-color: #fff;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 24px 24px 24px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  overflow-x: hidden;
+  border-radius: 12px;
+}
+
+.pane-selectcity__result li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.pane-selectcity__result li:hover {
+  color: var(--accent);
+}
+
+.pane-selectcity__close {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.pane-selectcity__close span {
+  min-width: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: rotate(45deg);
+}
+
+.pane-selectcity__close span:hover {
+  opacity: 1;
+}
+
+.pane-selectcity__title {
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 28px;
+  padding-bottom: 34px;
+}
+
+.pane-selectcity__find {
+  padding-bottom: 24px;
+  background-color: #fff;
+}
+
+.pane-selectcity__find input {
+  width: 100%;
+  background-color: #F2F6F9;
+  border: none;
+  height: 60px;
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.pane-selectcity__fast ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -16px;
+  padding-bottom: 28px;
+}
+
+.pane-selectcity__fast ul li span {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 106.5%;
+  cursor: pointer;
+  font-family: var(--font-montserrat);
+}
+
+.pane-selectcity__fast ul li span:hover {
+  color: var(--accent);
+}
+
+.pane-selectcity__list {
+  columns: 2;
+}
+
+.pane-selectcity__item {
+  padding-bottom: 15px;
+  break-inside: avoid;
+}
+
+.pane-selectcity__item-letter {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 127.273%;
+  padding-bottom: 19px;
+}
+
+.pane-selectcity__item-list li {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 106.5%;
+  padding-bottom: 20px;
+  cursor: pointer;
+  font-family: var(--font-montserrat);
+}
+
+.pane-selectcity__item-list li:hover {
+  color: var(--accent);
+}
+
+.region-popup {
+  background: #FFF;
+}
+
+.region-popup__title {
+  display: flex;
+  padding-bottom: 12px;
+  justify-content: space-between;
+}
+
+.region-popup__name span {
+  font-weight: bold;
+}
+
+.region-popup__buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.region-popup__close {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.region-popup__close span {
+  min-width: 10px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: rotate(45deg);
+}
+
+.region-popup__close span:hover {
+  opacity: 1;
+}
+
 /* common styles */
 
 .splide__arrow {
@@ -6380,6 +6652,23 @@ footer {
 
   .minicard__tofav {
     display: none;
+  }
+
+  .select-region__content {
+    left: auto;
+    width: 418px;
+    height: 100vh;
+    top: 0;
+    animation: slide-x 0.3s ease forwards;
+    border-radius: 0;
+  }
+
+  .select-region__content.is-close-animate {
+    animation: hide-slide 0.3s ease forwards;
+  }
+
+  .pane-selectcity {
+    border-radius: 0;
   }
 }
 
@@ -7486,6 +7775,10 @@ footer {
   .news-slider__title {
     font-size: 30px;
   }
+
+  .pane-selectcity {
+    padding: 24px 30px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -7643,6 +7936,10 @@ footer {
   .news-slider__all a {
     font-size: 15px;
   }
+
+  .pane-selectcity {
+    padding: 32px 40px;
+  }
 }
 
 @media screen and (min-width: 1510.98px) {
@@ -7689,6 +7986,21 @@ footer {
 
   .news-slider .splide__track {
     overflow: visible;
+  }
+
+  .pane-selectcity::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 24px;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+  }
+
+  .pane-selectcity__find {
+    position: sticky;
+    top: 24px;
   }
 }
 

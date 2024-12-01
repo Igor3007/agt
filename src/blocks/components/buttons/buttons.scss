@@ -126,8 +126,17 @@
     &.btn-small {
         height: 40px;
         font-size: 14px;
-        padding: 0.7em 2.5em 0.8em 2.5em;
-        border-radius: 8px;
+        padding: 0.7em 1.5em 0.8em 1.5em;
+    }
+
+    &.btn-gray {
+        background-color: #F2F6F9;
+        color: #000;
+
+        &:hover {
+            background-color: var(--accent);
+            color: #fff;
+        }
     }
 
     &.btn-xsmall {

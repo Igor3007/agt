@@ -1,0 +1,37 @@
+mixin pane-selectcity 
+    .pane-selectcity
+        .pane-selectcity__close(data-sr="close-window"): span.icon-cross
+        .pane-selectcity__title Выбор города 
+        .pane-selectcity__find
+            input(type="text" placeholder="Укажите свой город")
+        .pane-selectcity__fast
+            ul
+                li: span Москва
+                li: span Санкт-Петербург
+                li: span Екатеринбург
+                li: span Новосибирск
+        .pane-selectcity__list
+            each item in [1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+                .pane-selectcity__item
+                    .pane-selectcity__item-letter A
+                    .pane-selectcity__item-list
+                        ul
+                            li: span Абакан (1)
+                            li: span Абакан (1)
+
+mixin select-region
+    .select-region
+        .select-region__popup(data-sr="popup")
+            .region-popup
+                .region-popup__title
+                    .region-popup__name Ваш город - <span>Москва</span>?
+                    .region-popup__close
+                        span.icon-cross
+                .region-popup__buttons
+                    button.btn.btn-small(data-sr="close-popup") Да, верно
+                    button.btn.btn-small.btn-gray(data-sr="open-window") Нет, другой
+
+        .select-region__window(data-sr="window")
+            .select-region__content(data-sr="content")
+              
+

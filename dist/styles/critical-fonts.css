@@ -60,4 +60,11 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url("/fonts/montserrat/subset-Montserrat-Medium.woff2") format("woff2"), url("/fonts/montserrat/subset-Montserrat-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
 /*# sourceMappingURL=maps/critical-fonts.css.map */

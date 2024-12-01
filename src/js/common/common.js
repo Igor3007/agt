@@ -1018,6 +1018,325 @@ document.addEventListener('DOMContentLoaded', function (event) {
         })
     }
 
+    /* ====================================================
+     SelectRegion  
+    ====================================================*/
+
+    class MapFilter {
+        constructor(params) {
+            this.$el = document.querySelector(params.el) || document
+            this.shopList = this.$el.querySelector('[data-shop="list"]')
+            this.content = this.$el.querySelector('[data-sr="content"]')
+
+            this.selectCity = this.$el.querySelector('[data-filter="select-city"]')
+            this.elWindow = this.$el.querySelector('[data-sr="window"]')
+            this.elPopup = this.$el.querySelector('[data-sr="popup"]')
+            this.btnSelectRegion = this.$el.querySelector('[data-sr="open-window"]')
+
+            this.btnOpenPopup = this.$el.querySelector('[data-sr="open-popup"]')
+            this.btnClosePopup = this.$el.querySelector('[data-sr="close-popup"]')
+            this.data = null
+            this.paneSelectCity = null
+            this.inputFind = '';
+
+
+            this.init()
+        }
+
+        init() {
+            this.addEvents()
+            this.$el.classList.add('is-open-popup')
+
+
+        }
+
+        fetchData(callback) {
+            let url = '/json/cities.json';
+
+            fetch(url, {
+                    method: 'GET',
+                })
+                .then(async response => await response.json())
+                .then((data) => {
+                    this.data = JSON.parse(JSON.stringify(data))
+                    callback(this.data);
+                });
+        }
+
+        getTemplateSelectCity(data) {
+
+            console.log(data)
+
+            function getCity(array) {
+                array = Array.from(array)
+                let str = ''
+                for (let key in array) {
+                    str += `<li data-name="${array[key]['name']}" ><span>${array[key]['name']} </span></li>`
+                }
+                return str
+            }
+
+            function getCountCity(data) {
+                let i = 0
+                for (let key in data) {
+                    i += data[key].data.size
+                }
+                return i
+            }
+
+            let items = ''
+
+            for (let key in data) {
+
+                items += `<div class="pane-selectcity__item">
+                            <div class="pane-selectcity__item-letter">${key}</div>
+                            <div class="pane-selectcity__item-list">
+                            <ul>  ${getCity(data[key]['city'])} </ul>
+                            </div>
+                        </div>`
+            }
+
+            return `
+                <div class="pane-selectcity">
+                    <div class="pane-selectcity__close"><span class="icon-cross"></span></div>
+                    <div class="pane-selectcity__title">Выбор города</div>
+
+                    <div class="pane-selectcity__find">
+                        <input type="text" data-filter="find-city" placeholder="Укажите свой город">
+                    </div>
+
+                    <div class="pane-selectcity__fast">
+                        <ul>
+                            <li><span>Москва</span></li>
+                            <li><span>Санкт-Петербург</span></li>
+                            <li><span>Екатеринбург</span></li>
+                            <li><span>Новосибирск</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="pane-selectcity__list">
+                        ${items}
+                    </div>
+                </div>
+            `;
+        }
+
+        getTemplateMessage(data) {
+            return `<div class="map-filter__message" >${data.msg}</div>`
+        }
+
+        getArrayCity() {
+            var complexArr = {};
+            var firstLetter = '';
+
+            this.data.sort(function (a, b) {
+                if (a.name < b.name) {
+                    return -1;
+                }
+                if (a.name > b.name) {
+                    return 1;
+                }
+                // если имена равны
+                return 0;
+            });
+
+            this.data.forEach((item, index) => {
+
+                firstLetter = String(item.name).charAt(0)
+
+                if (typeof complexArr[firstLetter] === 'undefined') {
+
+                    complexArr[firstLetter] = {
+                        name: item.name,
+                        data: new Set(),
+                        city: [{
+                            name: item.name,
+                            count: 1
+                        }]
+                    }
+
+                    complexArr[firstLetter]['data'].add(item.name)
+
+                } else {
+                    complexArr[firstLetter]['data'].add(item.name)
+
+                    if (typeof complexArr[firstLetter]['city'].find(c => c.name == item.name) === 'undefined') {
+                        complexArr[firstLetter]['city'].push({
+                            name: item.name,
+                            count: 1
+                        })
+                    } else {
+                        complexArr[firstLetter]['city'].find(c => c.name == item.name).count++
+                    }
+
+                }
+
+
+            })
+
+
+
+
+            return complexArr;
+        }
+
+        openSelectCity() {
+
+            if (this.paneSelectCity != null) return false
+
+            this.paneSelectCity = document.createElement('div')
+            this.paneSelectCity.classList.add('pane')
+            this.paneSelectCity.innerHTML = this.getTemplateSelectCity(this.getArrayCity())
+
+            this.paneSelectCity.querySelector('.pane-selectcity__close').addEventListener('click', e => {
+                this.closeSelectCity()
+            })
+
+            this.addEventsFindCity(this.paneSelectCity)
+
+            this.content.append(this.paneSelectCity)
+        }
+
+        getAllCity() {
+            let uniq = new Set()
+            this.data.forEach(item => {
+                uniq.add(item.name)
+            })
+
+            let arr = Array.from(uniq)
+
+            arr.sort((a, b) => {
+                const startsWithM_a = a.toLowerCase().startsWith(this.inputFind.toLowerCase().substr(0, 2));
+                const startsWithM_b = b.toLowerCase().startsWith(this.inputFind.toLowerCase().substr(0, 2));
+
+                if (startsWithM_a && !startsWithM_b) {
+                    return -1;
+                }
+                if (!startsWithM_a && startsWithM_b) {
+                    return 1;
+                }
+                return a.localeCompare(b);
+            });
+
+            return arr
+        }
+
+        addEventsFindCity(paneSelectCity) {
+
+            paneSelectCity.querySelector('[data-filter="find-city"]').addEventListener('keyup', (e) => {
+
+                this.inputFind = e.target.value
+
+                let ul = document.createElement('ul')
+                let list = this.paneSelectCity.querySelector('.pane-selectcity__list')
+
+                if (e.target.value) {
+
+                    let ul = document.createElement('ul')
+                    ul.classList.add('pane-selectcity__result')
+
+                    this.getAllCity().forEach(item => {
+                        if (item.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {
+                            let li = document.createElement('li')
+                            li.innerHTML = item
+                            ul.append(li)
+                            li.addEventListener('click', e => this.selectedCity(item))
+                        }
+                    })
+
+                    list.classList.add('hide')
+
+                    if (this.paneSelectCity.querySelector('.pane-selectcity__result')) {
+                        this.paneSelectCity.querySelector('.pane-selectcity__result').remove()
+                    }
+
+                    this.paneSelectCity.querySelector('.pane-selectcity').append(ul)
+
+                    if (!ul.childNodes.length) {
+                        ul.innerHTML = this.getTemplateMessage({
+                            msg: 'Увы, такого города не нашлось :('
+                        })
+                    }
+
+                } else {
+                    if (this.paneSelectCity.querySelector('.pane-selectcity__result')) {
+                        this.paneSelectCity.querySelector('.pane-selectcity__result').remove()
+                    }!list.classList.contains('hide') || list.classList.remove('hide')
+                }
+
+            })
+        }
+
+        closeSelectCity() {
+            if (this.paneSelectCity) {
+                this.content.classList.add('is-close-animate')
+                document.body.classList.remove('page-hidden')
+                setTimeout(() => {
+                    this.paneSelectCity.remove()
+                    this.paneSelectCity = null
+                    this.$el.classList.remove('is-open-window')
+                    this.content.classList.remove('is-close-animate')
+                }, 400)
+            }
+
+        }
+
+        renderList() {
+            this.fetchData((response) => {
+
+                this.openSelectCity()
+
+            })
+        }
+
+        selectedCity(city) {
+
+            console.log(city)
+
+            this.closeSelectCity()
+        }
+
+        openWindow() {
+            this.$el.classList.add('is-open-window')
+            this.renderList()
+            document.body.classList.add('page-hidden')
+        }
+
+        addEvents() {
+
+            this.btnSelectRegion.addEventListener('click', () => {
+                this.openWindow()
+            })
+
+            this.btnClosePopup.addEventListener('click', () => {
+                this.$el.classList.remove('is-open-popup')
+            })
+
+
+
+
+            this.$el.addEventListener('click', e => {
+
+                if (e.target.closest('.pane-selectcity__item-list li span')) {
+                    this.selectedCity(e.target.closest('.pane-selectcity__item-list li').dataset.name)
+                }
+
+                if (e.target.closest('.pane-selectcity__fast li span')) {
+                    this.selectedCity(e.target.closest('.pane-selectcity__fast li span').innerText)
+                }
+
+            })
+        }
+
+    }
+
+    if (document.querySelector('.select-region')) {
+        window.mapfilter = new MapFilter({
+            el: '.select-region'
+        })
+
+    }
+
 
 
 

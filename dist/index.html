@@ -89,6 +89,13 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url("/fonts/montserrat/subset-Montserrat-Medium.woff2") format("woff2"), url("/fonts/montserrat/subset-Montserrat-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
 /*# sourceMappingURL=maps/critical-fonts.css.map */
 
     </style>
@@ -1741,6 +1748,23 @@
                 <div class="main-menu__links" data-menu="links"></div>
                 <div class="main-menu__top" data-menu="top"></div>
                 <div class="main-menu__contacts" data-menu="contacts"></div>
+              </div>
+            </div>
+            <div class="select-region">
+              <div class="select-region__popup" data-sr="popup">
+                <div class="region-popup">
+                  <div class="region-popup__title">
+                    <div class="region-popup__name">Ваш город - <span>Москва</span>?</div>
+                    <div class="region-popup__close"><span class="icon-cross"></span></div>
+                  </div>
+                  <div class="region-popup__buttons">
+                    <button class="btn btn-small" data-sr="close-popup">Да, верно</button>
+                    <button class="btn btn-small btn-gray" data-sr="open-window">Нет, другой</button>
+                  </div>
+                </div>
+              </div>
+              <div class="select-region__window" data-sr="window">
+                <div class="select-region__content" data-sr="content"></div>
               </div>
             </div>
     </footer>

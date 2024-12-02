@@ -1,0 +1,89 @@
+include ./parts.pug
+
+mixin category-filter
+    .category-filter(data-filter-container="catalog")
+        .category-filter__head
+            .category-filter__head-title Фильтр
+            
+
+        .category-filter__wrp
+            form(action='#' method='POST')
+                .category-filter__props
+
+                    .category-filter__item: +prop-range()
+                   
+                    .category-filter__item: +prop-checkbox({
+                        title: 'Раздел',
+                        checkbox: [
+                            'Куртки',
+                            'Брюки',
+                            'Футболки',
+                            'Костюмы',
+                            'Кофты',
+                            'Куртки',
+                            'Брюки',
+                            'Футболки',
+                            'Костюмы',
+                            'Кофты',
+                        ]
+                    })
+
+                    
+
+                    
+
+                    .category-filter__item: +prop-color({
+                        title: 'Цвет',
+                        colors: [
+                            {hex: '#fff', name: 'Белый'}, 
+                            {hex: '#1A42D0', name: 'Синий'}, 
+                            {hex: '#D01A67', name: 'Красный'}, 
+                            {hex: '#D01A1A', name: 'Красный'}, 
+                            {hex: '#FF0000', name: 'Красный'}, 
+                            {hex: '#F0AB5A', name: 'Оранжевый'}, 
+                            {hex: '#FFD12D', name: 'Желтый/Фиолетовый'}, 
+                            {hex: '#C0F05A', name: 'Зеленый'}, 
+                            {hex: '#4790E5', name: 'Голубой'}, 
+                            {hex: '#477DE5', name: 'Голубой-Черный'}, 
+                            {hex: '#42AAFF', name: 'Голубой'}, 
+                            {hex: '#B247E5', name: 'Филетовый'}, 
+                            {hex: '#E547C2', name: 'Розовый'}, 
+                        ]
+                    })
+                    
+
+                    .category-filter__item: +prop-checkbox({
+                        title: 'Пол',
+                        checkbox: [
+                            'Мужской',
+                            'Женский',
+                            'Унисекс',
+                        ]
+                    })
+
+                    .category-filter__item: +prop-checkbox--wrap({
+                        title: 'Размер',
+                        checkbox: [
+                            'M',
+                            'L',
+                            'XL',
+                            'XL',
+                            'XL',
+                            'XL',
+                            'XL',
+                            'XL',
+                            'XL',
+                            'XXL'
+                        ]
+                    })
+
+                    
+
+                .category-filter__submit
+                    .category-filter__send(data-filter="submit")
+                        button.btn
+                            span Показать
+                            //- small 328 предложений 
+                    .category-filter__clear(data-filter="clear")
+                        //- span.icon-cross 
+                        small Очистить 

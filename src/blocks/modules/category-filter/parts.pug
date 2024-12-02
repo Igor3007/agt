@@ -1,0 +1,86 @@
+mixin prop-range()
+
+    .filter-properties
+        .filter-properties__head
+            .filter-properties__title Цена
+            .filter-properties__cross
+
+        .filter-properties__list
+            .filter-properties__range
+                .filter-properties__row
+                    .filter-properties__input
+                        //- span от
+                        input(type="text" placeholder="от" data-price-range="min" value="10000")
+                    .filter-properties__input
+                        //- span до
+                        input(type="text" placeholder="до" data-price-range="max" value="300000")
+                .filter-properties__slider
+                    #price-range.slider(se-min='2500' se-max='950000' se-step='1' se-min-value='10000' se-max-value='300000' )
+                        .slider-touch-left
+                            span
+                        .slider-touch-right
+                            span
+                        .slider-line
+                            span
+
+                    
+                
+
+mixin prop-checkbox(data)
+    .filter-properties
+        .filter-properties__head
+            .filter-properties__title= data.title
+            .filter-properties__cross
+
+        .filter-properties__list
+            ul
+                each item in data.checkbox
+                    li: +checkbox(item)
+
+mixin prop-checkbox--wrap(data)
+    .filter-properties
+        .filter-properties__head
+            .filter-properties__title= data.title
+            .filter-properties__cross
+
+        .filter-properties__list
+            ul.items-wrap
+                each item in data.checkbox
+                    li: +checkbox(item)
+
+
+mixin prop-checkbox-single(data)
+    .filter-properties
+        .filter-properties__single
+            +checkbox(data)
+
+
+mixin prop-color(data)
+    .filter-properties
+        .filter-properties__head
+            .filter-properties__title= data.title
+            .filter-properties__cross
+
+        .filter-properties__colors
+            ul
+                each item in data.colors
+                    li
+                        label
+                            if(item.hex == '#42AAFF')
+                                input(type="checkbox" name="color" disabled)
+                            else
+                                input(type="checkbox" name="color" )
+                            span(data-tooltip=item.name  style='background-color: '+item.hex+'' class=(item.hex == '#ffffff' ? 'color--border':'' ))
+                //- span.icon-cross.clear-color-filter
+
+
+mixin prop-radio(data)
+    .filter-properties
+        .filter-properties__head
+            .filter-properties__title= data.title
+            .filter-properties__cross
+
+        .filter-properties__list
+            ul
+                each item in data.radio
+                    li: +radio(item) 

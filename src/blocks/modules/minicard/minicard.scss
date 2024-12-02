@@ -365,6 +365,27 @@
             }
         }
     }
+
+    &--large {
+        & .minicard {
+            &__photo {
+                & picture {
+
+                    padding-top: 65.7%;
+
+                    & img {
+                        object-fit: cover;
+                    }
+
+                }
+            }
+
+            &__main {
+                max-width: 50%;
+            }
+        }
+    }
+
 }
 
 .minicard-prop {

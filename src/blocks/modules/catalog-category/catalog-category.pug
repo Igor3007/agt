@@ -1,0 +1,84 @@
+include ../category-filter/category-filter.pug
+include ../../components/breadcrumb/breadcrumb.pug
+include ../../components/pagination/pagination.pug
+include ../../modules/minicard/minicard.pug
+include ../../modules/tag-collections/tag-collections.pug
+include ../banner-small/banner-small.pug
+
+mixin catalog-category(data)
+    .catalog-category
+        .container
+            .catalog-category__topnbar
+                .catalog-category__breadcrumb
+                        +breadcrumb([
+                            'BRODEKS',
+                            'Спецодежда',
+                            'Мужская спецодежда'
+                        ])
+
+                .catalog-category__h1: h1= data.title ? data.title : 'Летняя спецодежда'
+
+                .catalog-category__tags.dragscroll 
+                    .tags-category-wrp
+                        ul(data-category="tags")
+                            li: a(href='#') # Хлопок
+                            li: a(href='#') # Флис
+                            li: a(href='#') # Синяя
+                            li: a(href='#') # Хлопок
+                            li: a(href='#') # Флис
+                            li: a(href='#') # Синяя
+                            li: a(href='#') # Хлопок
+                            
+                        .show-more-tag(data-isopen="catalog-category__tags"): span ...еще
+
+                .catalog-category__subcat: ul.dragscroll
+                    each item in catalog
+                        li: a(href='category.html')
+                                div.title-subcat= item.title
+                                div.image-main: +picture(item.image)
+
+                .catalog-category__banner
+                    +banner-small
+
+
+            .catalog-category__wrp
+                .catalog-category__aside: +category-filter
+                .catalog-category__content
+
+                    .catalog-category__top
+                        
+                                 
+                        .catalog-category__sort
+                            .catalog-category__sortable
+                                .sortable-category
+                                    .sortable-category__item
+                                        a(href='#')
+                                            +icons('#ic_sort')
+                                            span По цене
+                                    .sortable-category__item
+                                        a(href='#')
+                                            +icons('#ic_sort')
+                                            span По популярности
+
+                        
+                             
+
+                        .catalog-category__view
+                            .change-view
+                                .change-view__item
+                                    label
+                                        input(type="radio" name="view-type" value="one" )
+                                        +icons('#ic_view-grid', 14)
+                                .change-view__item
+                                    label
+                                        input(type="radio" name="view-type" value="two" checked) 
+                                        +icons('#ic_view-list', 14)
+
+                    .catalog-category__products
+                        .category-products
+                            each item in products
+                                .category-products__item(class = item.type == 'minicard--large' ? 'category-products__item--lg' : ''): +minicard(item)
+
+                    .catalog-category__pagination: +pagination-showmore()
+                    .catalog-category__collections: +tag-collections--nocontainer()
+

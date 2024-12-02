@@ -1,0 +1,152 @@
+.tag-collections {
+    padding: 30px 0;
+
+    @media screen and (min-width: $w992) {
+        padding: 45px 0;
+    }
+
+    &__title {
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 107%;
+        padding-bottom: 15px;
+        text-align: center;
+
+        @media screen and (min-width: $w992) {
+            padding-bottom: 20px;
+            text-align: left;
+        }
+    }
+
+    &__more {
+        padding-top: 30px;
+        padding-left: 15px;
+        padding-right: 16px;
+        font-weight: 500;
+        font-size: 16px;
+
+        &:hover {
+            color: var(--red);
+            cursor: pointer;
+        }
+
+        @media screen and (min-width: $w576) {
+            margin-left: 16px;
+            font-weight: normal;
+        }
+
+        & span {
+            text-decoration: underline;
+        }
+    }
+
+    &__list {
+
+        display: flex;
+        flex-wrap: wrap;
+
+
+        & ul {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 0 -6px;
+
+            @media screen and (min-width: $w1440) {
+                margin: 0 -10px;
+            }
+
+            & li {
+
+                padding: 6px;
+                display: none;
+
+                @media screen and (min-width: $w1440) {
+                    padding: 10px;
+                }
+
+                &:nth-child(-n + 5) {
+                    display: block;
+                }
+
+                @media screen and (min-width: $w992) {
+                    &:nth-child(-n + 7) {
+                        display: block;
+                    }
+                }
+
+                & a {
+                    padding: 12px 16px;
+                    background-color: #F5F5F5;
+                    text-decoration: underline;
+                    display: block;
+
+                    &:hover {
+                        background-color: #eeeeee;
+                    }
+
+                    @media screen and (min-width: $w1440) {
+                        padding: 19px 28px;
+                    }
+                }
+            }
+
+
+        }
+
+
+
+    }
+
+    &.is-open {
+        & .tag-collections {
+            &__list {
+                & li {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.tag-collections--404 {
+
+    max-width: 1100px;
+    margin: 0 auto;
+
+    & .tag-collections {
+        &__title {
+            text-align: center;
+        }
+
+        &__list {
+            justify-content: center;
+
+            & ul {
+
+
+                & li {
+
+
+
+                    @media screen and (min-width: $w992) {
+
+                        &:nth-child(-n + 7),
+                        &:nth-child(-n + 6) {
+                            display: none;
+                        }
+
+                        &:nth-child(-n + 5) {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__more {
+            padding-top: 0;
+        }
+    }
+}

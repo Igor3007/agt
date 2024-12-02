@@ -1342,6 +1342,401 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     }
 
+    /* =========================================================================
+    filter category
+    =========================================================================*/
+
+    /* =========================================
+    range price slider
+    =========================================*/
+
+    function initPriceRange(el) {
+        let newRangeSlider = new ZBRangeSlider('price-range');
+
+        let inputMax = el.querySelector('[data-price-range="max"]');
+        let inputMin = el.querySelector('[data-price-range="min"]');
+
+        let priceMax = newRangeSlider.slider.getAttribute('se-max')
+        let priceMin = newRangeSlider.slider.getAttribute('se-min')
+
+
+
+        let delimiter = (num) => {
+            return String(num).replace(/(\d)(?=(\d{3})+([^\d]|$))/g, '$1 ')
+        }
+        let setCurrency = (str) => {
+            return str.indexOf('₽') == -1 ? ' ₽' : ''
+        }
+
+        inputMax.value = delimiter(inputMax.value) + setCurrency(inputMax.value)
+        inputMin.value = delimiter(inputMin.value) + setCurrency(inputMin.value)
+
+        newRangeSlider.onChange = function (min, max) {
+            inputMax.value = delimiter(max) + ' ₽'
+            inputMin.value = delimiter(min) + ' ₽'
+        }
+
+        inputMax.addEventListener('blur', e => {
+            e.target.value = e.target.value + setCurrency(e.target.value)
+        })
+        inputMin.addEventListener('blur', e => {
+            e.target.value = e.target.value + setCurrency(e.target.value)
+        })
+
+        inputMax.addEventListener('keyup', e => {
+            let int = e.target.value.replace(/[^\+\d]/g, '');
+
+            if (Number(int) >= Number(priceMax)) {
+                int = priceMax
+            }
+
+
+            e.target.value = delimiter(int)
+            newRangeSlider.setMaxValue(int)
+        })
+
+        inputMin.addEventListener('keyup', e => {
+            let int = e.target.value.replace(/[^\+\d]/g, '');
+
+            if (int >= 0) {
+                e.target.value = delimiter(int)
+                newRangeSlider.setMinValue(int)
+            }
+        })
+
+
+    }
+
+    if (document.querySelector('#price-range')) {
+        initPriceRange(document)
+    }
+
+    /* =========================================
+    show / hide item filter
+    =========================================*/
+
+    if (document.querySelector('.filter-properties__head')) {
+        const items = document.querySelectorAll('.filter-properties__head')
+
+        items.forEach(item => {
+            item.addEventListener('click', e => {
+                item.closest('.filter-properties').classList.toggle('is-hide')
+            })
+        })
+    }
+
+    /* ====================================
+    show-hide properties filter
+    ====================================*/
+
+    if (document.querySelector('.filter-properties')) {
+
+        const container = document.querySelector('.category-filter')
+        const subMenu = container.querySelectorAll('.filter-properties__list ul')
+
+        // console.log(subMenu)
+
+        subMenu.forEach(item => {
+
+            if (item.querySelectorAll('li').length > 5) {
+
+                const elem = document.createElement('div')
+                elem.classList.add('sub-menu-toggle')
+                elem.innerText = 'Ещё'
+
+                //add event
+
+                elem.addEventListener('click', e => {
+                    item.classList.toggle('is-open')
+                    elem.classList.toggle('is-open')
+                    elem.innerText = (item.classList.contains('is-open') ? 'Свернуть' : 'Ещё')
+                })
+
+                item.after(elem)
+
+            }
+
+        })
+
+    }
+
+    /* ====================================
+    clear filter
+    ====================================*/
+
+    if (document.querySelector('[data-filter="clear"]')) {
+
+        const items = document.querySelectorAll('[data-filter="clear"]')
+
+        items.forEach(item => {
+            item.addEventListener('click', e => {
+                e.target.closest('form').reset()
+            })
+        })
+
+
+    }
+
+    /* ====================================
+    data-filter="open"
+    ====================================*/
+
+    if (document.querySelector('[data-filter="open"]')) {
+        document.querySelectorAll('[data-filter="open"]').forEach(item => {
+            item.addEventListener('click', e => {
+                if (document.body.clientWidth >= 993) {
+                    e.target.closest('.catalog-category').classList.toggle('is-close-filter')
+                } else {
+                    document.body.classList.toggle('page-hidden')
+                    document.querySelector('[data-filter-container="catalog"]').classList.toggle('is-open')
+                    initPriceRange(document)
+                }
+            })
+        })
+    }
+
+    /* ====================================
+    data-filter="open"
+    ====================================*/
+
+    if (document.querySelector('[data-filter="submit"]') && document.body.clientWidth < 992) {
+        document.querySelectorAll('[data-filter="submit"]').forEach(item => {
+            item.addEventListener('click', e => {
+                document.querySelector('[data-filter-container="catalog"]').classList.toggle('is-open')
+            })
+        })
+    }
+
+    /* ===================================================================================
+    end filter
+    ===================================================================================*/
+
+    /* ======================================
+    top-catalog
+    ======================================*/
+
+    if (document.querySelector('.top-catalog')) {
+
+
+        class TopCatalog {
+            constructor(params) {
+                this.$el = document.querySelector(params.el)
+                this.menuLevel1 = this.$el.querySelector('[data-topcat="level1"]')
+                this.menuLevel2 = this.$el.querySelector('[data-topcat="level2"]')
+                this.menuLevel3 = this.$el.querySelector('[data-topcat="level3"]')
+                this.back = this.$el.querySelector('[data-topcat="back"]')
+                this.close = this.$el.querySelector('[data-topcat="close"]')
+
+                this.init()
+            }
+
+            init() {
+                this.back.classList.add('is-start')
+                this.isMobile()
+                this.addEvents()
+            }
+
+            isMobile() {
+                if (document.body.clientWidth < 992) {
+                    this.$el.classList.add('is-mobile')
+                } else {
+                    !this.$el.classList.contains('is-mobile') || this.$el.classList.remove('is-mobile')
+                }
+
+                return this.$el.classList.contains('is-mobile')
+            }
+
+            renderLevel3(menu) {
+
+                if (!menu.querySelector('ul')) {
+                    this.menuLevel3.innerHTML = '';
+                    return false
+                }
+
+                const ulLevel3 = menu.querySelector('ul').cloneNode(true)
+                this.menuLevel3.innerHTML = ulLevel3.outerHTML
+            }
+
+            renderLevel2(menu) {
+
+                if (!menu.querySelector('ul')) return false
+
+                this.menuLevel3.innerHTML = ''
+
+                const ulLevel2 = menu.querySelector('ul').cloneNode(true)
+                this.menuLevel2.innerHTML = ulLevel2.outerHTML
+
+                this.menuLevel2.querySelectorAll('.sub-level2 > li').forEach(li => {
+
+                    const renderHandler = (e) => {
+
+                        if (li.querySelector('.sub-level3')) {
+                            e.preventDefault()
+                        }
+
+                        this.menuLevel2.querySelectorAll('.sub-level2 > li').forEach(li2 => {
+                            !li2.classList.contains('is-active') || li2.classList.remove('is-active')
+                        })
+
+                        li.classList.add('is-active')
+
+                        if (this.isMobile()) {
+
+                            !this.menuLevel2.classList.contains('animation-show-pane') || !this.menuLevel2.classList.remove('animation-show-pane')
+                            this.menuLevel2.classList.add('animation-hide-pane')
+                            this.menuLevel3.classList.add('animation-show-pane')
+                            this.menuLevel3.classList.add('animation-show-pane--next')
+
+                            setTimeout(() => {
+                                if (document.querySelector('.animation-show-pane--next'))
+                                    document.querySelector('.animation-show-pane--next').classList.remove('animation-show-pane--next')
+                            }, 1200)
+
+                            this.back.innerHTML = li.querySelectorAll('a')[0].innerText
+                            this.back.style.display = 'flex'
+                            this.menuLevel3.setAttribute('data-prev', li.querySelectorAll('a')[0].innerText);
+                            !this.back.classList.contains('is-start') || this.back.classList.remove('is-start')
+                        }
+
+                        this.renderLevel3(li)
+                    }
+
+                    if (this.isMobile()) {
+                        li.addEventListener('click', e => renderHandler(e, li))
+                    } else {
+                        li.addEventListener('mouseenter', e => renderHandler(e, li))
+                    }
+
+
+                })
+
+                if (!this.isMobile()) {
+                    this.renderLevel3(this.menuLevel2.querySelectorAll('.sub-level2 > li')[0])
+                    this.menuLevel2.querySelectorAll('.sub-level2 > li')[0].classList.add('is-active')
+                }
+            }
+
+            renderLevel1(e, item) {
+                if (item.querySelector('.sub-level2')) {
+                    if (e) e.preventDefault()
+                }
+
+                this.$el.querySelectorAll('.sub-level1 li').forEach(li => {
+                    !li.classList.contains('is-active') || li.classList.remove('is-active')
+                })
+
+                item.classList.add('is-active')
+
+
+                if (this.isMobile()) {
+                    this.menuLevel1.classList.add('animation-hide-pane');
+                    !this.menuLevel1.classList.contains('animation-show-pane') || this.menuLevel1.classList.remove('animation-show-pane')
+
+                    this.menuLevel2.classList.add('animation-show-pane--next')
+                    this.menuLevel2.classList.add('animation-show-pane')
+
+                    setTimeout(() => {
+                        if (document.querySelector('.animation-show-pane--next'))
+                            document.querySelector('.animation-show-pane--next').classList.remove('animation-show-pane--next')
+                    }, 1200)
+
+
+                    this.back.innerHTML = item.querySelectorAll('a')[0].innerText
+                    this.back.style.display = 'flex'
+                    this.menuLevel2.setAttribute('data-prev', item.querySelectorAll('a')[0].innerText);
+                    !this.back.classList.contains('is-start') || this.back.classList.remove('is-start')
+                }
+
+                this.renderLevel2(item)
+            }
+
+            backPaneOnMobile() {
+                if (!this.$el.querySelector('.animation-show-pane')) return false
+
+                let elem = this.$el.querySelector('.animation-show-pane')
+
+                if (!elem.previousElementSibling.getAttribute('data-prev')) return false;
+
+                elem.classList.remove('animation-show-pane')
+                elem.classList.add('animation-hide-pane')
+                elem.previousElementSibling.classList.add('animation-show-pane--back');
+                elem.previousElementSibling.classList.add('animation-show-pane');
+
+                setTimeout(() => {
+                    if (document.querySelector('.animation-show-pane--back'))
+                        document.querySelector('.animation-show-pane--back').classList.remove('animation-show-pane--back')
+                }, 400)
+
+                this.back.innerText = elem.previousElementSibling.dataset.prev ? elem.previousElementSibling.dataset.prev : this.back.style.display = 'none';
+                !elem.previousElementSibling.classList.contains('animation-hide-pane') || elem.previousElementSibling.classList.remove('animation-hide-pane')
+
+                if (this.$el.querySelector('.animation-show-pane').dataset.topcat == 'level1') {
+                    this.back.classList.add('is-start')
+                } else {
+                    !this.back.classList.contains('is-start') || this.back.classList.remove('is-start')
+                }
+            }
+
+            addEvents() {
+
+
+
+                document.querySelectorAll('[data-topcat="open"]').forEach(item => {
+                    item.addEventListener('click', e => {
+                        this.$el.classList.toggle('is-open')
+                        document.body.classList.toggle('page-hidden')
+
+                        const closeInOut = (e) => {
+                                if (!e.target.closest('.top-catalog')) {
+                                    this.$el.classList.remove('is-open')
+                                    document.removeEventListener('click', closeInOut)
+                                }
+                            }
+
+                            !this.$el.classList.contains('is-open') || document.addEventListener('click', closeInOut)
+                    })
+                })
+
+
+                //create event for level 1
+
+                this.$el.querySelectorAll('.sub-level1 li').forEach((item, index) => {
+
+                    if (!index && !this.isMobile()) this.renderLevel1(false, item)
+                    if (!item.querySelector('ul')) item.classList.add('not-sub')
+
+                    if (this.isMobile()) {
+                        item.addEventListener('click', e => this.renderLevel1(e, item))
+                    } else {
+                        item.addEventListener('mouseenter', e => this.renderLevel1(e, item))
+                        this.renderLevel1(false, this.$el.querySelectorAll('.sub-level1 li')[0])
+                    }
+                })
+
+
+                if (this.isMobile()) {
+
+                    // create event close
+                    this.close.addEventListener('click', e => {
+                        !this.$el.classList.contains('is-open') || this.$el.classList.remove('is-open');
+                        !document.body.classList.contains('page-hidden') || document.body.classList.remove('page-hidden');
+                    })
+
+                    // create event back
+                    this.back.addEventListener('click', e => this.backPaneOnMobile())
+                }
+
+                window.addEventListener('resize', () => this.isMobile())
+
+
+            }
+        }
+
+        new TopCatalog({
+            el: '.top-catalog'
+        })
+    }
+
 
 
 

@@ -1022,7 +1022,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
      SelectRegion  
     ====================================================*/
 
-    class MapFilter {
+    class SelectRegion {
         constructor(params) {
             this.$el = document.querySelector(params.el) || document
             this.shopList = this.$el.querySelector('[data-shop="list"]')
@@ -1033,6 +1033,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             this.elPopup = this.$el.querySelector('[data-sr="popup"]')
             this.btnSelectRegion = this.$el.querySelector('[data-sr="open-window"]')
 
+            this.btnApplyPopup = this.$el.querySelector('[data-sr="apply-popup"]')
             this.btnOpenPopup = this.$el.querySelector('[data-sr="open-popup"]')
             this.btnClosePopup = this.$el.querySelector('[data-sr="close-popup"]')
             this.data = null
@@ -1312,6 +1313,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 this.$el.classList.remove('is-open-popup')
             })
 
+            this.btnApplyPopup.addEventListener('click', () => {
+                this.$el.classList.remove('is-open-popup')
+            })
+
 
 
 
@@ -1331,7 +1336,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     }
 
     if (document.querySelector('.select-region')) {
-        window.mapfilter = new MapFilter({
+        window.SelectRegion = new SelectRegion({
             el: '.select-region'
         })
 

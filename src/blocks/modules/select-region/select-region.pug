@@ -25,10 +25,10 @@ mixin select-region
             .region-popup
                 .region-popup__title
                     .region-popup__name Ваш город - <span>Москва</span>?
-                    .region-popup__close
+                    .region-popup__close(data-sr="close-popup")
                         span.icon-cross
                 .region-popup__buttons
-                    button.btn.btn-small(data-sr="close-popup") Да, верно
+                    button.btn.btn-small(data-sr="apply-popup") Да, верно
                     button.btn.btn-small.btn-gray(data-sr="open-window") Нет, другой
 
         .select-region__window(data-sr="window")

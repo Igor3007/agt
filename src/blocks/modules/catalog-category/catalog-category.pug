@@ -76,7 +76,7 @@ mixin catalog-category(data)
 
                     .catalog-category__products
                         .category-products
-                            each item in products
+                            each item in products2
                                 .category-products__item(class = item.type == 'minicard--large' ? 'category-products__item--lg' : ''): +minicard(item)
 
                     .catalog-category__pagination: +pagination-showmore()

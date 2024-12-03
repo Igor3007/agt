@@ -470,7 +470,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     if (document.querySelector('[data-slider="header-brands"]')) {
 
-        const topBrands = new Splide('[data-slider="header-brands"]', {
+        const HeaderBrands = new Splide('[data-slider="header-brands"]', {
             arrows: true,
             arrowPath: SLIDER_ARROW_PATH,
             pagination: false,
@@ -504,7 +504,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         });
 
-        topBrands.mount();
+        HeaderBrands.mount();
     }
 
     /* ========================================

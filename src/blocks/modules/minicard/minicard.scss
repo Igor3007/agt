@@ -381,7 +381,9 @@
             }
 
             &__main {
-                max-width: 50%;
+                @media screen and (min-width: $w576) {
+                    max-width: 50%;
+                }
             }
         }
     }

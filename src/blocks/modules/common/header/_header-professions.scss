@@ -1,0 +1,121 @@
+@keyframes show-popup-animate {
+    0% {
+        transform: translateY(-15px);
+        opacity: 0;
+    }
+
+
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header-professions {
+    padding: 0 0 40px 0;
+    background: #FFF;
+    box-shadow: 0px 16px 18.8px 0px rgba(0, 0, 0, 0.09);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: none;
+    animation: show-popup-animate 0.6s ease;
+
+
+
+    &.is-active {
+        display: block;
+    }
+
+    & .bgimage {
+        padding-top: 116%;
+        @include bgimage-contain;
+    }
+
+
+
+    & .splide {
+
+        &__track {
+            margin: 0 auto;
+        }
+
+        &__slide {
+
+            @keyframes to-fade-in-slide {
+                to {
+                    opacity: 1;
+                }
+            }
+
+            opacity: 0;
+            animation: to-fade-in-slide 0.3s ease forwards;
+            animation-delay: 0.25s;
+
+            &:nth-child(1) {
+                animation-delay: 0.05s;
+            }
+
+            &:nth-child(2) {
+                animation-delay: 0.1s;
+            }
+
+            &:nth-child(3) {
+                animation-delay: 0.15s;
+            }
+
+            &:nth-child(4) {
+                animation-delay: 0.2s;
+            }
+
+            &:nth-child(5) {
+                animation-delay: 0.25s;
+            }
+
+            & div {
+                font-size: 18px;
+                font-weight: 600;
+                padding-top: 12px;
+
+                @media screen and (min-width: $w1200) {
+                    font-size: 20px;
+                }
+            }
+        }
+
+        &__arrow {
+            &--prev {
+
+                left: -12px;
+
+                @media screen and (min-width: $w480) {
+                    left: 0;
+
+                }
+
+                @media screen and (min-width: $w992) {
+                    left: -16px;
+                }
+
+            }
+
+            &--next {
+
+                right: -12px;
+
+                @media screen and (min-width: $w480) {
+                    right: 0;
+                }
+
+                @media screen and (min-width: $w992) {
+                    right: -16px;
+                }
+
+            }
+        }
+    }
+
+}

@@ -1,29 +1,11 @@
 mixin top-brands
     section.section-top-brands
 
-        -
-            const brands = [
-                '/img/brands/image1.png',
-                '/img/brands/image2.png',
-                '/img/brands/image3.png',
-                '/img/brands/image4.png',
-                '/img/brands/image5.png',
-                '/img/brands/image6.png',
-                '/img/brands/image7.png',
-                '/img/brands/image1.png',
-                '/img/brands/image2.png',
-                '/img/brands/image3.png',
-                '/img/brands/image4.png',
-                '/img/brands/image5.png',
-                '/img/brands/image6.png',
-                '/img/brands/image7.png',
-            ]
-
         .container
             .top-brands 
                 .top-brands__title Спецодежда <br> ТОП брендов 
                 .top-brands__slider
-                    .splide(data-slider="topbrands")
+                    .splide(data-slider="header-brands")
                         .splide__track
                             .splide__list
                                 each item in brands

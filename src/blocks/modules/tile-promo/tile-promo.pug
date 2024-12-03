@@ -33,7 +33,7 @@ mixin tile-promo
                 .tile-promo
                     .tile-promo__list
                         each item in promo
-                            .tile-promo__item
+                            a(href='/category.html').tile-promo__item
                                 if !item.img
                                     .tile-promo__colorbg
                                         .tile-promo__h3= item.title

@@ -31,7 +31,9 @@ header {
         @media screen and (min-width: $w576) {
             & .header {
 
-
+                &__wrp {
+                    gap: 16px
+                }
 
                 &__msgr {
                     display: block;
@@ -311,3 +313,6 @@ header {
 
 @import 'header-menu.scss';
 @import 'header-top.scss';
+@import 'header-brands.scss';
+@import 'header-professions';
+@import 'header-catalog';

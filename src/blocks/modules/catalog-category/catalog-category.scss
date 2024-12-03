@@ -716,6 +716,10 @@
         padding: 10px;
         width: 50%;
 
+        &--lg {
+            width: 100%;
+        }
+
         @media screen and (min-width: $w1660) {
             width: 25%;
             padding-bottom: 60px;
@@ -728,6 +732,10 @@
         @media screen and (min-width: $w1200) {
             width: 33.33%;
             padding-bottom: 60px;
+
+            &--lg {
+                width: 66.66%;
+            }
         }
 
 
@@ -735,10 +743,18 @@
         @media screen and (min-width: $w992) {
             width: 50%;
             padding-bottom: 30px;
+
+            &--lg {
+                width: 100%;
+            }
         }
 
         @media screen and (min-width: $w760) {
             width: 33.33%;
+
+            &--lg {
+                width: 66.66%;
+            }
         }
 
     }

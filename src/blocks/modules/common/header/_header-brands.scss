@@ -1,0 +1,129 @@
+.header-brands {
+
+    background: #FFF;
+    box-shadow: 0px 16px 18.8px 0px rgba(0, 0, 0, 0.09);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: none;
+    animation: show-popup-animate 0.6s ease;
+
+    &.is-active {
+        display: block;
+    }
+
+    & .bgimage {
+        padding-top: 60%;
+        @include bgimage-contain;
+        opacity: 0.5;
+        transition: 0.3s ease;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    @media screen and (min-width: $w992) {
+        padding: 0 40px;
+    }
+
+    & .splide {
+
+        &__slide {
+
+            opacity: 0;
+            animation: to-fade-in-slide 0.3s ease forwards;
+            animation-delay: 0.25s;
+
+            &:nth-child(1) {
+                animation-delay: 0.05s;
+            }
+
+            &:nth-child(2) {
+                animation-delay: 0.1s;
+            }
+
+            &:nth-child(3) {
+                animation-delay: 0.15s;
+            }
+
+            &:nth-child(4) {
+                animation-delay: 0.2s;
+            }
+
+            &:nth-child(5) {
+                animation-delay: 0.25s;
+            }
+
+            &:nth-child(6) {
+                animation-delay: 0.25s;
+            }
+
+            &:nth-child(7) {
+                animation-delay: 0.25s;
+            }
+
+            &:nth-child(8) {
+                animation-delay: 0.25s;
+            }
+
+            &:nth-child(9) {
+                animation-delay: 0.25s;
+            }
+
+            & div {
+                font-size: 20px;
+                font-weight: 600;
+                padding-top: 12px;
+            }
+        }
+
+        &__track {
+
+            width: calc(100% - 50px);
+
+            @media screen and (min-width: $w760) {
+                width: calc(100% - 120px);
+            }
+
+
+
+
+            margin: 0 auto;
+
+        }
+
+        &__arrow {
+            &--prev {
+
+                left: -12px;
+
+                @media screen and (min-width: $w480) {
+                    left: 0;
+
+                }
+
+                @media screen and (min-width: $w992) {
+                    left: -24px;
+                }
+
+            }
+
+            &--next {
+
+                right: -12px;
+
+                @media screen and (min-width: $w480) {
+                    right: 0;
+                }
+
+                @media screen and (min-width: $w992) {
+                    right: -24px;
+                }
+
+            }
+        }
+    }
+}

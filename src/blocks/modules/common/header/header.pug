@@ -1,3 +1,5 @@
+include parts.pug
+
 .header-top
     .container
         .header-top__wrp
@@ -69,6 +71,8 @@
                     i
                     i
                     i
+
+
 .header-menu
     .container
         .header-menu__wrp
@@ -80,11 +84,15 @@
                         span Каталог
 
                 each item in app.mainMenu
-                    li
-                        a(href=item.href)= item.text
+                    if(item.js)
+                        li(data-menu=item.js)
+                            a(href=item.href)= item.text
+                    else
+                        li
+                            a(href=item.href)= item.text
 
-                        if item.sub
-                            ul.sub-menu
-                                each sub in item.sub
-                                    li
-                                        a(href=sub.href)= sub.text
+                             
+
+    +header-catalog
+    +header-professions
+    +header-brand

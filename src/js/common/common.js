@@ -465,6 +465,84 @@ document.addEventListener('DOMContentLoaded', function (event) {
     }
 
     /* ========================================
+    HeaderBrands
+    ========================================*/
+
+    if (document.querySelector('[data-slider="header-brands"]')) {
+
+        const topBrands = new Splide('[data-slider="header-brands"]', {
+            arrows: true,
+            arrowPath: SLIDER_ARROW_PATH,
+            pagination: false,
+            start: 0,
+            perPage: 9,
+            perMove: 1,
+            gap: 36,
+            breakpoints: {
+
+                1440: {
+                    perMove: 7,
+                    perPage: 7,
+                },
+
+                1200: {
+                    perMove: 5,
+                    perPage: 5,
+                },
+
+                992: {
+                    perMove: 4,
+                    perPage: 4,
+                },
+
+                576: {
+                    perMove: 3,
+                    perPage: 3,
+                    gap: 16,
+                },
+            },
+
+        });
+
+        topBrands.mount();
+    }
+
+    /* ========================================
+    HeaderProfessionals
+    ========================================*/
+
+    if (document.querySelector('[data-slider="header-prof"]')) {
+
+
+
+        const topProf = new Splide('[data-slider="header-prof"]', {
+            arrows: true,
+            arrowPath: SLIDER_ARROW_PATH,
+            pagination: false,
+            start: 0,
+            perPage: 5,
+            perMove: 1,
+            gap: 12,
+            breakpoints: {
+
+                992: {
+                    perMove: 4,
+                    perPage: 4,
+                },
+
+                576: {
+                    perMove: 3,
+                    perPage: 3,
+                    gap: 16,
+                },
+            },
+
+        });
+
+        topProf.mount();
+    }
+
+    /* ========================================
     SliderProduct
     =========================================*/
 
@@ -1046,8 +1124,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         init() {
             this.addEvents()
-            this.$el.classList.add('is-open-popup')
 
+            if (!localStorage.getItem('region')) {
+                this.$el.classList.add('is-open-popup')
+            }
 
         }
 
@@ -1284,16 +1364,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         renderList() {
             this.fetchData((response) => {
-
                 this.openSelectCity()
-
             })
         }
 
         selectedCity(city) {
 
-            console.log(city)
-
+            localStorage.setItem('region', city)
             this.closeSelectCity()
         }
 
@@ -1307,6 +1384,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
             this.btnSelectRegion.addEventListener('click', () => {
                 this.openWindow()
+                this.$el.classList.remove('is-open-popup')
             })
 
             this.btnClosePopup.addEventListener('click', () => {
@@ -1315,6 +1393,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
             this.btnApplyPopup.addEventListener('click', () => {
                 this.$el.classList.remove('is-open-popup')
+                this.selectedCity(this.btnApplyPopup.dataset.region)
             })
 
 
@@ -1339,7 +1418,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
         window.SelectRegion = new SelectRegion({
             el: '.select-region'
         })
-
     }
 
     /* =========================================================================
@@ -1735,6 +1813,51 @@ document.addEventListener('DOMContentLoaded', function (event) {
         new TopCatalog({
             el: '.top-catalog'
         })
+    }
+
+    /* ===========================================
+    HeaderMenu
+    ===========================================*/
+
+    if (document.querySelector('[data-menu]')) {
+
+        const popups = document.querySelectorAll('[data-header-popup]')
+        let timer = null;
+
+        document.querySelectorAll('[data-menu]').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+
+                clearTimeout(timer)
+
+                popups.forEach(p => {
+                    if (p.dataset.headerPopup == item.dataset.menu) {
+                        p.classList.add('is-active')
+                    } else {
+                        !p.classList.contains('is-active') || p.classList.remove('is-active')
+                    }
+                })
+
+            })
+
+            item.addEventListener('mouseleave', e => {
+                timer = setTimeout(() => {
+                    popups.forEach(p => !p.classList.contains('is-active') || p.classList.remove('is-active'))
+                }, 100)
+            })
+
+            popups.forEach(p => {
+                p.addEventListener('mouseenter', () => {
+                    clearTimeout(timer)
+                })
+
+                p.addEventListener('mouseleave', () => {
+                    p.classList.remove('is-active')
+                })
+            })
+
+
+        })
+
     }
 
 

@@ -1,0 +1,107 @@
+.section-one-article {
+    padding: 40px 0;
+}
+
+.one-article {
+
+    &__row {
+        @media screen and (min-width: $w992) {
+            display: flex;
+            gap: 24px;
+
+            &>div {
+                width: 50%;
+            }
+        }
+    }
+
+    &__image {
+
+        @media screen and (min-width: $w1200) {
+            padding-bottom: 24px;
+        }
+
+        @media screen and (min-width: $w760) and (max-width: $w992) {
+            display: none;
+        }
+
+        & picture {
+            @include picture(100%, cover);
+
+            @media screen and (min-width: $w576) {
+                padding-top: 65%;
+            }
+        }
+    }
+
+    &__title {
+        padding-bottom: 22px;
+        font-size: 22px;
+        font-weight: 500;
+
+        @media screen and (min-width: $w1200) {
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+    }
+
+    &__desc {
+
+        padding-bottom: 18px;
+
+        & span {
+            font-family: var(--font-montserrat);
+            font-size: 13px;
+            line-height: 150%;
+
+            @include line-clamp(7);
+
+            @media screen and (min-width: $w1200) {
+                font-size: 15px;
+            }
+        }
+    }
+
+    &__link {
+
+        padding-bottom: 22px;
+
+        & a {
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 600;
+
+            @media screen and (min-width: $w1200) {
+                font-size: 24px;
+            }
+
+        }
+    }
+
+    &__tags {
+
+        padding-bottom: 12px;
+
+        & ul {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        & a {
+            font-family: var(--font-montserrat);
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid var(--accent);
+            border-radius: 50px;
+            padding: 11px 15px;
+            display: flex;
+
+            @media screen and (min-width: $w1200) {
+                font-size: 13px;
+            }
+        }
+    }
+
+}

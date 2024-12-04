@@ -11,111 +11,108 @@ mixin top-catalog
             {'link':'Промышленный альпинизм'},
         ]
 
-    div.section-top-catalog
-        .top-catalog
-            .top-catalog__all
-                div(data-topcat="open")
-                    +icons('#ic_catalog', 14)
-                    span Каталог
-            .top-catalog__list
-                ul
-                    li: a(href='/category.html') Летняя спецодежда
-                    li: a(href='/category.html') Зимняя спецодежда
-                    li: a(href='/category.html') Сигнальная спецодежда
-                    li: a(href='/category.html') Городская спецодежда
+     
+    .top-catalog
+        .top-catalog__dropdown
+            .top-catalog__mobile-top 
+                .top-catalog__back(data-topcat="back") Каталог
+                .top-catalog__close.icon-cross(data-topcat="close")
+            .top-catalog__image
+                picture
+                    img(src="/img/other/menu-catalog-image.jpg" data-topcat="imgbg")
+                .top-catalog__other
+                    .catalog-other
+                        a(href='#')
+                            +icons('#ic_i')
+                            span Полезная информация
+                        a(href='#')
+                            +icons('#ic_cat')
+                            span Получить каталоги
+                        a(href='#')
+                            +icons('#ic_online-tg')
+                            span Онлайн показ
+            .top-catalog__nav(data-topcat="level1" data-prev="Каталог")
+                ul.sub-level1
+                    li(data-image="/img/other/menu-catalog-image.jpg")
+                        a(href='/category.html') Спецодежда
+                        ul.sub-level2
+                                li
+                                    a(href='#') Летняя
+                                    ul.sub-level3
+                                        li: a(href='#') Брюки
+                                        li: a(href='#') Куртки
+                                        li: a(href='#') Футболки
+                                        li: a(href='#') Жилеты
+                                        li: a(href='#') Фартуки
+                                        li: a(href='#') Шорты
+                                             
+                                li
+                                    a(href='#') Зимняя
+                                    ul.sub-level3
+                                        li: a(href='#') Женская
+                                            ul.sub-level4
+                                                li: a(href="#") Брюки
+                                                li: a(href="#") Куртки      
+                    li(data-image="/img/other/for.jpg")
+                        a(href='/.html') Городская
+                        ul.sub-level2
+                                li
+                                    a(href='#') Мужская 
+                                    ul.sub-level3
+                                        li
+                                            a(href='#') Летняя
+                                            ul.sub-level4
+                                                li: a(href="#") Куртки
+                                                li: a(href="#") Брюки      
+                                                li: a(href="#") Футболки
+                                        li
+                                            a(href='#') Зимняя
+                                            ul.sub-level4
+                                                li: a(href="#") Брюки
+                                                li: a(href="#") Куртки      
+                                                li: a(href="#") Футболки
+                                li
+                                    a(href='#') Женская 
+                                    ul.sub-level3
+                                        li
+                                            a(href='#') Летняя
+                                            ul.sub-level4
+                                                li: a(href="#") Куртки
+                                                li: a(href="#") Брюки      
+                                                li: a(href="#") Футболки
+                                                li: a(href="#") Комбезы
+                                        li
+                                            a(href='#') Зимняя
+                                            ul.sub-level4
+                                                li: a(href="#") Брюки
+                                                li: a(href="#") Куртки      
+                                                li: a(href="#") Футболки
+                                                li: a(href="#") Перчатки
+                    li(data-image="/img/other/ob.jpg")
+                        a(href='/category.html') Обувь
+                        ul.sub-level2
+                            li: a(href='/category.html') Летняя
+                            li: a(href='/category.html') Зимняя 
+                    li(data-image="/img/other/per.jpg")
+                        a(href='/category.html') Перчатки
+                        ul.sub-level2
+                            li: a(href='/category.html') Рабочие
+                            li: a(href='/category.html') Тактические
+                            li: a(href='/category.html') Прорезиненые
+                            li: a(href='/category.html') Вязанные
+                            li: a(href='/category.html') Химзащитные
+                            li: a(href='/category.html') Сварочные
+                    li(data-image="/img/other/acc.jpg")
+                        a(href='/category.html') Аксессуары
+                        ul.sub-level2
+                            li: a(href='/category.html') Шапки
+                            li: a(href='/category.html') Баффы
+                            li: a(href='/category.html') Навесные карманы
+                            li: a(href='/category.html') Ремни и подтяжки
 
-           
-            .top-catalog__dropdown
-                .top-catalog__mobile-top 
-                    .top-catalog__back(data-topcat="back") Каталог
-                    .top-catalog__close.icon-cross(data-topcat="close")
-                .top-catalog__nav(data-topcat="level1" data-prev="Каталог")
-                    ul.sub-level1
-                        li
-                            a(href='/category.html') Спецодежда
-                            ul.sub-level2
-                                    li
-                                        a(href='#') Летняя
-                                        ul.sub-level3
-                                            li
-                                                a(href='#') Мужская
-                                                ul.sub-level4
-                                                    li: a(href="#") Куртки
-                                                    li: a(href="#") Брюки      
-                                                    li: a(href="#") Футболки
-                                            li
-                                                a(href='#') Женская
-                                                ul.sub-level4
-                                                    li: a(href="#") Брюки
-                                                    li: a(href="#") Куртки      
-                                                    li: a(href="#") Футболки
-                                    li
-                                        a(href='#') Зимняя
-                                        ul.sub-level3
-                                            li: a(href='#') Женская
-                                                ul.sub-level4
-                                                    li: a(href="#") Брюки
-                                                    li: a(href="#") Куртки      
-                        li
-                            a(href='/.html') Городская
-                            ul.sub-level2
-                                    li
-                                        a(href='#') Мужская 
-                                        ul.sub-level3
-                                            li
-                                                a(href='#') Летняя
-                                                ul.sub-level4
-                                                    li: a(href="#") Куртки
-                                                    li: a(href="#") Брюки      
-                                                    li: a(href="#") Футболки
-                                            li
-                                                a(href='#') Зимняя
-                                                ul.sub-level4
-                                                    li: a(href="#") Брюки
-                                                    li: a(href="#") Куртки      
-                                                    li: a(href="#") Футболки
-                                    li
-                                        a(href='#') Женская 
-                                        ul.sub-level3
-                                            li
-                                                a(href='#') Летняя
-                                                ul.sub-level4
-                                                    li: a(href="#") Куртки
-                                                    li: a(href="#") Брюки      
-                                                    li: a(href="#") Футболки
-                                                    li: a(href="#") Комбезы
-                                            li
-                                                a(href='#') Зимняя
-                                                ul.sub-level4
-                                                    li: a(href="#") Брюки
-                                                    li: a(href="#") Куртки      
-                                                    li: a(href="#") Футболки
-                                                    li: a(href="#") Перчатки
-                        li
-                            a(href='/category.html') Обувь
-                            ul.sub-level2
-                                li: a(href='/category.html') Летняя
-                                li: a(href='/category.html') Зимняя 
-                        li
-                            a(href='/category.html') Перчатки
-                            ul.sub-level2
-                                li: a(href='/category.html') Рабочие
-                                li: a(href='/category.html') Тактические
-                                li: a(href='/category.html') Прорезиненые
-                                li: a(href='/category.html') Вязанные
-                                li: a(href='/category.html') Химзащитные
-                                li: a(href='/category.html') Сварочные
-                        li
-                            a(href='/category.html') Аксессуары
-                            ul.sub-level2
-                                li: a(href='/category.html') Шапки
-                                li: a(href='/category.html') Баффы
-                                li: a(href='/category.html') Навесные карманы
-                                li: a(href='/category.html') Ремни и подтяжки
+                     
 
-                        li.top-catalog-nav--bottom: a(href='/catalog.html') Все товары
-
-                .top-catalog__nav.level2(data-topcat="level2")
-                .top-catalog__last(data-topcat="level3")
+            .top-catalog__nav.level2(data-topcat="level2")
+            .top-catalog__last(data-topcat="level3")
+                
                     
-                        

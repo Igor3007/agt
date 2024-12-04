@@ -183,7 +183,7 @@
                 <li><a href="/login.html">
                     <svg width="40" height="40">
                       <use xlink:href="/img/sprites/sprite.svg#ic_user"></use>
-                    </svg></a></li>
+                    </svg><span>Виктор Иванович</span></a></li>
                 <li class="icon-kp"><a href="/kp.html">
                     <svg width="40" height="40">
                       <use xlink:href="/img/sprites/sprite.svg#ic_kp"></use>
@@ -191,15 +191,15 @@
                 <li><a href="/compare.html">
                     <svg width="40" height="40">
                       <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
-                    </svg></a></li>
+                    </svg><span>Сравнить </span></a></li>
                 <li><a class="ic_heart" href="/wishlist.html">
                     <svg width="40" height="40">
                       <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
-                    </svg></a></li>
+                    </svg><span>Избранное</span></a></li>
                 <li><a href="/cart.html">
                     <svg width="40" height="40">
                       <use xlink:href="/img/sprites/sprite.svg#ic_cart"></use>
-                    </svg></a></li>
+                    </svg><span>Корзина</span></a></li>
               </ul>
             </div>
             <div class="header__burger">
@@ -212,7 +212,7 @@
         <div class="container">
           <div class="header-menu__wrp">
             <ul> 
-              <li class="menu-catalog"><a href="#">
+              <li class="menu-catalog" data-headercat="open"><a href="#">
                   <svg width="24" height="24">
                     <use xlink:href="/img/sprites/sprite.svg#ic_catalog"></use>
                   </svg><span>Каталог</span></a></li>
@@ -224,83 +224,124 @@
             </ul>
           </div>
         </div>
-              <div class="header-catalog">
-                <div class="header-catalog__row">
-                  <div class="header-catalog__image">
-                    <picture>
-                      <source srcset="undefined.webp" type="image/webp"/><img src="undefined.jpg" loading="lazy" alt="image"/>
-                    </picture>
-                  </div>
-                  <div class="header-catalog__menu">
-                    <div class="header-catalog__nav">
-                      <div class="header-catalog__main">
-                        <ul>
-                          <li><a href="catalog.html">Спецодежда</a>
-                                  <ul class="sub-menu">
-                                    <li><a href="#">Зимняя </a></li>
-                                    <li><a href="#">Летняя</a></li>
-                                    <li><a href="#">Мужская</a></li>
-                                    <li><a href="#">Женская</a></li>
+                    <div class="top-catalog">
+                      <div class="top-catalog__dropdown">
+                        <div class="top-catalog__mobile-top"> 
+                          <div class="top-catalog__back" data-topcat="back">Каталог</div>
+                          <div class="top-catalog__close icon-cross" data-topcat="close"></div>
+                        </div>
+                        <div class="top-catalog__image">
+                          <picture><img src="/img/other/menu-catalog-image.jpg" data-topcat="imgbg"></picture>
+                          <div class="top-catalog__other">
+                            <div class="catalog-other"><a href="#">
+                                <svg width="24" height="24">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_i"></use>
+                                </svg><span>Полезная информация</span></a><a href="#">
+                                <svg width="24" height="24">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_cat"></use>
+                                </svg><span>Получить каталоги</span></a><a href="#">
+                                <svg width="24" height="24">
+                                  <use xlink:href="/img/sprites/sprite.svg#ic_online-tg"></use>
+                                </svg><span>Онлайн показ</span></a></div>
+                          </div>
+                        </div>
+                        <div class="top-catalog__nav" data-topcat="level1" data-prev="Каталог">
+                          <ul class="sub-level1">
+                            <li data-image="/img/other/menu-catalog-image.jpg"><a href="/category.html">Спецодежда</a>
+                              <ul class="sub-level2">
+                                <li><a href="#">Летняя</a>
+                                  <ul class="sub-level3">
+                                    <li><a href="#">Брюки</a></li>
+                                    <li><a href="#">Куртки</a></li>
+                                    <li><a href="#">Футболки</a></li>
+                                    <li><a href="#">Жилеты</a></li>
+                                    <li><a href="#">Фартуки</a></li>
+                                    <li><a href="#">Шорты</a></li>
                                   </ul>
-                          </li>
-                          <li><a href="catalog.html">Спецобувь</a>
-                                  <ul class="sub-menu">
-                                    <li><a href="#">Зимняя </a></li>
-                                    <li><a href="#">Летняя</a></li>
-                                    <li><a href="#">Мужская</a></li>
-                                    <li><a href="#">Женская</a></li>
+                                </li>
+                                <li><a href="#">Зимняя</a>
+                                  <ul class="sub-level3">
+                                    <li><a href="#">Женская
+                                        <ul class="sub-level4">
+                                          <li><a href="#">Брюки</a></li>
+                                          <li><a href="#">Куртки      </a></li>
+                                        </ul></a></li>
                                   </ul>
-                          </li>
-                          <li><a href="catalog.html">СИЖ</a>
-                                  <ul class="sub-menu">
-                                    <li><a href="#">Зимняя </a></li>
-                                    <li><a href="#">Летняя</a></li>
-                                    <li><a href="#">Мужская</a></li>
-                                    <li><a href="#">Женская</a></li>
+                                </li>
+                              </ul>
+                            </li>
+                            <li data-image="/img/other/for.jpg"><a href="/.html">Городская</a>
+                              <ul class="sub-level2">
+                                <li><a href="#">Мужская </a>
+                                  <ul class="sub-level3">
+                                    <li><a href="#">Летняя</a>
+                                      <ul class="sub-level4">
+                                        <li><a href="#">Куртки</a></li>
+                                        <li><a href="#">Брюки      </a></li>
+                                        <li><a href="#">Футболки</a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="#">Зимняя</a>
+                                      <ul class="sub-level4">
+                                        <li><a href="#">Брюки</a></li>
+                                        <li><a href="#">Куртки      </a></li>
+                                        <li><a href="#">Футболки</a></li>
+                                      </ul>
+                                    </li>
                                   </ul>
-                          </li>
-                          <li><a href="catalog.html">Перчатки</a>
-                                  <ul class="sub-menu">
-                                    <li><a href="#">Зимняя </a></li>
-                                    <li><a href="#">Летняя</a></li>
-                                    <li><a href="#">Мужская</a></li>
-                                    <li><a href="#">Женская</a></li>
+                                </li>
+                                <li><a href="#">Женская </a>
+                                  <ul class="sub-level3">
+                                    <li><a href="#">Летняя</a>
+                                      <ul class="sub-level4">
+                                        <li><a href="#">Куртки</a></li>
+                                        <li><a href="#">Брюки      </a></li>
+                                        <li><a href="#">Футболки</a></li>
+                                        <li><a href="#">Комбезы</a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="#">Зимняя</a>
+                                      <ul class="sub-level4">
+                                        <li><a href="#">Брюки</a></li>
+                                        <li><a href="#">Куртки      </a></li>
+                                        <li><a href="#">Футболки</a></li>
+                                        <li><a href="#">Перчатки</a></li>
+                                      </ul>
+                                    </li>
                                   </ul>
-                          </li>
-                          <li><a href="catalog.html">Аксессуары</a>
-                                  <ul class="sub-menu">
-                                    <li><a href="#">Зимняя </a></li>
-                                    <li><a href="#">Летняя</a></li>
-                                    <li><a href="#">Мужская</a></li>
-                                    <li><a href="#">Женская</a></li>
-                                  </ul>
-                          </li>
-                          <li><a href="catalog.html">Бренды</a>
-                                  <ul class="sub-menu">
-                                    <li><a href="#">Зимняя </a></li>
-                                    <li><a href="#">Летняя</a></li>
-                                    <li><a href="#">Мужская</a></li>
-                                    <li><a href="#">Женская</a></li>
-                                  </ul>
-                          </li>
-                        </ul>
+                                </li>
+                              </ul>
+                            </li>
+                            <li data-image="/img/other/ob.jpg"><a href="/category.html">Обувь</a>
+                              <ul class="sub-level2">
+                                <li><a href="/category.html">Летняя</a></li>
+                                <li><a href="/category.html">Зимняя </a></li>
+                              </ul>
+                            </li>
+                            <li data-image="/img/other/per.jpg"><a href="/category.html">Перчатки</a>
+                              <ul class="sub-level2">
+                                <li><a href="/category.html">Рабочие</a></li>
+                                <li><a href="/category.html">Тактические</a></li>
+                                <li><a href="/category.html">Прорезиненые</a></li>
+                                <li><a href="/category.html">Вязанные</a></li>
+                                <li><a href="/category.html">Химзащитные</a></li>
+                                <li><a href="/category.html">Сварочные</a></li>
+                              </ul>
+                            </li>
+                            <li data-image="/img/other/acc.jpg"><a href="/category.html">Аксессуары</a>
+                              <ul class="sub-level2">
+                                <li><a href="/category.html">Шапки</a></li>
+                                <li><a href="/category.html">Баффы</a></li>
+                                <li><a href="/category.html">Навесные карманы</a></li>
+                                <li><a href="/category.html">Ремни и подтяжки</a></li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="top-catalog__nav level2" data-topcat="level2"></div>
+                        <div class="top-catalog__last" data-topcat="level3"></div>
                       </div>
                     </div>
-                    <div class="header-catalog__other">
-                      <div class="catalog-other"><a href="#">
-                          <svg width="24" height="24">
-                            <use xlink:href="/img/sprites/sprite.svg#ic_i"></use>
-                          </svg><span>Полезная информация</span></a><a href="#">
-                          <svg width="24" height="24">
-                            <use xlink:href="/img/sprites/sprite.svg#ic_cat"></use>
-                          </svg><span>Получить каталоги</span></a><a href="#">
-                          <svg width="24" height="24">
-                            <use xlink:href="/img/sprites/sprite.svg#ic_online-tg"></use>
-                          </svg><span>Онлайн показ</span></a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
               <div class="header-professions" data-header-popup="professions">
                 <div class="container">
                   <div class="splide" data-slider="header-prof">
@@ -1899,7 +1940,7 @@
       </div>
       <div class="bottom-panel">
         <div class="bottom-panel__list">
-          <div class="bottom-panel__item" data-topcat="open"><a href="#">
+          <div class="bottom-panel__item" data-headercat="open"><a href="#">
               <svg width="40" height="40">
                 <use xlink:href="/img/sprites/sprite.svg#ic_catalog2"></use>
               </svg><span>Каталог</span></a></div>

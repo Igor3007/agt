@@ -60,11 +60,20 @@ include parts.pug
 
             .header__actions
                 ul
-                    li: a(href='/login.html'): +icons('#ic_user', 40)
-                    li.icon-kp: a(href='/kp.html'): +icons('#ic_kp', 40)
-                    li: a(href='/compare.html'): +icons('#ic_compare', 40)
-                    li: a(href='/wishlist.html' class="ic_heart"): +icons('#ic_heart', 40)
-                    li: a(href='/cart.html'): +icons('#ic_cart', 40)
+                    li: a(href='/login.html')
+                        +icons('#ic_user', 40)
+                        span Виктор Иванович
+                    li.icon-kp: a(href='/kp.html')
+                        +icons('#ic_kp', 40)
+                    li: a(href='/compare.html')
+                        +icons('#ic_compare', 40)
+                        span Сравнить 
+                    li: a(href='/wishlist.html' class="ic_heart")
+                        +icons('#ic_heart', 40)
+                        span Избранное
+                    li: a(href='/cart.html')
+                        +icons('#ic_cart', 40)
+                        span Корзина
                 
             .header__burger
                 .btn-burger(data-menu="open") 
@@ -78,7 +87,7 @@ include parts.pug
         .header-menu__wrp
             ul  
 
-                li.menu-catalog
+                li.menu-catalog(data-headercat="open")
                     a(href='#')
                         +icons('#ic_catalog')
                         span Каталог

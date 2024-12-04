@@ -1602,6 +1602,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 this.menuLevel1 = this.$el.querySelector('[data-topcat="level1"]')
                 this.menuLevel2 = this.$el.querySelector('[data-topcat="level2"]')
                 this.menuLevel3 = this.$el.querySelector('[data-topcat="level3"]')
+                this.elImage = this.$el.querySelector('[data-topcat="imgbg"]')
                 this.back = this.$el.querySelector('[data-topcat="back"]')
                 this.close = this.$el.querySelector('[data-topcat="close"]')
 
@@ -1705,6 +1706,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
                 item.classList.add('is-active')
 
+                this.elImage.setAttribute('src', item.dataset.image)
+
 
                 if (this.isMobile()) {
                     this.menuLevel1.classList.add('animation-hide-pane');
@@ -1758,20 +1761,19 @@ document.addEventListener('DOMContentLoaded', function (event) {
             addEvents() {
 
 
-
-                document.querySelectorAll('[data-topcat="open"]').forEach(item => {
+                document.querySelectorAll('[data-headercat="open"]').forEach(item => {
                     item.addEventListener('click', e => {
                         this.$el.classList.toggle('is-open')
                         document.body.classList.toggle('page-hidden')
 
-                        const closeInOut = (e) => {
-                                if (!e.target.closest('.top-catalog')) {
-                                    this.$el.classList.remove('is-open')
-                                    document.removeEventListener('click', closeInOut)
-                                }
-                            }
+                        // const closeInOut = (e) => {
+                        //         if (!e.target.closest('.top-catalog')) {
+                        //             this.$el.classList.remove('is-open')
+                        //             document.removeEventListener('click', closeInOut)
+                        //         }
+                        //     }
 
-                            !this.$el.classList.contains('is-open') || document.addEventListener('click', closeInOut)
+                        //     !this.$el.classList.contains('is-open') || document.addEventListener('click', closeInOut)
                     })
                 })
 

@@ -203,6 +203,31 @@ header {
             }
 
             & li {
+
+                position: relative;
+
+                & span {
+                    position: absolute;
+                    font-size: 10px;
+                    display: block;
+                    width: 80px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    position: absolute;
+                    top: 90%;
+                    opacity: 0;
+                    left: -50%;
+                    text-align: center;
+
+                }
+
+                &:hover {
+                    & span {
+                        opacity: 1;
+                    }
+                }
+
                 & a {
                     width: 40px;
                     height: 40px;

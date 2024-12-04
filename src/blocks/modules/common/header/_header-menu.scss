@@ -1,11 +1,16 @@
 .header-menu {
 
-    padding: 3px 0 24px 0;
-    display: none;
-    position: relative;
+
+    &>div {
+        @media screen and (max-width: $w760) {
+            display: none;
+        }
+    }
+
 
     @media screen and (min-width: $w760) {
         display: block;
+        padding: 3px 0 24px 0;
     }
 
     &__wrp {

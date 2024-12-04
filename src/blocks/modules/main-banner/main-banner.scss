@@ -62,7 +62,12 @@
     }
 
     &__btn {
-        padding-top: 24px
+        padding-top: 24px;
+
+        & .btn {
+            margin: 0 auto
+        }
+
     }
 
     &__picture {

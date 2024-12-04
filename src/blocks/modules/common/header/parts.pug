@@ -1,3 +1,5 @@
+include ../../top-catalog/top-catalog.pug
+
 mixin header-brand
     .header-brands(data-header-popup="brands")
         .splide(data-slider="header-brands")
@@ -18,53 +20,7 @@ mixin header-professions
                                 a(href='/brand.html')
                                     +bgimage(item.img)
                                     div= item.span
-mixin submenu
-
-    ul.sub-menu
-        li: a(href='#') Зимняя 
-        li: a(href='#') Летняя
-        li: a(href='#') Мужская
-        li: a(href='#') Женская
-
-
  
 
 mixin header-catalog
-    .header-catalog
-        .header-catalog__row
-            .header-catalog__image
-                +picture()
-            .header-catalog__menu
-                .header-catalog__nav
-                    .header-catalog__main
-                        ul
-                            li
-                                a(href='catalog.html') Спецодежда
-                                +submenu
-                            li
-                                a(href='catalog.html') Спецобувь
-                                +submenu
-                            li
-                                a(href='catalog.html') СИЖ
-                                +submenu
-                            li
-                                a(href='catalog.html') Перчатки
-                                +submenu
-                            li
-                                a(href='catalog.html') Аксессуары
-                                +submenu
-                            li
-                                a(href='catalog.html') Бренды
-                                +submenu
-
-                .header-catalog__other
-                    .catalog-other
-                        a(href='#')
-                            +icons('#ic_i')
-                            span Полезная информация
-                        a(href='#')
-                            +icons('#ic_cat')
-                            span Получить каталоги
-                        a(href='#')
-                            +icons('#ic_online-tg')
-                            span Онлайн показ
+   +top-catalog

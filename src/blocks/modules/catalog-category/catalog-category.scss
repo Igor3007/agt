@@ -6,17 +6,18 @@
 
 .catalog-category {
 
-    padding: 35px 0;
+    padding: 6px 0;
 
     &__wrp {
         @media screen and (min-width: $w992) {
             display: flex;
+            padding-top: 7px;
         }
     }
 
     &__banner {
         & .section-banner-small {
-            padding: 24px 0;
+            padding: 19px 0;
 
             & .container {
                 width: 100%;
@@ -33,7 +34,7 @@
 
         @media screen and (min-width: $w992) {
             width: 325px;
-            padding: 0px 28px 0px 5px
+            padding: 0px 28px 0px 0px
         }
     }
 
@@ -43,8 +44,7 @@
 
         @media screen and (min-width: $w992) {
             width: calc(100% - 325px);
-            padding-left: 35px;
-            border-left: 1px solid #eee;
+            padding-left: 20px;
         }
     }
 
@@ -149,7 +149,7 @@
 
     &__breadcrumb {
         margin-top: -8px;
-        padding-bottom: 24px;
+        padding-bottom: 12px;
 
         & .breadcrumb {
             padding: 0;
@@ -157,7 +157,7 @@
     }
 
     &__h1 {
-        padding-bottom: 24px;
+        padding-bottom: 22px;
 
         & h1 {
             @include font-h1;
@@ -172,7 +172,7 @@
         align-items: center;
         background-color: #fff;
 
-        margin-bottom: 5px;
+        margin-bottom: 22px;
         flex-wrap: wrap;
     }
 
@@ -283,16 +283,16 @@
         width: 100%;
         scrollbar-width: none !important;
         margin-top: 12px;
-
-        &::-webkit-scrollbar {
-            width: 0px;
-            height: 0px;
-        }
+        padding-bottom: 12px;
 
         @media screen and (min-width: $w576) {
             margin-top: 0;
         }
 
+        &::-webkit-scrollbar {
+            width: 0px;
+            height: 0px;
+        }
 
         &.is-open {
             flex-direction: column;
@@ -310,11 +310,11 @@
 
         & ul {
             display: flex;
-            margin: -4px -8px;
+            margin: -4px -5px;
 
 
             & li {
-                padding: 4px 8px;
+                padding: 4px 5px;
                 // display: none;
 
                 // &:nth-child(-n + 10) {
@@ -348,6 +348,7 @@
                         color: #fff;
                         transition: background 0.3s ease;
 
+
                         &::after {
                             @include ic-cross-svg;
                             content: '';
@@ -367,12 +368,16 @@
                 & a {
                     background-color: #ededed;
                     border-radius: 30px;
-                    min-height: 32px;
+                    min-height: 30px;
                     display: flex;
                     align-items: center;
-                    padding: 0 1em;
+                    padding: 0 1.45em;
                     white-space: nowrap;
                     cursor: pointer;
+
+                    font-size: 14px;
+                    font-family: var(--font-montserrat);
+                    font-weight: 500;
 
                 }
             }
@@ -512,6 +517,7 @@
         max-width: 180px;
         margin: 0 auto;
         width: 90%;
+        margin-top: -6px;
     }
 
     & .image-hover {
@@ -538,7 +544,7 @@
         font-size: 16px;
         font-weight: 600;
         line-height: 108%;
-        margin-top: 13px;
+        margin-top: 22px;
         padding: 0 24px 16px;
 
         &:hover {

@@ -27,34 +27,33 @@
 
                  & span,
                  & a {
-                     width: rem(36);
-                     height: rem(36);
+                     width: rem(40);
+                     height: rem(40);
                      display: flex;
                      align-items: center;
                      justify-content: center;
-                     color: var(--color-text-03);
+                     color: #000;
                      font-size: 14px;
-                     font-weight: 500;
-                     background-color: var(--color-bg-1);
-                     color: var(--color-text-1);
-                     border-radius: 6px;
+                     font-weight: 600;
+                     background-color: transparent;
+                     border-radius: 50px;
                      transition: 0.3s ease;
 
                      @media screen and (min-width: $w992) {
-                         width: rem(52);
-                         height: rem(52);
+                         width: rem(37);
+                         height: rem(37);
                          font-size: 16px;
                      }
 
                      & svg {
-                         fill: var(--color-text-03);
-                         min-width: 24px;
-                         height: 24px;
+                         fill: var(--accent);
+                         min-width: 40px;
+                         height: 40px;
                      }
 
                      &:hover {
-                         background-color: var(--color-bg-3);
-                         color: var(--color-accent-2);
+                         background-color: var(--bg);
+                         color: var(--accent);
 
                          & svg {
                              fill: #fff;
@@ -67,8 +66,8 @@
                  }
 
                  &.active a {
-                     background-color: var(--color-bg-7);
-                     color: #fff;
+                     background-color: var(--bg);
+                     color: var(--accent);
 
                      & svg {
                          fill: #fff;
@@ -81,28 +80,28 @@
 
                      & a {
                          background-color: transparent;
-                         border: 2px solid var(--color-borders-2);
+
 
                          & svg {
-                             fill: var(--color-accent-1);
+                             fill: var(--accent);
                          }
 
                          &:hover {
-                             background-color: var(--color-bg-3);
-                             border: 2px solid var(--color-bg-5);
+                             background-color: var(--bg);
+
 
                              & svg {
-                                 fill: var(--color-accent-2);
+                                 fill: var(--accent);
                              }
                          }
                      }
 
                      & span {
                          background-color: transparent;
-                         border: 2px solid var(--color-borders-1);
+
 
                          & svg {
-                             fill: var(--color-borders-1);
+                             fill: var(--accent);
                          }
                      }
 
@@ -129,6 +128,10 @@
 
          & .btn {
              width: 100%;
+             background-color: var(--accent);
+             color: #fff;
+             margin: 0 auto;
+             max-width: 500px;
          }
      }
 
@@ -141,7 +144,7 @@
      }
 
      &__total {
-         color: var(--color-text-03);
+         color: #000;
          white-space: nowrap;
 
          text-align: center;

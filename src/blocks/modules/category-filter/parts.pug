@@ -61,17 +61,16 @@ mixin prop-color(data)
             .filter-properties__title= data.title
             .filter-properties__cross
 
-        .filter-properties__colors
-            ul
+        .filter-properties__list
+            ul.colors-checkbox
                 each item in data.colors
-                    li
-                        label
-                            if(item.hex == '#42AAFF')
-                                input(type="checkbox" name="color" disabled)
-                            else
-                                input(type="checkbox" name="color" )
-                            span(data-tooltip=item.name  style='background-color: '+item.hex+'' class=(item.hex == '#ffffff' ? 'color--border':'' ))
-                //- span.icon-cross.clear-color-filter
+                    li(class=(item.hex == '#fff' ? 'color--white':''))
+                          label.checkbox
+                            input(type="checkbox" name=""+item.name+"" value=item.hex )
+                            span.checkbox__elem(style="background-color:"+item.hex)
+                            span.checkbox__text!= item.name 
+
+        
 
 
 mixin prop-radio(data)

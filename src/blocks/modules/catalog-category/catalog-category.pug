@@ -11,12 +11,11 @@ mixin catalog-category(data)
             .catalog-category__topnbar
                 .catalog-category__breadcrumb
                         +breadcrumb([
-                            'BRODEKS',
-                            'Спецодежда',
-                            'Мужская спецодежда'
+                            'AGT',
+                            'Каталог'
                         ])
 
-                .catalog-category__h1: h1= data.title ? data.title : 'Летняя спецодежда'
+                .catalog-category__h1: h1= data.title ? data.title : 'Cпецодежда'
 
                 .catalog-category__tags.dragscroll 
                     .tags-category-wrp
@@ -25,9 +24,9 @@ mixin catalog-category(data)
                             li: a(href='#') # Флис
                             li: a(href='#') # Синяя
                             li: a(href='#') # Хлопок
+                            li: a(href='#') # Полиамид
                             li: a(href='#') # Флис
-                            li: a(href='#') # Синяя
-                            li: a(href='#') # Хлопок
+                             
                             
                         .show-more-tag(data-isopen="catalog-category__tags"): span ...еще
 

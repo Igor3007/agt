@@ -3,7 +3,9 @@ include ./parts.pug
 mixin category-filter
     .category-filter(data-filter-container="catalog")
         .category-filter__head
-            .category-filter__head-title Фильтр
+            .category-filter__head-title 
+                span.ic_24: +icons('#ic_filtr', 16)
+                span Фильтр
             
 
         .category-filter__wrp
@@ -11,26 +13,6 @@ mixin category-filter
                 .category-filter__props
 
                     .category-filter__item: +prop-range()
-                   
-                    .category-filter__item: +prop-checkbox({
-                        title: 'Раздел',
-                        checkbox: [
-                            'Куртки',
-                            'Брюки',
-                            'Футболки',
-                            'Костюмы',
-                            'Кофты',
-                            'Куртки',
-                            'Брюки',
-                            'Футболки',
-                            'Костюмы',
-                            'Кофты',
-                        ]
-                    })
-
-                    
-
-                    
 
                     .category-filter__item: +prop-color({
                         title: 'Цвет',
@@ -50,7 +32,22 @@ mixin category-filter
                             {hex: '#E547C2', name: 'Розовый'}, 
                         ]
                     })
-                    
+                   
+                    .category-filter__item: +prop-checkbox({
+                        title: 'Раздел',
+                        checkbox: [
+                            'Куртки',
+                            'Брюки',
+                            'Футболки',
+                            'Костюмы',
+                            'Кофты',
+                            'Куртки',
+                            'Брюки',
+                            'Футболки',
+                            'Костюмы',
+                            'Кофты',
+                        ]
+                    })
 
                     .category-filter__item: +prop-checkbox({
                         title: 'Пол',
@@ -61,29 +58,61 @@ mixin category-filter
                         ]
                     })
 
-                    .category-filter__item: +prop-checkbox--wrap({
+                    .category-filter__item: +prop-checkbox({
                         title: 'Размер',
                         checkbox: [
-                            'M',
-                            'L',
-                            'XL',
-                            'XL',
-                            'XL',
-                            'XL',
-                            'XL',
-                            'XL',
-                            'XL',
-                            'XXL'
+                            'Тип одежды',
+                            'Тип одежды',
+                            'Тип одежды',
                         ]
                     })
+
+                    .category-filter__item: +prop-checkbox({
+                        title: 'Тип одежды',
+                        checkbox: [
+                            'Тип одежды',
+                            'Тип одежды',
+                            'Тип одежды',
+                            'Тип одежды',
+                            'Тип одежды',
+                            'Тип одежды',
+                        ]
+                    })
+
+                    .category-filter__item: +prop-checkbox({
+                        title: 'Сезон',
+                        checkbox: [
+                            'Тип одежды',
+                            'Тип одежды',
+                            'Тип одежды',
+                            'Тип одежды',
+                            'Тип одежды',
+                            'Тип одежды',
+                        ]
+                    })
+
+                    .category-filter__item: +prop-checkbox({
+                        title: 'Сезон',
+                        checkbox: [
+                            'Тип одежды',
+                            'Тип одежды',
+                            'Тип одежды',
+                            'Тип одежды',
+                            'Тип одежды',
+                            'Тип одежды',
+                            'Тип одежды',
+                        ]
+                    })
+
+                     
 
                     
 
                 .category-filter__submit
                     .category-filter__send(data-filter="submit")
                         button.btn
-                            span Показать
+                            span Применить фильтры
                             //- small 328 предложений 
                     .category-filter__clear(data-filter="clear")
                         //- span.icon-cross 
-                        small Очистить 
+                        button.btn.btn-gray Сбросить фильтры 

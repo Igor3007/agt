@@ -19,8 +19,8 @@ mixin pagination-showmore(data)
     .pagination__more
           a(href='#')
             button.btn.btn-light
-              span Показать ещё
-              +icons('#ic_arr-down')
+              span Показать ещё 35
+              
     .pagination__page
       ul
         li.next: span
@@ -28,8 +28,12 @@ mixin pagination-showmore(data)
         li.active: a(href="#1") 1
         li: a(href="#2") 2
         li: a(href="#3") 3
+        li: a(href="#3") 4
+        li: a(href="#3") 5
+        li: a(href="#3") 6
+        li: a(href="#3") 7
         li: span ...
-        li: a(href="#10") 10
+         
         li.next: a(href="#2")
-          +icons('#ic_arrow-next', 48) 
+          +icons('#ic_arr-right', 36) 
        

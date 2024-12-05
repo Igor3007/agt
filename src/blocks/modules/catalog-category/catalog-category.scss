@@ -6,7 +6,11 @@
 
 .catalog-category {
 
-    padding: 6px 0;
+
+    @media screen and (min-width: $w480) {
+        padding: 6px 0;
+
+    }
 
     &__wrp {
         @media screen and (min-width: $w992) {
@@ -58,20 +62,15 @@
 
         & ul {
             display: flex;
-            margin: 0 -10px;
+            margin: 0 -6px;
             overflow-y: hidden;
             overflow-x: auto;
-            margin-right: -16px;
             scrollbar-width: none !important;
+            overflow: hidden;
+            flex-wrap: wrap;
 
-            @media screen and (min-width: $w480) {
-                margin-right: -10px;
-            }
 
-            @media screen and (min-width: $w760) {
-                overflow: hidden;
-                flex-wrap: wrap;
-            }
+
 
             &::-webkit-scrollbar {
                 width: 4px;
@@ -92,15 +91,51 @@
             }
 
 
-
             & li {
 
-                width: calc(14.28% - 12px);
+                width: calc(50% - 12px);
                 position: relative;
                 margin: 6px;
-                min-width: 180px;
+                min-width: 120px;
                 background-color: #F2F6F9;
                 border-radius: 8px;
+                overflow: hidden;
+
+                @media screen and (min-width: $w1440) {
+                    width: calc(14.28% - 12px);
+                }
+
+                @media screen and (min-width: $w1200) {
+                    width: calc(16.6% - 12px);
+                }
+
+                @media screen and (min-width: $w1024) {
+                    width: calc(20% - 12px);
+                }
+
+                @media screen and (min-width: 991px) {
+                    width: calc(25% - 12px);
+                }
+
+                @media screen and (min-width: $w760) {
+                    width: calc(33.33% - 12px);
+                }
+
+                @media screen and (min-width: $w576) {
+                    min-width: 180px;
+                }
+
+                @media screen and (max-width: $w576) {
+                    display: none;
+
+                    &:nth-child(1),
+                    &:nth-child(2),
+                    &:nth-child(3),
+                    &:nth-child(4) {
+                        display: block
+                    }
+
+                }
 
 
                 & picture {
@@ -130,26 +165,58 @@
                     transition: 0.3s ease;
                 }
 
+                & .image-main {
+                    transition: 0.45s ease;
+                }
+
                 &:hover {
                     & span {
 
                         color: transparent;
                     }
 
-                    & .image-hover {
-                        z-index: 3;
-                        opacity: 1;
+                    & .image-main {
+                        transform: scale(1.05);
                     }
                 }
             }
 
+        }
+
+        &.is-open {
+            & ul {
+                & li {
+                    display: block;
+                }
+            }
+        }
+
+        & .subcat-show-more {
+            background-color: var(--bg);
+            height: 39px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: bold;
+            margin-top: 6px;
+            display: none;
+            cursor: pointer;
+
+            &:hover {
+                color: var(--accent);
+            }
         }
     }
 
 
     &__breadcrumb {
         margin-top: -8px;
-        padding-bottom: 12px;
+        padding-bottom: 8px;
+
+        @media screen and (min-width: $w480) {
+            padding-bottom: 12px;
+        }
 
         & .breadcrumb {
             padding: 0;
@@ -157,7 +224,11 @@
     }
 
     &__h1 {
-        padding-bottom: 22px;
+        padding-bottom: 9px;
+
+        @media screen and (min-width: $w480) {
+            padding-bottom: 22px;
+        }
 
         & h1 {
             @include font-h1;
@@ -171,31 +242,63 @@
         padding: 10px 0;
         align-items: center;
         background-color: #fff;
-
         margin-bottom: 22px;
         flex-wrap: wrap;
+
+
     }
 
     &__filter {
-        margin-right: auto;
+        margin-right: 0;
         letter-spacing: 0.64px;
+        width: calc(100% - 80px);
+
+        @media screen and (min-width: $w576) {
+            width: auto;
+        }
+
+        @media screen and (min-width: $w992) {
+            width: 345px;
+        }
 
         & .button-filter {
             display: flex;
             align-items: center;
             font-weight: 500;
             cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
 
-            & svg {
-                margin-right: 0.5em;
+            @media screen and (min-width: $w480) {
+                font-size: 18px;
+                gap: 16px;
             }
 
-            &:hover {
-                color: var(--red);
-                text-decoration: underline;
+
+            & .ic_24 {
+                width: 35px;
+                min-width: 35px;
+                height: 35px;
+                background-color: var(--accent);
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: 0.3s ease;
+
+                @media screen and (min-width: $w992) {
+                    background-color: #2F3030;
+                }
 
                 & svg {
-                    fill: var(--red);
+                    fill: #fff;
+                }
+
+                &:hover {
+                    background-color: var(--accent);
                 }
             }
         }
@@ -203,13 +306,29 @@
 
     &__sort {
         margin-left: 0;
-        margin-right: auto;
-        max-width: 140px;
+        margin-right: 24px;
         letter-spacing: 0.64px;
+        margin-left: auto;
+        width: 100%;
+        order: 3;
+        margin-left: 0;
+        margin-right: 0;
+
+        padding-top: 24px;
+
+        @media screen and (min-width: $w992) {
+            margin-right: auto;
+            margin-left: 0;
+        }
 
 
         @media screen and (min-width: $w576) {
             max-width: none;
+            width: auto;
+            order: unset;
+            margin-left: auto;
+            margin-right: 36px;
+            padding-top: 0;
         }
 
         & .list-dropdown {
@@ -272,6 +391,8 @@
         }
     }
 
+
+
     &__tags {
 
         align-items: center;
@@ -283,10 +404,11 @@
         width: 100%;
         scrollbar-width: none !important;
         margin-top: 12px;
-        padding-bottom: 12px;
+        padding-bottom: 8px;
 
         @media screen and (min-width: $w576) {
             margin-top: 0;
+            padding-bottom: 12px;
         }
 
         &::-webkit-scrollbar {
@@ -344,7 +466,7 @@
 
                     & span,
                     & a {
-                        background-color: var(--red);
+                        background-color: var(--accent);
                         color: #fff;
                         transition: background 0.3s ease;
 
@@ -371,13 +493,16 @@
                     min-height: 30px;
                     display: flex;
                     align-items: center;
-                    padding: 0 1.45em;
+                    padding: 0 1em;
                     white-space: nowrap;
                     cursor: pointer;
-
                     font-size: 14px;
                     font-family: var(--font-montserrat);
                     font-weight: 500;
+
+                    @media screen and (min-width: $w480) {
+                        padding: 0 1.45em;
+                    }
 
                 }
             }
@@ -395,6 +520,8 @@
             margin-left: 16px;
             cursor: pointer;
             display: none;
+            font-family: var(--font-montserrat);
+            font-weight: 500;
 
             &:hover {
                 background-color: #ddd;
@@ -431,16 +558,36 @@
     &__view {}
 
     &__collections {
+
+        padding-top: 40px;
+
+        @media screen and (min-width: $w1440) {
+            padding-top: 62px;
+        }
+
         & .tag-collections {
             padding: 0;
+            max-width: 855px;
+            margin: 0 auto;
+
+            & ul {
+                justify-content: center;
+            }
         }
     }
 
     &__pagination {
+
+        padding-top: 80px;
+
         & .pagination {
             &__page {
                 margin-left: auto;
                 margin-right: auto;
+
+                @media screen and (min-width: $w992) {
+                    padding: 36px 0;
+                }
             }
         }
     }
@@ -464,23 +611,12 @@
             &__top {
                 @media screen and (min-width: $w992) {
                     position: sticky;
-                    top: 68px;
+                    top: var(--hgt-header, 86px);
                     z-index: 5;
 
                 }
 
-                @media screen and (min-width: 1900px) {
-                    margin-left: -55px;
-                    margin-right: -55px;
-                }
 
-                @media screen and (min-width: $w992) {
-                    margin-left: -45px;
-                    margin-right: -45px;
-
-                    flex-wrap: nowrap;
-                    padding: 14px 24px;
-                }
             }
 
             &__tags {
@@ -514,10 +650,18 @@
     }
 
     & .image-main {
-        max-width: 180px;
+        max-width: 70px;
         margin: 0 auto;
         width: 90%;
         margin-top: -6px;
+
+        @media screen and (min-width: $w992) {
+            max-width: 180px;
+        }
+
+        @media screen and (min-width: $w480) {
+            max-width: 157px;
+        }
     }
 
     & .image-hover {
@@ -541,14 +685,26 @@
 
     & .title-subcat {
 
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 600;
         line-height: 108%;
-        margin-top: 22px;
-        padding: 0 24px 16px;
+        margin-top: 14px;
+        padding: 0 16px 16px;
+        text-align: center;
+
+        @media screen and (min-width: $w576) {
+            text-align: left;
+        }
+
+        @media screen and (min-width: $w480) {
+            font-size: 16px;
+            margin-top: 22px;
+            padding: 0 24px 16px;
+            margin-top: 16px;
+        }
 
         &:hover {
-            color: var(--red);
+            color: var(--accent);
         }
     }
 }
@@ -663,6 +819,21 @@
     align-items: center;
     background-color: var(--bg);
     border-radius: 30px;
+    width: 80px;
+    display: none;
+
+    @media screen and (min-width: $w576) {
+        display: flex;
+    }
+
+    &--column {
+
+        display: flex;
+
+        @media screen and (min-width: $w576) {
+            display: none;
+        }
+    }
 
     &__item {
 
@@ -679,12 +850,15 @@
 
         & label {
 
+            display: flex;
+            align-items: center;
+
             &:hover {
                 cursor: pointer;
             }
 
             & svg {
-                width: 14px;
+                width: 20px;
                 height: 14px;
                 fill: rgba(0, 0, 0, 0.27);
             }
@@ -718,6 +892,13 @@
     margin: -10px;
     justify-content: flex-start;
 
+    @media screen and (min-width: $w760) and (max-width: $w992) {
+
+        max-width: 730px;
+        margin: 0 auto;
+
+    }
+
     &__item {
         padding: 10px;
         width: 50%;
@@ -749,6 +930,7 @@
         @media screen and (min-width: $w992) {
             width: 50%;
             padding-bottom: 30px;
+            margin-bottom: 0;
 
             &--lg {
                 width: 100%;
@@ -756,10 +938,11 @@
         }
 
         @media screen and (min-width: $w760) {
-            width: 33.33%;
+            width: 50%;
+            margin-bottom: 44px;
 
             &--lg {
-                width: 66.66%;
+                width: 100%;
             }
         }
 
@@ -872,6 +1055,129 @@
             }
         }
     }
+
+    &.view--list {
+        @media screen and (min-width: $w760) {
+            & .category-products {
+                &__item {
+                    width: 100%;
+                    padding-bottom: 24px;
+                    border-bottom: 1px solid #ddd;
+                    margin-bottom: 16px;
+                    padding-left: 0;
+                    padding-right: 0;
+
+                    & .minicard:not(.minicard--large) {
+                        flex-direction: row;
+                        position: relative;
+
+                        & .minicard {
+
+
+                            &__photo {
+                                width: 180px;
+                            }
+
+                            &__main {
+                                padding-left: 36px;
+                                width: calc(100% - 180px - 240px);
+                            }
+
+                            &__top {
+                                position: static;
+                            }
+
+                            &__head {
+                                position: static;
+                            }
+
+                            &__desc span {
+                                font-size: 18px;
+                                font-weight: 500;
+                                max-width: 340px;
+                            }
+
+                            &__brand {
+                                top: 10px;
+                                left: 80px;
+                                position: absolute;
+                                z-index: 4;
+                            }
+
+                            &__sticker {
+                                bottom: 16px;
+                                left: 16px;
+                                position: absolute;
+                                z-index: 4;
+
+                                & span {
+                                    background-color: var(--accent);
+                                    color: #fff;
+                                }
+                            }
+
+                            &__action {
+                                right: 0;
+                                top: 0;
+                                align-items: center;
+
+
+                                &>div {
+                                    display: block;
+                                    opacity: 1;
+                                }
+                            }
+
+                            &__price {
+                                color: var(--accent);
+                                font-size: 20px;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+
+                    & .minicard--large {
+
+                        flex-direction: row;
+                        gap: 12px;
+
+                        & .minicard {
+                            &__top {
+                                width: calc(100% - 350px);
+                            }
+
+                            &__main {
+                                width: 350px;
+                                background-color: var(--bg);
+                                border-radius: 8px;
+                                padding: 40px;
+                            }
+
+                            &__action {
+                                position: absolute;
+                            }
+
+                            &__photo {
+                                & picture {
+                                    padding-top: 39%;
+                                }
+                            }
+
+                            &__price {
+                                color: var(--accent);
+                                font-size: 20px;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+
+
 }
 
 .tags-category-wrp {
@@ -907,6 +1213,11 @@
     display: flex;
     align-items: center;
     gap: 16px;
+    justify-content: space-between;
+
+    @media screen and (min-width: $w576) {
+        justify-content: flex-start;
+    }
 
     &__item {
         & a {
@@ -916,14 +1227,33 @@
             & svg {
                 width: 14px;
                 height: 14px;
+                fill: #000;
             }
 
             & span {
                 font-size: 14px;
                 font-family: var(--font-montserrat);
                 margin-left: 12px;
+                font-weight: 600;
             }
 
+            &:hover {
+                color: var(--accent);
+
+                & svg {
+                    fill: var(--accent);
+                }
+            }
+
+
         }
+
+        &.is-active {
+            & svg {
+                fill: var(--accent);
+                transform: rotate(180deg);
+            }
+        }
+
     }
 }

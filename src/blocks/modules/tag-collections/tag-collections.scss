@@ -27,7 +27,7 @@
         font-size: 16px;
 
         &:hover {
-            color: var(--red);
+            color: var(--accent);
             cursor: pointer;
         }
 
@@ -54,7 +54,7 @@
             margin: 0 -6px;
 
             @media screen and (min-width: $w1440) {
-                margin: 0 -10px;
+                margin: 0 -5px;
             }
 
             & li {
@@ -63,7 +63,7 @@
                 display: none;
 
                 @media screen and (min-width: $w1440) {
-                    padding: 10px;
+                    padding: 5px;
                 }
 
                 &:nth-child(-n + 5) {
@@ -78,16 +78,21 @@
 
                 & a {
                     padding: 12px 16px;
-                    background-color: #F5F5F5;
-                    text-decoration: underline;
                     display: block;
+                    border-radius: 50px;
+                    font-size: 14px;
+                    border: 2px solid var(--accent);
+                    font-weight: 500;
+                    font-family: var(--font-montserrat);
+                    transition: 0.3s ease;
 
                     &:hover {
-                        background-color: #eeeeee;
+                        background-color: var(--accent);
+                        color: #fff;
                     }
 
                     @media screen and (min-width: $w1440) {
-                        padding: 19px 28px;
+                        padding: 13px 20px;
                     }
                 }
             }

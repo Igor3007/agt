@@ -48,9 +48,17 @@ $color-bg-green-1: rgba(240, 255, 250, 1);
 
 @mixin font-h1() {
 
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 600;
     line-height: 100%;
+
+    @media screen and (min-width: $w576) {
+        font-size: 36px;
+    }
+
+    @media screen and (min-width: $w992) {
+        font-size: 40px;
+    }
 }
 
 @mixin font-h2() {

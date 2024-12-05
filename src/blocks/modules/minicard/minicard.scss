@@ -128,6 +128,7 @@
         }
     }
 
+    &__kp,
     &__tocart,
     &__compare,
     &__tofav {
@@ -157,9 +158,13 @@
 
         &.is-active {
             & svg {
-                fill: var(--red);
+                fill: var(--accent);
             }
         }
+    }
+
+    &__kp {
+        display: none;
     }
 
     &__tocart {
@@ -189,7 +194,7 @@
             & svg {
                 position: relative;
                 z-index: 1;
-                fill: var(--red);
+                fill: var(--accent);
             }
 
             &::before {
@@ -448,7 +453,7 @@
         & svg {
             position: relative;
             z-index: 1;
-            fill: var(--red);
+            fill: var(--accent);
 
         }
 
@@ -477,9 +482,32 @@
     &.is-active {
 
         & svg {
-            fill: var(--red);
+            fill: var(--accent);
         }
 
 
     }
+}
+
+@media screen and (max-width: $w576) {
+
+    .minicard {
+        &__price {
+            text-align: center;
+        }
+
+        &__desc {
+            text-align: center;
+        }
+
+        &__vcode {
+            text-align: center;
+        }
+
+        &__colors {
+            display: none;
+        }
+    }
+
+
 }

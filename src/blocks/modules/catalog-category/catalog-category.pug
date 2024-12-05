@@ -30,53 +30,73 @@ mixin catalog-category(data)
                             
                         .show-more-tag(data-isopen="catalog-category__tags"): span ...еще
 
-                .catalog-category__subcat: ul.dragscroll
-                    each item in catalog
-                        li: a(href='category.html')
-                                div.title-subcat= item.title
-                                div.image-main: +picture(item.image)
+                .catalog-category__subcat
+                    ul.dragscroll
+                        each item in catalog
+                            li: a(href='category.html')
+                                    div.title-subcat= item.title
+                                    div.image-main: +picture(item.image)
+
+                    .subcat-show-more(data-isopen="catalog-category__subcat") Показать все
 
                 .catalog-category__banner
                     +banner-small
 
+            .catalog-category__top
 
-            .catalog-category__wrp
-                .catalog-category__aside: +category-filter
-                .catalog-category__content
+                        .catalog-category__filter
+                            .button-filter(data-filter="open")
+                                span.ic_24: +icons('#ic_filtr', 16)
+                                span Фильтр
 
-                    .catalog-category__top
-                        
-                                 
                         .catalog-category__sort
+
                             .catalog-category__sortable
                                 .sortable-category
                                     .sortable-category__item
                                         a(href='#')
                                             +icons('#ic_sort')
                                             span По цене
-                                    .sortable-category__item
+                                    .sortable-category__item.is-active
                                         a(href='#')
                                             +icons('#ic_sort')
                                             span По популярности
 
-                        
-                             
+                                
 
                         .catalog-category__view
                             .change-view
                                 .change-view__item
                                     label
-                                        input(type="radio" name="view-type" value="one" )
+                                        input(type="radio" name="view-type" value="grid" )
                                         +icons('#ic_view-grid', 14)
                                 .change-view__item
                                     label
-                                        input(type="radio" name="view-type" value="two" checked) 
+                                        input(type="radio" name="view-type" value="list" checked) 
                                         +icons('#ic_view-list', 14)
 
+                            .change-view.change-view--column
+                                .change-view__item
+                                    label
+                                        input(type="radio" name="view-type" value="one" )
+                                        +icons('#ic_view-one', 14)
+                                .change-view__item
+                                    label
+                                        input(type="radio" name="view-type" value="two" checked) 
+                                        +icons('#ic_view-two', 14)
+
+            .catalog-category__wrp
+                .catalog-category__aside: +category-filter
+                .catalog-category__content
+
+                    
                     .catalog-category__products
                         .category-products
                             each item in products2
-                                .category-products__item(class = item.type == 'minicard--large' ? 'category-products__item--lg' : ''): +minicard(item)
+                                .category-products__item(class = item.type == 'minicard--large' ? 'category-products__item--lg' : '')
+                                    +minicard(item)
+                                     
+                                    
 
                     .catalog-category__pagination: +pagination-showmore()
                     .catalog-category__collections: +tag-collections--nocontainer()

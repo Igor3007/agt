@@ -96,6 +96,13 @@
   font-weight: 500;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url("/fonts/montserrat/subset-Montserrat-SemiBold.woff2") format("woff2"), url("/fonts/montserrat/subset-Montserrat-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
 /*# sourceMappingURL=maps/critical-fonts.css.map */
 
     </style>
@@ -151,7 +158,7 @@
           <div class="header__wrp">
             <div class="header__logo"><a href="/"><span class="bgimage" style="background-image: url(/img/common/logo.svg)"></span></a></div>
             <div class="header__catalog">
-              <div class="menu-catalog"><a href="#">
+              <div class="menu-catalog"><a data-headercat="open" data-type="fixed">
                   <svg width="24" height="24">
                     <use xlink:href="/img/sprites/sprite.svg#ic_catalog"></use>
                   </svg><span>Каталог</span></a></div>
@@ -689,6 +696,11 @@
                                             <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
                                           </svg>
                                         </div>
+                                        <div class="minicard__kp" data-compare="12">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_kp"></use>
+                                          </svg>
+                                        </div>
                                         <div class="minicard__tocart" data-compare="12">
                                           <svg width="40" height="40">
                                             <use xlink:href="/img/sprites/sprite.svg#ic_to-cart"></use>
@@ -764,79 +776,9 @@
                                             <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
                                           </svg>
                                         </div>
-                                        <div class="minicard__tocart" data-compare="14">
+                                        <div class="minicard__kp" data-compare="14">
                                           <svg width="40" height="40">
-                                            <use xlink:href="/img/sprites/sprite.svg#ic_to-cart"></use>
-                                          </svg>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="minicard__main">
-                                      <div class="minicard__price">14 500 <span>₽</span></div>
-                                      <div class="minicard__desc"><span>Зимний светоотражающий полукомбинезон Portwest S489, сигнальный желтый/темно-синий</span></div>
-                                      <div class="minicard__vcode"><span>Арт.: KS213RED</span></div>
-                                      <div class="minicard__colors">
-                                        <ul>
-                                          <li style="border-color: #E43A28 "> <span data-color="123" style="background-color: #E43A28 "></span>
-                                          </li>
-                                          <li style="border-color: #405284 "> <span data-color="785" style="background-color: #405284 "></span>
-                                          </li>
-                                          <li style="border-color: #EAEAEA "> <span data-color="678" style="background-color: #EAEAEA "></span>
-                                          </li>
-                                          <li style="border-color: #44454E "> <span data-color="354" style="background-color: #44454E "></span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                          </div>
-                          <div class="splide__slide">
-                                  <div class="minicard" data-popup="product-preview" data-id="875">
-                                    <div class="minicard__top">
-                                      <div class="minicard__head">
-                                        <div class="minicard__sticker"><span>Новинка</span></div>
-                                        <div class="minicard__brand"><span class="bgimage lazyload" data-bg="/img/brands/brodeks.png"></span>
-                                        </div>
-                                      </div>
-                                      <div class="minicard__images">
-                                        <div class="minicard__picture is-active" data-image-color="123">
-                                          <div class="minicard__photo">
-                                            <picture>
-                                              <source srcset="/img/product/p2.webp" type="image/webp"/><img src="/img/product/p2.png" loading="lazy" alt="image"/>
-                                            </picture>
-                                          </div>
-                                        </div>
-                                        <div class="minicard__picture" data-image-color="785">
-                                          <div class="minicard__photo">
-                                            <picture>
-                                              <source srcset="/img/product/kw204/p2.webp" type="image/webp"/><img src="/img/product/kw204/p2.png" loading="lazy" alt="image"/>
-                                            </picture>
-                                          </div>
-                                        </div>
-                                        <div class="minicard__picture" data-image-color="678">
-                                          <div class="minicard__photo">
-                                            <picture>
-                                              <source srcset="/img/product/kw204/kw204-gray.webp" type="image/webp"/><img src="/img/product/kw204/kw204-gray.png" loading="lazy" alt="image"/>
-                                            </picture>
-                                          </div>
-                                        </div>
-                                        <div class="minicard__picture" data-image-color="354">
-                                          <div class="minicard__photo">
-                                            <picture>
-                                              <source srcset="/img/product/kw204/kw204-black.webp" type="image/webp"/><img src="/img/product/kw204/kw204-black.png" loading="lazy" alt="image"/>
-                                            </picture>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="minicard__action">
-                                        <div class="minicard__tofav" data-wishlist="14">
-                                          <svg width="40" height="40">
-                                            <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
-                                          </svg>
-                                        </div>
-                                        <div class="minicard__compare" data-compare="14">
-                                          <svg width="40" height="40">
-                                            <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_kp"></use>
                                           </svg>
                                         </div>
                                         <div class="minicard__tocart" data-compare="14">
@@ -914,79 +856,9 @@
                                             <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
                                           </svg>
                                         </div>
-                                        <div class="minicard__tocart" data-compare="14">
+                                        <div class="minicard__kp" data-compare="14">
                                           <svg width="40" height="40">
-                                            <use xlink:href="/img/sprites/sprite.svg#ic_to-cart"></use>
-                                          </svg>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="minicard__main">
-                                      <div class="minicard__price">14 500 <span>₽</span></div>
-                                      <div class="minicard__desc"><span>Зимний светоотражающий полукомбинезон Portwest S489, сигнальный желтый/темно-синий</span></div>
-                                      <div class="minicard__vcode"><span>Арт.: KS213RED</span></div>
-                                      <div class="minicard__colors">
-                                        <ul>
-                                          <li style="border-color: #E43A28 "> <span data-color="123" style="background-color: #E43A28 "></span>
-                                          </li>
-                                          <li style="border-color: #405284 "> <span data-color="785" style="background-color: #405284 "></span>
-                                          </li>
-                                          <li style="border-color: #EAEAEA "> <span data-color="678" style="background-color: #EAEAEA "></span>
-                                          </li>
-                                          <li style="border-color: #44454E "> <span data-color="354" style="background-color: #44454E "></span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                          </div>
-                          <div class="splide__slide">
-                                  <div class="minicard" data-popup="product-preview" data-id="875">
-                                    <div class="minicard__top">
-                                      <div class="minicard__head">
-                                        <div class="minicard__sticker"><span>Новинка</span></div>
-                                        <div class="minicard__brand"><span class="bgimage lazyload" data-bg="/img/brands/brodeks.png"></span>
-                                        </div>
-                                      </div>
-                                      <div class="minicard__images">
-                                        <div class="minicard__picture is-active" data-image-color="123">
-                                          <div class="minicard__photo">
-                                            <picture>
-                                              <source srcset="/img/product/p2.webp" type="image/webp"/><img src="/img/product/p2.png" loading="lazy" alt="image"/>
-                                            </picture>
-                                          </div>
-                                        </div>
-                                        <div class="minicard__picture" data-image-color="785">
-                                          <div class="minicard__photo">
-                                            <picture>
-                                              <source srcset="/img/product/kw204/p2.webp" type="image/webp"/><img src="/img/product/kw204/p2.png" loading="lazy" alt="image"/>
-                                            </picture>
-                                          </div>
-                                        </div>
-                                        <div class="minicard__picture" data-image-color="678">
-                                          <div class="minicard__photo">
-                                            <picture>
-                                              <source srcset="/img/product/kw204/kw204-gray.webp" type="image/webp"/><img src="/img/product/kw204/kw204-gray.png" loading="lazy" alt="image"/>
-                                            </picture>
-                                          </div>
-                                        </div>
-                                        <div class="minicard__picture" data-image-color="354">
-                                          <div class="minicard__photo">
-                                            <picture>
-                                              <source srcset="/img/product/kw204/kw204-black.webp" type="image/webp"/><img src="/img/product/kw204/kw204-black.png" loading="lazy" alt="image"/>
-                                            </picture>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="minicard__action">
-                                        <div class="minicard__tofav" data-wishlist="14">
-                                          <svg width="40" height="40">
-                                            <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
-                                          </svg>
-                                        </div>
-                                        <div class="minicard__compare" data-compare="14">
-                                          <svg width="40" height="40">
-                                            <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_kp"></use>
                                           </svg>
                                         </div>
                                         <div class="minicard__tocart" data-compare="14">
@@ -1062,6 +934,171 @@
                                         <div class="minicard__compare" data-compare="14">
                                           <svg width="40" height="40">
                                             <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
+                                          </svg>
+                                        </div>
+                                        <div class="minicard__kp" data-compare="14">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_kp"></use>
+                                          </svg>
+                                        </div>
+                                        <div class="minicard__tocart" data-compare="14">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_to-cart"></use>
+                                          </svg>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__main">
+                                      <div class="minicard__price">14 500 <span>₽</span></div>
+                                      <div class="minicard__desc"><span>Зимний светоотражающий полукомбинезон Portwest S489, сигнальный желтый/темно-синий</span></div>
+                                      <div class="minicard__vcode"><span>Арт.: KS213RED</span></div>
+                                      <div class="minicard__colors">
+                                        <ul>
+                                          <li style="border-color: #E43A28 "> <span data-color="123" style="background-color: #E43A28 "></span>
+                                          </li>
+                                          <li style="border-color: #405284 "> <span data-color="785" style="background-color: #405284 "></span>
+                                          </li>
+                                          <li style="border-color: #EAEAEA "> <span data-color="678" style="background-color: #EAEAEA "></span>
+                                          </li>
+                                          <li style="border-color: #44454E "> <span data-color="354" style="background-color: #44454E "></span>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                          </div>
+                          <div class="splide__slide">
+                                  <div class="minicard" data-popup="product-preview" data-id="875">
+                                    <div class="minicard__top">
+                                      <div class="minicard__head">
+                                        <div class="minicard__sticker"><span>Новинка</span></div>
+                                        <div class="minicard__brand"><span class="bgimage lazyload" data-bg="/img/brands/brodeks.png"></span>
+                                        </div>
+                                      </div>
+                                      <div class="minicard__images">
+                                        <div class="minicard__picture is-active" data-image-color="123">
+                                          <div class="minicard__photo">
+                                            <picture>
+                                              <source srcset="/img/product/p2.webp" type="image/webp"/><img src="/img/product/p2.png" loading="lazy" alt="image"/>
+                                            </picture>
+                                          </div>
+                                        </div>
+                                        <div class="minicard__picture" data-image-color="785">
+                                          <div class="minicard__photo">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/p2.webp" type="image/webp"/><img src="/img/product/kw204/p2.png" loading="lazy" alt="image"/>
+                                            </picture>
+                                          </div>
+                                        </div>
+                                        <div class="minicard__picture" data-image-color="678">
+                                          <div class="minicard__photo">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/kw204-gray.webp" type="image/webp"/><img src="/img/product/kw204/kw204-gray.png" loading="lazy" alt="image"/>
+                                            </picture>
+                                          </div>
+                                        </div>
+                                        <div class="minicard__picture" data-image-color="354">
+                                          <div class="minicard__photo">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/kw204-black.webp" type="image/webp"/><img src="/img/product/kw204/kw204-black.png" loading="lazy" alt="image"/>
+                                            </picture>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="minicard__action">
+                                        <div class="minicard__tofav" data-wishlist="14">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
+                                          </svg>
+                                        </div>
+                                        <div class="minicard__compare" data-compare="14">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
+                                          </svg>
+                                        </div>
+                                        <div class="minicard__kp" data-compare="14">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_kp"></use>
+                                          </svg>
+                                        </div>
+                                        <div class="minicard__tocart" data-compare="14">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_to-cart"></use>
+                                          </svg>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__main">
+                                      <div class="minicard__price">14 500 <span>₽</span></div>
+                                      <div class="minicard__desc"><span>Зимний светоотражающий полукомбинезон Portwest S489, сигнальный желтый/темно-синий</span></div>
+                                      <div class="minicard__vcode"><span>Арт.: KS213RED</span></div>
+                                      <div class="minicard__colors">
+                                        <ul>
+                                          <li style="border-color: #E43A28 "> <span data-color="123" style="background-color: #E43A28 "></span>
+                                          </li>
+                                          <li style="border-color: #405284 "> <span data-color="785" style="background-color: #405284 "></span>
+                                          </li>
+                                          <li style="border-color: #EAEAEA "> <span data-color="678" style="background-color: #EAEAEA "></span>
+                                          </li>
+                                          <li style="border-color: #44454E "> <span data-color="354" style="background-color: #44454E "></span>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                          </div>
+                          <div class="splide__slide">
+                                  <div class="minicard" data-popup="product-preview" data-id="875">
+                                    <div class="minicard__top">
+                                      <div class="minicard__head">
+                                        <div class="minicard__sticker"><span>Новинка</span></div>
+                                        <div class="minicard__brand"><span class="bgimage lazyload" data-bg="/img/brands/brodeks.png"></span>
+                                        </div>
+                                      </div>
+                                      <div class="minicard__images">
+                                        <div class="minicard__picture is-active" data-image-color="123">
+                                          <div class="minicard__photo">
+                                            <picture>
+                                              <source srcset="/img/product/p2.webp" type="image/webp"/><img src="/img/product/p2.png" loading="lazy" alt="image"/>
+                                            </picture>
+                                          </div>
+                                        </div>
+                                        <div class="minicard__picture" data-image-color="785">
+                                          <div class="minicard__photo">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/p2.webp" type="image/webp"/><img src="/img/product/kw204/p2.png" loading="lazy" alt="image"/>
+                                            </picture>
+                                          </div>
+                                        </div>
+                                        <div class="minicard__picture" data-image-color="678">
+                                          <div class="minicard__photo">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/kw204-gray.webp" type="image/webp"/><img src="/img/product/kw204/kw204-gray.png" loading="lazy" alt="image"/>
+                                            </picture>
+                                          </div>
+                                        </div>
+                                        <div class="minicard__picture" data-image-color="354">
+                                          <div class="minicard__photo">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/kw204-black.webp" type="image/webp"/><img src="/img/product/kw204/kw204-black.png" loading="lazy" alt="image"/>
+                                            </picture>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="minicard__action">
+                                        <div class="minicard__tofav" data-wishlist="14">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
+                                          </svg>
+                                        </div>
+                                        <div class="minicard__compare" data-compare="14">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
+                                          </svg>
+                                        </div>
+                                        <div class="minicard__kp" data-compare="14">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_kp"></use>
                                           </svg>
                                         </div>
                                         <div class="minicard__tocart" data-compare="14">
@@ -1139,6 +1176,11 @@
                                             <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
                                           </svg>
                                         </div>
+                                        <div class="minicard__kp" data-compare="12">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_kp"></use>
+                                          </svg>
+                                        </div>
                                         <div class="minicard__tocart" data-compare="12">
                                           <svg width="40" height="40">
                                             <use xlink:href="/img/sprites/sprite.svg#ic_to-cart"></use>
@@ -1212,6 +1254,11 @@
                                         <div class="minicard__compare" data-compare="14">
                                           <svg width="40" height="40">
                                             <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
+                                          </svg>
+                                        </div>
+                                        <div class="minicard__kp" data-compare="14">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_kp"></use>
                                           </svg>
                                         </div>
                                         <div class="minicard__tocart" data-compare="14">

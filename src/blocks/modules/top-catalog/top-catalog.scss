@@ -52,6 +52,13 @@
         }
     }
 
+    &.is-fixed-open {
+        & .top-catalog__dropdown {
+            position: fixed;
+            top: var(--hgt-header);
+        }
+    }
+
     &__other {
 
         width: 100%;

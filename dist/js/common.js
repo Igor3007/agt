@@ -1589,6 +1589,147 @@ document.addEventListener('DOMContentLoaded', function (event) {
     end filter
     ===================================================================================*/
 
+    /* ====================================
+    FlexTags
+    ====================================*/
+
+    if (document.querySelector('[data-category="tags"]')) {
+        const items = document.querySelectorAll('[data-category="tags"] li')
+
+        items.forEach(item => {
+            item.addEventListener('click', e => {
+                e.preventDefault()
+                item.classList.toggle('is-active')
+            })
+        })
+
+        class FlexTags {
+            constructor(params) {
+                this.params = params
+                this.$el = document.querySelector(params.el) || document
+                this.widthButtonShowMore = 110;
+                this.container = document.querySelector(this.params.container) || document
+                this.showMoreBotton = this.container.querySelector('.show-more-tag')
+                this.init()
+            }
+
+            init() {
+                this.addEvent()
+                this.render()
+            }
+
+            widthItems() {
+                return this.$el.clientWidth;
+            }
+
+            widthContainer() {
+                return this.container.clientWidth - this.widthButtonShowMore;
+            }
+
+            render() {
+
+                if (this.$el.closest('.catalog-category__tags').classList.contains('is-open')) {
+                    return false;
+                }
+
+                this.$el.querySelectorAll('li.is-hide').forEach(li => li.classList.remove('is-hide'))
+
+                this.showMoreBotton.style.display = (this.widthItems() > this.widthContainer() ? 'flex' : 'none')
+
+                while (this.widthItems() > this.widthContainer()) {
+                    let visibleElements = this.$el.querySelectorAll('li:not(.is-hide)')
+                    if (visibleElements[(visibleElements.length - 1)]) {
+                        visibleElements[(visibleElements.length - 1)].classList.add('is-hide')
+                    }
+                }
+
+
+            }
+
+            debounce(method, delay, e) {
+                clearTimeout(method._tId);
+                method._tId = setTimeout(function () {
+                    method(e);
+                }, delay);
+            }
+
+
+
+            addEvent() {
+                const resizeHahdler = (e) => {
+                    this.render()
+                }
+
+                const observer = new ResizeObserver((entries) => {
+                    this.debounce(resizeHahdler, 30, entries)
+                });
+
+                observer.observe(document.querySelector(this.params.container));
+            }
+
+        }
+
+        window.flextags = new FlexTags({
+            el: '[data-category="tags"]',
+            container: '.catalog-category__tags'
+        })
+
+
+        //flextags
+
+        if (document.querySelector('[data-isopen="catalog-category__tags"]')) {
+            const items = document.querySelectorAll('[data-isopen="catalog-category__tags"]')
+
+            items.forEach(item => {
+
+                const buttonText = item.innerText
+
+                if (item.dataset.isopen) {
+                    item.addEventListener('click', e => {
+                        let el = e.target.closest('.' + item.dataset.isopen)
+                        el.classList.toggle('is-open')
+                        el.querySelector('span').innerText = el.classList.contains('is-open') ? 'Свернуть' : buttonText
+                    })
+                }
+            })
+
+        }
+
+        // subcat
+
+        if (document.querySelector('[data-isopen="catalog-category__subcat"]')) {
+            const items = document.querySelectorAll('[data-isopen="catalog-category__subcat"]')
+
+
+
+            items.forEach(item => {
+
+                const parent = item.closest('.' + item.dataset.isopen).querySelector('ul')
+
+
+                if (parent.querySelectorAll('li').length > 4 && document.body.clientWidth <= 480) {
+                    item.style.display = 'flex'
+                }
+
+
+
+                const buttonText = item.innerText
+
+                if (item.dataset.isopen) {
+                    item.addEventListener('click', e => {
+                        let el = e.target.closest('.' + item.dataset.isopen)
+                        el.classList.toggle('is-open')
+                        item.innerText = el.classList.contains('is-open') ? 'Свернуть' : buttonText
+                    })
+                }
+            })
+
+        }
+
+
+    }
+
+
     /* ======================================
     top-catalog
     ======================================*/
@@ -1766,6 +1907,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
                         this.$el.classList.toggle('is-open')
                         document.body.classList.toggle('page-hidden')
 
+                        if (item.hasAttribute('data-type')) {
+                            this.$el.classList.toggle('is-fixed-open')
+                        }
+
                         // const closeInOut = (e) => {
                         //         if (!e.target.closest('.top-catalog')) {
                         //             this.$el.classList.remove('is-open')
@@ -1860,6 +2005,33 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         })
 
+    }
+
+    /* ======================================
+    change view
+    ======================================*/
+
+    if (document.querySelector('.change-view')) {
+        const inputs = document.querySelectorAll('.change-view input')
+        const container = document.querySelector('.category-products')
+
+        inputs.forEach(item => {
+            item.addEventListener('change', e => {
+
+                if (item.value == 'list') {
+                    container.classList.add('view--list');
+                    return false;
+                }
+
+                if (item.value == 'one') {
+                    container.classList.add('column-one')
+                } else {
+                    !container.classList.remove('column-one') || container.classList.remove('column-one');
+                    !container.classList.remove('view--list') || container.classList.remove('view--list');
+                }
+
+            })
+        })
     }
 
 

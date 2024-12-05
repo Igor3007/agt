@@ -67,4 +67,11 @@
   font-weight: 500;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url("/fonts/montserrat/subset-Montserrat-SemiBold.woff2") format("woff2"), url("/fonts/montserrat/subset-Montserrat-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
 /*# sourceMappingURL=maps/critical-fonts.css.map */

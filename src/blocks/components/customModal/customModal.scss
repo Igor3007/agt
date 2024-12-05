@@ -246,7 +246,7 @@
         & .af-dialog {
             &__apply {
                 border-radius: 8px;
-                background: var(--red, #F94258);
+                background: var(--accent, #F94258);
                 color: #fff;
 
                 &[disabled] {

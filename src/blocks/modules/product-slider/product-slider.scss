@@ -16,23 +16,5 @@
     }
 
 
-    @media screen and (max-width: $w576) {
-        & .minicard {
-            &__price {
-                text-align: center;
-            }
 
-            &__desc {
-                text-align: center;
-            }
-
-            &__vcode {
-                text-align: center;
-            }
-
-            &__colors {
-                display: none;
-            }
-        }
-    }
 }

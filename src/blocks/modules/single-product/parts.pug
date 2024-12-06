@@ -1,3 +1,5 @@
+include ../cart-img-caption/cart-img-caption.pug
+
 mixin sp-head
     .sp-head 
         .sp-head__back: a(href='#'): +icons('#ic_arr-left')
@@ -17,28 +19,221 @@ mixin sp-head
 
 mixin sp-gallery
     .sp-gallery
-        .sp-gallery sp-gallery
+        .sp-gallery
+            .sp-gallery__slider
+                .sp-gallery__brand: +bgimage('/img/brands/image2.png')
+                .sp-gallery__typebrand
+                    span Европейский бренд
+                .sp-gallery__set
+                    +icons('#ic_set')
+                    span Собери комплект
+                .splide(data-slider="sp-gallery")
+                    .splide__track
+                        .splide__list
+                            .splide__slide
+                                +picturePng('/img/product/sp1')
+                            .splide__slide
+                                +picturePng('/img/product/sp2')
+                            .splide__slide
+                                +picturePng('/img/product/p1')
+                            .splide__slide
+                                +picturePng('/img/product/p2')
 
 mixin sp-details
     .sp-details
-        .sp-details sp-details
+        .sp-details__radio
+            +radio('Без опушки', 'op', true)
+            +radio('C опушкой', 'op')
 
+        .sp-details__radio
+            ul
+                li Защищает от воды, масел. брызг кислот и щелочей
+                li Подходит для работы в IV и особом климатическом поясе
+                li Компактный утеплитель
+
+        .sp-details__colorpick
+            .sp-details__border(data-title="Цвет")
+                .sp-details__left
+                    span.color-preview(style="background-color: #1958B2")
+                    span.color-name Серый / Графит
+                .sp-details__right
+                    span Выбрать другой
+
+        .sp-details__sizepick
+            .sp-details__border(data-title="Цвет")
+                .sp-details__left
+                    span.size-name Размеры не выбраны
+                    span.size-tooltip
+                        +icons('#ic_tooltip', 18)
+                .sp-details__right
+                    span Выбрать другой
+        
+        .sp-details__tablesize
+            span Таблицы размеров
+
+        .sp-details__tocart
+            button.btn
+                +icons('#ic_bag')
+                span В корзину
+
+mixin sp-lines
+
+    -
+        const product = [
+            { img: 'image285', caption: 'специальные вставки в области локтей и лопаток' },
+            { img: 'image286', caption: 'Пояс и манжеты укреплены полиамидной тканью' },
+            { img: 'image287', caption: 'Функционал учитывающий особенности профессий' },
+            { img: 'image288', caption: 'Функционал учитывающий особенности профессий' },
+            { img: 'image289', caption: 'Вдохновение скандинавскими брендами' },
+            { img: 'image290', caption: 'Ткани и нити прошли тесты и испытания' },
+            { img: 'image286', caption: 'Функционал учитывающий особенности профессий' },
+            { img: 'image285', caption: 'Функционал учитывающий особенности профессий' },
+            { img: 'image288', caption: 'Вдохновение скандинавскими брендами' },
+            { img: 'image285', caption: 'Ткани и нити прошли тесты и испытания' },
+        ];
+
+    .sp-lines
+        .splide(data-slider="default")
+            .splide__track
+                .splide__list
+                    each item in product
+                        .splide__slide: +card-img-caption(item)
+            .sp-lines__nav
+                .sp-lines__dots: ul.splide__pagination
+                .sp-lines__arrow
+                    .sp-lines__arrow-prev(data-slider-prev="default"): +icons('#ic_arr-left', 20)
+                    .sp-lines__arrow-next(data-slider-next="default"): +icons('#ic_arr-right', 20)
+
+ 
+
+mixin text-accordion
+    .text-accordion
+        .text-accordion__wrp
+            .text-accordion__all
+                span(data-accordion="switch-all") Свернуть все
+            .text-accordion__list
+
+                .text-accordion__item
+                    .text-accordion__label Особенности
+                    .text-accordion__text
+                        .text-height
+                            +sp-lines
+
+                .text-accordion__item
+                    .text-accordion__label Описание
+                    .text-accordion__text 
+                        .text-height
+                            p Куртка мужская летняя Brodeks KS 234 рабочая куртка для специалистов и рабочих, которым важны практичность, аккуратный внешний вид и удобство спецодежды по оптимальной цене. 
+                            p Куртка сшита из прочной и лёгкой смесовой ткани. Она не мнётся и устойчива к истиранию. Подходит для работы в помещениях круглый год или летом на улице. Летняя мужская куртка Brodeks KS 234 сшита из смесовой ткани Tomboy с отделкой Easy Care. Она не требует сложного ухода, легко очищается от грязи, быстро сохнет, не мнётся. Прочность и износостойкость материала увеличивает срок службы спецодежды в ежедневном использовании. 
+                            p В одежде приятно работать продолжительное время за счёт хорошей воздухопроницаемости ткани. Куртка разработана специально для тех, кто привык сочетать качество, функциональность и презентабельный внешний вид по доступной цене. Эта модель станет оптимальным вариантом для широкого спектра профессионалов, работающих в летнее время на улице или круглый год в помещении.
+                            p Кому: подходит для многих рабочих профессий, где требуется костюм ОПЗ 
+                            br
+                            p Качественные характеристики: 
+                            ul
+                                li Лёгкая в уходе
+                                li Устойчива к быстрому износу
+                                li Долго сохраняет презентабельный внешний вид
+                                li Комфортный крой позволяет активно двигаться 
+
+                            p Детали:
+                            ul
+                                li Воротник-стойка придаёт аккуратный внешний вид
+                                li Центральная молния с подпланкой от защемления шеи
+                                li Регулировка объёма по низу рукава кнопками 
+                                li Вентиляция в области подмышек 
+                                li 4 кармана: два для рук, один нагрудный на молнии, один нагрудный под клапаном Карабин для ID/бейджа
+                                li Световозвращающие элементы
+                
+                
+                .text-accordion__item
+                    .text-accordion__label Характеристики
+                    .text-accordion__text 
+                        .text-height
+                            p Сезон: Лето 
+                            p Св-элементы: есть
+                    
+                .text-accordion__item
+                    .text-accordion__label Материалы
+                    .text-accordion__text 
+                        .text-height
+                            p Tomboy (33% <span data-prop-tooltip = "Мембранная ткань – материал, обладающий свойством избирательной проницаемости и обеспечивающий повышенную защиту от негативных внешних условий.">хлопок</span>, 67% <span data-prop-tooltip ="Полиэфир это ткань, которая в основе своей использует полиэфирные волокна. Этот материал обладает способностью очень легко растягиваться, а после того как его растянули, он легко принимает прежнюю форму. ">полиэфир</span>), 245 г/м2
+
+                .text-accordion__item
+                    .text-accordion__label Сертификация
+                    .text-accordion__text 
+                        .text-height
+                            p СООТВЕТСТВУЕТ ТРЕБОВАНИЯМ Технического регламента Таможенного союза ТР ТС 019/2011 "О безопасности средств индивидуальной защиты" Изготовлено в соответствии с ГОСТ Р 12.4.280-2014 ТР ТС 019/2011
+                            
+               
 mixin sp-advantages
     .sp-advantages
-        .sp-advantages sp-advantages
+        .sp-advantages__wrp
+            .sp-advantages__media
+                .sp-advantages__preview
+                    +picture('/img/other/preview-video.jpg')
+                .sp-advantages__play
+                    +icons('#ic_play')
+            .sp-advantages__list
+                ul
+                    li
+                        .card-advantages
+                            .card-advantages__icon
+                                +bgimage('/img/other/pic/tp1001.jpg')
+                            .card-advantages__text Контакт с нагретыми <br> до 100ºС <br> поверхностями
+                    li
+                        .card-advantages
+                            .card-advantages__icon
+                                +bgimage('/img/other/pic/tp1001-1.jpg')
+                            .card-advantages__text Раствор кислот концентрацией до 80%
+                    li
+                        .card-advantages
+                            .card-advantages__icon
+                                +bgimage('/img/other/pic/tp1001-2.jpg')
+                            .card-advantages__text Общие производственные загрязнений 
+                    li
+                        .card-advantages
+                            .card-advantages__icon
+                                +bgimage('/img/other/pic/tp1001-3.jpg')
+                            .card-advantages__text Одежда водоотталкивающая (1 класс защиты)
+
+
 
 mixin sp-online
     .sp-online
-        .sp-online sp-online
+        .sp-online__live
+            .sp-online__live-icon: +icons('#ic_wa')
+            .sp-online__live-title Увидеть товар онлайн
+            .sp-online__live-text Удобный способ принятия решений: подберите спецодежду по видеосвязи под ваши задачи
+        .sp-online__print
+            .sp-online__print-icon: +bgimage('/img/other/icon-sw.svg')
+            .sp-online__print-title Нанесем ваш логотип на спецодежду
 
-mixin sp-accordion
-    .sp-accordion
-        .sp-accordion sp-accordion
+
+    
 
 mixin sp-video
     .sp-video
-        .sp-video sp-video
+        .sp-video__title Видео
+        .sp-video__media
+            +video-youtube({
+                preview: '/img/other/img-yt-video',
+                link: 'https://www.youtube.com/watch?v=f5k7wWEWXx8'
+            })
 
 mixin sp-set
     .sp-set
-        .sp-set sp-set
+        .sp-set__title
+        .sp-set__list
+            .sp-set__item
+                +picture('/img/product/set/image 165')
+                a(href='#')
+                    button.btn Открыть
+            .sp-set__item
+                +picture('/img/product/set/image 165-1')
+                a(href='#')
+                    button.btn Открыть
+            .sp-set__item
+                +picture('/img/product/set/image 165-2')
+                a(href='#')
+                    button.btn Открыть
+                        

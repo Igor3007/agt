@@ -1,0 +1,301 @@
+.sp-lines {
+
+    & .splide {
+        &:not(.is-initialized) {
+
+            height: 100%;
+
+            visibility: visible;
+
+            & .splide {
+                &__list {
+                    width: 100%;
+                }
+
+                &__slide {
+                    background: #eee;
+                    margin-right: 20px;
+                }
+            }
+
+        }
+    }
+
+    &__arrow {
+        display: flex;
+        align-items: center;
+        padding-top: 20px;
+
+        &>div {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #eee;
+            margin-right: 15px;
+            cursor: pointer;
+
+            & svg {
+                fill: var(--black);
+            }
+
+            &:hover {
+                background-color: var(--black);
+
+                & svg {
+                    fill: #fff;
+                }
+            }
+        }
+    }
+
+    & .card-img-caption {
+
+        width: 220px;
+
+        @media screen and (min-width: $w760) {
+            width: 300px;
+        }
+
+        @media screen and (min-width: $w992) {
+            width: 320px;
+        }
+
+
+        @media screen and (min-width: $w1440) {
+            width: 356px;
+        }
+    }
+
+}
+
+.text-accordion {
+
+    &__all {
+        display: flex;
+        justify-content: flex-end;
+        padding-bottom: 20px;
+
+        & span {
+            text-decoration: underline;
+            opacity: 0.7;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__item {
+
+        border-top: 1px solid #eee;
+        transition: padding 0.3s ease;
+
+        &:not(.is-open) {
+            & .text-accordion {
+                &__text {
+                    height: 0 !important;
+                }
+            }
+        }
+
+        &.is-open {
+
+            padding-bottom: 20px;
+
+            @media screen and (min-width: $w760) {
+                padding-bottom: 60px;
+            }
+
+            & .text-accordion {
+
+                &__label {
+                    &::after {
+                        transform: rotate(180deg);
+                    }
+                }
+
+                &__text {
+                    & .text-height {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    &__label {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 107%;
+        padding: 16px 0;
+        padding-right: 30px;
+        position: relative;
+        cursor: pointer;
+
+        @media screen and (min-width: $w576) {
+            font-size: 18px;
+            padding: 22px 0;
+        }
+
+        &::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iOSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTE1LjIwNyAyLjAyNUw4Ljg0MyA4LjM5YTEgMSAwIDAxLTEuNDE0IDBMMS4wNjUgMi4wMjVBMSAxIDAgMDEyLjQ3OS42MTFsNS42NTcgNS42NTdMMTMuNzkzLjYxMWExIDEgMCAxMTEuNDE0IDEuNDE0eiIvPjwvc3ZnPg==);
+            background-position: center;
+            background-repeat: no-repeat;
+            position: absolute;
+            right: 0;
+            cursor: pointer;
+            transition: 0.3s ease;
+
+            & svg {
+                width: 14px;
+                height: 14px;
+            }
+
+
+
+        }
+    }
+
+    &__text {
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 119%;
+        letter-spacing: 0.34px;
+        height: 0;
+        overflow: hidden;
+        transition: 0.4s ease;
+
+        @media screen and (min-width: $w760) {
+            font-size: 17px;
+        }
+
+        & span[data-prop-tooltip] {
+            text-decoration: underline;
+        }
+
+        & p {
+            margin-top: 0.2em;
+            margin-bottom: 0.2em;
+        }
+
+        & ul {
+
+            margin: 20px 0;
+
+            & li {
+
+                position: relative;
+                padding-left: 20px;
+                padding-bottom: 5px;
+                line-height: 120%;
+
+                @media screen and (min-width: $w760) {
+                    padding-left: 25px;
+                }
+
+                &:last-child {
+                    padding-bottom: 0;
+                }
+
+                &::before {
+                    content: '';
+                    width: 2px;
+                    height: 2px;
+                    display: block;
+                    position: absolute;
+                    left: 13px;
+                    top: 0.65em;
+                    border-radius: 50%;
+                    background-color: #000;
+                }
+            }
+        }
+
+        & img {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 0px;
+            margin: 35px 0;
+        }
+
+        & ol {
+            counter-reset: number-list 00;
+            padding: 20px 0;
+
+            &>li {
+
+                counter-increment: number-list 1;
+                list-style-type: none;
+                position: relative;
+                margin-bottom: 10px;
+                color: #000;
+                padding-left: 20px;
+
+                @media screen and (min-width: $w760) {
+
+                    padding-left: 30px;
+                }
+
+
+
+                &::before {
+                    content: counter(number-list);
+                    color: $main;
+                    font-weight: bold;
+                    min-width: 35px;
+                    display: inline-block;
+                    position: absolute;
+                    left: 0;
+
+                    @media screen and (min-width: $w760) {}
+                }
+            }
+        }
+
+        & .text-height {
+            opacity: 0;
+            transition: 0.4s ease;
+        }
+
+        & .icon {
+            display: inline-block;
+            width: auto;
+            height: 30px;
+
+            & .tooltip-box-item {
+
+                text-align: center;
+
+            }
+
+            & img {
+                height: 100%;
+
+                margin: 0;
+                margin-right: 7px;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    &__file {
+        padding-top: 24px;
+
+        & .dl-file {
+            width: 100%;
+
+            &__name {
+                width: 100%;
+            }
+        }
+    }
+
+
+}

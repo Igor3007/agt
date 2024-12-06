@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Brodeks</title>
+    <title>AG Technologies</title>
     <meta name="theme-color" content="#1EBC61">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -438,39 +438,386 @@
                   <div class="single-product__main">
                     <div class="single-product__gallery">
                             <div class="sp-gallery">
-                              <div class="sp-gallery">sp-gallery</div>
+                              <div class="sp-gallery">
+                                <div class="sp-gallery__slider">
+                                  <div class="sp-gallery__brand"><span class="bgimage lazyload" data-bg="/img/brands/image2.png"></span>
+                                  </div>
+                                  <div class="sp-gallery__typebrand"><span>Европейский бренд</span></div>
+                                  <div class="sp-gallery__set">
+                                    <svg width="24" height="24">
+                                      <use xlink:href="/img/sprites/sprite.svg#ic_set"></use>
+                                    </svg><span>Собери комплект</span>
+                                  </div>
+                                  <div class="splide" data-slider="sp-gallery">
+                                    <div class="splide__track">
+                                      <div class="splide__list">
+                                        <div class="splide__slide">
+                                          <picture>
+                                            <source srcset="/img/product/sp1.webp" type="image/webp"/><img src="/img/product/sp1.png" loading="lazy" alt="image"/>
+                                          </picture>
+                                        </div>
+                                        <div class="splide__slide">
+                                          <picture>
+                                            <source srcset="/img/product/sp2.webp" type="image/webp"/><img src="/img/product/sp2.png" loading="lazy" alt="image"/>
+                                          </picture>
+                                        </div>
+                                        <div class="splide__slide">
+                                          <picture>
+                                            <source srcset="/img/product/p1.webp" type="image/webp"/><img src="/img/product/p1.png" loading="lazy" alt="image"/>
+                                          </picture>
+                                        </div>
+                                        <div class="splide__slide">
+                                          <picture>
+                                            <source srcset="/img/product/p2.webp" type="image/webp"/><img src="/img/product/p2.png" loading="lazy" alt="image"/>
+                                          </picture>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                     </div>
                     <div class="single-product__details">
                             <div class="sp-details">
-                              <div class="sp-details">sp-details</div>
+                              <div class="sp-details__radio">
+                                <label class="radio">
+                                  <input type="radio" name="op" value="true"/><span class="radio__elem"></span><span class="radio__text">Без опушки</span>
+                                </label>
+                                <label class="radio">
+                                  <input type="radio" name="op" value="undefined"/><span class="radio__elem"></span><span class="radio__text">C опушкой</span>
+                                </label>
+                              </div>
+                              <div class="sp-details__radio">
+                                <ul>
+                                  <li>Защищает от воды, масел. брызг кислот и щелочей</li>
+                                  <li>Подходит для работы в IV и особом климатическом поясе</li>
+                                  <li>Компактный утеплитель</li>
+                                </ul>
+                              </div>
+                              <div class="sp-details__colorpick">
+                                <div class="sp-details__border" data-title="Цвет">
+                                  <div class="sp-details__left"><span class="color-preview" style="background-color: #1958B2"></span><span class="color-name">Серый / Графит</span></div>
+                                  <div class="sp-details__right"><span>Выбрать другой</span></div>
+                                </div>
+                              </div>
+                              <div class="sp-details__sizepick">
+                                <div class="sp-details__border" data-title="Цвет">
+                                  <div class="sp-details__left"><span class="size-name">Размеры не выбраны</span><span class="size-tooltip">
+                                      <svg width="18" height="18">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_tooltip"></use>
+                                      </svg></span></div>
+                                  <div class="sp-details__right"><span>Выбрать другой</span></div>
+                                </div>
+                              </div>
+                              <div class="sp-details__tablesize"><span>Таблицы размеров</span></div>
+                              <div class="sp-details__tocart">
+                                <button class="btn">
+                                  <svg width="24" height="24">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_bag"></use>
+                                  </svg><span>В корзину</span>
+                                </button>
+                              </div>
                             </div>
                     </div>
                   </div>
                   <div class="single-product__left">
                     <div class="single-product__advantages">
                             <div class="sp-advantages">
-                              <div class="sp-advantages">sp-advantages</div>
+                              <div class="sp-advantages__wrp">
+                                <div class="sp-advantages__media">
+                                  <div class="sp-advantages__preview">
+                                    <picture>
+                                      <source srcset="/img/other/preview-video.jpg.webp" type="image/webp"/><img src="/img/other/preview-video.jpg.jpg" loading="lazy" alt="image"/>
+                                    </picture>
+                                  </div>
+                                  <div class="sp-advantages__play">
+                                    <svg width="24" height="24">
+                                      <use xlink:href="/img/sprites/sprite.svg#ic_play"></use>
+                                    </svg>
+                                  </div>
+                                </div>
+                                <div class="sp-advantages__list">
+                                  <ul>
+                                    <li>
+                                      <div class="card-advantages">
+                                        <div class="card-advantages__icon"><span class="bgimage lazyload" data-bg="/img/other/pic/tp1001.jpg"></span>
+                                        </div>
+                                        <div class="card-advantages__text">Контакт с нагретыми <br> до 100ºС <br> поверхностями</div>
+                                      </div>
+                                    </li>
+                                    <li>
+                                      <div class="card-advantages">
+                                        <div class="card-advantages__icon"><span class="bgimage lazyload" data-bg="/img/other/pic/tp1001-1.jpg"></span>
+                                        </div>
+                                        <div class="card-advantages__text">Раствор кислот концентрацией до 80%</div>
+                                      </div>
+                                    </li>
+                                    <li>
+                                      <div class="card-advantages">
+                                        <div class="card-advantages__icon"><span class="bgimage lazyload" data-bg="/img/other/pic/tp1001-2.jpg"></span>
+                                        </div>
+                                        <div class="card-advantages__text">Общие производственные загрязнений </div>
+                                      </div>
+                                    </li>
+                                    <li>
+                                      <div class="card-advantages">
+                                        <div class="card-advantages__icon"><span class="bgimage lazyload" data-bg="/img/other/pic/tp1001-3.jpg"></span>
+                                        </div>
+                                        <div class="card-advantages__text">Одежда водоотталкивающая (1 класс защиты)</div>
+                                      </div>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
                             </div>
                     </div>
                     <div class="single-product__online">
                             <div class="sp-online">
-                              <div class="sp-online">sp-online</div>
+                              <div class="sp-online__live">
+                                <div class="sp-online__live-icon">
+                                  <svg width="24" height="24">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_wa"></use>
+                                  </svg>
+                                </div>
+                                <div class="sp-online__live-title">Увидеть товар онлайн</div>
+                                <div class="sp-online__live-text">Удобный способ принятия решений: подберите спецодежду по видеосвязи под ваши задачи</div>
+                              </div>
+                              <div class="sp-online__print">
+                                <div class="sp-online__print-icon"><span class="bgimage lazyload" data-bg="/img/other/icon-sw.svg"></span>
+                                </div>
+                                <div class="sp-online__print-title">Нанесем ваш логотип на спецодежду</div>
+                              </div>
                             </div>
                     </div>
                     <div class="single-product__accordion">
-                            <div class="sp-accordion">
-                              <div class="sp-accordion">sp-accordion</div>
+                            <div class="text-accordion">
+                              <div class="text-accordion__wrp">
+                                <div class="text-accordion__all"><span data-accordion="switch-all">Свернуть все</span></div>
+                                <div class="text-accordion__list">
+                                  <div class="text-accordion__item">
+                                    <div class="text-accordion__label">Особенности</div>
+                                    <div class="text-accordion__text">
+                                      <div class="text-height">
+                                              <div class="sp-lines">
+                                                <div class="splide" data-slider="default">
+                                                  <div class="splide__track">
+                                                    <div class="splide__list">
+                                                      <div class="splide__slide">
+                                                              <div class="card-img-caption">
+                                                                <div class="card-img-caption__picture">
+                                                                  <picture>
+                                                                    <source srcset="/img/product/ks209/image285.webp" type="image/webp"/><img src="/img/product/ks209/image285.jpg" loading="lazy" alt="image"/>
+                                                                  </picture>
+                                                                </div><a class="card-img-caption__caption" href="/single-product.html"><span>специальные вставки в области локтей и лопаток</span></a>
+                                                              </div>
+                                                      </div>
+                                                      <div class="splide__slide">
+                                                              <div class="card-img-caption">
+                                                                <div class="card-img-caption__picture">
+                                                                  <picture>
+                                                                    <source srcset="/img/product/ks209/image286.webp" type="image/webp"/><img src="/img/product/ks209/image286.jpg" loading="lazy" alt="image"/>
+                                                                  </picture>
+                                                                </div><a class="card-img-caption__caption" href="/single-product.html"><span>Пояс и манжеты укреплены полиамидной тканью</span></a>
+                                                              </div>
+                                                      </div>
+                                                      <div class="splide__slide">
+                                                              <div class="card-img-caption">
+                                                                <div class="card-img-caption__picture">
+                                                                  <picture>
+                                                                    <source srcset="/img/product/ks209/image287.webp" type="image/webp"/><img src="/img/product/ks209/image287.jpg" loading="lazy" alt="image"/>
+                                                                  </picture>
+                                                                </div><a class="card-img-caption__caption" href="/single-product.html"><span>Функционал учитывающий особенности профессий</span></a>
+                                                              </div>
+                                                      </div>
+                                                      <div class="splide__slide">
+                                                              <div class="card-img-caption">
+                                                                <div class="card-img-caption__picture">
+                                                                  <picture>
+                                                                    <source srcset="/img/product/ks209/image288.webp" type="image/webp"/><img src="/img/product/ks209/image288.jpg" loading="lazy" alt="image"/>
+                                                                  </picture>
+                                                                </div><a class="card-img-caption__caption" href="/single-product.html"><span>Функционал учитывающий особенности профессий</span></a>
+                                                              </div>
+                                                      </div>
+                                                      <div class="splide__slide">
+                                                              <div class="card-img-caption">
+                                                                <div class="card-img-caption__picture">
+                                                                  <picture>
+                                                                    <source srcset="/img/product/ks209/image289.webp" type="image/webp"/><img src="/img/product/ks209/image289.jpg" loading="lazy" alt="image"/>
+                                                                  </picture>
+                                                                </div><a class="card-img-caption__caption" href="/single-product.html"><span>Вдохновение скандинавскими брендами</span></a>
+                                                              </div>
+                                                      </div>
+                                                      <div class="splide__slide">
+                                                              <div class="card-img-caption">
+                                                                <div class="card-img-caption__picture">
+                                                                  <picture>
+                                                                    <source srcset="/img/product/ks209/image290.webp" type="image/webp"/><img src="/img/product/ks209/image290.jpg" loading="lazy" alt="image"/>
+                                                                  </picture>
+                                                                </div><a class="card-img-caption__caption" href="/single-product.html"><span>Ткани и нити прошли тесты и испытания</span></a>
+                                                              </div>
+                                                      </div>
+                                                      <div class="splide__slide">
+                                                              <div class="card-img-caption">
+                                                                <div class="card-img-caption__picture">
+                                                                  <picture>
+                                                                    <source srcset="/img/product/ks209/image286.webp" type="image/webp"/><img src="/img/product/ks209/image286.jpg" loading="lazy" alt="image"/>
+                                                                  </picture>
+                                                                </div><a class="card-img-caption__caption" href="/single-product.html"><span>Функционал учитывающий особенности профессий</span></a>
+                                                              </div>
+                                                      </div>
+                                                      <div class="splide__slide">
+                                                              <div class="card-img-caption">
+                                                                <div class="card-img-caption__picture">
+                                                                  <picture>
+                                                                    <source srcset="/img/product/ks209/image285.webp" type="image/webp"/><img src="/img/product/ks209/image285.jpg" loading="lazy" alt="image"/>
+                                                                  </picture>
+                                                                </div><a class="card-img-caption__caption" href="/single-product.html"><span>Функционал учитывающий особенности профессий</span></a>
+                                                              </div>
+                                                      </div>
+                                                      <div class="splide__slide">
+                                                              <div class="card-img-caption">
+                                                                <div class="card-img-caption__picture">
+                                                                  <picture>
+                                                                    <source srcset="/img/product/ks209/image288.webp" type="image/webp"/><img src="/img/product/ks209/image288.jpg" loading="lazy" alt="image"/>
+                                                                  </picture>
+                                                                </div><a class="card-img-caption__caption" href="/single-product.html"><span>Вдохновение скандинавскими брендами</span></a>
+                                                              </div>
+                                                      </div>
+                                                      <div class="splide__slide">
+                                                              <div class="card-img-caption">
+                                                                <div class="card-img-caption__picture">
+                                                                  <picture>
+                                                                    <source srcset="/img/product/ks209/image285.webp" type="image/webp"/><img src="/img/product/ks209/image285.jpg" loading="lazy" alt="image"/>
+                                                                  </picture>
+                                                                </div><a class="card-img-caption__caption" href="/single-product.html"><span>Ткани и нити прошли тесты и испытания</span></a>
+                                                              </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="sp-lines__nav">
+                                                    <div class="sp-lines__dots">
+                                                      <ul class="splide__pagination"></ul>
+                                                    </div>
+                                                    <div class="sp-lines__arrow">
+                                                      <div class="sp-lines__arrow-prev" data-slider-prev="default">
+                                                        <svg width="20" height="20">
+                                                          <use xlink:href="/img/sprites/sprite.svg#ic_arr-left"></use>
+                                                        </svg>
+                                                      </div>
+                                                      <div class="sp-lines__arrow-next" data-slider-next="default">
+                                                        <svg width="20" height="20">
+                                                          <use xlink:href="/img/sprites/sprite.svg#ic_arr-right"></use>
+                                                        </svg>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="text-accordion__item">
+                                    <div class="text-accordion__label">Описание</div>
+                                    <div class="text-accordion__text"> 
+                                      <div class="text-height">
+                                        <p>Куртка мужская летняя Brodeks KS 234 рабочая куртка для специалистов и рабочих, которым важны практичность, аккуратный внешний вид и удобство спецодежды по оптимальной цене. </p>
+                                        <p>Куртка сшита из прочной и лёгкой смесовой ткани. Она не мнётся и устойчива к истиранию. Подходит для работы в помещениях круглый год или летом на улице. Летняя мужская куртка Brodeks KS 234 сшита из смесовой ткани Tomboy с отделкой Easy Care. Она не требует сложного ухода, легко очищается от грязи, быстро сохнет, не мнётся. Прочность и износостойкость материала увеличивает срок службы спецодежды в ежедневном использовании. </p>
+                                        <p>В одежде приятно работать продолжительное время за счёт хорошей воздухопроницаемости ткани. Куртка разработана специально для тех, кто привык сочетать качество, функциональность и презентабельный внешний вид по доступной цене. Эта модель станет оптимальным вариантом для широкого спектра профессионалов, работающих в летнее время на улице или круглый год в помещении.</p>
+                                        <p>Кому: подходит для многих рабочих профессий, где требуется костюм ОПЗ </p><br>
+                                        <p>Качественные характеристики: </p>
+                                        <ul>
+                                          <li>Лёгкая в уходе</li>
+                                          <li>Устойчива к быстрому износу</li>
+                                          <li>Долго сохраняет презентабельный внешний вид</li>
+                                          <li>Комфортный крой позволяет активно двигаться </li>
+                                        </ul>
+                                        <p>Детали:</p>
+                                        <ul>
+                                          <li>Воротник-стойка придаёт аккуратный внешний вид</li>
+                                          <li>Центральная молния с подпланкой от защемления шеи</li>
+                                          <li>Регулировка объёма по низу рукава кнопками </li>
+                                          <li>Вентиляция в области подмышек </li>
+                                          <li>4 кармана: два для рук, один нагрудный на молнии, один нагрудный под клапаном Карабин для ID/бейджа</li>
+                                          <li>Световозвращающие элементы</li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="text-accordion__item">
+                                    <div class="text-accordion__label">Характеристики</div>
+                                    <div class="text-accordion__text"> 
+                                      <div class="text-height">
+                                        <p>Сезон: Лето </p>
+                                        <p>Св-элементы: есть</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="text-accordion__item">
+                                    <div class="text-accordion__label">Материалы</div>
+                                    <div class="text-accordion__text"> 
+                                      <div class="text-height">
+                                        <p>Tomboy (33% <span data-prop-tooltip = "Мембранная ткань – материал, обладающий свойством избирательной проницаемости и обеспечивающий повышенную защиту от негативных внешних условий.">хлопок</span>, 67% <span data-prop-tooltip ="Полиэфир это ткань, которая в основе своей использует полиэфирные волокна. Этот материал обладает способностью очень легко растягиваться, а после того как его растянули, он легко принимает прежнюю форму. ">полиэфир</span>), 245 г/м2</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="text-accordion__item">
+                                    <div class="text-accordion__label">Сертификация</div>
+                                    <div class="text-accordion__text"> 
+                                      <div class="text-height">
+                                        <p>СООТВЕТСТВУЕТ ТРЕБОВАНИЯМ Технического регламента Таможенного союза ТР ТС 019/2011 "О безопасности средств индивидуальной защиты" Изготовлено в соответствии с ГОСТ Р 12.4.280-2014 ТР ТС 019/2011</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                     </div>
                     <div class="single-product__video">
                             <div class="sp-video">
-                              <div class="sp-video">sp-video</div>
+                              <div class="sp-video__title">Видео</div>
+                              <div class="sp-video__media">
+                                      <div class="yt-video" data-id="https://www.youtube.com/watch?v=f5k7wWEWXx8">
+                                        <div class="yt-video__preview">
+                                          <picture>
+                                            <source srcset="/img/other/img-yt-video.webp" type="image/webp"/><img src="/img/other/img-yt-video.jpg" loading="lazy" alt="image"/>
+                                          </picture>
+                                        </div>
+                                        <div class="yt-video__action">
+                                          <div class="yt-video__button">
+                                            <svg width="52" height="52">
+                                              <use xlink:href="/img/sprites/sprite.svg#ic_play"></use>
+                                            </svg>
+                                          </div>
+                                        </div>
+                                        <div class="yt-video__iframe"></div>
+                                      </div>
+                              </div>
                             </div>
                     </div>
                     <div class="single-product__set">
                             <div class="sp-set">
-                              <div class="sp-set">sp-set</div>
+                              <div class="sp-set__title"></div>
+                              <div class="sp-set__list">
+                                <div class="sp-set__item">
+                                  <picture>
+                                    <source srcset="/img/product/set/image 165.webp" type="image/webp"/><img src="/img/product/set/image 165.jpg" loading="lazy" alt="image"/>
+                                  </picture><a href="#">
+                                    <button class="btn">Открыть</button></a>
+                                </div>
+                                <div class="sp-set__item">
+                                  <picture>
+                                    <source srcset="/img/product/set/image 165-1.webp" type="image/webp"/><img src="/img/product/set/image 165-1.jpg" loading="lazy" alt="image"/>
+                                  </picture><a href="#">
+                                    <button class="btn">Открыть</button></a>
+                                </div>
+                                <div class="sp-set__item">
+                                  <picture>
+                                    <source srcset="/img/product/set/image 165-2.webp" type="image/webp"/><img src="/img/product/set/image 165-2.jpg" loading="lazy" alt="image"/>
+                                  </picture><a href="#">
+                                    <button class="btn">Открыть</button></a>
+                                </div>
+                              </div>
                             </div>
                     </div>
                   </div>

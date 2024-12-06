@@ -633,6 +633,86 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     }
 
+    /* ========================================
+    SingleProductGallery
+    =========================================*/
+
+    if (document.querySelector('[data-slider="sp-gallery"]')) {
+
+        const items = document.querySelectorAll('[data-slider="sp-gallery"]')
+
+        items.forEach(slider => {
+
+            let splide = new Splide(slider, {
+
+                arrows: true,
+                arrowPath: SLIDER_ARROW_PATH,
+
+                pagination: false,
+                gap: 20,
+                start: 0,
+                perPage: 2,
+                perMove: 2,
+                flickMaxPages: 1,
+                flickPower: 100,
+
+
+                breakpoints: {
+
+                    992: {
+                        perPage: 2,
+                        perMove: 2,
+                    },
+
+                    576: {
+                        perPage: 1,
+                        gap: 16,
+                    },
+                },
+
+            });
+
+            const getTopArrowButtons = () => {
+
+                if (slider) {
+                    let heigthEl = slider.querySelector('picture').clientHeight
+                    slider.querySelectorAll('.splide__arrow').forEach(btn => {
+                        btn.style.top = (heigthEl / 2) + 'px'
+                    })
+                }
+            }
+
+            splide.on('mounted', (e) => {
+
+                if (splide.length == (splide.options.perPage)) {
+                    nextButton.setAttribute('aria-hidden', '')
+                    prevButton.setAttribute('aria-hidden', '')
+                }
+
+                //auto perMove
+                const getPerMove = () => {
+                    return Math.floor((splide.root.clientWidth / splide.root.querySelector('.splide__slide').clientWidth)) || 1
+                }
+
+                splide.options = {
+                    perMove: getPerMove(),
+                };
+
+                // top for nan button
+                getTopArrowButtons()
+            })
+
+            splide.on('resize', (e) => {
+                getTopArrowButtons()
+            })
+
+            splide.mount();
+        })
+
+
+
+    }
+
     /* ================================================
     Minicard
     ================================================*/
@@ -2049,6 +2129,72 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 }
 
             })
+        })
+    }
+
+    /* ===============================================
+    text-accordion
+    ===============================================*/
+
+    if (document.querySelector('.text-accordion')) {
+        const $el = document.querySelector('.text-accordion')
+        const items = document.querySelectorAll('.text-accordion__label')
+        items.forEach(label => {
+            const item = label.closest('.text-accordion__item')
+
+            document.body.clientWidth < 992 || item.classList.add('is-open')
+
+            item.querySelector('.text-accordion__text').style.height = item.querySelector('.text-height').clientHeight + 30 + 'px'
+
+            label.addEventListener('click', e => {
+                item.classList.toggle('is-open');
+                //!item.classList.contains('is-open') || window.scrollToTargetAdjusted(label)
+            })
+        })
+
+        $el.querySelector('[data-accordion="switch-all"]').addEventListener('click', e => {
+            items.forEach(label => {
+                const item = label.closest('.text-accordion__item');
+                !item.classList.remove('is-open') || item.classList.remove('is-open')
+            })
+        })
+
+
+    }
+
+    /* =========================================
+    video youtube
+    =========================================*/
+
+    if (document.querySelector('.yt-video')) {
+        document.querySelectorAll('.yt-video').forEach(container => {
+
+            const getYoutubeId = (url) => {
+                var m = url.match(/^.*(?:youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/);
+                if (!m || !m[1]) return null;
+                return m[1];
+            }
+
+            container.querySelector('.yt-video__button').addEventListener('click', e => {
+                container.classList.add('is-play')
+
+                let iframe = document.createElement('iframe')
+                let v = container.dataset.id;
+
+                if (v.indexOf('dzen.ru') !== -1) {
+                    iframe.src = v + '?autoplay=true'
+                } else {
+                    iframe.src = '//www.youtube.com/embed/' + getYoutubeId(container.dataset.id) + '?autoplay=true'
+                }
+
+
+
+
+
+                container.querySelector('.yt-video__iframe').append(iframe)
+            })
+
+
         })
     }
 

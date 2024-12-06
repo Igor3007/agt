@@ -1,0 +1,15 @@
+mixin card-img-caption(data)
+    .card-img-caption
+        .card-img-caption__picture
+            +picture('/img/product/ks209/'+data.img)
+        a(href='/single-product.html').card-img-caption__caption
+            span= data.caption
+
+mixin card-img-caption2(data)
+    .card-img-caption
+        .card-img-caption__picture
+            +picture('/img/product/lines/'+data.img)
+        a(href='/single-product.html').card-img-caption__caption
+            .card-img-caption__label Линейка
+            .card-img-caption__title= data.caption
+            .card-img-caption__desc Важную роль в создании спецодежды играют и те, кто носят ее каждый день. От них приходит живая обратная связь. На ее основе модернизируются готовые и создаются новые модели.

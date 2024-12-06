@@ -1,0 +1,26 @@
+extends ../layouts/main
+ 
+block variables
+  include ../../data/data.pug
+  - const title = "Brodeks"
+ 
+
+block main 
+ 
+  include ../../blocks/modules/single-product/single-product
+  include ../../blocks/modules/product-slider/product-slider.pug
+  include ../../blocks/modules/stores-slider/stores-slider.pug
+  include ../../blocks/modules/home-faq/home-faq.pug
+
+  +single-product
+  +product-slider
+  +stores-slider
+  +home-faq
+ 
+
+ 
+ 
+ 
+block scripts
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js")   

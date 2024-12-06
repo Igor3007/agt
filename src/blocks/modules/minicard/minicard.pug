@@ -12,7 +12,7 @@ mixin minicard(data)
             .minicard__images
                 each img in data.images
                     .minicard__picture(class = img.class ? img.class : ''  data-image-color=img.color)
-                        .minicard__photo: +picturePng(img.main)
+                        .minicard__photo: a(href='/single-product.html'): +picturePng(img.main)
                       
                
             .minicard__action

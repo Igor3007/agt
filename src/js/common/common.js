@@ -692,7 +692,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
             start: 0,
             perPage: 1,
             perMove: 1,
+            updateOnMove: true,
         });
+
+        const params = {}
 
         const btnPrev = document.querySelector('[data-slider-prev="store"]')
         const btnNext = document.querySelector('[data-slider-next="store"]')
@@ -702,6 +705,20 @@ document.addEventListener('DOMContentLoaded', function (event) {
         })
         btnNext.addEventListener('click', () => {
             SliderStore.go('>')
+        })
+
+        SliderStore.on('active', (e) => {
+
+            e.slide.querySelectorAll('[data-slide]').forEach(p => {
+                params[p.dataset.slide] = p.innerHTML
+            })
+
+            let container = e.slide.closest('section')
+
+            container.querySelector('.stores-slider__city').innerHTML = params.city
+            container.querySelector('.stores-slider__address').innerHTML = params.address
+            container.querySelector('.stores-slider__worktime').innerHTML = params.worktime
+
         })
 
         SliderStore.mount();
@@ -735,6 +752,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
             pauseVideo() {
 
+                this.file.pause()
                 this.file.removeAttribute('controls')
                 this.isplay = false;
                 this.$el.classList.remove('is-play')

@@ -3426,20 +3426,6 @@ header {
   transition: 0.3s ease;
 }
 
-.header__actions ul li a.ic_heart svg {
-  stroke: var(--primary);
-}
-
-.header__actions ul li a.ic_heart:hover {
-  background-color: #f5f5f5;
-  border-radius: 6px;
-}
-
-.header__actions ul li a.ic_heart:hover svg {
-  fill: var(--accent);
-  stroke: var(--accent);
-}
-
 .header__actions ul li a:hover {
   background-color: #f5f5f5;
   border-radius: 6px;

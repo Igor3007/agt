@@ -1,0 +1,29 @@
+include ../../components/breadcrumb/breadcrumb.pug
+include parts.pug
+
+mixin single-product
+    section.section-single-product
+        .container
+            .single-product
+                .single-product__breadcrumbs
+                    +breadcrumb([
+                        'AGT',
+                        'Каталог'
+                    ])
+
+                .single-product__head
+                    +sp-head
+
+                .single-product__main
+                    .single-product__gallery
+                        +sp-gallery
+                    .single-product__details
+                        +sp-details
+
+                .single-product__left
+                    .single-product__advantages: +sp-advantages
+                    .single-product__online: +sp-online
+                    .single-product__accordion: +sp-accordion
+                    .single-product__video: +sp-video
+                    .single-product__set: +sp-set
+

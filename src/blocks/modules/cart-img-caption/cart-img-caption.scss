@@ -14,16 +14,13 @@
         padding: 24px;
         display: flex;
         line-height: 140%;
-        font-size: 17px;
+        font-size: 15px;
         letter-spacing: 0.54px;
         font-weight: 300;
         flex-wrap: wrap;
         flex-direction: column;
         justify-content: flex-end;
 
-        @media screen and (min-width: $w1440) {
-            font-size: 18px;
-        }
 
 
 

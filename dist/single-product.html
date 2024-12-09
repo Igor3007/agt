@@ -399,13 +399,19 @@
             <section class="section-single-product">
               <div class="container">
                 <div class="single-product">
-                  <div class="single-product__breadcrumbs">
-                          <div class="breadcrumb">
-                            <ul>
-                              <li><a href="/">AGT</a></li>
-                              <li><span>Каталог</span></li>
-                            </ul>
-                          </div>
+                  <div class="single-product__top">
+                    <div class="single-product__back"><a href="#">
+                        <svg width="24" height="24">
+                          <use xlink:href="/img/sprites/sprite.svg#ic_arr-left"></use>
+                        </svg></a></div>
+                    <div class="single-product__breadcrumbs">
+                            <div class="breadcrumb">
+                              <ul>
+                                <li><a href="/">AGT</a></li>
+                                <li><span>Каталог</span></li>
+                              </ul>
+                            </div>
+                    </div>
                   </div>
                   <div class="single-product__head">
                           <div class="sp-head"> 
@@ -477,6 +483,56 @@
                                 </div>
                               </div>
                             </div>
+                      <div class="single-product__advantages">
+                              <div class="sp-advantages">
+                                <div class="sp-advantages__wrp">
+                                  <div class="sp-advantages__media">
+                                    <div class="sp-advantages__preview">
+                                      <picture>
+                                        <source srcset="/img/other/preview-video.webp" type="image/webp"/><img src="/img/other/preview-video.jpg" loading="lazy" alt="image"/>
+                                      </picture>
+                                    </div>
+                                    <div class="sp-advantages__play">
+                                      <svg width="24" height="24">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_play"></use>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                  <div class="sp-advantages__list">
+                                    <ul>
+                                      <li>
+                                        <div class="card-advantages">
+                                          <div class="card-advantages__icon"><span class="bgimage lazyload" data-bg="/img/other/pic/tp1001.jpg"></span>
+                                          </div>
+                                          <div class="card-advantages__text">Контакт с нагретыми <br> до 100ºС <br> поверхностями</div>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <div class="card-advantages">
+                                          <div class="card-advantages__icon"><span class="bgimage lazyload" data-bg="/img/other/pic/tp1001-1.jpg"></span>
+                                          </div>
+                                          <div class="card-advantages__text">Раствор кислот концентрацией до 80%</div>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <div class="card-advantages">
+                                          <div class="card-advantages__icon"><span class="bgimage lazyload" data-bg="/img/other/pic/tp1001-2.jpg"></span>
+                                          </div>
+                                          <div class="card-advantages__text">Общие производственные загрязнений </div>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <div class="card-advantages">
+                                          <div class="card-advantages__icon"><span class="bgimage lazyload" data-bg="/img/other/pic/tp1001-3.jpg"></span>
+                                          </div>
+                                          <div class="card-advantages__text">Одежда водоотталкивающая (1 класс защиты)</div>
+                                        </div>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                      </div>
                     </div>
                     <div class="single-product__details">
                             <div class="sp-details">
@@ -488,7 +544,7 @@
                                   <input type="radio" name="op" value="undefined"/><span class="radio__elem"></span><span class="radio__text">C опушкой</span>
                                 </label>
                               </div>
-                              <div class="sp-details__radio">
+                              <div class="sp-details__desc">
                                 <ul>
                                   <li>Защищает от воды, масел. брызг кислот и щелочей</li>
                                   <li>Подходит для работы в IV и особом климатическом поясе</li>
@@ -522,56 +578,6 @@
                     </div>
                   </div>
                   <div class="single-product__left">
-                    <div class="single-product__advantages">
-                            <div class="sp-advantages">
-                              <div class="sp-advantages__wrp">
-                                <div class="sp-advantages__media">
-                                  <div class="sp-advantages__preview">
-                                    <picture>
-                                      <source srcset="/img/other/preview-video.jpg.webp" type="image/webp"/><img src="/img/other/preview-video.jpg.jpg" loading="lazy" alt="image"/>
-                                    </picture>
-                                  </div>
-                                  <div class="sp-advantages__play">
-                                    <svg width="24" height="24">
-                                      <use xlink:href="/img/sprites/sprite.svg#ic_play"></use>
-                                    </svg>
-                                  </div>
-                                </div>
-                                <div class="sp-advantages__list">
-                                  <ul>
-                                    <li>
-                                      <div class="card-advantages">
-                                        <div class="card-advantages__icon"><span class="bgimage lazyload" data-bg="/img/other/pic/tp1001.jpg"></span>
-                                        </div>
-                                        <div class="card-advantages__text">Контакт с нагретыми <br> до 100ºС <br> поверхностями</div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="card-advantages">
-                                        <div class="card-advantages__icon"><span class="bgimage lazyload" data-bg="/img/other/pic/tp1001-1.jpg"></span>
-                                        </div>
-                                        <div class="card-advantages__text">Раствор кислот концентрацией до 80%</div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="card-advantages">
-                                        <div class="card-advantages__icon"><span class="bgimage lazyload" data-bg="/img/other/pic/tp1001-2.jpg"></span>
-                                        </div>
-                                        <div class="card-advantages__text">Общие производственные загрязнений </div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="card-advantages">
-                                        <div class="card-advantages__icon"><span class="bgimage lazyload" data-bg="/img/other/pic/tp1001-3.jpg"></span>
-                                        </div>
-                                        <div class="card-advantages__text">Одежда водоотталкивающая (1 класс защиты)</div>
-                                      </div>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                    </div>
                     <div class="single-product__online">
                             <div class="sp-online">
                               <div class="sp-online__live">

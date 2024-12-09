@@ -6,11 +6,13 @@ mixin single-product
     section.section-single-product
         .container
             .single-product
-                .single-product__breadcrumbs
-                    +breadcrumb([
-                        'AGT',
-                        'Каталог'
-                    ])
+                .single-product__top
+                    .single-product__back: a(href='#'): +icons('#ic_arr-left')
+                    .single-product__breadcrumbs
+                        +breadcrumb([
+                            'AGT',
+                            'Каталог'
+                        ])
 
                 .single-product__head
                     +sp-head
@@ -18,11 +20,12 @@ mixin single-product
                 .single-product__main
                     .single-product__gallery
                         +sp-gallery
+                        .single-product__advantages: +sp-advantages
+                        
                     .single-product__details
                         +sp-details
 
                 .single-product__left
-                    .single-product__advantages: +sp-advantages
                     .single-product__online: +sp-online
                     .single-product__accordion: +text-accordion
                     .single-product__video: +sp-video                      

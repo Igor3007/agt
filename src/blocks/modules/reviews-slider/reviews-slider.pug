@@ -13,12 +13,11 @@ mixin item-review(data)
         .item-review__media
             if(data.video)
                 .item-review__video(data-rv="el")
-                    .item-review__play(data-rv="play")
+                    .item-review__play(data-video=data.video)
                         +icons('#ic_play', 40)
                     .item-review__preview
                         +bgimage(data.preview)
-                    .item-review__file
-                        video(src=data.video data-rv="file")
+                    
             if(data.image)
                 .item-review__image
                     +picturePng(data.image)

@@ -27,7 +27,9 @@ include ../../select-region/select-region.pug
                 .footer__logo: a(href='/'): +bgimage('/img/common/logo.svg')
                 .footer__sl Спецодежда для профессионалов
             .footer__right
-                .footer__email: a(href='email:zakaz@ag-technologies.ru') zakaz@ag-technologies.ru
+                .footer__email: a(href='mailto:zakaz@ag-technologies.ru')
+                    | zakaz@ag-technologies.ru
+                    span.copy-field: +icons('#ic_copy')
                 .footer__phone: a(href='tel:8 800 777 35 68') 8 800 777 35 68
 
         .footer__row.footer--main
@@ -79,7 +81,7 @@ include ../../select-region/select-region.pug
                                     | ул. Егорова, 25 <br>
                                     | ст. м. Технологический институт или ст. м. Фрунзенская
                 .footer__code
-                    +bgimage('/img/other/qrcode.jpg')
+                    a(href='#'): +bgimage('/img/other/qrcode.jpg')
 
         .footer__row.footer--bottom
             .footer__left

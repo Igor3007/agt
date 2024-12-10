@@ -818,7 +818,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             }
         }
 
-        document.querySelectorAll('[data-rv="el"]').forEach(el => new BuilderVideo(el))
+        //document.querySelectorAll('[data-rv="el"]').forEach(el => new BuilderVideo(el))
 
         const SliderReview = new Splide('[data-slider="review"]', {
             arrows: true,

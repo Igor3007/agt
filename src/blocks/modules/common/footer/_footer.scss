@@ -1,11 +1,11 @@
 footer {
     background-color: #F2F6F9;
-    padding: 56px 0;
+    padding: 56px 0 120px;
     font-size: 15px;
-    margin-bottom: 60px;
+
 
     @media screen and (min-width: $w576) {
-        margin-bottom: 0;
+        padding-bottom: 56px;
     }
 }
 
@@ -152,10 +152,16 @@ footer {
 
     &__label {
         font-weight: 600;
-        padding-bottom: 12px;
         text-align: center;
+        padding-bottom: 12px;
 
+        @media screen and (min-width: $w760) {
+            padding-bottom: 0;
+        }
 
+        @media screen and (min-width: $w1200) {
+            padding-bottom: 12px;
+        }
 
         @media screen and (min-width: $w760) {
             text-align: left;
@@ -219,9 +225,11 @@ footer {
     &__phone {
 
         text-align: center;
+        padding-bottom: 8PX;
 
         @media screen and (min-width: $w760) {
             text-align: left;
+            padding-bottom: 0;
         }
 
         & a {
@@ -241,9 +249,34 @@ footer {
         & a {
             font-weight: 600;
             color: var(--accent);
-            font-size: 13px;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+
+            @media screen and (min-width: $w992) {
+                font-size: 13px;
+            }
+
+            & .copy-field {
+
+                height: 20px;
+                position: relative;
+                margin-left: 5px;
+
+            }
+
+            & svg {
+                width: 20px;
+                height: 20px;
+                fill: var(--accent)
+            }
         }
+
+
     }
+
+    // y.daniliuk@gmail.com
+    // y.daniliuk
 
     &__sl {
         color: var(--accent);
@@ -310,6 +343,14 @@ footer {
 
     padding-bottom: 28px;
 
+    @media screen and (max-width: $w576) {
+
+        padding-bottom: 18px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        margin-bottom: 10px;
+
+    }
+
     & .footer {
         &__left {
             display: flex;
@@ -326,7 +367,7 @@ footer {
             display: flex;
 
 
-            flex-direction: column;
+            flex-direction: column-reverse;
 
             @media screen and (min-width: $w992) {
                 flex-direction: row;
@@ -393,7 +434,7 @@ footer {
             align-items: center;
             text-align: center;
 
-            @media screen and (min-width: $w992) {
+            @media screen and (min-width: 991px) {
                 flex-direction: row;
                 align-items: flex-start;
                 text-align: left;
@@ -407,8 +448,12 @@ footer {
         }
 
         &__policy {
-            padding-bottom: 12px;
+
             white-space: nowrap;
+
+            @media screen and (min-width: $w992) {
+                padding-bottom: 12px;
+            }
 
             & a {
                 font-size: 15px;
@@ -425,7 +470,7 @@ footer {
             align-items: center;
             gap: 24px;
 
-            @media screen and (min-width: $w992) {
+            @media screen and (min-width: 991px) {
                 display: block;
             }
 
@@ -439,7 +484,7 @@ footer {
 
             font-size: 14px;
 
-            @media screen and (min-width: $w992) {
+            @media screen and (min-width: 991px) {
                 padding-left: 24px;
             }
         }

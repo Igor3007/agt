@@ -20,6 +20,14 @@
         background-color: transparent;
     }
 
+    & .splide {
+        &__arrows {
+            @media screen and (min-width: $w992) {
+                display: none;
+            }
+        }
+    }
+
     &__item {
         width: 290px;
         height: 100%;
@@ -29,13 +37,13 @@
         }
 
         @media screen and (min-width: $w992) {
-            width: calc(33.33vw - 24px);
+            width: calc(33.33vw - 40px);
             max-width: 597px;
         }
 
-
-
     }
+
+
 
     &__arrow {
         & [disabled] {

@@ -9,7 +9,7 @@ include parts.pug
                     | zakaz@ag-technologies.ru 
                     span.copy-field: +icons('#ic_copy')
             .header-top__left
-                .header-top__location
+                .header-top__location(data-region="open-window")
                    span г. Санкт-петербург,  ул. Егорова, 25
                    +icons('#ic_arrow-down')
                 .header-top__worktime
@@ -63,8 +63,7 @@ include parts.pug
                     li: a(href='/login.html')
                         +icons('#ic_user', 40)
                         span Виктор Иванович
-                    li.icon-kp: a(href='/kp.html')
-                        +icons('#ic_kp', 40)
+                    
                     li: a(href='/compare.html')
                         +icons('#ic_compare', 40)
                         span Сравнить 

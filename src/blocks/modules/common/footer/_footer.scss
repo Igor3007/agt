@@ -73,7 +73,12 @@ footer {
 
         & input {
             background-color: transparent;
-            border: 1px solid #ccc !important;
+
+        }
+
+        & .input-material {
+            background-color: transparent;
+            border: 1px solid rgba(0, 0, 0, 0.12) !important;
         }
     }
 

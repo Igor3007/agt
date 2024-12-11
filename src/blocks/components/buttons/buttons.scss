@@ -41,8 +41,8 @@
     }
 
     &:disabled {
-        background-color: #A8AFC9;
-        color: #fff;
+        background-color: rgba(0, 0, 0, 0.12);
+        color: rgba(0, 0, 0, 0.40);
         cursor: not-allowed;
 
         &:hover {

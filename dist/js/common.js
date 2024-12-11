@@ -212,6 +212,21 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     function initMaska() {
         new MaskInput("[data-maska]")
+
+
+        new MaskInput("[data-maska]")
+
+        new MaskInput("[data-input-mask='name']", {
+            mask: 'A',
+            tokens: {
+                A: {
+                    pattern: /[a-zA-ZА-Яа-я ]/,
+                    repeated: true
+                },
+            }
+        })
+
+
     }
 
     initMaska();
@@ -1212,8 +1227,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         getTemplateSelectCity(data) {
 
-            console.log(data)
-
             function getCity(array) {
                 array = Array.from(array)
                 let str = ''
@@ -1483,6 +1496,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
     if (document.querySelector('.select-region')) {
         window.SelectRegion = new SelectRegion({
             el: '.select-region'
+        })
+
+        document.querySelectorAll('[data-region="open-window"]').forEach(item => {
+            item.addEventListener('click', () => window.SelectRegion.openWindow())
         })
     }
 
@@ -2165,6 +2182,150 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         })
     }
+
+    /* ===========================================
+    input material
+    =========================================== */
+
+    function materialInput() {
+        this.init = function () {
+
+            let _this = this
+
+            document.querySelectorAll('.input-material input').forEach(function (input) {
+
+                if (input.value.length) {
+                    input.setAttribute('area-valid', '')
+                }
+
+                _this.addEvent(input)
+            })
+        }
+
+        this.addEvent = function (input) {
+            input.addEventListener('keyup', function (event) {
+                if (event.target.value.length) {
+                    event.target.setAttribute('area-valid', 'true')
+                } else {
+                    event.target.removeAttribute('area-valid')
+                }
+            })
+        }
+
+
+    }
+
+    const MATERIAL_INPUT = new materialInput()
+    MATERIAL_INPUT.init()
+
+
+    /* ==================================
+    footer subscribe
+    ==================================*/
+
+
+    if (document.querySelector('.footer-subscribe__form')) {
+        const container = document.querySelector('.footer-subscribe__form')
+        const checkbox = container.querySelector('[type="checkbox"]')
+        const btn = container.querySelector('.btn')
+
+        const checkHahdler = (checkbox) => {
+            if (!checkbox.checked) {
+                btn.setAttribute('disabled', '')
+            } else {
+                btn.removeAttribute('disabled')
+            }
+        }
+
+        checkbox.addEventListener('change', () => checkHahdler(checkbox))
+        checkHahdler(checkbox);
+    }
+
+    /* ==================================
+    validation
+    ==================================*/
+
+    class Validation {
+        constructor(form) {
+            this.form = form
+            this.init()
+        }
+
+        init() {
+            if (!this.form.length) return false
+
+            this.form.forEach(form => {
+                form.querySelectorAll('[type=submit]').forEach(btn => {
+                    btn.addEventListener('click', e => {
+                        this.validateCheckbox(form)
+                        this.validateText(form)
+                        this.validateEmail(form)
+                    })
+                })
+            })
+
+        }
+
+        clearErr(input) {
+
+            if (input.closest('.input-material')) {
+                !input.closest('.input-material').classList.contains('err') || input.closest('.input-material').classList.remove('err')
+            } else {
+                !input.classList.contains('err') || input.classList.remove('err')
+            }
+
+
+        }
+
+        validateCheckbox(form) {
+
+            form.querySelectorAll('[type="checkbox"]').forEach(input => {
+                if (input.required && !input.checked) {
+                    input.classList.add('err')
+                } else {
+                    this.clearErr(input)
+                }
+            })
+        }
+
+        validateText(form) {
+
+            form.querySelectorAll('[type="text"]').forEach(input => {
+                if (input.required) {
+                    if (input.closest('.input-material')) {
+                        input.closest('.input-material').classList.add('err')
+                    } else {
+                        input.classList.add('err')
+                    }
+                } else {
+                    this.clearErr(input)
+                }
+            })
+        }
+
+        validateEmail(form) {
+
+            const emailPattern = /^[^s@]+@[^s@]+.[^s@]+$/;
+
+            form.querySelectorAll('[type="email"]').forEach(input => {
+                if (!emailPattern.test(input.value)) {
+                    if (input.closest('.input-material')) {
+                        input.closest('.input-material').classList.add('err')
+                    } else {
+                        input.classList.add('err')
+                    }
+                } else {
+                    this.clearErr(input)
+                }
+            })
+        }
+    }
+
+    /* ======================================
+    validation form
+    ======================================*/
+
+    new Validation(document.querySelectorAll('form'))
 
 
 

@@ -35,16 +35,30 @@ mixin home-faq
                         .home-faq__title Связаться с нами
                         .home-faq__desc Текстовое описание
                         .home-faq__fields
-                            .form
-                                .form__item
-                                    .form__subitem: input(type="text" placeholder="ФИО")
-                                .form__item
-                                    .form__subitem: input(type="text" placeholder="Email")
-                                .form__item
-                                    .form__subitem: input(type="text" placeholder="Контактный телефон")
-                                .form__item
-                                    .form__subitem
-                                        textarea(placeholder="Сообщение")
-                                .form__item
-                                    .form__subitem
-                                        button.btn(type="submit") Отправить
+                            form(action='#' method='POST')
+                                .form
+                                    .form__item
+                                        .form__subitem
+                                            .input-material
+                                                input(type='text' data-input-mask='name' max-length="60")
+                                                label= 'ФИО' 
+                                            
+                                        
+                                    .form__item
+                                        .form__subitem
+                                            .input-material
+                                                input(type='email' data-input-mask='email' max-length="60")
+                                                label= 'Email'
+                                            
+                                    .form__item
+                                        .form__subitem
+                                            .input-material
+                                                input(type='text' max-length="60" required)
+                                                label= 'Контактный телефон'
+                                        
+                                    .form__item
+                                        .form__subitem
+                                            textarea(placeholder="Сообщение" max-length="600")
+                                    .form__item
+                                        .form__subitem
+                                            button.btn(type="submit") Отправить

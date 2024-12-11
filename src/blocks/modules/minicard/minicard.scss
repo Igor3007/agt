@@ -111,6 +111,7 @@
     &__action {
         position: absolute;
         right: 18px;
+        left: 18px;
         bottom: 23px;
         z-index: 4;
         transition: 0.3s ease;
@@ -168,10 +169,59 @@
     }
 
     &__tocart {
+
+        @keyframes flip-cart-icon {
+            from {
+                transform: rotate(-360deg);
+            }
+
+            to {
+                transform: rotate(0);
+            }
+        }
+
+        @keyframes show-cart-icon {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: sacle(1);
+            }
+        }
+
         background-color: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & span {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
 
         & svg {
             fill: #fff;
+        }
+
+        & .ic-default {
+            animation: show-cart-icon 0.3s ease;
+        }
+
+        & .ic-hover {
+            display: none;
+            animation: flip-cart-icon 0.8s ease;
+        }
+
+        &:hover {
+            & .ic-default {
+                display: none;
+            }
+
+            & .ic-hover {
+                display: block;
+            }
         }
     }
 
@@ -349,6 +399,31 @@
         }
     }
 
+    &__bg {
+
+        display: flex;
+        justify-content: center;
+        margin-right: auto;
+        background-color: #fff;
+        border-radius: 50px;
+        padding: 2px;
+        opacity: 0;
+        transition: 0.3s ease;
+
+        &>div {
+            display: flex;
+
+            & svg {
+                width: 36px;
+            }
+
+            &:hover {
+                & svg {
+                    fill: var(--accent);
+                }
+            }
+        }
+    }
 
 
 
@@ -367,6 +442,10 @@
 
             &__stickers {
                 right: 48px;
+            }
+
+            &__bg {
+                opacity: 1;
             }
         }
     }
@@ -392,6 +471,7 @@
             }
         }
     }
+
 
 }
 

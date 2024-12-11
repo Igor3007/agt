@@ -11,7 +11,8 @@ include ../../select-region/select-region.pug
                 form
                     .form
                         .form__item
-                            .form__subitem: input(type="email" placeholder="Email")
+                            .form__subitem
+                                +input-material("email", "Email")
                             .form__subitem.form__subitem--btn
                                 button.btn Подписаться
                         .form__item

@@ -2327,6 +2327,188 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     new Validation(document.querySelectorAll('form'))
 
+    /* ======================================
+    multimask
+    ======================================*/
+
+    class MultiMask {
+        constructor(params) {
+            this.$el = (typeof params.el === 'string' ? document.querySelector(params.el) : params.el)
+            this.input = this.$el.querySelector('input')
+            this.inputCode = null
+            this.select = null
+            this.maska = null
+            this.pathFlag = '/img/flags/'
+            this.config = {
+                default: 'ru'
+            }
+
+            this.init()
+        }
+
+        init() {
+            this.addEvent()
+            this.render()
+
+
+
+            this.maska = new MaskInput(this.input)
+
+            if (this.$el.querySelector('[rel = ' + this.config.default+']')) {
+                this.selectedMask(this.$el.querySelector('[rel = ' + this.config.default+']'), 'init')
+
+                if (this.input.getAttribute('value')) {
+                    this.setNumberFromValue()
+                }
+            }
+        }
+
+        getMasks() {
+            return {
+                'ru': {
+                    iso: 'ru',
+                    code: '+7',
+                    mask: '+7(###)###-##-##'
+                },
+                'by': {
+                    iso: 'by',
+                    code: '+375',
+                    mask: '+375(##)###-##-##'
+                },
+                'kz': {
+                    iso: 'kz',
+                    code: '+7',
+                    mask: '+7(###)###-##-##'
+                },
+
+
+            }
+        }
+
+        parseNumber(str) {
+            const rx = /\+.+?\(/g
+            const matches = str.match(rx);
+            const code = matches ? matches.map(match => match.slice(1, -1)) : [null];
+
+            const regex = /\((.*)$/;
+            const number = str.match(regex) ? str.match(regex) : [null];
+
+            return {
+                code: '+' + code[0],
+                number: number[0]
+            }
+        }
+
+        setNumberFromValue() {
+
+
+            const masks = this.getMasks();
+            const numberArray = this.parseNumber(this.input.getAttribute('value'))
+
+            let m = false;
+            for (let key in masks) {
+                if (masks[key]['code'] == numberArray['code']) {
+                    m = masks[key];
+                }
+            }
+
+            if (m !== false) {
+                this.selectedMask(this.$el.querySelector('[rel = ' + m['iso'] + ']'))
+                this.input.value = numberArray['number']
+            } else {
+                this.input.value = this.input.getAttribute('value')
+            }
+
+        }
+
+        getTemplate() {
+
+            const getlist = () => {
+                let str = ''
+                let codes = this.getMasks()
+                for (let key in codes) {
+                    str += `<li rel="${key}">
+                        <span class="country-flag" style="background-image: url('${this.pathFlag}${codes[key]['iso']}.svg')" ></span> 
+                    </li>`
+                }
+
+                return str ? str : 'нет кодов'
+            }
+
+            return `
+                <div class="multi-mask__title" >
+                    <span class="country-flag" style="background-image: url('${this.pathFlag}ru.svg')" ></span>
+                    <span class="country-code" >+7</span>
+                </div>
+                <div class="multi-mask__dropd" >
+                    <ul>${getlist()}</ul>
+                </div>
+                <input type="hidden" name="phone-code">
+            `;
+        }
+        openDropdown() {
+            this.select.classList.toggle('is-open')
+        }
+
+        selectedMask(el, type) {
+            this.$el.querySelector('.multi-mask__title').innerHTML = el.innerHTML
+
+            let iso = el.getAttribute('rel')
+
+            //this.input.setAttribute('placeholder', this.getMasks()[iso]['mask'])
+
+            if (!type) {
+                this.input.value = this.getMasks()[iso]['code']
+                this.input.setAttribute('area-valid', true)
+                this.input.focus()
+            }
+
+            this.inputCode.value = this.getMasks()[iso]['code']
+
+            this.maska.destroy()
+            this.maska = new MaskInput(this.input, {
+                mask: this.getMasks()[iso]['mask']
+            })
+
+
+        }
+
+        render() {
+            this.select = document.createElement('div')
+            this.select.classList.add('multi-mask__select')
+            this.select.innerHTML = this.getTemplate()
+
+            this.select.addEventListener('click', e => {
+                this.openDropdown()
+            })
+
+            this.$el.append(this.select)
+            this.inputCode = this.select.querySelector('[name="phone-code"]')
+        }
+
+
+        addEvent() {
+            this.$el.addEventListener('click', e => {
+                if (e.target.closest('.multi-mask__dropd li')) {
+                    this.selectedMask(e.target.closest('.multi-mask__dropd li'))
+                }
+            })
+        }
+    }
+
+    //mask
+    if (document.querySelector('.multi-mask')) {
+        document.querySelectorAll('.multi-mask').forEach(el => {
+
+            if (!el.classList.contains('initialized')) {
+                el.classList.add('initialized');
+                new MultiMask({
+                    el
+                })
+            }
+        })
+    }
+
 
 
 

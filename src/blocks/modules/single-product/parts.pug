@@ -60,13 +60,13 @@ mixin sp-details
                     span Выбрать другой
 
         .sp-details__sizepick
-            .sp-details__border(data-title="Цвет")
+            .sp-details__border(data-title="Выбранные размеры")
                 .sp-details__left
                     span.size-name Размеры не выбраны
                     span.size-tooltip
                         +icons('#ic_tooltip', 18)
                 .sp-details__right
-                    span Выбрать другой
+                    span Выбрать
         
         .sp-details__tablesize
             span Таблицы размеров
@@ -109,8 +109,7 @@ mixin sp-lines
 mixin text-accordion
     .text-accordion
         .text-accordion__wrp
-            .text-accordion__all
-                span(data-accordion="switch-all") Свернуть все
+     
             .text-accordion__list
 
                 .text-accordion__item

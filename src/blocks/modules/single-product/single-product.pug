@@ -11,7 +11,8 @@ mixin single-product
                     .single-product__breadcrumbs
                         +breadcrumb([
                             'AGT',
-                            'Каталог'
+                            'Каталог',
+                            'Зимний сигнальный огнестойкий',
                         ])
 
                 .single-product__head
@@ -22,11 +23,17 @@ mixin single-product
                         +sp-gallery
                         .single-product__advantages: +sp-advantages
                         
-                    .single-product__details
-                        +sp-details
+                .single-product__details
+                        +sp-details    
 
                 .single-product__left
                     .single-product__online: +sp-online
+                    .single-product__video-mobile
+                        .sp-video-m__media
+                            .sp-video-m__preview
+                                +picture('/img/other/preview-video')
+                            .sp-video-m__play
+                                +icons('#ic_play', 36)
                     .single-product__accordion: +text-accordion
                     .single-product__video: +sp-video                      
                     .single-product__set: +sp-set

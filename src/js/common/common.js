@@ -662,8 +662,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
                 arrows: true,
                 arrowPath: SLIDER_ARROW_PATH,
-
-                pagination: false,
+                pagination: true,
                 gap: 20,
                 start: 0,
                 perPage: 2,
@@ -681,6 +680,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
                     576: {
                         perPage: 1,
+                        perMove: 1,
                         gap: 0,
                     },
                 },
@@ -2137,12 +2137,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
             })
         })
 
-        $el.querySelector('[data-accordion="switch-all"]').addEventListener('click', e => {
-            items.forEach(label => {
-                const item = label.closest('.text-accordion__item');
-                !item.classList.remove('is-open') || item.classList.remove('is-open')
-            })
-        })
+        // $el.querySelector('[data-accordion="switch-all"]').addEventListener('click', e => {
+        //     items.forEach(label => {
+        //         const item = label.closest('.text-accordion__item');
+        //         !item.classList.remove('is-open') || item.classList.remove('is-open')
+        //     })
+        // })
 
 
     }

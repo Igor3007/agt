@@ -4,19 +4,27 @@
     flex-direction: column;
 
     &__top {
-        order: 0;
+        order: 1;
+        display: flex;
+        align-items: center;
+        padding-bottom: 20px;
     }
 
-    &__main {
-        order: -1;
+    &__breadcrumbs {
+        width: calc(100% - 45px);
+        margin-left: 10px;
+    }
+
+    &__head {
+        order: 3;
 
         @media screen and (min-width: $w992) {
             order: unset;
         }
     }
 
-    &__head {
-        order: 0;
+    &__main {
+        order: 2;
 
         @media screen and (min-width: $w992) {
             order: unset;
@@ -24,7 +32,15 @@
     }
 
     &__details {
-        padding-top: 40px;
+        order: 4;
+    }
+
+    &__left {
+        order: 4;
+    }
+
+    &__details {
+        padding-top: 25px;
         padding-bottom: 40px;
     }
 
@@ -32,6 +48,37 @@
         @media screen and (max-width: $w1200) {
             display: none;
         }
+    }
+
+    &__back {
+        & a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid var(--accent);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+
+            & svg {
+                width: 35px;
+                height: 35px;
+                fill: var(--accent);
+                margin-top: -1px;
+            }
+        }
+    }
+
+    &__advantages {
+        padding-top: 19px;
+    }
+
+    &__video-mobile {
+        padding-bottom: 30px;
+    }
+
+    &__set {
+        margin: 30px 0;
     }
 }
 
@@ -164,8 +211,8 @@
     }
 
     &__label {
-        font-size: 16px;
-        font-weight: 500;
+        font-size: 18px;
+        font-weight: 600;
         line-height: 107%;
         padding: 16px 0;
         padding-right: 30px;
@@ -359,34 +406,45 @@
 
         display: flex;
         flex-direction: column-reverse;
+        padding-bottom: 24px;
 
         & h1 {
             font-size: 18px;
             font-weight: 600;
+            margin: 0;
+            line-height: 125%;
         }
 
         & span {
             font-family: var(--font-montserrat);
             font-size: 14px;
             color: #8D8D8D;
+            padding-bottom: 6px;
         }
     }
 
     &__details {
 
         display: flex;
-        justify-content: space-between;
+        gap: 16px;
 
+    }
+
+    &__action {
+        margin-left: auto;
     }
 
     &__price {
-        font-weight: 800;
-        font-size: 24px;
+        font-weight: 600;
+        font-size: 29px;
+        color: var(--accent);
     }
 
     &__oldprice {
-        font-weight: 800;
-        font-size: 24px;
+        font-weight: 600;
+        font-size: 16px;
+        color: #8D8D8D;
+        text-decoration: line-through;
     }
 
     &__sale {
@@ -411,7 +469,7 @@
         position: absolute;
         left: 0;
         top: 0;
-        z-index: 10;
+        z-index: 5;
         background-color: rgba(0, 0, 0, 0.80);
         color: #fff;
         font-family: var(--font-montserrat);
@@ -424,7 +482,7 @@
         background-color: #fff;
         box-shadow: 0 0 12px 0 #00000036;
         position: absolute;
-        bottom: 15px;
+        bottom: 30px;
         padding: 10px 15px;
         z-index: 5;
         display: flex;
@@ -435,9 +493,16 @@
         left: 50%;
         margin-left: -95px;
 
+
         & svg {
             margin-right: 12px;
             fill: var(--accent);
+        }
+
+        & span {
+            font-size: 14px;
+            font-family: var(--font-montserrat);
+            font-weight: 600;
         }
 
     }
@@ -446,7 +511,7 @@
         position: absolute;
         left: 0;
         top: 35px;
-        z-index: 10;
+        z-index: 5;
 
         & .bgimage {
             width: 100px;
@@ -454,15 +519,68 @@
             @include bgimage-contain;
         }
     }
+
+    & picture {
+        @include picture(92%, contain);
+        background-color: #f2f7fa;
+    }
+
+    & .splide {
+        &__pagination {
+            position: static;
+            padding-top: 32px;
+        }
+    }
 }
 
 .sp-details {
     &__radio {
-        padding-bottom: 24px;
+        padding-bottom: 7px;
+
+        & .radio {
+            &__text {
+                font-weight: 600;
+                padding-top: 0;
+            }
+        }
     }
 
     &__desc {
-        padding-bottom: 24px;
+        padding-bottom: 10px;
+
+        & ul {
+
+            margin: 20px 0;
+
+            & li {
+
+                position: relative;
+                padding-left: 20px;
+                padding-bottom: 5px;
+                line-height: 120%;
+
+                @media screen and (min-width: $w760) {
+                    padding-left: 25px;
+                }
+
+                &:last-child {
+                    padding-bottom: 0;
+                }
+
+                &::before {
+                    content: '';
+                    width: 3px;
+                    height: 3px;
+                    display: block;
+                    position: absolute;
+                    left: 9px;
+                    top: 0.5em;
+                    border-radius: 50%;
+                    background-color: #000;
+                }
+            }
+        }
+
     }
 
     &__colorpick {
@@ -470,7 +588,7 @@
     }
 
     &__sizepick {
-        padding-bottom: 24px;
+        padding-bottom: 15px;
     }
 
     &__tocart {
@@ -481,6 +599,77 @@
             width: 100%;
         }
     }
+
+    &__border {
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        padding: 10px 10px;
+        border-radius: 54px;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+
+        &::before {
+            content: attr(data-title);
+            position: absolute;
+            background-color: #fff;
+            top: -12px;
+            left: 20px;
+            padding: 0 6px;
+            font-size: 12px;
+            font-family: var(--font-montserrat);
+            color: #8D8D8D;
+        }
+    }
+
+    &__right,
+    &__left {
+        display: flex;
+        align-items: center;
+    }
+
+    &__right {
+        & span {
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--accent);
+        }
+    }
+
+    &__tablesize {
+        text-align: right;
+        color: var(--accent);
+        font-weight: 600;
+    }
+
+
+
+
+}
+
+.size-name {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.size-tooltip {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+}
+
+.color-preview {
+    width: 30px;
+    height: 30px;
+    background-color: #eee;
+    display: block;
+    border-radius: 50%;
+}
+
+.color-name {
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding-left: 10px;
 }
 
 .card-advantages {
@@ -526,5 +715,69 @@
         font-size: 11px;
         font-weight: 600;
         line-height: 120%;
+    }
+}
+
+.sp-video-m {
+
+
+
+    &__media {
+        position: relative;
+        z-index: 1;
+        width: auto;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 250px;
+    }
+
+    &__preview {
+        border-radius: 8px;
+        overflow: hidden;
+
+        & picture {
+            @include picture(135%, cover);
+        }
+    }
+
+    &__play {
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.sp-video {
+    &__title {
+        font-size: 18px;
+        font-weight: 600;
+    }
+}
+
+.sp-set {
+    &__list {
+        display: flex;
+    }
+
+    &__item {
+        min-width: 40vw;
+
+        & .btn {
+
+            height: 36px;
+            min-width: 80px;
+            font-weight: 600;
+            padding-left: 22px;
+            padding-right: 22px;
+            line-height: 110%;
+            padding-top: 8px;
+            padding-bottom: 10px;
+        }
     }
 }

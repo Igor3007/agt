@@ -4,6 +4,122 @@
     @media screen and (min-width: $w576) {
         padding: 24px 0 98px 0;
     }
+
+    & .company-about {
+        &__desc {
+
+            font-family: var(--font-montserrat);
+            font-weight: 500;
+            font-size: 13px;
+            padding-top: 30px;
+
+
+            &.crop--text {
+                @include line-clamp(3);
+            }
+        }
+
+        @media screen and (max-width: $w576) {
+
+
+
+            &__main {
+                display: flex;
+                flex-wrap: wrap;
+                padding-bottom: 6px;
+            }
+
+            &__logo {
+                width: 106px;
+                padding-bottom: 0;
+
+                & .bgimage {
+                    width: 100%;
+                    height: 40px;
+                }
+            }
+
+            &__desc {
+                padding-top: 26px;
+                margin-bottom: 10px;
+            }
+
+            &__title {
+                width: calc(100% - 120px);
+                padding-left: 14px;
+                padding-bottom: 0;
+                line-height: 100%;
+                padding-top: 6px;
+            }
+        }
+    }
+}
+
+.section-stores-slider--desc {
+    & .stores-slider {
+        @media screen and (max-width: $w576) {
+            &__address {
+                font-size: 16px;
+            }
+
+            &__city {
+                padding-bottom: 15px;
+            }
+
+            &__worktime {
+                font-size: 16px;
+
+                & br {
+                    display: none;
+
+                }
+            }
+
+            &__nav {
+                top: 40px;
+            }
+
+            &__right {
+                & picture {
+                    margin-top: 0;
+                }
+            }
+
+            &__left {
+                padding-bottom: 12px;
+            }
+        }
+    }
+}
+
+.show-more-button {
+    font-family: var(--font-montserrat);
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+
+    &::after {
+        content: '';
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iOSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTS41NzUuMzI3QS45LjkgMCAwMTEuODQ3LjI4NGw2LjIyIDUuODA0TDE0LjI4NS4yODRhLjkuOSAwIDExMS4yMjggMS4zMTVMOC42OCA3Ljk3N2EuOS45IDAgMDEtMS4yMjggMEwuNjIgMS42QS45LjkgMCAwMS41NzUuMzI3eiIgZmlsbD0iIzAwOTBDMyIvPjwvc3ZnPg==);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 10px;
+        height: 12px;
+        display: inline-block;
+        margin-left: 10px;
+        margin-top: 3px;
+        transition: 0.3s ease;
+    }
+
+    &.is-open {
+        &::after {
+            transform: rotate(180deg);
+        }
+    }
 }
 
 .stores-slider {
@@ -159,4 +275,13 @@
     }
 
 
+
+
+}
+
+.stores-slider-row {
+    &__about {
+        padding-bottom: 40px;
+        padding-top: 50px;
+    }
 }

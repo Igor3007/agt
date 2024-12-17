@@ -30,3 +30,45 @@ mixin stores-slider
                                     span(data-slide="city") Москва
                                     span(data-slide="address") ул. Пирагова, 16
                                     span(data-slide="worktime") Можно примерить: <br> 8:00 - 19:00
+
+
+mixin stores-slider-2
+    section.section-stores-slider.section-stores-slider--desc
+        .container
+            .stores-slider-row
+                .stores-slider-row__about
+                    .company-about__main
+                        .company-about__logo
+                            +bgimage('/img/common/logo-min.svg')
+                        .company-about__title Высококлассный сервис подбора спецодежды
+                        .company-about__desc(data-crop-text="") Мы - компания с 11-летним опытом работы и находимся в ТОП 50 компаний на рынке. Мы гордимся тем, что поддерживаем наличие товара на наших складах, чтобы удовлетворить потребности наших клиентов. У нас нет минимального заказа, и мы обеспечиваем одинаково высокий стандарт обслуживания для всех наших клиентов.
+                .stores-slider-row__slider
+                    .stores-slider
+                        .stores-slider__left
+                            .stores-slider__top
+                                .stores-slider__title Магазины
+                                .stores-slider__city Санкт-Петербург
+                                .stores-slider__nav
+                                    .stores-slider__nav-prev(data-slider-prev="store")
+                                        +icons('#ic_arr-left', 40)
+                                    .stores-slider__nav-next(data-slider-next="store")
+                                        +icons('#ic_arr-right', 40)
+                            .stores-slider__bottom
+                                .stores-slider__address ул. Егорова, 25
+                                .stores-slider__worktime Можно примерить: <br> 8:00 - 20:00
+                                
+                        .stores-slider__right
+                            .splide(data-slider="store")
+                                .splide__track
+                                    .splide__list
+                                        .splide__slide
+                                            +picture('/img/other/store1')
+                                            span(data-slide="city") Санкт-Петербург
+                                            span(data-slide="address") ул. Егорова, 25
+                                            span(data-slide="worktime") Можно примерить: <br> 8:00 - 20:00
+
+                                        .splide__slide
+                                            +picture('/img/other/store1')
+                                            span(data-slide="city") Москва
+                                            span(data-slide="address") ул. Пирагова, 16
+                                            span(data-slide="worktime") Можно примерить: <br> 8:00 - 19:00

@@ -1,3 +1,17 @@
+.section-home-faq--noform {
+    padding: 40px 0;
+
+    & .home-faq {
+        &__title {
+            font-size: 18px;
+
+            @media screen and (min-width: $w991) {
+                font-size: 27px;
+            }
+        }
+    }
+}
+
 .home-faq {
 
     @media screen and (min-width: $w992) {
@@ -23,6 +37,12 @@
 
     &__title {
         @include font-h2;
+        padding-bottom: 24px;
+    }
+
+    &__h2 {
+        font-size: 18px;
+        font-weight: 600;
         padding-bottom: 24px;
     }
 
@@ -81,4 +101,56 @@
         }
 
     }
+
+    & .company-tile {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 12px;
+
+        &__item {
+            width: 100%;
+
+            @media screen and (min-width: $w576) {
+                width: calc(50% - 12px);
+            }
+        }
+
+
+        @media screen and (max-width: $w576) {
+            &__wrp {
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                justify-content: flex-start;
+                min-height: 86px;
+            }
+
+            &__arrow {
+                margin: 0;
+            }
+
+            &__bottom {
+                display: flex;
+                align-items: center;
+                flex-grow: 1;
+            }
+
+            &__text {
+                margin: 0 auto;
+            }
+        }
+
+
+
+        .company-tile__icon .bgimage {
+            width: 40px;
+            height: 40px;
+        }
+    }
+}
+
+.section-home-faq--noform .home-faq__right {
+    background-color: transparent;
+    padding: 24px 0;
 }

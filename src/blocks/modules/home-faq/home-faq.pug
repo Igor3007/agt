@@ -1,4 +1,5 @@
 include ../../components/faq/faq.pug
+include ../../modules/company-about/company-about.pug
 
 mixin home-faq
     section.section-home-faq
@@ -63,3 +64,47 @@ mixin home-faq
                                     .form__item
                                         .form__subitem
                                             button.btn(type="submit") Отправить
+
+ 
+ 
+
+mixin home-faq--noform
+    section.section-home-faq.section-home-faq--noform
+        .container
+            .home-faq
+                .home-faq__left
+                    .home-faq__title Информация
+                    .home-faq__list
+                        +faq([
+                            {
+                                'title':'Доставка и примерка',
+                                'answer':'Выбор материала спецодежды зависит от условий работы и требований безопасности. Некоторые распространенные материалы включают хлопок, полиэстер, нейлон, арамидные волокна и другие. Рекомендуется выбирать материалы, которые обеспечивают нужную защиту в соответствии с требованиями и предпочтениями.'
+                            },
+                            {
+                                'title':'Как сделать возврат',
+                                'answer':'Выбор материала спецодежды зависит от условий работы и требований безопасности. Некоторые распространенные материалы включают хлопок, полиэстер, нейлон, арамидные волокна и другие. Рекомендуется выбирать материалы, которые обеспечивают нужную защиту в соответствии с требованиями и предпочтениями.'
+                            },
+                          
+                        ])
+
+                .home-faq__right
+
+                    .home-faq__h2 Консультация 
+
+                    .company-tile
+                        a(href="/services.html").company-tile__item
+                            .company-tile__wrp
+                                .company-tile__icon
+                                    +bgimage('/img/icons/ic_live.svg')
+                                .company-tile__bottom
+                                    .company-tile__text Онлайн показ
+                                    .company-tile__arrow
+                                        +icons('#ic_arr-right', 40)
+                        a(href="/services.html").company-tile__item
+                            .company-tile__wrp
+                                .company-tile__icon
+                                    +bgimage('/img/icons/ic_call.svg')
+                                .company-tile__bottom
+                                    .company-tile__text Связаться с нами
+                                    .company-tile__arrow
+                                        +icons('#ic_arr-right', 40)

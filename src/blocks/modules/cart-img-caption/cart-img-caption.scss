@@ -11,7 +11,7 @@
         width: 100%;
         height: 100%;
         color: #fff;
-        padding: 24px;
+        padding: 18px;
         display: flex;
         line-height: 140%;
         font-size: 15px;
@@ -30,28 +30,12 @@
 
         & span {
             display: block;
-            padding-left: 24px;
             position: relative;
-
+            @include line-clamp(4);
 
             @media screen and (min-width: $w576) {
                 padding-left: 0;
                 line-height: 101%;
-            }
-
-            &::before {
-                content: '';
-                position: absolute;
-                width: 2px;
-                height: 2px;
-                display: inline-block;
-                background-color: #fff;
-                left: 5px;
-                top: 0.7em;
-
-                @media screen and (min-width: $w576) {
-                    display: none;
-                }
             }
         }
 
@@ -100,7 +84,7 @@
 
             background-color: #eee;
 
-            @include picture(150%, cover)
+            @include picture(121%, cover)
         }
 
         & img {

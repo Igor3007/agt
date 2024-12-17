@@ -8,14 +8,15 @@ mixin sp-head
             span Модель KW603
         
         .sp-head__details
-            .sp-head__price 7200p
-            .sp-head__oldprice 9300p
+            .sp-head__wrp-price
+                .sp-head__price 7200p
+                .sp-head__oldprice 9300p
             .sp-head__sale: span 12%
             .sp-head__action
                 .sp-head__ic
-                    span: +icons('#ic_compare')
-                    span: +icons('#ic_heart')
-                    span: +icons('#ic_share')
+                    span: +icons('#ic_compare', 30)
+                    span: +icons('#ic_heart', 30)
+                    span: +icons('#ic_share', 30)
 
 mixin sp-gallery
     .sp-gallery
@@ -80,7 +81,7 @@ mixin sp-lines
 
     -
         const product = [
-            { img: 'image285', caption: 'специальные вставки в области локтей и лопаток' },
+            { img: 'image285', caption: 'Отделения под наколенники выполнены из прочного и устойчивого к истиранию материала' },
             { img: 'image286', caption: 'Пояс и манжеты укреплены полиамидной тканью' },
             { img: 'image287', caption: 'Функционал учитывающий особенности профессий' },
             { img: 'image288', caption: 'Функционал учитывающий особенности профессий' },
@@ -98,16 +99,14 @@ mixin sp-lines
                 .splide__list
                     each item in product
                         .splide__slide: +card-img-caption(item)
-            .sp-lines__nav
-                .sp-lines__dots: ul.splide__pagination
-                .sp-lines__arrow
-                    .sp-lines__arrow-prev(data-slider-prev="default"): +icons('#ic_arr-left', 20)
-                    .sp-lines__arrow-next(data-slider-next="default"): +icons('#ic_arr-right', 20)
+           
 
  
 
 mixin text-accordion
     .text-accordion
+        .text-accordion__nav
+
         .text-accordion__wrp
      
             .text-accordion__list
@@ -168,10 +167,11 @@ mixin sp-advantages
     .sp-advantages
         .sp-advantages__wrp
             .sp-advantages__media
-                .sp-advantages__preview
-                    +picture('/img/other/preview-video')
-                .sp-advantages__play
-                    +icons('#ic_play')
+                .sp-advantages__video
+                    .sp-advantages__preview
+                        +picture('/img/other/preview-video')
+                    .sp-advantages__play
+                        +icons('#ic_play')
             .sp-advantages__list
                 ul
                     li
@@ -205,7 +205,7 @@ mixin sp-online
             .sp-online__live-text Удобный способ принятия решений: подберите спецодежду по видеосвязи под ваши задачи
         .sp-online__print
             .sp-online__print-icon: +bgimage('/img/other/icon-sw.svg')
-            .sp-online__print-title Нанесем ваш логотип на спецодежду
+            .sp-online__print-title Нанесем ваш логотип на <br> спецодежду
 
 
     
@@ -221,7 +221,7 @@ mixin sp-video
 
 mixin sp-set
     .sp-set
-        .sp-set__title
+        .sp-set__title Собери комплект
         .sp-set__list
             .sp-set__item
                 +picture('/img/product/set/image 165')

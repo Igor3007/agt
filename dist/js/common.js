@@ -673,16 +673,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
                 breakpoints: {
 
-                    992: {
-                        perPage: 2,
-                        perMove: 2,
-                    },
-
-                    576: {
+                    1200: {
                         perPage: 1,
                         perMove: 1,
                         gap: 0,
                     },
+
+
                 },
 
             });
@@ -2122,27 +2119,63 @@ document.addEventListener('DOMContentLoaded', function (event) {
     ===============================================*/
 
     if (document.querySelector('.text-accordion')) {
+
         const $el = document.querySelector('.text-accordion')
-        const items = document.querySelectorAll('.text-accordion__label')
-        items.forEach(label => {
-            const item = label.closest('.text-accordion__item')
+        const items = $el.querySelectorAll('.text-accordion__label')
 
-            document.body.clientWidth < 992 || item.classList.add('is-open')
+        if (document.body.clientWidth < 992) {
 
-            item.querySelector('.text-accordion__text').style.height = item.querySelector('.text-height').clientHeight + 30 + 'px'
+            items.forEach(label => {
+                const item = label.closest('.text-accordion__item')
 
-            label.addEventListener('click', e => {
-                item.classList.toggle('is-open');
-                //!item.classList.contains('is-open') || window.scrollToTargetAdjusted(label)
+                document.body.clientWidth < 992 || item.classList.add('is-open')
+
+                item.querySelector('.text-accordion__text').style.height = item.querySelector('.text-height').clientHeight + 0 + 'px'
+
+                label.addEventListener('click', e => {
+                    item.classList.toggle('is-open');
+                    //!item.classList.contains('is-open') || window.scrollToTargetAdjusted(label)
+                })
             })
-        })
+        } else {
 
-        // $el.querySelector('[data-accordion="switch-all"]').addEventListener('click', e => {
-        //     items.forEach(label => {
-        //         const item = label.closest('.text-accordion__item');
-        //         !item.classList.remove('is-open') || item.classList.remove('is-open')
-        //     })
-        // })
+            let ul = document.createElement('ul')
+
+            const changeActive = (index) => {
+                ul.querySelectorAll('li').forEach((item, i) => {
+                    if (i == index) {
+                        item.classList.add('is-open')
+                    } else {
+                        !item.classList.contains('is-open') || item.classList.remove('is-open')
+                    }
+                })
+
+                items.forEach((label, i) => {
+                    if (i == index) {
+                        label.parentNode.classList.add('is-open')
+                    } else {
+                        !label.parentNode.classList.contains('is-open') || label.parentNode.classList.remove('is-open')
+                    }
+                })
+            }
+
+            items.forEach((label, index) => {
+                let li = document.createElement('li')
+                li.innerText = label.innerText
+                ul.append(li);
+
+                if (!index) {
+                    li.classList.add('is-open')
+                }
+
+                li.addEventListener('click', e => {
+                    changeActive(index)
+                })
+            })
+
+            $el.querySelector('.text-accordion__nav').append(ul)
+            changeActive(0)
+        }
 
 
     }
@@ -2508,6 +2541,36 @@ document.addEventListener('DOMContentLoaded', function (event) {
             }
         })
     }
+
+    /* =======================================
+    crop text
+    =======================================*/
+
+    let countChars = document.body.clientWidth > 576 ? 500 : 150
+
+    document.querySelectorAll('[data-crop-text]').forEach(item => {
+        if (item.innerText.length > countChars) {
+            item.classList.add('crop--text')
+
+            let showButton = document.createElement('div')
+            showButton.classList.add('show-more-button')
+            showButton.innerText = 'Подробнее'
+
+            showButton.addEventListener('click', e => {
+                if (item.classList.contains('crop--text')) {
+                    item.classList.remove('crop--text')
+                    showButton.innerText = 'Cвернуть'
+                } else {
+                    item.classList.add('crop--text')
+                    showButton.innerText = 'Подробнее'
+                }
+
+                showButton.classList.toggle('is-open')
+            })
+
+            item.after(showButton)
+        }
+    })
 
 
 

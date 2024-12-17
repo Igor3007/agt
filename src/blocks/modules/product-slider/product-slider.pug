@@ -1,10 +1,10 @@
 include ../minicard/minicard.pug
 
-mixin product-slider
-    section.section-product-slider
+mixin product-slider(data)
+    section.section-product-slider(class=data.modify ? data.modify : '')
         .container
             .product-slider
-                .product-slider__title Хиты
+                .product-slider__title= data.title
                 .product-slider__splide
                     .splide(data-slider="product")
                         .splide__track

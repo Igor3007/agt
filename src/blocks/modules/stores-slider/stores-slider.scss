@@ -56,6 +56,11 @@
 }
 
 .section-stores-slider--desc {
+
+    @media screen and (min-width: $w1440) {
+        padding: 160px 0 60px;
+    }
+
     & .stores-slider {
         @media screen and (max-width: $w576) {
             &__address {
@@ -280,8 +285,105 @@
 }
 
 .stores-slider-row {
+
+    @media screen and (min-width: $w1440) {
+        display: flex;
+        gap: 0 3%;
+    }
+
+    &__slider {
+        @media screen and (min-width: $w1440) {
+            width: 68%;
+        }
+    }
+
     &__about {
         padding-bottom: 40px;
         padding-top: 50px;
+
+        @media screen and (min-width: $w1440) {
+            flex-direction: column;
+            width: 32%;
+            padding-top: 0;
+
+            &>div {
+                width: 100%;
+            }
+        }
+
+        @media screen and (min-width: $w760) {
+            display: flex;
+            gap: 50px;
+
+            &>div {
+                width: 50%;
+            }
+        }
+
+        & .company-about {
+            &__digits {
+                display: flex;
+                justify-content: space-between;
+                padding-top: 0;
+
+                @media screen and (max-width: $w760) {
+                    display: none;
+                }
+            }
+
+            &__logo {
+
+                @media screen and (min-width: $w1200) {
+                    padding-bottom: 20px;
+
+                }
+
+                & .bgimage {
+                    @media screen and (min-width: $w1200) {
+                        width: 175px;
+                    }
+                }
+            }
+
+            &__title {
+                @media screen and (min-width: $w1200) {
+                    font-size: 19px;
+                    max-width: 360px;
+                    line-height: 110%;
+                    padding-bottom: 0px;
+
+                }
+            }
+
+            &__desc {
+                @media screen and (min-width: $w1200) {
+                    font-size: 15px;
+                    color: #2F3030;
+                }
+            }
+        }
+
+    }
+
+    & .stores-slider {
+        @media screen and (min-width: $w1440) {
+            display: block;
+
+            &__left {
+                display: flex;
+                justify-content: space-between;
+                padding-bottom: 0;
+                width: 100%;
+                flex-direction: row;
+                align-items: center;
+                padding-bottom: 40px;
+            }
+
+            &__right {
+                width: 100%;
+            }
+        }
+
+
     }
 }

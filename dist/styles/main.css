@@ -5569,6 +5569,12 @@ footer {
   padding-top: 50px;
 }
 
+.stores-slider-row__about .company-about__digits {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0;
+}
+
 .section-reviews-slider {
   padding: 40px 0 40px 0;
   background-color: #F2F6F9;
@@ -11019,6 +11025,15 @@ a[data-tooltip]:hover::before {
     padding-bottom: 60px;
   }
 
+  .stores-slider-row__about {
+    display: flex;
+    gap: 50px;
+  }
+
+  .stores-slider-row__about > div {
+    width: 50%;
+  }
+
   .reviews-slider__slider {
     padding-left: 80px;
   }
@@ -12195,6 +12210,26 @@ a[data-tooltip]:hover::before {
     padding-bottom: 45px;
   }
 
+  .stores-slider-row__about .company-about__logo {
+    padding-bottom: 20px;
+  }
+
+  .stores-slider-row__about .company-about__logo .bgimage {
+    width: 175px;
+  }
+
+  .stores-slider-row__about .company-about__title {
+    font-size: 19px;
+    max-width: 360px;
+    line-height: 110%;
+    padding-bottom: 0px;
+  }
+
+  .stores-slider-row__about .company-about__desc {
+    font-size: 15px;
+    color: #2F3030;
+  }
+
   .catalog-category__subcat ul li {
     width: calc(16.6% - 12px);
   }
@@ -12429,6 +12464,47 @@ a[data-tooltip]:hover::before {
 
   .company-about__image picture {
     padding-top: 128%;
+  }
+
+  .section-stores-slider--desc {
+    padding: 160px 0 60px;
+  }
+
+  .stores-slider-row {
+    display: flex;
+    gap: 0 3%;
+  }
+
+  .stores-slider-row__slider {
+    width: 68%;
+  }
+
+  .stores-slider-row__about {
+    flex-direction: column;
+    width: 32%;
+    padding-top: 0;
+  }
+
+  .stores-slider-row__about > div {
+    width: 100%;
+  }
+
+  .stores-slider-row .stores-slider {
+    display: block;
+  }
+
+  .stores-slider-row .stores-slider__left {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 40px;
+  }
+
+  .stores-slider-row .stores-slider__right {
+    width: 100%;
   }
 
   .section-video-slider {
@@ -12720,6 +12796,10 @@ a[data-tooltip]:hover::before {
 
   .company-about__top .company-about__image picture {
     padding-top: 100%;
+  }
+
+  .stores-slider-row__about .company-about__digits {
+    display: none;
   }
 }
 

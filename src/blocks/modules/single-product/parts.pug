@@ -19,13 +19,13 @@ mixin sp-head
                     span: +icons('#ic_share', 30)
 
 mixin sp-gallery
-    .sp-gallery
+     
         .sp-gallery
             .sp-gallery__slider
-                .sp-gallery__brand: +bgimage('/img/brands/image2.png')
+                .sp-gallery__brand: +bgimage('/img/brands/image8.png')
                 .sp-gallery__typebrand
                     span Европейский бренд
-                .sp-gallery__set
+                a(href='#set' data-scroll="smooth").sp-gallery__set
                     +icons('#ic_set')
                     span Собери комплект
                 .splide(data-slider="sp-gallery")
@@ -39,6 +39,7 @@ mixin sp-gallery
                                 +picturePng('/img/product/p1')
                             .splide__slide
                                 +picturePng('/img/product/p2')
+                    
 
 mixin sp-details
     .sp-details
@@ -157,7 +158,7 @@ mixin text-accordion
                             p Tomboy (33% <span data-prop-tooltip = "Мембранная ткань – материал, обладающий свойством избирательной проницаемости и обеспечивающий повышенную защиту от негативных внешних условий.">хлопок</span>, 67% <span data-prop-tooltip ="Полиэфир это ткань, которая в основе своей использует полиэфирные волокна. Этот материал обладает способностью очень легко растягиваться, а после того как его растянули, он легко принимает прежнюю форму. ">полиэфир</span>), 245 г/м2
 
                 .text-accordion__item
-                    .text-accordion__label Сертификация
+                    .text-accordion__label Сертификаты
                     .text-accordion__text 
                         .text-height
                             p СООТВЕТСТВУЕТ ТРЕБОВАНИЯМ Технического регламента Таможенного союза ТР ТС 019/2011 "О безопасности средств индивидуальной защиты" Изготовлено в соответствии с ГОСТ Р 12.4.280-2014 ТР ТС 019/2011
@@ -200,7 +201,7 @@ mixin sp-advantages
 mixin sp-online
     .sp-online
         .sp-online__live
-            .sp-online__live-icon: +icons('#ic_wa')
+            .sp-online__live-icon: +icons('#ic_wa-solid')
             .sp-online__live-title Увидеть товар онлайн
             .sp-online__live-text Удобный способ принятия решений: подберите спецодежду по видеосвязи под ваши задачи
         .sp-online__print
@@ -220,7 +221,7 @@ mixin sp-video
             })
 
 mixin sp-set
-    .sp-set
+    .sp-set(id="set")
         .sp-set__title Собери комплект
         .sp-set__list
             .sp-set__item

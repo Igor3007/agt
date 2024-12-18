@@ -121,6 +121,7 @@
         border-radius: 50px;
         padding: 3px;
         gap: 4px;
+        align-items: center;
 
         @media screen and (min-width: $w480) {
             gap: 12px;
@@ -203,6 +204,11 @@
 
         & svg {
             fill: #fff;
+
+            @media screen and (max-width: $w576) {
+                width: 36px;
+                height: 36px;
+            }
         }
 
         & .ic-default {
@@ -407,8 +413,12 @@
         background-color: #fff;
         border-radius: 50px;
         padding: 2px;
-        opacity: 0;
+        opacity: 1;
         transition: 0.3s ease;
+
+        @media screen and (min-width: $w576) {
+            opacity: 0;
+        }
 
         &>div {
             display: flex;

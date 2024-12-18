@@ -58,7 +58,22 @@
 .section-stores-slider--desc {
 
     @media screen and (min-width: $w1440) {
-        padding: 160px 0 60px;
+        padding: 80px 0 60px;
+        margin-top: 80px;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 45px;
+            right: 45px;
+            background-color: #e6e6e6;
+            height: 1px;
+            width: auto;
+            display: block;
+        }
+
     }
 
     & .stores-slider {

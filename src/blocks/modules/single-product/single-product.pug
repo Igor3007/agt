@@ -4,6 +4,10 @@ include parts.pug
 
 mixin single-product
     section.section-single-product
+
+        script(type="application/ld+json")
+            include microdata.js
+    
         .container
             .single-product
                 .single-product__top

@@ -9984,6 +9984,133 @@ a[data-tooltip]:hover::before {
   margin-right: 12px;
 }
 
+.multi-color {
+  width: 30px;
+  height: 30px;
+  background-color: #eee;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 0 0px 1px #dedede;
+}
+
+.multi-color__wrp {
+  overflow: hidden;
+  transform: rotate(45deg);
+  display: flex;
+  height: 100%;
+  height: calc(100% + 6px);
+  margin: -3px;
+}
+
+.multi-color__wrp span {
+  flex-grow: 1;
+  display: block;
+}
+
+.popup-select-color {
+  padding: 12px;
+}
+
+.popup-select-color__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.popup-select-color__title {
+  text-align: center;
+  font-size: 15px;
+  color: #8d8d8d;
+  padding-bottom: 24px;
+}
+
+.popup-select-color__product {
+  font-size: 19px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 36px;
+}
+
+.popup-select-color__btn {
+  padding-top: 24px;
+}
+
+.popup-select-color__item {
+  background-color: var(--bg);
+  width: calc(50% - 6px);
+}
+
+.popup-select-color__item label input {
+  display: none;
+}
+
+.popup-select-color__item label input:checked ~ .product-checkbox {
+  border: 1px solid var(--accent);
+}
+
+.popup-select-color__item label input:checked ~ .product-checkbox .multi-color {
+  position: relative;
+  border-color: var(--accent);
+  box-shadow: 0 0 0px 1px #0090c3;
+}
+
+.popup-select-color__item label input:checked ~ .product-checkbox .multi-color::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTkuNjQuMjMyYTEgMSAwIDAxLjEyOCAxLjQwOGwtNSA2YTEgMSAwIDAxLTEuNDc1LjA2N2wtMy0zYTEgMSAwIDExMS40MTQtMS40MTRsMi4yMjYgMi4yMjZMOC4yMzIuMzU5QTEgMSAwIDAxOS42NC4yMzN6IiBmaWxsPSIjZmZmIi8+PC9zdmc+);
+}
+
+.product-checkbox {
+  border: 1px solid transparent;
+}
+
+.product-checkbox__image {
+  padding-bottom: 32px;
+}
+
+.product-checkbox__image picture {
+  position: relative;
+  display: block;
+  padding-top: 120%;
+}
+
+.product-checkbox__image picture img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  color: transparent;
+}
+
+.product-checkbox img {
+  mix-blend-mode: multiply;
+}
+
+.product-checkbox__color {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 24px;
+  font-size: 15px;
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+}
+
+.product-checkbox__color .multi-color {
+  margin-right: 12px;
+  width: 22px;
+  height: 22px;
+}
+
 /* common styles */
 
 .splide__arrow {
@@ -10193,6 +10320,36 @@ a[data-tooltip]:hover::before {
   .af-dialog {
     width: 440px;
     padding: 24px;
+  }
+
+  .af-position-left .af-popup__container {
+    padding: 0;
+    margin-right: 0;
+  }
+
+  .af-position-left .af-popup__content {
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  .af-position-left .af-popup__close {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--accent);
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 14px;
+  }
+
+  .af-position-left .af-popup__close svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .af-position-left .af-popup__close svg path {
+    stroke: var(--accent);
   }
 
   .faq-item {
@@ -10793,6 +10950,11 @@ a[data-tooltip]:hover::before {
   .text-accordion__label {
     font-size: 18px;
     padding: 22px 0;
+  }
+
+  .popup-select-color {
+    min-width: 540px;
+    max-width: 560px;
   }
 
   .splide__arrow {
@@ -12364,7 +12526,7 @@ a[data-tooltip]:hover::before {
   }
 
   .single-product__main {
-    width: calc(100% - 638px);
+    width: calc(100% - 610px);
     padding-right: 0;
   }
 
@@ -12403,6 +12565,10 @@ a[data-tooltip]:hover::before {
 
   .sp-head__oldprice {
     font-size: 20px;
+  }
+
+  .sp-gallery__slider {
+    margin: 0;
   }
 
   .sp-gallery__typebrand {

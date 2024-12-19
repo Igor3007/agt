@@ -2572,6 +2572,53 @@ document.addEventListener('DOMContentLoaded', function (event) {
         }
     })
 
+    /* =====================================
+    select color
+    ===================================== */
+
+    if (document.querySelector('[data-select-color="open"]')) {
+        
+
+        class SelectColor {
+            constructor(params) {
+                this.$el = params.el
+                this.popup = null;
+
+                this.init()
+            }
+
+            init() {
+                this.popup = new afLightbox({
+                    mobileInBottom: true,
+                    clases: 'af-position-left'
+                })
+            }
+
+            open() {
+                this.popup.open('<div class="af-spiner" ></div>', false)
+
+                window.ajax({
+                    type: 'GET',
+                    url: '/parts/_select-color.html'
+                }, (status, response) => {
+                    this.popup.changeContent(response)
+                })
+            }
+        }
+
+        document.querySelectorAll('[data-select-color="open"]').forEach(item => {
+            item.addEventListener('click', () => {
+                let selectColor = new SelectColor({
+                    el: item
+                })
+
+                selectColor.open()
+            })
+        })
+
+
+    }
+
 
 
 

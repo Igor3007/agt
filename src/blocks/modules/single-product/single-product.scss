@@ -60,7 +60,7 @@
         }
 
         @media screen and (min-width: $w1200) {
-            width: calc(100% - 638px);
+            width: calc(100% - 610px);
             padding-right: 0;
         }
 
@@ -752,6 +752,9 @@
         position: relative;
         margin: 0 -24px;
 
+        @media screen and (min-width: $w1200) {
+            margin: 0;
+        }
 
     }
 

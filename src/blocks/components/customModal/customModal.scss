@@ -349,3 +349,43 @@
     animation: fadeOutTopStatus 0.3s ease forwards;
 
 }
+
+ 
+
+@media screen and (min-width: $w480) {
+    .af-position-left {
+        & .af-popup{
+            &__container {
+                padding: 0;
+                margin-right: 0;
+                
+            } 
+
+            &__content{
+                padding: 0;
+                min-height: 100vh;
+            }
+
+            &__close {
+                width: 30px;
+                height: 30px;
+                border: 1px solid var(--accent);
+                border-radius: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: 14px;
+
+                & svg {
+                    width: 14px;
+                    height: 14px;
+                    
+                    & path {
+                        stroke: var(--accent);
+                    }
+                }
+            }
+        }
+    }
+}
+

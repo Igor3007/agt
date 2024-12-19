@@ -1,0 +1,65 @@
+include ../../../views/helpers/mixins.pug
+
+.popup-select-color
+    .popup-select-color__title Выберите цвет
+    .popup-select-color__product Брюки ОПЗ летние Бродекс мужская цв. серый с темно-серым и черным
+    .popup-select-color__list
+        .popup-select-color__item
+            label
+                input(type="radio" name="colorpick" value="1231")
+                .product-checkbox
+                    .product-checkbox__image
+                        +picture('/img/product/colorpick')
+                    .product-checkbox__color
+                        .multi-color 
+                            .multi-color__wrp
+                                span(style="background-color:#E43A28")
+                        .product-checkbox__color-name Красный
+        .popup-select-color__item
+            label
+                input(type="radio" name="colorpick" value="1231")
+                .product-checkbox
+                    .product-checkbox__image
+                        +picture('/img/product/colorpick1')
+                    .product-checkbox__color
+                        .multi-color 
+                            .multi-color__wrp
+                                span(style="background-color:#E43A28")
+                        .product-checkbox__color-name Красный с опушкой
+        .popup-select-color__item
+            label
+                input(type="radio" name="colorpick" value="1231")
+                .product-checkbox
+                    .product-checkbox__image
+                        +picture('/img/product/colorpick2')
+                    .product-checkbox__color
+                        .multi-color 
+                            .multi-color__wrp
+                                span(style="background-color:#000")
+                                span(style="background-color:#444")
+                        .product-checkbox__color-name Серый / Графит
+        .popup-select-color__item
+            label
+                input(type="radio" name="colorpick" value="1231")
+                .product-checkbox
+                    .product-checkbox__image
+                        +picture('/img/product/colorpick2')
+                    .product-checkbox__color
+                        .multi-color 
+                            .multi-color__wrp
+                                span(style="background-color:#000")
+                               
+                        .product-checkbox__color-name Черный
+        .popup-select-color__item
+            label
+                input(type="radio" name="colorpick" value="1231")
+                .product-checkbox
+                    .product-checkbox__image
+                        +picture('/img/product/colorpick2')
+                    .product-checkbox__color
+                        .multi-color 
+                            .multi-color__wrp
+                                span(style="background-color:#000")
+
+    .popup-select-color__btn
+        button.btn Выбрать

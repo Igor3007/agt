@@ -2577,12 +2577,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
     ===================================== */
 
     if (document.querySelector('[data-select-color="open"]')) {
-        
+
 
         class SelectColor {
             constructor(params) {
                 this.$el = params.el
                 this.popup = null;
+                this.btnSelect = null;
+                this.result = [];
 
                 this.init()
             }
@@ -2602,7 +2604,53 @@ document.addEventListener('DOMContentLoaded', function (event) {
                     url: '/parts/_select-color.html'
                 }, (status, response) => {
                     this.popup.changeContent(response)
+                    this.eventCheckbox()
                 })
+            }
+
+            eventCheckbox() {
+                this.popup.modal.querySelectorAll('input[type=radio]').forEach(input => {
+                    input.addEventListener('change', () => this.changeCheckbox())
+                })
+
+                this.btnSelect = this.popup.modal.querySelector('.btn')
+                this.btnSelect.addEventListener('click', () => this.selectedColor())
+            }
+
+            selectedColor() {
+                let container = this.$el.closest('.sp-details__colorpick')
+                container.querySelector('.color-name').innerText = this.result[0].text
+
+                if (this.result[0].value) {
+                    container.querySelector('.multi-color__wrp').innerHTML = ''
+
+                    this.result[0].value.split(',').forEach(color => {
+                        let el = document.createElement('span')
+                        el.style.setProperty('background', color)
+                        container.querySelector('.multi-color__wrp').append(el)
+                    })
+                }
+
+                this.popup.close()
+
+            }
+
+            changeCheckbox() {
+
+                this.popup.modal.querySelectorAll('input[type=radio]').forEach(input => {
+                    if (input.checked) {
+                        this.result.push({
+                            text: input.parentNode.querySelector('.product-checkbox__color-name').innerText,
+                            value: input.value
+                        })
+                    }
+                })
+
+                if (this.result.length) {
+                    this.btnSelect.removeAttribute('disabled')
+                } else {
+                    this.btnSelect.setAttribute('disabled', 'disabled')
+                }
             }
         }
 
@@ -2613,6 +2661,226 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 })
 
                 selectColor.open()
+            })
+        })
+
+
+    }
+
+    /* =====================================
+    select size
+    ===================================== */
+
+    if (document.querySelector('[data-select-color="open"]')) {
+
+        class SizeList {
+            constructor(el, list) {
+                this.$el = el
+                this.list = list
+                this.container = null;
+
+                this.init()
+            }
+
+            init() {
+                this.container = this.$el.closest('.sp-details__border').querySelector('.sp-details__left')
+                this.container.innerHTML = "";
+                this.create()
+            }
+
+            getTemplate(item) {
+                return `
+                    <span>${item.size}</span>
+                    <span>${item.count}шт</span>
+                `;
+            }
+
+            create() {
+                this.list.forEach(item => {
+                    let el = document.createElement('div')
+                    el.classList.add('item-size')
+                    el.innerHTML = this.getTemplate(item)
+                    this.container.append(el)
+                })
+
+                if (this.list.length > 3 && document.body.clientWidth > 576) {
+                    this.$el.closest('.sp-details__border').classList.add('is-view-all')
+                    return false;
+                }
+
+
+                if (this.list.length > 2) {
+                    let btn = document.createElement('div')
+                    btn.classList.add('more-items')
+                    btn.innerText = 'еще...'
+
+                    btn.addEventListener('click', e => {
+                        this.$el.closest('.sp-details__border').classList.toggle('is-view-all')
+                    })
+
+                    this.container.append(btn)
+                }
+            }
+        }
+
+
+        class SelectSize {
+            constructor(params) {
+                this.$el = params.el
+                this.popup = null;
+                this.result = null;
+                this.btnAdd = null;
+                this.config = {
+                    maxCount: 100
+                }
+
+                this.init()
+            }
+
+            init() {
+                this.popup = new afLightbox({
+                    mobileInBottom: true,
+                    clases: 'af-position-left'
+                })
+            }
+
+            open() {
+                this.popup.open('<div class="af-spiner" ></div>', false)
+
+                window.ajax({
+                    type: 'GET',
+                    url: '/parts/_select-size.html'
+                }, (status, response) => {
+                    this.popup.changeContent(response)
+                    this.addEvent()
+                })
+            }
+
+            changeCountInc(e) {
+                let el = e.target.closest('.counter')
+                let input = el.querySelector('[type=text]')
+
+                if (input.value < this.config.maxCount) input.value++
+
+                this.calcTotalPrice()
+            }
+
+            changeCountDec(e) {
+                let el = e.target.closest('.counter')
+                let input = el.querySelector('[type=text]')
+
+                if (input.value > 0) input.value--
+
+                this.calcTotalPrice()
+            }
+
+            changeCountInput(e) {
+
+                e.target.value = e.target.value.replace(/\D/g, '')
+
+                if (e.target.value > this.config.maxCount) {
+                    e.target.value = this.config.maxCount
+                    return;
+                }
+
+                if (e.target.value < 0) {
+                    e.target.value = 0
+                    return;
+                }
+
+
+            }
+
+            calcTotalPrice() {
+
+                this.result = []
+
+                this.popup.modal.querySelectorAll('input[type=text]').forEach(input => {
+
+                    input.setAttribute('data-is-empty', input.value > 0)
+
+
+                    if (input.value > 0) {
+                        this.result.push({
+                            count: input.value,
+                            size: input.dataset.size,
+                            price: input.dataset.price,
+                        })
+                    }
+
+
+                })
+
+                this.popup.modal.querySelector('[data-total]').innerText = this.result.reduce((acc, item) => {
+                    return acc + (Number(item.price) * Number(item.count))
+                }, 0) + ' ₽'
+
+                this.popup.modal.querySelector('[data-count]').innerText = this.result.reduce((acc, item) => {
+                    return acc + Number(item.count)
+                }, 0)
+
+                if (this.result.length) {
+                    this.btnAdd.removeAttribute('disabled')
+                } else {
+                    this.btnAdd.setAttribute('disabled', 'disabled')
+                }
+            }
+
+            changeCountBlur(e) {
+
+                if (!e.target.value.length) {
+                    e.target.value = 0
+                    return;
+                }
+
+                this.calcTotalPrice()
+            }
+
+            removeItem(e) {
+                e.preventDefault()
+                e.stopPropagation()
+                e.target.closest('.popup-select-color__tr').remove()
+                this.calcTotalPrice()
+            }
+
+            sizeAdd() {
+                new SizeList(this.$el, this.result)
+                this.popup.close()
+            }
+
+            addEvent() {
+                this.popup.modal.querySelectorAll('input[type=text]').forEach(input => {
+                    input.addEventListener('input', (e) => this.changeCountInput(e))
+                    input.addEventListener('change', (e) => this.changeCountBlur(e))
+                })
+
+                this.popup.modal.querySelectorAll('.counter__inc').forEach(input => {
+                    input.addEventListener('click', (e) => this.changeCountInc(e))
+                })
+
+                this.popup.modal.querySelectorAll('.counter__dec').forEach(input => {
+                    input.addEventListener('click', (e) => this.changeCountDec(e))
+                })
+
+                this.popup.modal.querySelectorAll('.ic-remove').forEach(item => {
+                    item.addEventListener('click', (e) => this.removeItem(e))
+                })
+
+                this.popup.modal.querySelectorAll('[data-btn=add]').forEach(item => {
+                    this.btnAdd = item;
+                    item.addEventListener('click', (e) => this.sizeAdd())
+                })
+            }
+
+
+        }
+
+        document.querySelectorAll('[data-select-size="open"]').forEach(item => {
+            item.addEventListener('click', () => {
+                let sizeSelect = new SelectSize({
+                    el: item
+                })
+                sizeSelect.open()
             })
         })
 

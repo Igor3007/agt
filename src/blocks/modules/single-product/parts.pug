@@ -56,7 +56,10 @@ mixin sp-details
         .sp-details__colorpick
             .sp-details__border(data-title="Цвет")
                 .sp-details__left
-                    span.color-preview(style="background-color: #1958B2")
+                    span.color-preview
+                        .multi-color 
+                            .multi-color__wrp
+                                span(style="background-color:#1958B2")
                     span.color-name Серый / Графит
                 .sp-details__right
                     span(data-select-color="open") Выбрать другой
@@ -68,7 +71,7 @@ mixin sp-details
                     span.size-tooltip
                         +icons('#ic_tooltip', 18)
                 .sp-details__right
-                    span Выбрать
+                    span(data-select-size="open") Выбрать
         
         .sp-details__tablesize
             span Таблицы размеров

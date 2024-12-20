@@ -598,7 +598,7 @@ footer {
         display: inline-block;
         height: 19px;
         min-width: 19px;
-        padding: 0 3px;
+
         text-align: center;
 
         position: absolute;
@@ -606,7 +606,8 @@ footer {
         top: -2px;
         transition: 0.3s ease;
         line-height: 17px;
-        padding: 0 4px;
+        padding: 4px 4px;
+        line-height: 100%;
     }
 
 

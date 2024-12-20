@@ -24,6 +24,18 @@
     }
 }
 
+@keyframes af-slide-left {
+    from {
+        transform: translate3d(100%, 0, 0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
 
 
 .af-popup {
@@ -349,7 +361,12 @@
     animation: fadeOutTopStatus 0.3s ease forwards;
 
 }
-
+.af-position-left {
+    & .af-popup {
+        &__content {
+            padding: 0;
+        }
+    }}
  
 
 @media screen and (min-width: $w480) {
@@ -358,7 +375,7 @@
             &__container {
                 padding: 0;
                 margin-right: 0;
-                
+                animation: 0.35s ease 0.2s both af-slide-left;
             } 
 
             &__content{

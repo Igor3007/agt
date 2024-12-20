@@ -1,0 +1,61 @@
+include ../../../views/helpers/mixins.pug
+
+-
+    const sizes = [
+        {
+            'size': '44-46',
+            'rost': 'рост. 170-176'
+        },
+        {
+            'size': '44-46',
+            'rost': 'рост. 170-176'
+        },
+        {
+            'size': '44-46',
+            'rost': 'рост. 170-176'
+        },
+        {
+            'size': '44-46',
+            'rost': 'рост. 170-176'
+        },
+        {
+            'size': '44-46',
+            'rost': 'рост. 170-176'
+        },
+       
+    ]
+
+.popup-select-color
+    .popup-select-color__title Выберите размеры
+    .popup-select-color__product Брюки ОПЗ летние Бродекс мужская цв. серый с темно-серым и черным
+    .popup-select-color__price
+        | 7200 ₽ 
+        span за шт.
+    .popup-select-color__table
+        each item in sizes
+            .popup-select-color__tr
+                .popup-select-color__td
+                    strong=item.size
+                    span=item.rost
+                .popup-select-color__td
+                    .counter
+                        .counter__dec
+                        .counter__input: input(type="text" value="0" data-price="7200" data-size=item.size)
+                        .counter__inc
+                .popup-select-color__td.td-remove
+                    span.ic-remove
+
+     
+    
+
+    .popup-select-color__bottom
+        .popup-select-color__total
+            div(data-total) 0 ₽
+            span за <i data-count="" >0</i> шт.
+
+        .popup-select-color__button
+            button.btn(data-btn="add" disabled) Добавить
+
+        .popup-select-color__button
+            a(href='#'): button.btn.btn-gray Помочь с подбором размера
+        

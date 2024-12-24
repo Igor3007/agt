@@ -4194,6 +4194,12 @@ header {
   opacity: 1;
 }
 
+.header-professions[data-header-popup=professions] .bgimage {
+  filter: grayscale(0);
+  opacity: 1;
+  padding-top: 117%;
+}
+
 .header-professions .splide__track {
   margin: 0 auto;
 }

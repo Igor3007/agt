@@ -42,6 +42,14 @@
         }
     }
 
+    &[data-header-popup=professions] {
+        & .bgimage {
+            filter: grayscale(0);
+            opacity: 1;
+            padding-top: 117%;
+        }
+    }
+
 
 
     & .splide {

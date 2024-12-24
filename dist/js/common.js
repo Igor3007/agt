@@ -2799,6 +2799,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
                     input.setAttribute('data-is-empty', input.value > 0)
 
+
                     if (input.value > 0) {
                         this.result.push({
                             count: input.value,
@@ -2838,8 +2839,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             removeItem(e) {
                 e.preventDefault()
                 e.stopPropagation()
-                let parent = e.target.closest('.popup-select-color__tr')
-                parent.querySelector('[type=text]').value = 0
+                e.target.closest('.popup-select-color__tr').remove()
                 this.calcTotalPrice()
             }
 

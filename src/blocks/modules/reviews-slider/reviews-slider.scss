@@ -164,6 +164,10 @@
 
         width: 235px;
         min-width: 235px;
+
+        & picture {
+            @include picture(100%, cover);
+        }
     }
 
     &__preview {

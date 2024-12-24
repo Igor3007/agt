@@ -31,8 +31,15 @@
     }
 
     & .bgimage {
-        padding-top: 116%;
+        padding-top: 65%;
         @include bgimage-contain;
+        filter: grayscale(1);
+        opacity: 0.5;
+
+        &:hover {
+            filter: grayscale(0);
+            opacity: 1;
+        }
     }
 
 

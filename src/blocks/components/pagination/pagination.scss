@@ -6,7 +6,7 @@
 
      @media screen and (max-width: $w480) {
          flex-wrap: wrap;
-         flex-direction: column-reverse;
+         flex-direction: column;
      }
 
      &__page {

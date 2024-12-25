@@ -731,6 +731,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
                     if (index == 0) item.closest('li').classList.add('is-active')
                 })
 
+                this.$el.querySelectorAll('.minicard__tocart').forEach((item, index) => {
+                    item.addEventListener('click', e => {
+                        item.classList.toggle('is-active')
+                    })
+
+
+                })
+
 
             }
         }

@@ -19,20 +19,26 @@ mixin minicard(data)
                 .minicard__bg
                     .minicard__tofav(data-wishlist=data.id): +icons('#ic_heart', 40)
                     .minicard__compare(data-compare=data.id): +icons('#ic_compare', 40)
-                .minicard__kp: +icons('#ic_kp', 40)
                 .minicard__tocart
+                    span.incart-text В корзине
                     span.ic-default
                         +icons('#ic_to-cart', 40)
                     span.ic-hover
                         +icons('#ic_cart-plus', 40)
+                    
              
             
                     
 
         .minicard__main
-            .minicard__price
-                | 14 500 
-                span ₽
+            .minicard__prices
+                .minicard__price(class=data.oldprice ? 'is-accent-color' : '')
+                    | 14 500 
+                    span ₽
+                if data.oldprice
+                    .minicard__oldprice!= data.oldprice + '<span>₽</span>'
+                    .minicard__sale
+                        span 12%
 
             .minicard__desc
                  span= data.desc

@@ -112,7 +112,7 @@
         position: absolute;
         right: 18px;
         left: 18px;
-        bottom: 23px;
+        bottom: 12px;
         z-index: 4;
         transition: 0.3s ease;
         z-index: 3;
@@ -127,8 +127,11 @@
             gap: 12px;
             background: transparent;
             padding: 0;
+            bottom: 23px;
         }
     }
+
+
 
     &__kp,
     &__tocart,
@@ -143,6 +146,7 @@
         cursor: pointer;
         margin-bottom: 1px;
         border-radius: 50%;
+        transition: 0.5s ease;
 
         @media screen and (min-width: $w480) {
             width: 40px;
@@ -170,6 +174,8 @@
     }
 
     &__tocart {
+
+        min-width: 36px;
 
         @keyframes flip-cart-icon {
             from {
@@ -218,6 +224,18 @@
         & .ic-hover {
             display: none;
             animation: flip-cart-icon 0.8s ease;
+
+        }
+
+        & .incart-text {
+            max-width: 0;
+            overflow: hidden;
+            transition: 0.5s ease;
+            white-space: nowrap;
+            opacity: 1;
+            color: #fff;
+            font-weight: 600;
+            font-size: 15px;
         }
 
         &:hover {
@@ -227,6 +245,36 @@
 
             & .ic-hover {
                 display: block;
+                width: 40px;
+            }
+        }
+
+        &.is-active {
+            width: auto;
+            display: flex;
+            align-items: center;
+            border-radius: 30px;
+            padding-right: 5px;
+
+            & .incart-text {
+                max-width: 180px;
+                display: flex;
+                align-items: center;
+                padding-left: 14px;
+            }
+
+            & .ic-default {
+                display: block;
+                width: 40px;
+
+                & svg {
+                    fill: #fff;
+                }
+            }
+
+            & .ic-hover {
+                display: none;
+
             }
         }
     }
@@ -347,12 +395,51 @@
         flex-grow: 1;
     }
 
-    &__price {
-        font-weight: bold;
-        font-size: 18px;
+    &__prices {
+        display: flex;
+        align-items: center;
+        gap: 12px;
         padding-bottom: 12px;
+        font-size: 18px;
     }
 
+    &__price {
+        font-weight: bold;
+    }
+
+    &__oldprice {
+        font-size: 12px;
+        font-weight: 600;
+        color: #8d8d8d;
+        text-decoration: line-through;
+        display: none;
+
+
+        @media screen and (min-width: $w480) {
+            display: block;
+
+        }
+    }
+
+    &__sale {
+
+        margin-left: auto;
+
+        @media screen and (min-width: $w480) {
+            margin-left: unset;
+        }
+
+        & span {
+            background-color: var(--accent);
+            border-radius: 24px;
+            color: #fff;
+            font-family: var(--font-montserrat);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 5px 10px;
+            letter-spacing: 3%;
+        }
+    }
 
 
     &__colors {
@@ -600,4 +687,8 @@
     }
 
 
+}
+
+.is-accent-color {
+    color: var(--accent);
 }

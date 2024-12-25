@@ -1077,11 +1077,19 @@
 
                             &__photo {
                                 width: 180px;
+
+                                @media screen and (min-width: $w1024) {
+                                    width: 220px;
+                                }
                             }
 
                             &__main {
                                 padding-left: 36px;
                                 width: calc(100% - 180px - 240px);
+
+                                @media screen and (min-width: $w1024) {
+                                    width: calc(100% - 220px - 240px);
+                                }
                             }
 
                             &__top {
@@ -1096,6 +1104,10 @@
                                 font-size: 18px;
                                 font-weight: 500;
                                 max-width: 340px;
+
+                                @media screen and (min-width: $w1024) {
+                                    max-width: 480px;
+                                }
                             }
 
                             &__brand {
@@ -1103,6 +1115,10 @@
                                 left: 80px;
                                 position: absolute;
                                 z-index: 4;
+
+                                @media screen and (min-width: $w1024) {
+                                    left: 115px;
+                                }
                             }
 
                             &__sticker {
@@ -1121,16 +1137,22 @@
                                 right: 0;
                                 top: 0;
                                 align-items: center;
-
+                                left: auto;
 
                                 &>div {
-                                    display: block;
+                                    display: flex;
                                     opacity: 1;
                                 }
                             }
 
+                            &__bg {
+                                flex-direction: row;
+                                display: flex !important;
+
+                            }
+
                             &__price {
-                                color: var(--accent);
+
                                 font-size: 20px;
                                 font-weight: 600;
                             }

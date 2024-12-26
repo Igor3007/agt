@@ -229,14 +229,18 @@
     }
 
     &__address {
-        font-size: 25px;
+        font-size: 22px;
         font-weight: bold;
         padding-bottom: 12px;
-
         text-align: center;
+        max-width: calc(100% - 100px);
+        margin: 0 auto;
+        line-height: 120%;
 
         @media screen and (min-width: $w576) {
             text-align: left;
+            font-size: 25px;
+            margin-left: 0;
         }
     }
 

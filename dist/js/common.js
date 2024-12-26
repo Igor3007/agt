@@ -213,9 +213,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
     function initMaska() {
         new MaskInput("[data-maska]")
 
-
-        new MaskInput("[data-maska]")
-
         new MaskInput("[data-input-mask='name']", {
             mask: 'A',
             tokens: {
@@ -729,14 +726,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
                     item.addEventListener('click', e => this.changeColor(e, item.closest('li')))
 
                     if (index == 0) item.closest('li').classList.add('is-active')
-                })
-
-                this.$el.querySelectorAll('.minicard__tocart').forEach((item, index) => {
-                    item.addEventListener('click', e => {
-                        item.classList.toggle('is-active')
-                    })
-
-
                 })
 
 
@@ -2233,10 +2222,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
             let _this = this
 
-            document.querySelectorAll('.input-material input').forEach(function (input) {
+            document.querySelectorAll('.input-material input, .input-material textarea').forEach(function (input) {
 
                 if (input.value.length) {
-                    input.setAttribute('area-valid', '')
+                    input.setAttribute('area-valid', true)
                 }
 
                 _this.addEvent(input)
@@ -2893,6 +2882,122 @@ document.addEventListener('DOMContentLoaded', function (event) {
         })
 
 
+    }
+
+
+    /* ===========================================
+    similar share
+    ===========================================*/
+
+
+
+    const btn = document.querySelector("[data-share='btn']");
+
+
+    if (btn) {
+        btn.addEventListener("click", () => {
+
+            if (navigator.share && document.body.clientWidth < 992) {
+                const shareButton = document.getElementById('shareButton');
+
+                navigator.share(shareData)
+                    .then(() => console.log('Shared successfully'))
+                    .catch((error) => console.error('Sharing failed:', error));
+
+            } else {
+
+                const sharePopup = new afLightbox({
+                    mobileInBottom: true
+                })
+
+                const html = `
+            <div class="popup-confirm" data-form-success="remove">
+               <div class="popup-confirm__title">Поделиться ссылкой</div>
+               <div class="popup-confirm__desc">Скопируй ссылку и отправь друзьям!</div>
+               <div class="popup-confirm__form form">
+                    <textarea cols="40" readonly >${shareData.url}</textarea>
+               </div>
+               <div class="popup-confirm__btns">
+                    <button class="btn btn-small" data-copy="link" >Скопировать в буфер</button>
+               </div>
+            </div>
+             `
+
+                sharePopup.open(html, function (instanse) {
+                    instanse.querySelector('[data-copy="link"]').addEventListener('click', e => {
+                        navigator.clipboard.writeText(shareData.url)
+                            .then(() => {
+                                window.STATUS.msg('Ссылка скопирована в буфер обмена!')
+                                sharePopup.close()
+                            })
+                            .catch(err => {
+                                console.log('Something went wrong', err);
+                            });
+
+                    })
+                })
+
+            }
+
+
+        });
+    }
+
+
+    if (document.querySelector('[data-share="link"]')) {
+        document.querySelector('[data-share="link"]').addEventListener('click', e => {
+
+            const url = e.target.closest('[data-share]').dataset.url
+
+            const shareData = {
+                title: document.title,
+                text: document.querySelector('meta[name="description"]').getAttribute('content'),
+                url,
+            };
+
+            if (navigator.share && document.body.clientWidth < 992) {
+                navigator.share(shareData)
+                    .then(() => console.log('Shared successfully'))
+                    .catch((error) => console.error('Sharing failed:', error));
+
+            } else {
+
+                const instansePopup = new afLightbox({
+                    mobileInBottom: true
+                })
+
+                const html = `
+                    <div class="popup-confirm" data-form-success="remove">
+                        <div class="popup-confirm__title">Поделиться</div>
+                        <div class="popup-confirm__desc">Скопируйте ссылку и отправте друзьям!</div>
+                        <div class="popup-confirm__form">
+                                <textarea cols="40" ></textarea>
+                        </div>
+                        <div class="popup-confirm__btns">
+                                <button class="btn" data-copy="link" >Скопировать в буфер</button>
+                                <button class="btn btn-gray" data-af-popup="close">Закрыть</button>
+                        </div>
+
+                    </div>
+                `;
+
+                instansePopup.open(html, (instanse) => {
+                    instanse.querySelector('textarea').value = url
+                    instanse.querySelector('[data-copy="link"]').addEventListener('click', e => {
+                        if (navigator.clipboard) {
+                            navigator.clipboard.writeText(url)
+                                .then(() => {
+                                    window.STATUS.msg('Ссылка скопирована в буфер обмена!')
+                                })
+                                .catch(err => {
+                                    console.log('Something went wrong', err);
+                                });
+                        }
+                    })
+                })
+
+            }
+        })
     }
 
 

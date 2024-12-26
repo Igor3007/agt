@@ -60,7 +60,9 @@ mixin home-faq
                                         
                                     .form__item
                                         .form__subitem
-                                            textarea(placeholder="Сообщение" max-length="600")
+                                            .input-material.input-material--textarea
+                                                textarea(placeholder="" max-length="600" )
+                                                label= 'Сообщение'
                                     .form__item
                                         .form__subitem
                                             button.btn(type="submit") Отправить

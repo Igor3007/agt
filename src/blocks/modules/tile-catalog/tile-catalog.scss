@@ -54,9 +54,10 @@
         }
 
         &:nth-child(1) {
-            max-width: 190px;
+
             background-color: rgba(0, 0, 0, 0.80);
-            display: none;
+            height: calc(45vw - 47px);
+
 
             @media screen and (min-width: $w992) {
                 max-width: 320px;
@@ -64,6 +65,8 @@
 
             @media screen and (min-width: $w576) {
                 display: block;
+                max-width: 190px;
+                height: auto;
             }
 
             & .tile-catalog {
@@ -74,6 +77,10 @@
                 &__text {
                     color: #fff;
                 }
+            }
+
+            & a {
+                height: 100%;
             }
         }
 

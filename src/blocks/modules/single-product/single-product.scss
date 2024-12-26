@@ -690,6 +690,16 @@
         margin-left: auto;
         display: flex;
         align-items: center;
+
+        & span {
+            cursor: pointer;
+
+            &:hover {
+                & svg {
+                    fill: var(--accent);
+                }
+            }
+        }
     }
 
     &__price {
@@ -1107,7 +1117,10 @@
         }
     }
 
-
+    & .tooltip-box-item {
+        max-width: 270px;
+        padding: 12px 16px;
+    }
 
 
 }
@@ -1134,6 +1147,10 @@
     @media screen and (min-width: $w1200) {
         display: flex;
         opacity: 0.3;
+    }
+
+    & svg {
+        fill: #8D8D8D;
     }
 }
 

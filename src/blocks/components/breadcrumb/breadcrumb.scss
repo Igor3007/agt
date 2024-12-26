@@ -31,7 +31,6 @@
             font-size: 12px;
             font-size: 12px;
 
-
             @media screen and (min-width: $w480) {
                 font-size: 12px;
             }
@@ -41,14 +40,10 @@
         & span {}
 
         & a {
-
-
-            &:hover {}
+            &:hover {
+                color: var(--accent);
+            }
         }
-
-
-
-
 
         &::after {
             content: '';

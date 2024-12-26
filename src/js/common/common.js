@@ -2323,7 +2323,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
             form.querySelectorAll('[type="text"]').forEach(input => {
                 if (input.required) {
                     if (input.closest('.input-material')) {
-                        input.closest('.input-material').classList.add('err')
+
+                        if (input.closest('.multi-mask')) {
+                            input.closest('.multi-mask').classList.add('err')
+                        } else {
+                            input.closest('.input-material').classList.add('err')
+                        }
+
+
                     } else {
                         input.classList.add('err')
                     }
@@ -2836,7 +2843,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             removeItem(e) {
                 e.preventDefault()
                 e.stopPropagation()
-                e.target.closest('.popup-select-color__tr').remove()
+                e.target.closest('.popup-select-color__tr').querySelector('[type=text]').value = 0
                 this.calcTotalPrice()
             }
 
@@ -2888,61 +2895,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
     /* ===========================================
     similar share
     ===========================================*/
-
-
-
-    const btn = document.querySelector("[data-share='btn']");
-
-
-    if (btn) {
-        btn.addEventListener("click", () => {
-
-            if (navigator.share && document.body.clientWidth < 992) {
-                const shareButton = document.getElementById('shareButton');
-
-                navigator.share(shareData)
-                    .then(() => console.log('Shared successfully'))
-                    .catch((error) => console.error('Sharing failed:', error));
-
-            } else {
-
-                const sharePopup = new afLightbox({
-                    mobileInBottom: true
-                })
-
-                const html = `
-            <div class="popup-confirm" data-form-success="remove">
-               <div class="popup-confirm__title">Поделиться ссылкой</div>
-               <div class="popup-confirm__desc">Скопируй ссылку и отправь друзьям!</div>
-               <div class="popup-confirm__form form">
-                    <textarea cols="40" readonly >${shareData.url}</textarea>
-               </div>
-               <div class="popup-confirm__btns">
-                    <button class="btn btn-small" data-copy="link" >Скопировать в буфер</button>
-               </div>
-            </div>
-             `
-
-                sharePopup.open(html, function (instanse) {
-                    instanse.querySelector('[data-copy="link"]').addEventListener('click', e => {
-                        navigator.clipboard.writeText(shareData.url)
-                            .then(() => {
-                                window.STATUS.msg('Ссылка скопирована в буфер обмена!')
-                                sharePopup.close()
-                            })
-                            .catch(err => {
-                                console.log('Something went wrong', err);
-                            });
-
-                    })
-                })
-
-            }
-
-
-        });
-    }
-
 
     if (document.querySelector('[data-share="link"]')) {
         document.querySelector('[data-share="link"]').addEventListener('click', e => {
@@ -2997,6 +2949,210 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 })
 
             }
+        })
+    }
+
+    /* ====================================
+    ajax tooltip
+    ====================================*/
+
+    if (document.querySelector('[data-prop-tooltip]')) {
+
+        class TooltipAjax {
+            constructor() {
+                this.$items = document.querySelectorAll('[data-prop-tooltip]')
+                this.addEvents()
+                this.tooltip = null;
+            }
+
+            ajaxLoadTooltip(e, callback) {
+                callback({
+                    title: '',
+                    text: e.target.dataset.propTooltip || e.target.closest('[data-prop-tooltip]').dataset.propTooltip
+                })
+            }
+
+            getTemplate(data) {
+                let html = ` <div class="tooltip-box" ><div class="af-spiner" ></div></div> `;
+                if (data) {
+
+                    html = `<div class="tooltip-box" >
+                               <div class="tooltip-box__title" >${data.title}</div>
+                               <div class="tooltip-box__text" >${data.text}</div>
+                           </div> `;
+                }
+                return html;
+            }
+
+            positionTooltip(e) {
+                const DomRect = e.target.getBoundingClientRect()
+                const tooltipW = this.tooltip.clientWidth;
+                const tooltipH = this.tooltip.clientHeight;
+                const offset = 12;
+
+                this.tooltip.style.left = (DomRect.x - (tooltipW / 2) + (offset / 2)) + 'px'
+                this.tooltip.style.top = (DomRect.y - tooltipH - (offset / 2)) + 'px'
+
+
+                if (this.tooltip.getBoundingClientRect().left < offset) {
+                    this.tooltip.classList.add('tooltip-box-item--left')
+                    this.tooltip.style.left = (DomRect.x - (DomRect.x / 2) + (offset / 2)) + 'px'
+                }
+
+                if (this.tooltip.getBoundingClientRect().top < offset) {
+                    this.tooltip.classList.add('tooltip-box-item--top')
+                    this.tooltip.style.top = (DomRect.y + (offset)) + 'px'
+                }
+            }
+
+            tooltipDesctop(e) {
+
+                this.tooltipRemove()
+                this.tooltip = document.createElement('div')
+                this.tooltip.innerHTML = this.getTemplate(false)
+                this.tooltip.classList.add('tooltip-box-item')
+
+                e.target.closest('span').append(this.tooltip)
+                this.positionTooltip(e)
+
+                //load data
+
+                this.ajaxLoadTooltip(e, (response) => {
+                    this.tooltip.innerHTML = this.getTemplate(response)
+                    this.positionTooltip(e)
+                })
+            }
+
+            tooltipPopup(e) {
+                const tooltipPopup = new afLightbox({
+                    mobileInBottom: true
+                })
+
+                tooltipPopup.open('<div class="popup-tooltip-box" >' + this.getTemplate(false) + '</div>', () => {
+                    this.ajaxLoadTooltip(e, (response) => {
+                        tooltipPopup.changeContent('<div class="popup-tooltip-box" >' + this.getTemplate(response) + '</div>')
+                    })
+                })
+            }
+
+            tooltipRemove() {
+                !this.tooltip || this.tooltip.remove()
+            }
+
+            addEvents() {
+                this.$items.forEach(item => {
+
+                    //for desctop
+                    if (document.body.clientWidth > 576) {
+
+                        item.addEventListener('mouseenter', e => {
+                            this.tooltipDesctop(e)
+
+                            //add event close on scroll
+                            window.addEventListener('scroll', e => {
+                                this.tooltipRemove()
+                            })
+
+                        })
+
+                        //add event close on outher click 
+                        item.addEventListener('mouseleave', e => {
+                            this.tooltipRemove()
+                        })
+
+                    } else {
+                        item.addEventListener('click', e => {
+                            //for mobile
+                            this.tooltipPopup(e)
+                        })
+                    }
+
+                })
+            }
+
+        }
+
+        new TooltipAjax()
+
+    }
+
+    /* ====================================
+    popup success
+    ====================================*/
+
+    function popupSuccess() {
+        let popup = new afLightbox({
+            mobileInBottom: true,
+        })
+
+        let html = `
+            <div class="popup-form">
+                <div class="popup-form__wrp">
+                    <div class="popup-form__icon">
+                        <svg  class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                        </svg>
+                    </div>
+                    <div class="popup-form__title">Заявка отправлена успешно!</div>
+                    <div class="popup-form__desc">Наш специалист свяжется с вами в течении рабочего дня.</div>
+                    <div class="popup-form__btn">
+                        <button class="btn btn-small" data-af-popup="close" >Ок</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        popup.open(html, false)
+    }
+
+    /* ====================================
+    popup ajax
+    ====================================*/
+
+    if (document.querySelector('[data-popup="ajax"]')) {
+
+        function onSubmitPopup(e, popup) {
+            e.preventDefault()
+
+            popup.close()
+            popupSuccess()
+
+        }
+
+        document.querySelectorAll('[data-popup="ajax"]').forEach(item => {
+            item.addEventListener('click', () => {
+
+                let popup = new afLightbox({
+                    mobileInBottom: true,
+                    clases: 'af-position-left af-content-center'
+                })
+
+                popup.open('<div class="af-spiner" ></div>', false)
+
+                window.ajax({
+                    type: 'GET',
+                    url: item.dataset.url,
+                }, (status, response) => {
+                    popup.changeContent(response)
+
+                    //mask
+                    popup.modal.querySelectorAll('.multi-mask').forEach(el => {
+                        new MultiMask({
+                            el
+                        })
+                    })
+
+                    // valid
+                    new Validation(popup.modal.querySelectorAll('form'))
+
+                    // input
+                    new materialInput().init()
+
+                    popup.modal.querySelector('form').addEventListener('submit', e => onSubmitPopup(e, popup))
+                })
+
+            })
         })
     }
 

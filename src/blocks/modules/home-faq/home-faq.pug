@@ -94,7 +94,7 @@ mixin home-faq--noform
                     .home-faq__h2 Консультация 
 
                     .company-tile
-                        a(href="/services.html").company-tile__item
+                        div.company-tile__item(data-popup="ajax" data-url="/parts/_popup-live.html")
                             .company-tile__wrp
                                 .company-tile__icon
                                     +bgimage('/img/icons/ic_live.svg')
@@ -102,7 +102,7 @@ mixin home-faq--noform
                                     .company-tile__text Онлайн показ
                                     .company-tile__arrow
                                         +icons('#ic_arr-right', 40)
-                        a(href="/services.html").company-tile__item
+                        div.company-tile__item(data-popup="ajax" data-url="/parts/_popup-callback.html")
                             .company-tile__wrp
                                 .company-tile__icon
                                     +bgimage('/img/icons/ic_call.svg')

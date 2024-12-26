@@ -1748,9 +1748,10 @@ template {
 }
 
 .btn.btn-small {
-  height: 40px;
-  font-size: 14px;
+  height: 48px;
+  font-size: 16px;
   padding: 0.7em 1.5em 0.8em 1.5em;
+  font-weight: 600;
 }
 
 .btn.btn-gray {
@@ -2108,6 +2109,10 @@ template {
   font-size: 12px;
 }
 
+.breadcrumb li a:hover {
+  color: var(--accent);
+}
+
 .breadcrumb li::after {
   content: '';
   margin: 0 4px;
@@ -2207,12 +2212,12 @@ template {
 .form input[type="tel"][aria-valid="false"],
 .form input[type="password"][aria-valid="false"],
 .form input[type="email"][aria-valid="false"] {
-  border-color: #f00;
+  border-color: #FC4646;
   background-color: rgba(249, 66, 88, 0.12);
 }
 
 .form .af-select[aria-valid="false"] {
-  border-color: #f00;
+  border-color: #FC4646;
   background-color: rgba(249, 66, 88, 0.12);
 }
 
@@ -2599,11 +2604,15 @@ template {
   align-items: stretch;
   flex-direction: row-reverse;
   border: 1px solid #C6C6C6;
-  z-index: 2;
+  z-index: 5;
   max-width: 550px;
   background-color: #fff;
   border: beige;
   border-radius: 8px;
+}
+
+.multi-mask.err {
+  border: 1px solid #FC4646 !important;
 }
 
 .multi-mask input[type] {
@@ -2630,7 +2639,7 @@ template {
   left: 7px;
   top: calc(100% + 7px);
   background-color: #f5f5f5;
-  z-index: 2;
+  z-index: 5;
   max-height: 200px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -9619,6 +9628,14 @@ a[data-tooltip]:hover::before {
   align-items: center;
 }
 
+.sp-head__action span {
+  cursor: pointer;
+}
+
+.sp-head__action span:hover svg {
+  fill: var(--accent);
+}
+
 .sp-head__price {
   font-weight: 600;
   font-size: 29px;
@@ -9864,6 +9881,11 @@ a[data-tooltip]:hover::before {
   cursor: pointer;
 }
 
+.sp-details .tooltip-box-item {
+  max-width: 270px;
+  padding: 12px 16px;
+}
+
 .size-name {
   font-weight: 600;
   font-size: 14px;
@@ -9874,6 +9896,10 @@ a[data-tooltip]:hover::before {
   display: flex;
   align-items: center;
   margin-left: 8px;
+}
+
+.size-tooltip svg {
+  fill: #8D8D8D;
 }
 
 .color-preview {
@@ -10600,6 +10626,126 @@ a[data-tooltip]:hover::before {
   display: block;
 }
 
+.popup-form {
+  max-width: 380px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.popup-form__icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.popup-form__icon span {
+  width: 70px;
+  height: 70px;
+  position: relative;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+}
+
+.popup-form__title {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  padding-bottom: 16px;
+}
+
+.popup-form__desc {
+  padding-bottom: 24px;
+  text-align: center;
+  font-family: var(--font-montserrat);
+  font-size: 15px;
+}
+
+.popup-form__form .input-material:not(.err) {
+  border: 1px solid #d8d8d8;
+}
+
+.popup-form__form .multi-mask {
+  border: 1px solid #d8d8d8;
+}
+
+.popup-form__form .multi-mask .input-material {
+  border: none;
+}
+
+.popup-form__form .form__note {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.popup-form__form .form__note .checkbox {
+  font-size: 13px;
+  font-family: var(--font-montserrat);
+}
+
+.popup-form__form .form .btn {
+  margin: 0 auto;
+}
+
+.popup-form__btn {
+  display: flex;
+  justify-content: center;
+}
+
+.popup-form__btn .btn {
+  width: 100%;
+}
+
+.af-content-center .af-popup__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.checkmark {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: var(--accent);
+  stroke-miterlimit: 10;
+  box-shadow: inset 0px 0px 0px var(--accent);
+  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+  position: relative;
+  top: 5px;
+  right: 5px;
+  margin: 0 auto;
+  margin-bottom: 12px;
+}
+
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: var(--accent);
+  fill: #fff;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.5s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
 /* common styles */
 
 .splide__arrow {
@@ -10777,6 +10923,39 @@ a[data-tooltip]:hover::before {
   padding: 15px 17px;
 }
 
+span[data-prop-tooltip] {
+  opacity: 1;
+  cursor: pointer;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.tooltip-box-item {
+  position: fixed;
+  background-color: #3A3A3A;
+  width: auto;
+  max-width: 360px;
+  padding: 9px 12px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.12);
+  z-index: 4;
+  border-radius: 8px;
+  color: #fff;
+  animation: fade-in 0.3s ease forwards;
+  opacity: 1;
+  -webkit-column-break-inside: avoid;
+  -webkit-backface-visibility: hidden;
+  font-size: 13px;
+  line-height: 140%;
+}
+
 @media screen and (min-width: 375px) {
   .header-top__mobile a {
     font-size: 14px;
@@ -10794,6 +10973,14 @@ a[data-tooltip]:hover::before {
 
   .tile-promo__colorbg {
     min-height: 320px;
+  }
+
+  .popup-form {
+    padding: 50px;
+  }
+
+  .popup-form__btn .btn {
+    width: auto;
   }
 }
 
@@ -14076,6 +14263,12 @@ a[data-tooltip]:hover::before {
   .product-checkbox__color .multi-color {
     margin-right: 0;
     margin-bottom: 6px;
+  }
+}
+
+@media screen and (max-width: 375.98px) {
+  .popup-form__form .form .btn {
+    width: 100%;
   }
 }
 

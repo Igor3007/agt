@@ -65,7 +65,9 @@
         padding-top: 24px;
 
         & .btn {
-            margin: 0 auto
+            @media screen and (max-width: $w576) {
+                margin: 0 auto
+            }
         }
 
     }

@@ -456,8 +456,13 @@ footer {
 
             white-space: nowrap;
 
-            @media screen and (min-width: $w992) {
+
+            @media screen and (min-width: $w1024) {
                 padding-bottom: 12px;
+            }
+
+            @media screen and (min-width: $w991) {
+                padding-bottom: 20px;
             }
 
             & a {
@@ -495,6 +500,9 @@ footer {
         }
 
         &__dev {
+
+            @media screen and (min-width: $w992) {}
+
             & a {
                 &:hover {
                     color: var(--accent);

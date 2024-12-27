@@ -1050,8 +1050,35 @@
                             }
                         }
 
+                        &__price,
+                        &__vcode,
+                        &__desc {
+                            text-align: left;
+                            min-height: auto;
+                        }
+
+                        &__colors {
+                            display: block;
+                        }
+
 
                     }
+                }
+            }
+        }
+    }
+
+    &:not(.column-one) {
+        & .minicard {
+            & .incart-text {
+                @media screen and (max-width: $w576) {
+                    display: none;
+                }
+            }
+
+            &__tocart {
+                &.is-active {
+                    padding-right: 0;
                 }
             }
         }

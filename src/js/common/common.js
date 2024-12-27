@@ -239,11 +239,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
             this.btns = this.$el.querySelectorAll('.btn-burger')
             this.container = this.$el.querySelector('[data-menu="container"]')
 
-            this.containerLinks = this.$el.querySelector('[data-menu="links"]')
-            this.containerTop = this.$el.querySelector('[data-menu="top"]')
-            this.containerContacts = this.$el.querySelector('[data-menu="contacts"]')
-
             this.addEvent()
+            this.afterLoad()
         }
 
         toggleMenu(item) {
@@ -260,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             this.container.classList.toggle('is-open')
             this.$el.body.classList.toggle('page-hidden')
             this.$el.body.classList.toggle('open-modile-menu')
-            this.containerLinks.children.length || this.renderMenu()
+
         }
 
         closeMenu() {
@@ -273,33 +270,24 @@ document.addEventListener('DOMContentLoaded', function (event) {
             !this.$el.body.classList.contains('page-hidden') || this.$el.body.classList.remove('page-hidden');
         }
 
-        renderMenu() {
-            this.containerLinks.innerHTML = document.querySelector('.header__links').outerHTML
-            this.containerTop.innerHTML = document.querySelector('.header-top').outerHTML
-            this.containerContacts.innerHTML = document.querySelector('.header-phone-wrp').outerHTML
 
-            this.afterLoad()
-        }
 
         afterLoad() {
-            this.containerLinks.querySelectorAll('a[href="#catalog-popup"]').forEach(item => {
+            this.container.querySelectorAll('.isset-sub').forEach(item => {
                 item.addEventListener('click', e => {
-                    window.catalogPopup.open()
-                    this.closeMenu()
-                })
-            })
+                    e.stopPropagation()
 
-            //menu
 
-            this.containerTop.querySelectorAll('.header-top__nav .isset-sub').forEach(item => {
-                item.addEventListener('click', e => {
-                    e.preventDefault()
-                    item.classList.toggle('is-open')
-                    item.querySelector('.sub-menu').classList.toggle('is-open')
+                    if (e.target.classList.contains('is-open')) {
+                        e.target.classList.remove('is-open')
+                        return false;
+                    }
 
-                    item.querySelectorAll('.sub-menu li').forEach(item => {
-                        item.addEventListener('click', e => e.stopPropagation())
+                    e.target.closest('ul').querySelectorAll('.is-open').forEach(li => {
+                        li.classList.remove('is-open')
                     })
+
+                    e.target.classList.toggle('is-open')
                 })
             })
         }
@@ -307,6 +295,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
         addEvent() {
             this.btns.forEach(item => {
                 item.addEventListener('click', e => this.toggleMenu(item))
+            })
+
+            this.$el.querySelectorAll('[data-menu="close"]').forEach(item => {
+                item.addEventListener('click', () => {
+                    this.closeMenu()
+                })
             })
         }
     }
@@ -726,6 +720,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
                     item.addEventListener('click', e => this.changeColor(e, item.closest('li')))
 
                     if (index == 0) item.closest('li').classList.add('is-active')
+                })
+
+                this.$el.querySelectorAll('.minicard__tocart').forEach((item, index) => {
+                    item.addEventListener('click', () => {
+                        item.classList.toggle('is-active')
+                    })
                 })
 
 

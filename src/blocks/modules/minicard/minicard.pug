@@ -13,9 +13,13 @@ mixin minicard(data)
                 each img in data.images
                     .minicard__picture(class = img.class ? img.class : ''  data-image-color=img.color)
                         .minicard__photo: a(href='/single-product.html'): +picturePng(img.main)
+
+                        if !data.type
+                            .minicard__photo-hover: +picturePng('/img/product/p9')
                       
                
-            .minicard__action
+            .minicard__action 
+            .minicard__action 
                 .minicard__bg
                     .minicard__tofav(data-wishlist=data.id): +icons('#ic_heart', 40)
                     .minicard__compare(data-compare=data.id): +icons('#ic_compare', 40)
@@ -25,9 +29,6 @@ mixin minicard(data)
                         +icons('#ic_to-cart', 40)
                     span.ic-hover
                         +icons('#ic_cart-plus', 40)
-                    
-             
-            
                     
 
         .minicard__main

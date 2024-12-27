@@ -4780,6 +4780,7 @@ footer {
   height: 42px;
   border-radius: 50%;
   cursor: pointer;
+  z-index: 2;
 }
 
 .main-menu__close svg {
@@ -7095,6 +7096,15 @@ body.open-mobile-menu main {
 
 .minicard--large .minicard__photo picture img {
   object-fit: cover;
+}
+
+.minicard:not(.minicard--large):hover .minicard__photo {
+  visibility: hidden;
+}
+
+.minicard:not(.minicard--large):hover .minicard__photo-hover {
+  opacity: 1;
+  z-index: 3;
 }
 
 .minicard-prop {

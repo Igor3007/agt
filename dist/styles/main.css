@@ -11223,6 +11223,7 @@ span[data-color=fff] {
   right: -45px;
   transform: rotate(-90deg);
   z-index: 10;
+  display: none;
 }
 
 .bottom-question .btn {
@@ -12518,6 +12519,10 @@ span[data-color=fff] {
 
   .sp-set__item {
     min-width: 220px;
+  }
+
+  .bottom-question {
+    display: block;
   }
 }
 

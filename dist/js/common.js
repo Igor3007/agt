@@ -684,57 +684,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     }
 
-    /* ================================================
-    Minicard
-    ================================================*/
-
-    if (document.querySelector('.minicard')) {
-
-        class Minicard {
-            constructor(el) {
-                this.$el = el;
-
-                this.addEvents()
-            }
-
-            changeColor(e, el) {
-                this.$el.querySelectorAll('[data-image-color]').forEach(item => {
-                    if (item.dataset.imageColor == e.target.dataset.color) {
-                        item.classList.add('is-active')
-                    } else {
-                        !item.classList.contains('is-active') || item.classList.remove('is-active')
-                    }
-                })
-
-                this.$el.querySelectorAll('[data-color]').forEach(item => {
-                    !item.closest('li').classList.contains('is-active') || item.closest('li').classList.remove('is-active')
-                })
-
-                el.classList.add('is-active')
-            }
-
-
-
-            addEvents() {
-                this.$el.querySelectorAll('[data-color]').forEach((item, index) => {
-                    item.addEventListener('click', e => this.changeColor(e, item.closest('li')))
-
-                    if (index == 0) item.closest('li').classList.add('is-active')
-                })
-
-                this.$el.querySelectorAll('.minicard__tocart').forEach((item, index) => {
-                    item.addEventListener('click', () => {
-                        item.classList.toggle('is-active')
-                    })
-                })
-
-
-            }
-        }
-
-        document.querySelectorAll('.minicard').forEach(item => new Minicard(item))
-
-    }
+ 
 
     /* ================================================
     SliderStore
@@ -2226,6 +2176,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
                 if (input.value.length) {
                     input.setAttribute('area-valid', true)
+                } else {
+                    input.removeAttribute('area-valid')
                 }
 
                 _this.addEvent(input)
@@ -2580,7 +2532,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     select color
     ===================================== */
 
-    if (document.querySelector('[data-select-color="open"]')) {
+     
 
 
         class SelectColor {
@@ -2669,288 +2621,289 @@ document.addEventListener('DOMContentLoaded', function (event) {
         })
 
 
-    }
+     
 
     /* =====================================
     select size
     ===================================== */
 
-    if (document.querySelector('[data-select-color="open"]')) {
+    class SizeList {
+        constructor(el, list) {
+            this.$el = el
+            this.list = list
+            this.container = null;
 
-        class SizeList {
-            constructor(el, list) {
-                this.$el = el
-                this.list = list
-                this.container = null;
-
-                this.init()
-            }
-
-            init() {
-                this.container = this.$el.closest('.sp-details__border').querySelector('.sp-details__left')
-                this.container.innerHTML = "";
-                this.create()
-            }
-
-            getTemplate(item) {
-                return `
-                    <span>${item.size}</span>
-                    <span>${item.count}шт</span>
-                `;
-            }
-
-            create() {
-                this.list.forEach(item => {
-                    let el = document.createElement('div')
-                    el.classList.add('item-size')
-                    el.innerHTML = this.getTemplate(item)
-                    this.container.append(el)
-                })
-
-                if (this.list.length > 3 && document.body.clientWidth > 576) {
-                    this.$el.closest('.sp-details__border').classList.add('is-view-all')
-                    return false;
-                }
-
-
-                if (this.list.length > 2) {
-                    let btn = document.createElement('div')
-                    btn.classList.add('more-items')
-                    btn.innerText = 'еще...'
-
-                    btn.addEventListener('click', e => {
-                        this.$el.closest('.sp-details__border').classList.toggle('is-view-all')
-                    })
-
-                    this.container.append(btn)
-                }
-            }
+            this.init()
         }
 
-
-        class SelectSize {
-            constructor(params) {
-                this.$el = params.el
-                this.popup = null;
-                this.result = null;
-                this.btnAdd = null;
-                this.config = {
-                    maxCount: 100
-                }
-
-                this.init()
-            }
-
-            init() {
-                this.popup = new afLightbox({
-                    mobileInBottom: true,
-                    clases: 'af-position-left'
-                })
-            }
-
-            open() {
-                this.popup.open('<div class="af-spiner" ></div>', false)
-
-                window.ajax({
-                    type: 'GET',
-                    url: '/parts/_select-size.html'
-                }, (status, response) => {
-                    this.popup.changeContent(response)
-                    this.addEvent()
-                })
-            }
-
-            changeCountInc(e) {
-                let el = e.target.closest('.counter')
-                let input = el.querySelector('[type=text]')
-
-                if (input.value < this.config.maxCount) input.value++
-
-                this.calcTotalPrice()
-            }
-
-            changeCountDec(e) {
-                let el = e.target.closest('.counter')
-                let input = el.querySelector('[type=text]')
-
-                if (input.value > 0) input.value--
-
-                this.calcTotalPrice()
-            }
-
-            changeCountInput(e) {
-
-                e.target.value = e.target.value.replace(/\D/g, '')
-
-                if (e.target.value > this.config.maxCount) {
-                    e.target.value = this.config.maxCount
-                    return;
-                }
-
-                if (e.target.value < 0) {
-                    e.target.value = 0
-                    return;
-                }
-
-
-            }
-
-            calcTotalPrice() {
-
-                this.result = []
-
-                this.popup.modal.querySelectorAll('input[type=text]').forEach(input => {
-
-                    input.setAttribute('data-is-empty', input.value > 0)
-
-
-                    if (input.value > 0) {
-                        this.result.push({
-                            count: input.value,
-                            size: input.dataset.size,
-                            price: input.dataset.price,
-                        })
-                    }
-
-
-                })
-
-                this.popup.modal.querySelector('[data-total]').innerText = this.result.reduce((acc, item) => {
-                    return acc + (Number(item.price) * Number(item.count))
-                }, 0) + ' ₽'
-
-                this.popup.modal.querySelector('[data-count]').innerText = this.result.reduce((acc, item) => {
-                    return acc + Number(item.count)
-                }, 0)
-
-                if (this.result.length) {
-                    this.btnAdd.removeAttribute('disabled')
-                } else {
-                    this.btnAdd.setAttribute('disabled', 'disabled')
-                }
-            }
-
-            changeCountBlur(e) {
-
-                if (!e.target.value.length) {
-                    e.target.value = 0
-                    return;
-                }
-
-                this.calcTotalPrice()
-            }
-
-            removeItem(e) {
-                e.preventDefault()
-                e.stopPropagation()
-                e.target.closest('.popup-select-color__tr').querySelector('[type=text]').value = 0
-                this.calcTotalPrice()
-            }
-
-            sizeAdd() {
-                new SizeList(this.$el, this.result)
-                this.popup.close()
-            }
-
-            addEvent() {
-                this.popup.modal.querySelectorAll('input[type=text]').forEach(input => {
-                    input.addEventListener('input', (e) => this.changeCountInput(e))
-                    input.addEventListener('change', (e) => this.changeCountBlur(e))
-                })
-
-                this.popup.modal.querySelectorAll('.counter__inc').forEach(input => {
-                    input.addEventListener('click', (e) => this.changeCountInc(e))
-                })
-
-                this.popup.modal.querySelectorAll('.counter__dec').forEach(input => {
-                    input.addEventListener('click', (e) => this.changeCountDec(e))
-                })
-
-                this.popup.modal.querySelectorAll('.ic-remove').forEach(item => {
-                    item.addEventListener('click', (e) => this.removeItem(e))
-                })
-
-                this.popup.modal.querySelectorAll('[data-btn=add]').forEach(item => {
-                    this.btnAdd = item;
-                    item.addEventListener('click', (e) => this.sizeAdd())
-                })
-            }
-
-
+        init() {
+            this.container = this.$el.closest('.sp-details__border').querySelector('.sp-details__left')
+            this.container.innerHTML = "";
+            this.create()
         }
 
-        document.querySelectorAll('[data-select-size="open"]').forEach(item => {
-            item.addEventListener('click', () => {
-                let sizeSelect = new SelectSize({
-                    el: item
-                })
-                sizeSelect.open()
+        getTemplate(item) {
+            return `
+                <span>${item.size}</span>
+                <span>${item.count}шт</span>
+            `;
+        }
+
+        create() {
+            this.list.forEach(item => {
+                let el = document.createElement('div')
+                el.classList.add('item-size')
+                el.innerHTML = this.getTemplate(item)
+                this.container.append(el)
             })
-        })
+
+            if (this.list.length > 3 && document.body.clientWidth > 576) {
+                this.$el.closest('.sp-details__border').classList.add('is-view-all')
+                return false;
+            }
+
+
+            if (this.list.length > 2) {
+                let btn = document.createElement('div')
+                btn.classList.add('more-items')
+                btn.innerText = 'еще...'
+
+                btn.addEventListener('click', e => {
+                    this.$el.closest('.sp-details__border').classList.toggle('is-view-all')
+                })
+
+                this.container.append(btn)
+            }
+        }
+    }
+
+
+    class SelectSize {
+        constructor(params) {
+            this.$el = params.el
+            this.popup = null;
+            this.result = null;
+            this.btnAdd = null;
+            this.config = {
+                maxCount: 100
+            }
+
+            this.init()
+        }
+
+        init() {
+            this.popup = new afLightbox({
+                mobileInBottom: true,
+                clases: 'af-position-left'
+            })
+        }
+
+        open() {
+            this.popup.open('<div class="af-spiner" ></div>', false)
+
+            window.ajax({
+                type: 'GET',
+                url: '/parts/_select-size.html'
+            }, (status, response) => {
+                this.popup.changeContent(response)
+                this.addEvent()
+            })
+        }
+
+        changeCountInc(e) {
+            let el = e.target.closest('.counter')
+            let input = el.querySelector('[type=text]')
+
+            if (input.value < this.config.maxCount) input.value++
+
+            this.calcTotalPrice()
+        }
+
+        changeCountDec(e) {
+            let el = e.target.closest('.counter')
+            let input = el.querySelector('[type=text]')
+
+            if (input.value > 0) input.value--
+
+            this.calcTotalPrice()
+        }
+
+        changeCountInput(e) {
+
+            e.target.value = e.target.value.replace(/\D/g, '')
+
+            if (e.target.value > this.config.maxCount) {
+                e.target.value = this.config.maxCount
+                return;
+            }
+
+            if (e.target.value < 0) {
+                e.target.value = 0
+                return;
+            }
+
+
+        }
+
+        calcTotalPrice() {
+
+            this.result = []
+
+            this.popup.modal.querySelectorAll('input[type=text]').forEach(input => {
+
+                input.setAttribute('data-is-empty', input.value > 0)
+
+
+                if (input.value > 0) {
+                    this.result.push({
+                        count: input.value,
+                        size: input.dataset.size,
+                        price: input.dataset.price,
+                    })
+                }
+
+
+            })
+
+            this.popup.modal.querySelector('[data-total]').innerText = this.result.reduce((acc, item) => {
+                return acc + (Number(item.price) * Number(item.count))
+            }, 0) + ' ₽'
+
+            this.popup.modal.querySelector('[data-count]').innerText = this.result.reduce((acc, item) => {
+                return acc + Number(item.count)
+            }, 0)
+
+            if (this.result.length) {
+                this.btnAdd.removeAttribute('disabled')
+            } else {
+                this.btnAdd.setAttribute('disabled', 'disabled')
+            }
+        }
+
+        changeCountBlur(e) {
+
+            if (!e.target.value.length) {
+                e.target.value = 0
+                return;
+            }
+
+            this.calcTotalPrice()
+        }
+
+        removeItem(e) {
+            e.preventDefault()
+            e.stopPropagation()
+            e.target.closest('.popup-select-color__tr').querySelector('[type=text]').value = 0
+            this.calcTotalPrice()
+        }
+
+        sizeAdd() {
+            new SizeList(this.$el, this.result)
+            this.popup.close()
+        }
+
+        addEvent() {
+            this.popup.modal.querySelectorAll('input[type=text]').forEach(input => {
+                input.addEventListener('input', (e) => this.changeCountInput(e))
+                input.addEventListener('change', (e) => this.changeCountBlur(e))
+            })
+
+            this.popup.modal.querySelectorAll('.counter__inc').forEach(input => {
+                input.addEventListener('click', (e) => this.changeCountInc(e))
+            })
+
+            this.popup.modal.querySelectorAll('.counter__dec').forEach(input => {
+                input.addEventListener('click', (e) => this.changeCountDec(e))
+            })
+
+            this.popup.modal.querySelectorAll('.ic-remove').forEach(item => {
+                item.addEventListener('click', (e) => this.removeItem(e))
+            })
+
+            this.popup.modal.querySelectorAll('[data-btn=add]').forEach(item => {
+                this.btnAdd = item;
+                item.addEventListener('click', (e) => this.sizeAdd())
+            })
+        }
 
 
     }
 
+    document.querySelectorAll('[data-select-size="open"]').forEach(item => {
+        item.addEventListener('click', () => {
+            let sizeSelect = new SelectSize({
+                el: item
+            })
+            sizeSelect.open()
+        })
+    })
 
     /* ===========================================
     similar share
     ===========================================*/
 
-    if (document.querySelector('[data-share="link"]')) {
-        document.querySelector('[data-share="link"]').addEventListener('click', e => {
+    function initSharedLink(container) {
+        container.querySelectorAll('[data-share="link"]').forEach(item => {
+            item.addEventListener('click', e => {
 
-            const url = e.target.closest('[data-share]').dataset.url
+                const url = e.target.closest('[data-share]').dataset.url
 
-            const shareData = {
-                title: document.title,
-                text: document.querySelector('meta[name="description"]').getAttribute('content'),
-                url,
-            };
-
-            if (navigator.share && document.body.clientWidth < 992) {
-                navigator.share(shareData)
-                    .then(() => console.log('Shared successfully'))
-                    .catch((error) => console.error('Sharing failed:', error));
-
-            } else {
-
-                const instansePopup = new afLightbox({
-                    mobileInBottom: true
-                })
-
-                const html = `
-                    <div class="popup-confirm" data-form-success="remove">
-                        <div class="popup-confirm__title">Поделиться</div>
-                        <div class="popup-confirm__desc">Скопируйте ссылку и отправте друзьям!</div>
-                        <div class="popup-confirm__form">
-                                <textarea cols="40" ></textarea>
-                        </div>
-                        <div class="popup-confirm__btns">
-                                <button class="btn" data-copy="link" >Скопировать в буфер</button>
-                                <button class="btn btn-gray" data-af-popup="close">Закрыть</button>
-                        </div>
-
-                    </div>
-                `;
-
-                instansePopup.open(html, (instanse) => {
-                    instanse.querySelector('textarea').value = url
-                    instanse.querySelector('[data-copy="link"]').addEventListener('click', e => {
-                        if (navigator.clipboard) {
-                            navigator.clipboard.writeText(url)
-                                .then(() => {
-                                    window.STATUS.msg('Ссылка скопирована в буфер обмена!')
-                                })
-                                .catch(err => {
-                                    console.log('Something went wrong', err);
-                                });
-                        }
+                const shareData = {
+                    title: document.title,
+                    text: document.querySelector('meta[name="description"]').getAttribute('content'),
+                    url,
+                };
+    
+                if (navigator.share && document.body.clientWidth < 992) {
+                    navigator.share(shareData)
+                        .then(() => console.log('Shared successfully'))
+                        .catch((error) => console.error('Sharing failed:', error));
+    
+                } else {
+    
+                    const instansePopup = new afLightbox({
+                        mobileInBottom: true
                     })
-                })
-
-            }
+    
+                    const html = `
+                        <div class="popup-confirm" data-form-success="remove">
+                            <div class="popup-confirm__title">Поделиться</div>
+                            <div class="popup-confirm__desc">Скопируйте ссылку и отправте друзьям!</div>
+                            <div class="popup-confirm__form">
+                                    <textarea cols="40" ></textarea>
+                            </div>
+                            <div class="popup-confirm__btns">
+                                    <button class="btn" data-copy="link" >Скопировать в буфер</button>
+                                    <button class="btn btn-gray" data-af-popup="close">Закрыть</button>
+                            </div>
+    
+                        </div>
+                    `;
+    
+                    instansePopup.open(html, (instanse) => {
+                        instanse.querySelector('textarea').value = url
+                        instanse.querySelector('[data-copy="link"]').addEventListener('click', e => {
+                            if (navigator.clipboard) {
+                                navigator.clipboard.writeText(url)
+                                    .then(() => {
+                                        window.STATUS.msg('Ссылка скопирована в буфер обмена!')
+                                    })
+                                    .catch(err => {
+                                        console.log('Something went wrong', err);
+                                    });
+                            }
+                        })
+                    })
+    
+                }
+            })
         })
     }
+
+    initSharedLink(document)
+
+
+     
 
     /* ====================================
     ajax tooltip
@@ -3110,17 +3063,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
     popup ajax
     ====================================*/
 
-    if (document.querySelector('[data-popup="ajax"]')) {
-
-        function onSubmitPopup(e, popup) {
-            e.preventDefault()
-
-            popup.close()
-            popupSuccess()
-
-        }
-
-        document.querySelectorAll('[data-popup="ajax"]').forEach(item => {
+    function initAjaxPopup(container) {
+        container.querySelectorAll('[data-popup="ajax"]').forEach(item => {
             item.addEventListener('click', () => {
 
                 let popup = new afLightbox({
@@ -3149,13 +3093,153 @@ document.addEventListener('DOMContentLoaded', function (event) {
                     // input
                     new materialInput().init()
 
-                    popup.modal.querySelector('form').addEventListener('submit', e => onSubmitPopup(e, popup))
+                    if(popup.modal.querySelector('form')){
+                        popup.modal.querySelector('form').addEventListener('submit', e => onSubmitPopup(e, popup))
+                    }
+
+                    if(popup.modal.querySelector('[data-popup="ajax"]')) {
+                        initAjaxPopup(popup.modal)
+                    }
+
                 })
 
             })
         })
     }
 
+
+    if (document.querySelector('[data-popup="ajax"]')) {
+
+        function onSubmitPopup(e, popup) {
+            e.preventDefault()
+            popup.close()
+            popupSuccess()
+        }
+
+        initAjaxPopup(document)
+        
+    }
+
+    /* ============================
+    form
+    ============================*/
+
+    document.querySelectorAll('form').forEach(item => {
+        item.addEventListener('submit', (e) => {
+            e.preventDefault()
+            item.reset()
+            popupSuccess()
+            MATERIAL_INPUT.init()
+
+        })
+    })
+
+       /* ================================================
+    Minicard
+    ================================================*/
+
+    if (document.querySelector('.minicard')) {
+
+        class Minicard {
+            constructor(el) {
+                this.$el = el;
+
+                this.addEvents()
+            }
+
+            changeColor(e, el) {
+                this.$el.querySelectorAll('[data-image-color]').forEach(item => {
+                    if (item.dataset.imageColor == e.target.dataset.color) {
+                        item.classList.add('is-active')
+                    } else {
+                        !item.classList.contains('is-active') || item.classList.remove('is-active')
+                    }
+                })
+
+                this.$el.querySelectorAll('[data-color]').forEach(item => {
+                    !item.closest('li').classList.contains('is-active') || item.closest('li').classList.remove('is-active')
+                })
+
+                el.classList.add('is-active')
+            }
+
+            afterLoad(instance) {
+                if(instance.querySelector('.splide')) {
+                    const slider = new Splide(instance.querySelector('.splide'), {
+                        arrows: true,
+                        arrowPath: SLIDER_ARROW_PATH,
+                        pagination: false,
+                        perPage: 2,
+                        perMove: 2,
+                        updateOnMove: true,
+                        gap: 5
+                    });
+
+                    slider.mount();
+                }
+
+                if(instance.querySelector('[data-select-size="open"]')) {
+                    let el = instance.querySelector('[data-select-size="open"]')
+                    el.addEventListener('click', () => {
+                        let sizeSelect = new SelectSize({
+                            el
+                        })
+                        sizeSelect.open()
+                    })
+                }
+
+                if(instance.querySelector('[data-select-color="open"]')) {
+                    let el = instance.querySelector('[data-select-color="open"]')
+                    el.addEventListener('click', () => {
+                        let colorSelect = new SelectColor({
+                            el
+                        })
+                        colorSelect.open()
+                    })
+                }
+
+                initSharedLink(instance)
+
+                 
+            }
+
+
+            addEvents() {
+                this.$el.querySelectorAll('[data-color]').forEach((item, index) => {
+                    item.addEventListener('click', e => this.changeColor(e, item.closest('li')))
+
+                    if (index == 0) item.closest('li').classList.add('is-active')
+                })
+
+                this.$el.querySelectorAll('.minicard__tocart').forEach((item, index) => {
+                    item.addEventListener('click', () => {
+                        item.classList.toggle('is-active')
+
+                        let popup = new afLightbox({
+                            mobileInBottom: true,
+                            clases: 'af-position-left'
+                        })
+        
+                        popup.open('<div class="af-spiner" ></div>', false)
+        
+                        window.ajax({
+                            type: 'GET',
+                            url: '/parts/_popup-tocart.html',
+                        }, (status, response) => {
+                            popup.changeContent(response)
+                            this.afterLoad(popup.modal)
+                        })
+
+                    })
+                })
+            }
+        }
+
+        document.querySelectorAll('.minicard').forEach(item => new Minicard(item))
+
+    }
+
+    
 
 
 

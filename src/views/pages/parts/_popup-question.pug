@@ -1,0 +1,32 @@
+include ../../helpers/mixins.pug
+ 
+.popup-form
+    .popup-form__wrp
+ 
+        .popup-form__title Онлайн консультация
+        .popup-form__desc  Выберите удобный способ онлайн консультации:
+        .popup-form__tile
+            div.company-tile__item(data-popup="ajax" data-url="/parts/_popup-live.html")
+                .company-tile__wrp
+                    .company-tile__icon
+                        +bgimage('/img/icons/ic_live.svg')
+                    .company-tile__bottom
+                        .company-tile__text Онлайн показ
+                        .company-tile__arrow
+                            +icons('#ic_arr-right', 40)
+            div.company-tile__item(data-popup="ajax" data-url="/parts/_popup-callback.html")
+                .company-tile__wrp
+                    .company-tile__icon
+                        +bgimage('/img/icons/ic_call.svg')
+                    .company-tile__bottom
+                        .company-tile__text Задать вопрос <br> эксперту
+                        .company-tile__arrow
+                            +icons('#ic_arr-right', 40)
+            a.company-tile__item(href="https://t.me/agtech" target="_blank")
+                .company-tile__wrp
+                    .company-tile__qr
+                        +bgimage('/img/other/qrcode.jpg')
+                    .company-tile__bottom
+                        .company-tile__text Чат с экспертом
+                        .company-tile__arrow
+                            +icons('#ic_arr-right', 40)

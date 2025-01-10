@@ -5490,6 +5490,17 @@ body.open-mobile-menu main {
   justify-content: space-between;
 }
 
+.company-tile__qr .bgimage {
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+  position: relative;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+}
+
 .company-tile__icon .bgimage {
   width: 32px;
   height: 32px;
@@ -5523,7 +5534,7 @@ body.open-mobile-menu main {
   fill: #fff;
 }
 
-.company-tile__item:hover .bgimage {
+.company-tile__item:hover .company-tile__icon .bgimage {
   filter: invert(100%) brightness(8000);
 }
 
@@ -6175,7 +6186,7 @@ body.open-mobile-menu main {
 }
 
 .video-slider__top {
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   flex-direction: row;
   display: flex;
   align-items: center;
@@ -6185,7 +6196,7 @@ body.open-mobile-menu main {
   font-size: 24px;
   font-weight: 600;
   line-height: 100%;
-  padding-bottom: 20px;
+  padding-bottom: 0;
 }
 
 .video-slider__all {
@@ -10866,6 +10877,16 @@ a[data-tooltip]:hover::before {
   width: 100%;
 }
 
+.popup-form__tile {
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-form__tile .company-tile__item {
+  cursor: pointer;
+}
+
 .af-content-center .af-popup__content {
   display: flex;
   flex-direction: column;
@@ -10910,6 +10931,75 @@ a[data-tooltip]:hover::before {
   100% {
     stroke-dashoffset: 0;
   }
+}
+
+.popup-tocart {
+  max-width: 560px;
+  padding: 32px 16px;
+}
+
+.popup-tocart__gallery {
+  padding-bottom: 24px;
+  margin-left: -16px;
+  margin-right: -16px;
+}
+
+.popup-tocart__gallery picture {
+  position: relative;
+  display: block;
+  padding-top: 150%;
+  background-color: #F2F6F9;
+}
+
+.popup-tocart__gallery picture img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  color: transparent;
+}
+
+.popup-tocart__title {
+  font-size: 18px;
+  font-weight: 600;
+  padding-bottom: 12px;
+}
+
+.popup-tocart__price {
+  font-size: 26px;
+  font-weight: 600;
+  padding-bottom: 24px;
+}
+
+.popup-tocart__price span {
+  font-size: 14px;
+  color: #8d8d8d;
+}
+
+.popup-tocart__action {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  margin-top: -12px;
+}
+
+.popup-tocart__action svg {
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+}
+
+.popup-tocart__action svg:hover {
+  fill: var(--accent);
+}
+
+.popup-tocart .sp-details__tablesize {
+  color: #000;
+  text-align: left;
+  font-size: 15px;
 }
 
 /* common styles */
@@ -11122,13 +11212,38 @@ span[data-prop-tooltip] {
   line-height: 140%;
 }
 
+span[data-color=ffffff],
+span[data-color=fff] {
+  background-color: #eee !important;
+}
+
+.bottom-question {
+  position: fixed;
+  top: 50%;
+  right: -45px;
+  transform: rotate(-90deg);
+  z-index: 10;
+}
+
+.bottom-question .btn {
+  background-color: #8d8d8d;
+  height: 44px;
+  font-size: 15px;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+.bottom-question .btn:hover {
+  background-color: var(--accent);
+}
+
 @media screen and (min-width: 375px) {
   .header-top__mobile a {
     font-size: 14px;
   }
 
   .home-faq__form {
-    padding: 36px;
+    padding: 36px 24px;
   }
 }
 
@@ -11404,6 +11519,10 @@ span[data-prop-tooltip] {
   .popup-confirm__btns {
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  .popup-tocart {
+    padding: 32px;
   }
 }
 
@@ -11763,10 +11882,6 @@ span[data-prop-tooltip] {
     font-size: 18px;
   }
 
-  .minicard__bg {
-    opacity: 0;
-  }
-
   .minicard--large .minicard__main {
     max-width: 50%;
   }
@@ -11880,6 +11995,11 @@ span[data-prop-tooltip] {
 
   .popup-confirm {
     padding: 30px 40px;
+  }
+
+  .popup-tocart__gallery {
+    margin-left: -32px;
+    margin-right: -32px;
   }
 
   .splide__arrow {
@@ -12217,7 +12337,7 @@ span[data-prop-tooltip] {
   }
 
   .news-slider__item {
-    width: 360px;
+    width: calc(33.33vw - 33px);
   }
 
   .news-slider__arrow {
@@ -13132,6 +13252,10 @@ span[data-prop-tooltip] {
 
   .news-slider__title {
     font-size: 30px;
+  }
+
+  .minicard__bg {
+    opacity: 0;
   }
 
   .pane-selectcity {

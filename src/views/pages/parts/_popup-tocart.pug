@@ -1,0 +1,30 @@
+include ../../helpers/mixins.pug
+include ../../../blocks/modules/single-product/parts.pug
+ 
+.popup-tocart
+    .popup-tocart__action
+        .popup-tocart__compare
+            +icons('#ic_compare')
+        .popup-tocart__wishlist
+            +icons('#ic_heart')
+        .popup-tocart__share(data-share="link" data-url="https://agt.ru/p/15641651")
+            +icons('#ic_share')
+    
+    .popup-tocart__title Брюки ОПЗ летние Бродекс мужская цв. серый с темно-серым и черным
+    .popup-tocart__price 7200 ₽ <span>за шт.</span>
+    .popup-tocart__gallery
+        .splide
+            .splide__track
+                .splide__list
+                    .splide__slide: +picture('/img/product/ks209/blue1')
+                    .splide__slide: +picture('/img/product/ks209/blue2')
+                    .splide__slide: +picture('/img/product/ks209/blue3')
+    .popup-tocart__icons
+        ul
+            li: +bgimage('/img/other/pic/tp1001')
+            li: +bgimage('/img/other/pic/tp1001-1')
+            li: +bgimage('/img/other/pic/tp1001-2')
+            li: +bgimage('/img/other/pic/tp1001-3')
+
+    .popup-tocart__details
+        +sp-details

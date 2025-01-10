@@ -1,0 +1,67 @@
+.popup-tocart {
+	max-width: 560px;
+	padding: 32px 16px;
+
+    @media screen and (min-width: $w480) {
+        padding: 32px;
+    }
+
+    &__gallery{
+    padding-bottom: 24px;
+    margin-left: -16px;
+    margin-right: -16px;
+
+    @media screen and (min-width: $w576) {
+        margin-left: -32px;
+        margin-right: -32px;
+    }
+
+    & picture {
+        @include picture(150%, contain);
+        background-color: #F2F6F9;
+    }
+    }
+
+    &__title{
+    font-size: 18px;
+    font-weight: 600;
+    padding-bottom: 12px;
+    }
+
+    &__price{
+        font-size: 26px;
+        font-weight: 600;
+        padding-bottom: 24px;
+
+        & span {
+            font-size: 14px;
+            color: #8d8d8d;
+        }
+    }
+
+    &__action{
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 12px;
+        margin-top: -12px;
+
+        & svg {
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+
+            &:hover {
+                fill: var(--accent);
+            }
+        }
+    }
+
+    & .sp-details {
+        &__tablesize{
+            color: #000;
+            text-align: left;
+            font-size: 15px;
+        }
+    }
+}

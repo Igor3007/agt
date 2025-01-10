@@ -505,7 +505,7 @@
         opacity: 1;
         transition: 0.3s ease;
 
-        @media screen and (min-width: $w576) {
+        @media screen and (min-width: $w992) {
             opacity: 0;
         }
 

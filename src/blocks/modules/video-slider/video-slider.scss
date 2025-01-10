@@ -121,7 +121,7 @@
 
     &__top {
 
-        padding-bottom: 20px;
+        padding-bottom: 40px;
         flex-direction: row;
         display: flex;
         align-items: center;
@@ -136,7 +136,9 @@
 
     &__title {
         @include font-h2;
-        padding-bottom: 20px;
+        padding-bottom: 0;
+
+
 
         @media screen and (min-width: $w992) {
             padding-bottom: 0;

@@ -181,6 +181,15 @@
         }
     }
 
+    &__qr{
+        & .bgimage {
+            width: 80px;
+            height: 80px;
+            display: inline-block;
+            @include bgimage-contain;
+        }
+    }
+
     &__icon {
         & .bgimage {
             width: 32px;
@@ -228,7 +237,7 @@
                 fill: #fff;
             }
 
-            & .bgimage {
+            & .company-tile__icon .bgimage {
                 filter: invert(100%) brightness(8000);
             }
         }

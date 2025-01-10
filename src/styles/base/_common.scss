@@ -230,3 +230,28 @@ span[data-prop-tooltip] {
     font-size: 13px;
     line-height: 140%;
 }
+
+span[data-color=ffffff],
+span[data-color=fff] {
+    background-color: #eee !important;
+}
+
+.bottom-question {
+    position: fixed;
+    top: 50%;
+    right: -45px;
+    transform: rotate(-90deg);
+    z-index: 10;
+  }
+  .bottom-question .btn {
+    background-color: #8d8d8d;
+    height: 44px;
+    font-size: 15px;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+     
+  }
+  
+  .bottom-question .btn:hover {
+    background-color: var(--accent);
+  }

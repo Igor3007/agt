@@ -33,7 +33,7 @@
         height: 100%;
 
         @media screen and (min-width: $w760) {
-            width: 360px;
+            width: calc(33.33vw - 33px);
         }
 
         @media screen and (min-width: $w992) {

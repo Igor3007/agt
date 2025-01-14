@@ -1,0 +1,81 @@
+mixin checkout-user
+    .checkout-user
+        .checkout-user__tabs
+            ul
+                li.is-active: span Физическое лицо
+                li: span Юр. лицо
+        .checkout-user__tabs-container
+
+            .checkout-user__tabs-item.is-active
+                .form
+                    .form__item
+                        .form__subitem
+                            +input-material-required('text', 'ФИО')
+                    .form__item
+                        .form__subitem
+                            +input-material-required('email', 'Email')
+                    .form__item
+                        .form__subitem
+                            .multi-mask
+                                .input-material
+                                    input(type='text' max-length="60" required)
+                                    label= 'Контактный телефон'
+
+            .checkout-user__tabs-item
+                .form
+                    .form__item
+                        .form__subitem
+                            +input-material-required('text', 'Название компании *')
+                    .form__item
+                        .form__subitem
+                            +input-material-required('text', 'Контактное лицо *')
+                    .form__item
+                        .form__subitem
+                            +input-material('text', 'ИНН')
+                    .form__item
+                        .form__subitem
+                            +input-material-required('email', 'Email *')
+                    .form__item
+                        .form__subitem
+                            .multi-mask
+                                .input-material
+                                    input(type='text' max-length="60" required)
+                                    label= 'Контактный телефон'
+                    
+        .checkout-user__subscribe
+            +checkbox('Даю согласие на получение информационных рассылок')
+
+        .checkout-user__next
+            a(href='/.checkout-delivery.html'): button.btn Следющий шаг
+
+        
+
+
+
+mixin checkout-delivery
+    .checkout-delivery
+        .checkout-delivery__tabs
+            label
+                input(type="radio" name="type-delivery")
+                div.box-radio
+                    div.box-radio__text
+                    div.box-radio__elem 
+            label
+                input(type="radio" name="type-delivery")
+                div.box-radio
+                    div.box-radio__text
+                    div.box-radio__elem
+            label
+                input(type="radio" name="type-delivery")
+                div.box-radio
+                    div.box-radio__text
+                    div.box-radio__elem
+            label
+                input(type="radio" name="type-delivery")
+                div.box-radio
+                    div.box-radio__text
+                    div.box-radio__elem
+
+mixin checkout-pay
+    .checkout-pay
+        div checkout-pay

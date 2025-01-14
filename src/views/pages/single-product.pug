@@ -16,6 +16,14 @@ block main
   +product-slider({title: 'Рекомендованные решения', modify: 'section-product-slider--rec'})
   +stores-slider-2
   +home-faq--noform
+
+  .action-bar
+    .action-bar__compare: +icons('#ic_compare')
+    .action-bar__wishlist: +icons('#ic_heart')
+    .action-bar__share(data-share="link" data-url="https://agt.ru/p/15641651"): +icons('#ic_share')
+    .action-bar__cart
+        +icons('#ic_to-cart')
+        span В корзину
  
 
  

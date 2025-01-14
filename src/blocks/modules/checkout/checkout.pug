@@ -1,0 +1,25 @@
+include ../../components/breadcrumb/breadcrumb.pug
+include ../checkout-aside/checkout-aside.pug
+include parts
+
+mixin checkout
+    section.section-checkout
+        .container
+            .checkout
+                .checkout__wrp
+                    .checkout__content
+                        .checkout__steps
+                            .checkout__steps-nav
+                                ul
+                                    li.is-active
+                                        span(data-num="1") Покупатель
+                                    li
+                                        span(data-num="2") Доставка
+                                    li
+                                        span(data-num="3") Оплата
+                            .checkout__steps-content
+                                .checkout__steps-item.is-active: +checkout-user
+                                .checkout__steps-item: +checkout-delivery
+                                .checkout__steps-item: +checkout-pay
+                    .checkout__aside: +checkout-aside
+

@@ -260,3 +260,56 @@ span[data-color=fff] {
   .bottom-question .btn:hover {
     background-color: var(--accent);
   }
+
+  .page {
+    &__back {
+
+        padding-bottom: 4px;
+
+        @media screen and (min-width: $w992) {
+            padding-bottom: 16px;
+        }
+
+        & a {
+            display: flex;
+            align-items: center;
+            
+        }
+
+        & svg {
+            width: 36px;
+            height: 36px;
+            fill: var(--accent);
+            margin-left: -15px;
+        }
+
+        & span {
+            font-weight: 600;
+
+            &:hover {
+                color: var(--accent);
+            }
+        }
+    }
+
+    &__title{
+
+        padding-bottom: 30px;
+        @media screen and (min-width: $w1440) {
+        padding-bottom: 16px;
+        
+        }
+
+        & h1 {
+            margin: 0;
+            @include  font-h1;
+        }
+    }
+
+    &__breadcrumbs {
+        @media screen and (min-width: $w760) {
+        margin-bottom: -5px;
+        }
+    }
+
+  }

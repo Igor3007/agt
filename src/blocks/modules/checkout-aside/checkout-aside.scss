@@ -1,0 +1,123 @@
+.section-checkout {
+    overflow: visible;
+}
+ 
+.checkout-aside {
+    padding: 36px 0;
+
+    @media screen and (min-width: $w760) {
+        padding-top: 0;
+    }
+
+    @media screen and (min-width: $w992) {
+    margin-top: -30px;
+    }
+
+    &__title {
+        font-size: 26px;
+        font-weight: 600;
+        padding-bottom: 23px;
+
+        @media screen and (min-width: $w992) {
+            padding-bottom: 10px;
+        }
+    }
+
+    
+
+    &__prop{
+
+        & ul {
+            & li {
+                display: flex;
+                justify-content: space-between;
+                font-size: 15px;
+                font-weight: 500;
+                padding: 8px 0;
+
+                @media screen and (min-width: $w760) {
+                    padding: 6px 0;
+                }
+                
+
+                & strong {
+                    font-weight: bold;
+
+                    &.color--green {
+                        color: #3CAA3C;
+                    }
+                    &.color--red {
+                        color: rgb(192, 24, 24);
+                    }
+                }
+            }
+        }
+
+        &--details {
+            border-top: 1px solid rgba($color: #000000, $alpha: 0.12);
+            padding: 17px 0;
+
+            & ul {
+                & li {
+                    padding: 14px 0;
+                }
+            }
+        }
+    }
+
+    &__more{
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--accent);
+        padding-bottom: 36px;
+
+        @media screen and (min-width: $w760) {
+            padding-bottom: 25px;
+        }
+
+        & span {
+            cursor: pointer;
+        }
+    }
+
+    &__logo{
+        display: flex;
+        align-items: center;
+        border-top: 1px solid rgba($color: #000000, $alpha: 0.12);
+        padding: 20px 0;
+        gap: 12px;
+
+        & a {
+            color: var(--accent);
+            font-weight: bold;
+            margin-left: auto;
+            font-size: 15px;
+        }
+
+        & .checkbox {
+            &__text {
+                font-size: 14px;
+                font-weight: 600;
+            }
+        }
+    }
+
+    &__total{
+        border-top: 1px solid rgba($color: #000000, $alpha: 0.12);
+        padding-top: 29px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        & strong {
+            font-size: 27px;
+            font-weight: 600;
+        }
+    }
+
+    &__pay{
+        padding-top: 36px;
+    }
+
+
+}

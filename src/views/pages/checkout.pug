@@ -1,0 +1,40 @@
+extends ../layouts/main
+ 
+block variables
+  include ../../data/data.pug
+  - const title = "AG Technologies"
+ 
+
+block main 
+
+  include ../../blocks/modules/checkout/checkout.pug
+
+  section.section-page
+    .container
+        .page
+            .page__breadcrumbs
+                +breadcrumb([
+                    'AGT',
+                    'Оформление заказа',
+                ])
+            .page__back
+                a(href='#')
+                    +icons('#ic_arr-left')
+                    span Назад в корзину
+
+            .page__title: h1 Оформление заказа
+
+  +checkout()
+ 
+  
+
+  
+
+ 
+
+ 
+ 
+ 
+block scripts
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js")   

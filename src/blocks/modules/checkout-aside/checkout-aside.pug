@@ -1,0 +1,40 @@
+mixin checkout-aside
+    .checkout-aside
+        .checkout-aside__wrp
+            .checkout-aside__title Ваша корзина
+            .checkout-aside__cart
+                .checkout-aside__prop
+                    ul
+                        li
+                            span Товары (17)
+                            strong 39 400 ₽ 
+                        li
+                            span Ваша выгода
+                            strong.color--green - 500 ₽
+                .checkout-aside__more
+                    span Подробнее
+            .checkout-aside__logo
+                +checkbox('Нужно нанесение логотипа ')
+                a(href='#') Подробнее...
+
+            .checkout-aside__prop.checkout-aside__prop--details
+                ul
+                    li
+                        span Доставка
+                        strong Самовывоз
+                    li
+                        span Адрес
+                        strong Санкт-Петербург, ул. Егорова, 25
+                    li
+                        span Дата
+                        strong 27 сентября, после 15:00
+                    li
+                        span Оплата
+                        strong Картой онлайн
+
+            .checkout-aside__total
+                span К оплате:
+                strong 38 900 ₽
+
+            .checkout-aside__pay
+                a(href='#'): button.btn.btn-full Оплатить

@@ -328,8 +328,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
         return scrollbarWidth;
     }
 
-
-
     /* ========================================
     MainBanner
     ========================================*/
@@ -685,6 +683,29 @@ document.addEventListener('DOMContentLoaded', function (event) {
     }
 
  
+    /* ======================================
+    fixed sticky details
+    ======================================*/
+
+    if(document.querySelector('.single-product__head')) {
+        // get the sticky element
+         
+        const stickyElm = document.querySelector('.single-product__head')
+        const observer = new IntersectionObserver( 
+        ([e]) => e.target.classList.toggle('is-sticky', e.intersectionRatio < 1),
+        {threshold: [1]}
+        );
+
+        observer.observe(stickyElm)
+
+        let scrollHeight = document.querySelector('.single-product').clientHeight 
+        let scrollPosition = window.scrollY - document.querySelector('.sp-details').clientHeight
+
+        window.addEventListener('scroll', e => {
+            scrollPosition = window.scrollY - document.querySelector('.sp-details').clientHeight + 150
+            document.querySelector('.single-product__details').classList.toggle('is-opacity', (scrollPosition > scrollHeight))
+        })
+    }
 
     /* ================================================
     SliderStore
@@ -1938,14 +1959,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
                             this.$el.classList.toggle('is-fixed-open')
                         }
 
-                        // const closeInOut = (e) => {
-                        //         if (!e.target.closest('.top-catalog')) {
-                        //             this.$el.classList.remove('is-open')
-                        //             document.removeEventListener('click', closeInOut)
-                        //         }
-                        //     }
+                        const closeInOut = (e) => {
+                                if (!e.target.closest('.menu-catalog')) {
+                                    this.$el.classList.remove('is-open')
+                                    document.removeEventListener('click', closeInOut)
+                                }
+                            }
 
-                        //     !this.$el.classList.contains('is-open') || document.addEventListener('click', closeInOut)
+                            !this.$el.classList.contains('is-open') || document.addEventListener('click', closeInOut)
                     })
                 })
 

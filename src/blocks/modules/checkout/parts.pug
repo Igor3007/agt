@@ -48,34 +48,101 @@ mixin checkout-user
         .checkout-user__next
             a(href='/.checkout-delivery.html'): button.btn Следющий шаг
 
-        
-
-
 
 mixin checkout-delivery
     .checkout-delivery
         .checkout-delivery__tabs
             label
-                input(type="radio" name="type-delivery")
+                input(type="radio" name="type-delivery" checked)
                 div.box-radio
-                    div.box-radio__text
+                    div.box-radio__text Самовывоз
                     div.box-radio__elem 
             label
                 input(type="radio" name="type-delivery")
                 div.box-radio
-                    div.box-radio__text
+                    div.box-radio__text СДЭК
                     div.box-radio__elem
             label
                 input(type="radio" name="type-delivery")
                 div.box-radio
-                    div.box-radio__text
+                    div.box-radio__text ТК и Почтой России
                     div.box-radio__elem
             label
                 input(type="radio" name="type-delivery")
                 div.box-radio
-                    div.box-radio__text
+                    div.box-radio__text Быстрая доставка по СПБ и МСК
                     div.box-radio__elem
 
+ 
+        .checkout-delivery__content
+
+            .checkout-delivery__content-item.is-active
+                .checkout-pickup
+                    .checkout-pickup__list
+                        .checkout-pickup-point(data-coordinates="59.91029756419331,30.313954499999973")
+                            .checkout-pickup-point__title Санкт-Петербург, ул. Егорова, 25
+                            .checkout-pickup-point__time Работает с 10:00 до 22:00
+                            .checkout-pickup-point__select
+                                button.btn.btn-line.btn-small(data-selected="Выбрано") Выбрать
+                    
+                        .checkout-pickup-point(data-coordinates="55.73571756901459,37.681712000000026")
+                            .checkout-pickup-point__title Москва, Малая Калитниковская ул., д. 9
+                            .checkout-pickup-point__time Работает с 10:00 до 22:00
+                            .checkout-pickup-point__select
+                                button.btn.btn-line.btn-small(data-selected="Выбрано") Выбрать
+                    .checkout-pickup__map
+                        div.ymap-container(id="map")
+
+            //- -----------------------------
+            .checkout-delivery__content-item
+                .checkout-sdek
+                    .checkout-field
+                        .checkout-field__label Способ получения
+                        .checkout-field__radio
+                            +radio('Курьером')
+                            +radio('до ПВЗ')
+                        .checkout-field__label Данные получателя
+                        .checkout-field__input
+                            +input-material("text", "Город")
+
+            //- -----------------------------
+            .checkout-delivery__content-item
+
+                .checkout-post
+                    .checkout-field
+                        .checkout-field__label Способ получения
+                        .checkout-field__radio
+                            +radio('Почтой Росии')
+                            +radio('ТК')
+                        .checkout-field__label Данные получателя
+                        .checkout-field__input
+                            +input-material("text", "Город")
+
+            //- -----------------------------
+            .checkout-delivery__content-item
+
+                .checkout-fast
+                    .form
+                        .form__item
+                            .form__subitem
+                                .form__label Данные получателя
+                        .form__item
+                            .form__subitem
+                                p Город
+                                select(name="city")
+                                    option(value="") Москва
+                                    option(value="") Санкт-Питербург
+                        .form__item
+                            .form__subitem: +input-material("text", "Улица*")
+                        .form__item
+                            .form__subitem: +input-material("text", "Дом*")
+                            .form__subitem: +input-material("text", "Квартира/Офис*")
+                        .form__item
+                            .form__subitem
+                                .form__label Комментарий
+                        .form__item
+                            .form__subitem: textarea(placeholder="")
+ 
 mixin checkout-pay
     .checkout-pay
         div checkout-pay

@@ -176,6 +176,8 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        width: 100%;
+        max-width: 285px;
     }
 
     &__right {

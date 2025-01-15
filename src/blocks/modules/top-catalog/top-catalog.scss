@@ -31,9 +31,9 @@
     &.is-open {
 
         position: relative;
-        z-index: 6;
+        z-index: 12;
         display: block;
-        top: 24px;
+        top: 24px; 
 
         & .top-catalog {
             &__dropdown {

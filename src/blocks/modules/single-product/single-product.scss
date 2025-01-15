@@ -64,7 +64,7 @@
                     overflow: hidden;
                 }
 
-                &~.single-product__details {
+                &~.single-product__details:not(.is-nofixed) { 
                     position: fixed;
                     top: 100px;
                     right: 40px;
@@ -79,7 +79,7 @@
 
                     &.is-opacity {
                         opacity: 0;
-                    }
+                    } 
                 }
             }
         }
@@ -920,6 +920,32 @@
             height: 40px;
             @include bgimage-contain;
         }
+    }
+
+    &__sticker {
+        position: absolute;
+        right: 16px;
+        top: 16px;
+        z-index: 5;
+
+        @media screen and (min-width: $w1200) {
+            right: 30px;
+            top: 22px;
+
+             
+        }
+
+        & span {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            background-color: #fff;
+            border-radius: 30px;
+            padding: 5px 12px;
+            font-family: var(--font-montserrat);
+        }
+
+       
     }
 
     & picture {

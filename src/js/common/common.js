@@ -22,6 +22,25 @@ document.addEventListener('DOMContentLoaded', function (event) {
     window.addEventListener('resize', css_variable)
 
     /* =================================================
+    load ymaps api
+    =================================================*/
+
+    window.loadApiYmaps = function (callback) {
+
+        if (window.ymaps == undefined) {
+            const script = document.createElement('script')
+            script.src = API_YMAPS
+            script.onload = () => {
+                callback(window.ymaps)
+            }
+            document.head.append(script)
+        } else {
+            callback(window.ymaps)
+        }
+
+    }
+
+    /* =================================================
     smooth scroll
     ================================================= */
 
@@ -682,23 +701,24 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     }
 
- 
+
     /* ======================================
     fixed sticky details
     ======================================*/
 
-    if(document.querySelector('.single-product__head')) {
+    if (document.querySelector('.single-product__head')) {
         // get the sticky element
-         
+
         const stickyElm = document.querySelector('.single-product__head')
-        const observer = new IntersectionObserver( 
-        ([e]) => e.target.classList.toggle('is-sticky', e.intersectionRatio < 1),
-        {threshold: [1]}
+        const observer = new IntersectionObserver(
+            ([e]) => e.target.classList.toggle('is-sticky', e.intersectionRatio < 1), {
+                threshold: [1]
+            }
         );
 
         observer.observe(stickyElm)
 
-        let scrollHeight = document.querySelector('.single-product').clientHeight 
+        let scrollHeight = document.querySelector('.single-product').clientHeight
         let scrollPosition = window.scrollY - document.querySelector('.sp-details').clientHeight
 
         window.addEventListener('scroll', e => {
@@ -1963,6 +1983,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
                                 if (!e.target.closest('.menu-catalog')) {
                                     this.$el.classList.remove('is-open')
                                     document.removeEventListener('click', closeInOut)
+
+                                        !document.body.classList.contains('page-hidden') || document.body.classList.remove('page-hidden');
+                                    !this.$el.classList.contains('is-fixed-open') || this.$el.classList.remove('is-fixed-open')
                                 }
                             }
 
@@ -2553,96 +2576,96 @@ document.addEventListener('DOMContentLoaded', function (event) {
     select color
     ===================================== */
 
-     
 
 
-        class SelectColor {
-            constructor(params) {
-                this.$el = params.el
-                this.popup = null;
-                this.btnSelect = null;
-                this.result = [];
 
-                this.init()
-            }
+    class SelectColor {
+        constructor(params) {
+            this.$el = params.el
+            this.popup = null;
+            this.btnSelect = null;
+            this.result = [];
 
-            init() {
-                this.popup = new afLightbox({
-                    mobileInBottom: true,
-                    clases: 'af-position-left'
-                })
-            }
-
-            open() {
-                this.popup.open('<div class="af-spiner" ></div>', false)
-
-                window.ajax({
-                    type: 'GET',
-                    url: '/parts/_select-color.html'
-                }, (status, response) => {
-                    this.popup.changeContent(response)
-                    this.eventCheckbox()
-                })
-            }
-
-            eventCheckbox() {
-                this.popup.modal.querySelectorAll('input[type=radio]').forEach(input => {
-                    input.addEventListener('change', () => this.changeCheckbox())
-                })
-
-                this.btnSelect = this.popup.modal.querySelector('.btn')
-                this.btnSelect.addEventListener('click', () => this.selectedColor())
-            }
-
-            selectedColor() {
-                let container = this.$el.closest('.sp-details__colorpick')
-                container.querySelector('.color-name').innerText = this.result[0].text
-
-                if (this.result[0].value) {
-                    container.querySelector('.multi-color__wrp').innerHTML = ''
-
-                    this.result[0].value.split(',').forEach(color => {
-                        let el = document.createElement('span')
-                        el.style.setProperty('background', color)
-                        container.querySelector('.multi-color__wrp').append(el)
-                    })
-                }
-
-                this.popup.close()
-
-            }
-
-            changeCheckbox() {
-
-                this.popup.modal.querySelectorAll('input[type=radio]').forEach(input => {
-                    if (input.checked) {
-                        this.result.push({
-                            text: input.parentNode.querySelector('.product-checkbox__color-name').innerText,
-                            value: input.value
-                        })
-                    }
-                })
-
-                if (this.result.length) {
-                    this.btnSelect.removeAttribute('disabled')
-                } else {
-                    this.btnSelect.setAttribute('disabled', 'disabled')
-                }
-            }
+            this.init()
         }
 
-        document.querySelectorAll('[data-select-color="open"]').forEach(item => {
-            item.addEventListener('click', () => {
-                let selectColor = new SelectColor({
-                    el: item
-                })
-
-                selectColor.open()
+        init() {
+            this.popup = new afLightbox({
+                mobileInBottom: true,
+                clases: 'af-position-left'
             })
+        }
+
+        open() {
+            this.popup.open('<div class="af-spiner" ></div>', false)
+
+            window.ajax({
+                type: 'GET',
+                url: '/parts/_select-color.html'
+            }, (status, response) => {
+                this.popup.changeContent(response)
+                this.eventCheckbox()
+            })
+        }
+
+        eventCheckbox() {
+            this.popup.modal.querySelectorAll('input[type=radio]').forEach(input => {
+                input.addEventListener('change', () => this.changeCheckbox())
+            })
+
+            this.btnSelect = this.popup.modal.querySelector('.btn')
+            this.btnSelect.addEventListener('click', () => this.selectedColor())
+        }
+
+        selectedColor() {
+            let container = this.$el.closest('.sp-details__colorpick')
+            container.querySelector('.color-name').innerText = this.result[0].text
+
+            if (this.result[0].value) {
+                container.querySelector('.multi-color__wrp').innerHTML = ''
+
+                this.result[0].value.split(',').forEach(color => {
+                    let el = document.createElement('span')
+                    el.style.setProperty('background', color)
+                    container.querySelector('.multi-color__wrp').append(el)
+                })
+            }
+
+            this.popup.close()
+
+        }
+
+        changeCheckbox() {
+
+            this.popup.modal.querySelectorAll('input[type=radio]').forEach(input => {
+                if (input.checked) {
+                    this.result.push({
+                        text: input.parentNode.querySelector('.product-checkbox__color-name').innerText,
+                        value: input.value
+                    })
+                }
+            })
+
+            if (this.result.length) {
+                this.btnSelect.removeAttribute('disabled')
+            } else {
+                this.btnSelect.setAttribute('disabled', 'disabled')
+            }
+        }
+    }
+
+    document.querySelectorAll('[data-select-color="open"]').forEach(item => {
+        item.addEventListener('click', () => {
+            let selectColor = new SelectColor({
+                el: item
+            })
+
+            selectColor.open()
         })
+    })
 
 
-     
+
 
     /* =====================================
     select size
@@ -2874,18 +2897,18 @@ document.addEventListener('DOMContentLoaded', function (event) {
                     text: document.querySelector('meta[name="description"]').getAttribute('content'),
                     url,
                 };
-    
+
                 if (navigator.share && document.body.clientWidth < 992) {
                     navigator.share(shareData)
                         .then(() => console.log('Shared successfully'))
                         .catch((error) => console.error('Sharing failed:', error));
-    
+
                 } else {
-    
+
                     const instansePopup = new afLightbox({
                         mobileInBottom: true
                     })
-    
+
                     const html = `
                         <div class="popup-confirm" data-form-success="remove">
                             <div class="popup-confirm__title">Поделиться</div>
@@ -2900,7 +2923,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     
                         </div>
                     `;
-    
+
                     instansePopup.open(html, (instanse) => {
                         instanse.querySelector('textarea').value = url
                         instanse.querySelector('[data-copy="link"]').addEventListener('click', e => {
@@ -2915,7 +2938,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                             }
                         })
                     })
-    
+
                 }
             })
         })
@@ -2924,7 +2947,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     initSharedLink(document)
 
 
-     
+
 
     /* ====================================
     ajax tooltip
@@ -3114,11 +3137,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
                     // input
                     new materialInput().init()
 
-                    if(popup.modal.querySelector('form')){
+                    if (popup.modal.querySelector('form')) {
                         popup.modal.querySelector('form').addEventListener('submit', e => onSubmitPopup(e, popup))
                     }
 
-                    if(popup.modal.querySelector('[data-popup="ajax"]')) {
+                    if (popup.modal.querySelector('[data-popup="ajax"]')) {
                         initAjaxPopup(popup.modal)
                     }
 
@@ -3138,7 +3161,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
         }
 
         initAjaxPopup(document)
-        
+
     }
 
     /* ============================
@@ -3155,7 +3178,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
         })
     })
 
-       /* ================================================
+    /* ================================================
     Minicard
     ================================================*/
 
@@ -3185,7 +3208,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             }
 
             afterLoad(instance) {
-                if(instance.querySelector('.splide')) {
+                if (instance.querySelector('.splide')) {
                     const slider = new Splide(instance.querySelector('.splide'), {
                         arrows: true,
                         arrowPath: SLIDER_ARROW_PATH,
@@ -3199,7 +3222,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                     slider.mount();
                 }
 
-                if(instance.querySelector('[data-select-size="open"]')) {
+                if (instance.querySelector('[data-select-size="open"]')) {
                     let el = instance.querySelector('[data-select-size="open"]')
                     el.addEventListener('click', () => {
                         let sizeSelect = new SelectSize({
@@ -3209,7 +3232,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                     })
                 }
 
-                if(instance.querySelector('[data-select-color="open"]')) {
+                if (instance.querySelector('[data-select-color="open"]')) {
                     let el = instance.querySelector('[data-select-color="open"]')
                     el.addEventListener('click', () => {
                         let colorSelect = new SelectColor({
@@ -3221,7 +3244,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
                 initSharedLink(instance)
 
-                 
+
             }
 
 
@@ -3240,9 +3263,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
                             mobileInBottom: true,
                             clases: 'af-position-left'
                         })
-        
+
                         popup.open('<div class="af-spiner" ></div>', false)
-        
+
                         window.ajax({
                             type: 'GET',
                             url: '/parts/_popup-tocart.html',
@@ -3260,7 +3283,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     }
 
-    
+
 
 
 

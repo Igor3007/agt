@@ -23,11 +23,11 @@
         }
 
         @media screen and (min-width: $w1440) {
-        margin-right: 65px;
+            margin-right: 65px;
         }
     }
 
-    &__content{
+    &__content {
         @media screen and (min-width: $w991) {
             width: calc(100% - 436px);
             max-width: 1200px;
@@ -35,13 +35,13 @@
         }
     }
 
-    &__aside{
+    &__aside {
         @media screen and (min-width: $w991) {
             width: 436px;
         }
     }
 
-    &__steps{
+    &__steps {
 
         @media screen and (min-width: $w1440) {
             padding-top: 50px;
@@ -62,11 +62,11 @@
                 justify-content: space-around;
 
                 @media screen and (min-width: $w1440) {
-                gap: 36px;
+                    gap: 36px;
                 }
 
                 @media screen and (min-width: $w480) {
-                justify-content: flex-start;
+                    justify-content: flex-start;
                 }
 
                 & span {
@@ -78,10 +78,12 @@
                     align-items: center;
                     flex-direction: column;
                     gap: 8px;
+                    transition: 0.3s ease;
 
                     @media screen and (min-width: $w480) {
-                    flex-direction: row;gap: 12px;
-                    font-size: 15px;
+                        flex-direction: row;
+                        gap: 12px;
+                        font-size: 15px;
                     }
 
                     &::before {
@@ -97,14 +99,13 @@
 
                         font-size: 15px;
                         font-weight: 500;
-                         
-                         
                     }
                 }
 
                 & li {
 
                     cursor: pointer;
+
 
                     &.is-active {
                         & span {
@@ -115,6 +116,16 @@
                             }
                         }
                     }
+
+                    &:hover {
+                        & span {
+                            color: #000;
+
+                            &::before {
+                                background-color: rgba(0, 0, 0, .8);
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -122,17 +133,17 @@
         &-item {
             display: none;
 
-            &.is-active{
+            &.is-active {
                 display: block;
             }
         }
     }
 }
 
-.checkout-user{
+.checkout-user {
 
-    
-    
+
+
     &__tabs {
 
         padding-bottom: 30px;
@@ -157,9 +168,9 @@
                     transition: 0.3s ease;
 
                     @media screen and (min-width: $w480) {
-                    padding: 0 2em;
+                        padding: 0 2em;
                     }
-                    
+
 
                     &:hover {
                         background-color: rgba($color: #000000, $alpha: 0.1);
@@ -193,24 +204,225 @@
         padding-bottom: 24px;
     }
 
-    &__next{
+    &__next {
         & .btn {
             margin-left: auto;
 
             @media screen and (min-width: $w1440) {
-            font-size: 17px;
+                font-size: 17px;
             }
         }
     }
 
-   
+
 
     & .form {
-        &__subitem{
-         @media screen and (min-width: $w1440) {
-         padding-top: 14px;
-         padding-bottom: 14px;
-         }
+        &__subitem {
+            @media screen and (min-width: $w1440) {
+                padding-top: 14px;
+                padding-bottom: 14px;
+            }
         }
+    }
+}
+
+.checkout-delivery {
+    &__tabs {
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding-bottom: 36px;
+
+        & input {
+            display: none;
+
+            &:checked {
+                &~.box-radio {
+
+                    background-color: var(--accent);
+                    color: #fff;
+
+                    & .box-radio {
+                        &__elem {
+                            background-color: var(--accent);
+                            border: 6px solid #fff;
+                        }
+                    }
+
+
+                }
+
+
+            }
+        }
+    }
+}
+
+.box-radio {
+
+    background-color: var(--bg);
+    border-radius: 15px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 24px;
+    transition: 0.4s ease;
+    cursor: pointer;
+
+    @media screen and (min-width: $w1440) {
+        height: 60px;
+        padding: 6px 30px;
+    }
+
+    &:hover {
+        background-color: #c7dee6;
+    }
+
+    &__elem {
+        width: 20px;
+        min-width: 20px;
+        height: 20px;
+        display: inline-block;
+        border-radius: 50%;
+        background-color: #fff;
+        margin-left: 14px;
+        border: 0px solid #fff;
+        transition: 0.3s ease;
+
+    }
+
+    &__text {
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+}
+
+.checkout-delivery {
+    &__content-item {
+        display: none;
+
+        &.is-active {
+            display: block;
+        }
+    }
+}
+
+
+
+.checkout-pickup {
+
+    @media screen and (min-width: $w991) {
+        display: flex;
+        gap: 50px;
+    }
+
+    &__list {
+        @media screen and (min-width: $w991) {
+            width: 50%;
+        }
+    }
+
+    &__map {
+
+        padding-top: 30%;
+        position: relative;
+
+        & .ymap-container {
+
+            background-color: var(--bg);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        @media screen and (min-width: $w991) {
+            width: calc(50%);
+        }
+    }
+}
+
+.checkout-pickup-point {
+    padding: 12px 24px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 12px;
+
+    &__title {
+        font-size: 18px;
+        font-weight: 600;
+        padding-bottom: 6px;
+    }
+
+    &__time {
+        font-size: 14px;
+        padding-bottom: 12px;
+    }
+
+    &.is-active {
+        background-color: var(--accent);
+
+        & .checkout-pickup-point {
+
+            &__time,
+            &__title {
+                color: #fff;
+            }
+
+
+        }
+
+        & .btn {
+            border: none;
+            font-size: 0;
+
+            &::before {
+                content: '';
+                width: 36px;
+                height: 36px;
+                display: inline-block;
+                background-color: #fff;
+                border-radius: 50%;
+            }
+
+            &::after {
+                content: attr(data-selected);
+                font-size: 15px;
+                margin-left: 12px;
+                color: #fff;
+            }
+        }
+    }
+
+    & .btn {
+        height: 46px;
+        font-size: 15px;
+        border-color: var(--accent);
+        color: #475569;
+    }
+}
+
+.checkout-field {
+    &__label {
+        padding-bottom: 16px;
+        font-weight: 600;
+    }
+
+    &__radio {
+        padding-bottom: 32px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+
+
+}
+
+.checkout-fast {
+    & textarea {
+        border: 1px solid #ccc;
     }
 }

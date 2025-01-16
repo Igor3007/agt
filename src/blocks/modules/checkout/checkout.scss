@@ -1,3 +1,13 @@
+@keyframes to-change-tab {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 .checkout {
 
     padding-bottom: 60px;
@@ -13,6 +23,12 @@
 
         & .input-material {
             border: none;
+        }
+    }
+
+    & .form {
+        &__label {
+            font-family: involve;
         }
     }
 
@@ -44,7 +60,7 @@
     &__steps {
 
         @media screen and (min-width: $w1440) {
-            padding-top: 50px;
+            padding-top: 62px;
         }
 
         @media screen and (min-width: $w760) {
@@ -54,6 +70,10 @@
         &-nav {
 
             padding-bottom: 24px;
+
+            @media screen and (min-width: $w1440) {
+                padding-bottom: 27px;
+            }
 
             & ul {
                 display: flex;
@@ -192,6 +212,7 @@
 
             &.is-active {
                 display: block;
+                animation: to-change-tab 0.4s ease forwards;
             }
         }
 
@@ -223,6 +244,8 @@
                 padding-bottom: 14px;
             }
         }
+
+
     }
 }
 
@@ -257,6 +280,12 @@
             }
         }
     }
+
+    &__next {
+        padding-top: 60px;
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 .box-radio {
@@ -273,7 +302,7 @@
 
     @media screen and (min-width: $w1440) {
         height: 60px;
-        padding: 6px 30px;
+        padding: 6px 23px;
     }
 
     &:hover {
@@ -306,6 +335,7 @@
 
         &.is-active {
             display: block;
+            animation: to-change-tab 0.4s ease forwards;
         }
     }
 }
@@ -350,6 +380,8 @@
     padding: 12px 24px;
     border-bottom: 1px solid #eee;
     margin-bottom: 12px;
+    background-color: #fff;
+    transition: 0.3s ease;
 
     &__title {
         font-size: 18px;
@@ -378,6 +410,7 @@
         & .btn {
             border: none;
             font-size: 0;
+            transition-property: background;
 
             &::before {
                 content: '';
@@ -386,6 +419,9 @@
                 display: inline-block;
                 background-color: #fff;
                 border-radius: 50%;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTEiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEuNDg4IDQuMTk5bDUuNTM0IDQuOTk4IDguODY2LTgiIHN0cm9rZT0iIzAwOTBDMyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4=);
             }
 
             &::after {
@@ -424,5 +460,40 @@
 .checkout-fast {
     & textarea {
         border: 1px solid #ccc;
+    }
+}
+
+.form__subitem p {
+    font-size: 14px;
+    font-family: var(--font-montserrat);
+    color: rgba($color: #000000, $alpha: 0.22);
+}
+
+.checkout-pay {
+    &__tabs {
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding-bottom: 36px;
+
+        & input {
+            display: none;
+
+            &:checked {
+                &~.box-radio {
+
+                    background-color: var(--accent);
+                    color: #fff;
+
+                    & .box-radio {
+                        &__elem {
+                            background-color: var(--accent);
+                            border: 6px solid #fff;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

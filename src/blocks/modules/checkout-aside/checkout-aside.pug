@@ -15,7 +15,7 @@ mixin checkout-aside
                     span Подробнее
             .checkout-aside__logo
                 +checkbox('Нужно нанесение логотипа ')
-                a(href='#') Подробнее...
+                a( data-popup="ajax" data-url="/parts/_popup-cart.html") Подробнее...
 
             .checkout-aside__prop.checkout-aside__prop--details
                 ul
@@ -37,4 +37,4 @@ mixin checkout-aside
                 strong 38 900 ₽
 
             .checkout-aside__pay
-                a(href='#'): button.btn.btn-full Оплатить
+                a(href='/thanks.html'): button.btn.btn-full Оплатить

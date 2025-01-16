@@ -110,16 +110,16 @@ mixin radio-desc(label, desc, name, val, check)
     span.radio__text  
       span.radio__title!= label
       span.radio__desc!= desc
-
+ 
 mixin input-material(type, placeholder, value)
   .input-material
     input(type=''+type+'' value=(value?value:''))
-    label= placeholder 
+    label!= placeholder 
 
 mixin input-material-required(type, placeholder, value)
   .input-material
     input(type=''+type+'' value=(value?value:'') required)
-    label= placeholder 
+    label!= placeholder 
 
 mixin input-material-date(type, placeholder, value)
   .input-material.input-material--date

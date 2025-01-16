@@ -21,9 +21,9 @@
          flex-grow: 1;
 
          border-radius: 8px;
-         border: 2px solid var(--color-borders-2);
+         border: 1px solid #B1B1B1;
          width: 100%;
-         color: var(--color-text-1);
+         color: #222;
          height: 50px;
 
          @media screen and (min-width: $w576) {
@@ -33,14 +33,14 @@
 
 
          &::placeholder {
-             color: var(--color-text-2);
+             color: #333;
              opacity: 1;
              text-shadow: none;
              font-weight: 400;
          }
 
          &:focus {
-             border-color: var(--color-accent-2);
+             border-color: var(--accent);
              outline: 0;
          }
 
@@ -664,4 +664,8 @@
          margin-left: 8px;
      }
 
+ }
+
+ .star-required {
+     color: #f00;
  }

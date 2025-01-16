@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function (event) {
 
-    const API_YMAPS = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU&mode=debug';
+    const API_YMAPS = 'https://api-maps.yandex.ru/2.1/?apikey=0e2d85e0-7f40-4425-aab6-ff6d922bb371&suggest_apikey=ad5015b5-5f39-4ba3-9731-a83afcecb740&lang=ru_RU&mode=debug';
     const SLIDER_ARROW_PATH = 'M16.2859 12.2421C16.6493 11.9029 17.2188 11.9225 17.558 12.2859L23.7802 18.9526C24.1029 19.2984 24.1029 19.835 23.7802 20.1808L17.558 26.8474C17.2188 27.2108 16.6493 27.2304 16.2859 26.8913C15.9225 26.5521 15.9029 25.9826 16.2421 25.6193L21.8911 19.5667L16.2421 13.5141C15.9029 13.1507 15.9225 12.5812 16.2859 12.2421Z'
 
 
@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     window.loadApiYmaps = function (callback) {
 
-        if (window.ymaps == undefined) {
+        if (window.ymaps == undefined && !window.stateLoadingApi) {
+            window.stateLoadingApi = true
             const script = document.createElement('script')
             script.src = API_YMAPS
             script.onload = () => {

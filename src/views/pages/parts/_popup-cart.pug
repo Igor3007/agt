@@ -1,0 +1,81 @@
+include ../../helpers/mixins.pug
+
+-
+    const itemsCart = [
+        {
+            title: 'Кофта мужская зимняя KW 215, синий/черный цвет, Brodeks',
+            price: '64 100 ₽',
+            sale: '-12%',
+        },
+        {
+            title: 'Кофта мужская зимняя KW 215, синий/черный цвет, Brodeks',
+            price: '35 200 ₽',
+            sale: '',
+        },
+        {
+            title: 'Кофта мужская зимняя KW 215, синий/черный цвет, Brodeks',
+            price: '64 100 ₽',
+            sale: '-12%',
+        },
+        {
+            title: 'Кофта мужская зимняя KW 215, синий/черный цвет, Brodeks',
+            price: '35 200 ₽',
+            sale: '',
+        },
+        {
+            title: 'Кофта мужская зимняя KW 215, синий/черный цвет, Brodeks',
+            price: '64 100 ₽',
+            sale: '-12%',
+        },
+        {
+            title: 'Кофта мужская зимняя KW 215, синий/черный цвет, Brodeks',
+            price: '35 200 ₽',
+            sale: '',
+        },
+        {
+            title: 'Кофта мужская зимняя KW 215, синий/черный цвет, Brodeks',
+            price: '64 100 ₽',
+            sale: '-12%',
+        },
+        {
+            title: 'Кофта мужская зимняя KW 215, синий/черный цвет, Brodeks',
+            price: '64 100 ₽',
+            sale: '-12%',
+        },
+        {
+            title: 'Кофта мужская зимняя KW 215, синий/черный цвет, Brodeks',
+            price: '35 200 ₽',
+            sale: '',
+        },
+        {
+            title: 'Кофта мужская зимняя KW 215, синий/черный цвет, Brodeks',
+            price: '64 100 ₽',
+            sale: '-12%',
+        },
+        {
+            title: 'Кофта мужская зимняя KW 215, синий/черный цвет, Brodeks',
+            price: '35 200 ₽',
+            sale: '',
+        },
+        {
+            title: 'Кофта мужская зимняя KW 215, синий/черный цвет, Brodeks',
+            price: '64 100 ₽',
+            sale: '-12%',
+        },
+    ]
+ 
+.popup-cart
+    .popup-cart__wrp
+        .popup-cart__title Ваша корзина
+        .popup-cart__list
+            each item in itemsCart
+                .popup-cart__item
+                    .card-procuct-cart
+                        .card-procuct-cart__title= item.title
+                        .card-procuct-cart__main
+                            .card-procuct-cart__price= item.price
+                            .card-procuct-cart__size за 5 размеров.
+                            if item.sale != ''
+                                .card-procuct-cart__sale: span= item.sale
+
+                                    

@@ -245,23 +245,23 @@ span[data-color=fff] {
     display: none;
 
     @media screen and (min-width: $w760) {
-    display: block;
+        display: block;
     }
-  }
+}
 
-  .bottom-question .btn {
+.bottom-question .btn {
     background-color: #8d8d8d;
     height: 44px;
     font-size: 15px;
     padding-left: 1.5em;
     padding-right: 1.5em;
-  }
-  
-  .bottom-question .btn:hover {
-    background-color: var(--accent);
-  }
+}
 
-  .page {
+.bottom-question .btn:hover {
+    background-color: var(--accent);
+}
+
+.page {
     &__back {
 
         padding-bottom: 4px;
@@ -270,10 +270,14 @@ span[data-color=fff] {
             padding-bottom: 16px;
         }
 
+        @media screen and (min-width: $w1440) {
+            padding-bottom: 12px;
+        }
+
         & a {
             display: flex;
             align-items: center;
-            
+
         }
 
         & svg {
@@ -292,24 +296,74 @@ span[data-color=fff] {
         }
     }
 
-    &__title{
+    &__title {
 
         padding-bottom: 30px;
+
         @media screen and (min-width: $w1440) {
-        padding-bottom: 16px;
-        
+            padding-bottom: 16px;
+
         }
 
         & h1 {
             margin: 0;
-            @include  font-h1;
+            @include font-h1;
         }
     }
 
     &__breadcrumbs {
+
+        @media screen and (min-width: $w1440) {
+            margin-top: 0;
+            padding-bottom: 8px;
+        }
+
         @media screen and (min-width: $w760) {
-        margin-bottom: -5px;
+            margin-bottom: -5px;
         }
     }
 
-  }
+}
+
+.suggest-list {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: auto;
+    left: 0;
+    z-index: 999;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #e9e9e9;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.25);
+    color: #000;
+    min-width: 100%;
+    width: 100%;
+    max-height: 300px;
+    @include scrollbar();
+
+    & li {
+        margin: 0;
+        padding: 0.75rem 15px;
+        border-top: 1px solid #ececec;
+        transition: all 0.15s ease-in;
+        font-size: 14px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        &:first-child {
+            border-top: none;
+        }
+
+        &.active,
+        &:hover {
+            background-color: #eee;
+        }
+    }
+}

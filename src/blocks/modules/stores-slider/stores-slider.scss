@@ -178,6 +178,13 @@
         justify-content: flex-end;
         width: 100%;
         max-width: 285px;
+        margin: 0 auto;
+
+        @media screen and (min-width: $w576) {
+            margin: unset;
+        }
+
+
     }
 
     &__right {

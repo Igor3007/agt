@@ -44,17 +44,36 @@
     }
 
     &__content {
-        @media screen and (min-width: $w991) {
+        @media screen and (min-width: $w1200) {
             width: calc(100% - 436px);
+
+        }
+
+        @media screen and (min-width: $w991) {
+            width: calc(100% - 280px);
             max-width: 1200px;
             margin-right: auto;
         }
     }
 
     &__aside {
-        @media screen and (min-width: $w991) {
+
+        @media screen and (max-width: $w991) {
+            display: none;
+
+            &.is-open {
+                display: block;
+            }
+        }
+
+        @media screen and (min-width: $w1200) {
             width: 436px;
         }
+
+        @media screen and (min-width: $w991) {
+            width: 280px;
+        }
+
     }
 
     &__steps {
@@ -137,6 +156,7 @@
                         }
                     }
 
+                    &.is-complete,
                     &:hover {
                         & span {
                             color: #000;
@@ -174,6 +194,15 @@
             gap: 16px;
 
             & li {
+
+                @media screen and (max-width: $w480) {
+                    flex-grow: 1;
+
+                    & span {
+                        width: 100%;
+                    }
+                }
+
                 & span {
                     font-size: 14px;
                     font-weight: 600;
@@ -226,8 +255,16 @@
     }
 
     &__next {
+
+
+
         & .btn {
             margin-left: auto;
+
+            @media screen and (max-width: $w576) {
+                margin-left: auto;
+                margin-right: auto;
+            }
 
             @media screen and (min-width: $w1440) {
                 font-size: 17px;
@@ -256,6 +293,11 @@
         flex-wrap: wrap;
         gap: 12px;
         padding-bottom: 36px;
+
+
+        @media screen and (max-width: $w480) {
+            justify-content: center;
+        }
 
         & input {
             display: none;
@@ -344,21 +386,31 @@
 
 .checkout-pickup {
 
-    @media screen and (min-width: $w991) {
+    @media screen and (min-width: $w1200) {
         display: flex;
         gap: 50px;
     }
 
     &__list {
-        @media screen and (min-width: $w991) {
+        @media screen and (min-width: $w1200) {
             width: 50%;
         }
     }
 
     &__map {
 
-        padding-top: 30%;
+        padding-top: 57%;
         position: relative;
+        margin-top: 30px;
+
+        @media screen and (min-width: $w1200) {
+            width: calc(50%);
+        }
+
+        @media screen and (min-width: $w576) {
+            padding-top: 30%;
+            margin-top: 0;
+        }
 
         & .ymap-container {
 
@@ -370,38 +422,93 @@
             height: 100%;
         }
 
-        @media screen and (min-width: $w991) {
-            width: calc(50%);
-        }
+
     }
 }
 
 .checkout-pickup-point {
     padding: 12px 24px;
     border-bottom: 1px solid #eee;
-    margin-bottom: 12px;
     background-color: #fff;
     transition: 0.3s ease;
 
+    @media screen and (min-width: $w576) {
+        margin-bottom: 12px;
+    }
+
+    @media screen and (max-width: 576px) {
+        position: relative;
+        padding-left: 30px;
+    }
+
     &__title {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 600;
         padding-bottom: 6px;
+
+        @media screen and (min-width: $w576) {
+            font-size: 18px;
+        }
+
+        @media screen and (max-width: $w576) {
+
+
+
+            &::before {
+                content: '';
+                width: 20px;
+                min-width: 20px;
+                height: 20px;
+                display: inline-block;
+                border-radius: 50%;
+                background-color: #fff;
+                margin-right: 14px;
+                border: 1px solid #ccc;
+                transition: 0.3s ease;
+                box-sizing: border-box;
+                cursor: pointer;
+                margin-bottom: -1px;
+                position: absolute;
+                left: 0;
+                top: 13px;
+            }
+        }
+
     }
 
     &__time {
         font-size: 14px;
-        padding-bottom: 12px;
+
+        @media screen and (min-width: $w576) {
+            padding-bottom: 12px;
+        }
+    }
+
+    &__select {
+        @media screen and (max-width: $w576) {
+            display: none;
+        }
     }
 
     &.is-active {
-        background-color: var(--accent);
+        @media screen and (min-width: $w576) {
+            background-color: var(--accent);
+        }
 
         & .checkout-pickup-point {
 
             &__time,
             &__title {
-                color: #fff;
+                @media screen and (min-width: $w576) {
+                    color: #fff;
+                }
+            }
+
+            &__title {
+                &::before {
+                    background-color: #fff;
+                    border: 6px solid var(--accent);
+                }
             }
 
 
@@ -470,12 +577,23 @@
 }
 
 .checkout-pay {
+
     &__tabs {
 
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
         padding-bottom: 36px;
+
+        @media screen and (max-width: $w576) {
+            & label {
+                width: 100%;
+
+                & .box-radio {
+                    justify-content: space-between;
+                }
+            }
+        }
 
         & input {
             display: none;
@@ -496,4 +614,21 @@
             }
         }
     }
+
+    &__back {
+
+        display: flex;
+        justify-content: center;
+
+        @media screen and (min-width: $w576) {
+            padding-top: 60px;
+            justify-content: flex-start;
+
+        }
+
+        @media screen and (min-width: $w991) {
+            display: none;
+        }
+    }
+
 }

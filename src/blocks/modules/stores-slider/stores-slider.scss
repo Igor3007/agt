@@ -53,6 +53,16 @@
             }
         }
     }
+
+    &:not(.section-stores-slider--desc) {
+        & .stores-slider {
+            &__city {
+                &--mobile {
+                    display: none;
+                }
+            }
+        }
+    }
 }
 
 .section-stores-slider--desc {
@@ -77,6 +87,23 @@
     }
 
     & .stores-slider {
+
+        &__city {
+
+
+            @media screen and (min-width: $w576) {
+                display: none;
+            }
+
+            &--mobile {
+                color: var(--accent);
+                font-weight: 600;
+                padding-bottom: 6px;
+            }
+
+
+        }
+
         @media screen and (max-width: $w576) {
             &__address {
                 font-size: 16px;
@@ -84,6 +111,11 @@
 
             &__city {
                 padding-bottom: 15px;
+
+
+                &--mobile {
+                    display: none;
+                }
             }
 
             &__worktime {
@@ -230,11 +262,15 @@
 
         @media screen and (min-width: $w992) {
             font-size: 21px;
+            display: block;
         }
 
         @media screen and (min-width: $w576) {
             text-align: left;
         }
+
+
+
     }
 
     &__address {
@@ -242,7 +278,7 @@
         font-weight: bold;
         padding-bottom: 12px;
         text-align: center;
-        max-width: calc(100% - 100px);
+
         margin: 0 auto;
         line-height: 120%;
 

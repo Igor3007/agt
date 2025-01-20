@@ -721,9 +721,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         let scrollHeight = document.querySelector('.single-product').clientHeight
         let scrollPosition = window.scrollY - document.querySelector('.sp-details').clientHeight
+        let detailsHeight = document.querySelector('.sp-details').clientHeight
 
         window.addEventListener('scroll', e => {
-            scrollPosition = window.scrollY - document.querySelector('.sp-details').clientHeight + 150
+            scrollPosition = window.scrollY - (detailsHeight) + 180
             document.querySelector('.single-product__details').classList.toggle('is-opacity', (scrollPosition > scrollHeight))
         })
     }
@@ -763,6 +764,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
             })
 
             let container = e.slide.closest('section')
+
+            if (container.querySelector('.stores-slider__city--mobile')) {
+                container.querySelector('.stores-slider__city--mobile').innerHTML = params.city
+            }
 
             container.querySelector('.stores-slider__city').innerHTML = params.city
             container.querySelector('.stores-slider__address').innerHTML = params.address

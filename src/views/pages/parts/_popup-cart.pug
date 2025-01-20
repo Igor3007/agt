@@ -73,7 +73,7 @@ include ../../helpers/mixins.pug
                     .card-procuct-cart
                         .card-procuct-cart__title= item.title
                         .card-procuct-cart__main
-                            .card-procuct-cart__price= item.price
+                            .card-procuct-cart__price(class= item.sale ? 'card-procuct-cart__price--sale' : '')= item.price
                             .card-procuct-cart__size за 5 размеров.
                             if item.sale != ''
                                 .card-procuct-cart__sale: span= item.sale

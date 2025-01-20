@@ -26,8 +26,11 @@
 
     &__price {
         font-size: 20px;
-        color: var(--accent);
         font-weight: 600;
+
+        &--sale {
+            color: var(--accent);
+        }
     }
 
     &__size {
@@ -38,11 +41,6 @@
 
     &__sale {
 
-        margin-left: auto;
-
-        @media screen and (min-width: $w480) {
-            margin-left: unset;
-        }
 
         & span {
             background-color: var(--accent);

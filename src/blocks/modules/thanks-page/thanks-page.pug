@@ -1,6 +1,12 @@
+include ../../components/breadcrumb/breadcrumb.pug
+
 mixin thanks-page
     section.section-thanks-page
         .container
+            +breadcrumb([
+                'AGT',
+                'Заказ оформлен'
+            ])
             .thanks-page
                 .thanks-page__image
                     <svg  class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">

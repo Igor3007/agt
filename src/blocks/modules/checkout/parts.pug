@@ -19,7 +19,7 @@ mixin checkout-user
                             .multi-mask
                                 .input-material
                                     input(type='text' max-length="60" required)
-                                    label= 'Контактный телефон'
+                                    label!= 'Контактный телефон <span class=star-required >*</span>'
 
             .checkout-user__tabs-item
                 .form
@@ -40,10 +40,10 @@ mixin checkout-user
                             .multi-mask
                                 .input-material
                                     input(type='text' max-length="60" required)
-                                    label= 'Контактный телефон'
+                                    label!= 'Контактный телефон <span class=star-required >*</span>'
                     
         .checkout-user__subscribe
-            +checkbox('Даю согласие на получение информационных рассылок')
+            +checkbox('Даю согласие на получение информационных рассылок', 'policy', TRUE)
 
         .checkout-user__next
             button.btn(data-next-step) Следющий шаг
@@ -99,8 +99,8 @@ mixin checkout-delivery
                     .checkout-field
                         .checkout-field__label Способ получения
                         .checkout-field__radio
-                            +radio('Курьером')
-                            +radio('до ПВЗ')
+                            +radio('Курьером', 'sd', '1', true)
+                            +radio('до ПВЗ', 'sd', '2')
                         .checkout-field__label Данные получателя
                         .checkout-field__input
                             .input-material.input--suggest
@@ -114,8 +114,8 @@ mixin checkout-delivery
                     .checkout-field
                         .checkout-field__label Способ получения
                         .checkout-field__radio
-                            +radio('Почтой Росии')
-                            +radio('ТК')
+                            +radio('Почтой Росии', 'post-tk', '1', true)
+                            +radio('ТК', 'post-tk', '2')
                         .checkout-field__label Данные получателя
                         .checkout-field__input
                             .input-material.input--suggest
@@ -155,7 +155,7 @@ mixin checkout-delivery
  
 mixin checkout-pay
     .checkout-pay
-        .checkout-delivery__tabs
+        .checkout-pay__tabs
             label
                 input(type="radio" name="type-payment" checked)
                 div.box-radio
@@ -171,4 +171,7 @@ mixin checkout-pay
                 div.box-radio
                     div.box-radio__text Счет на оплату
                     div.box-radio__elem
+
+        .checkout-pay__back
+            button.btn.btn-gray(data-prev-step) Предыдущий шаг
             

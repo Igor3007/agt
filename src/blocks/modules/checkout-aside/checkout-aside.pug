@@ -9,13 +9,28 @@ mixin checkout-aside
                             span Товары (17)
                             strong 39 400 ₽ 
                         li
-                            span Ваша выгода
-                            strong.color--green - 500 ₽
+                            .aside-dropdown
+                                .aside-dropdown__title
+                                    span Ваша выгода
+                                    strong.color--green - 500 ₽
+                                .aside-dropdown__content
+                                    .aside-dropdown__item
+                                        span Промокод
+                                        strong - 250 ₽
+                                    .aside-dropdown__item
+                                        span Скидки
+                                        strong - 250 ₽
+
+                .checkout-aside__promocode
+                    .input-material
+                        input(type="text" )
+                        label Промокод
+                                
                 .checkout-aside__more
-                    span Подробнее
+                    span( data-popup="ajax" data-url="/parts/_popup-cart.html") Подробнее
             .checkout-aside__logo
                 +checkbox('Нужно нанесение логотипа ')
-                a( data-popup="ajax" data-url="/parts/_popup-cart.html") Подробнее...
+                a(href="/print-logo.html") Подробнее...
 
             .checkout-aside__prop.checkout-aside__prop--details
                 ul

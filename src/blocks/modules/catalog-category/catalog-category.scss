@@ -596,6 +596,9 @@
 
     &.is-close-filter {
         & .catalog-category {
+
+
+
             &__aside {
                 margin-left: -325px;
                 opacity: 0;
@@ -645,6 +648,27 @@
                     width: 33.33%;
                     padding-bottom: 30px;
                 }
+
+                &--lg {
+                    @media screen and (min-width: $w1440) {
+                        width: 40%;
+                        padding-bottom: 60px;
+                    }
+
+                    @media screen and (min-width: $w1200) {
+                        width: 50%;
+                        padding-bottom: 60px;
+                    }
+
+                    @media screen and (min-width: $w992) {
+                        width: 66.66%;
+                        padding-bottom: 30px;
+                    }
+                }
+            }
+
+            &.view--list>.category-products__item {
+                width: 100%
             }
         }
     }

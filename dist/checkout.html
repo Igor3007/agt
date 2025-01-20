@@ -418,233 +418,70 @@
                 <div class="checkout">
                   <div class="checkout__wrp">
                     <div class="checkout__content">
-                      <div class="checkout__steps">
-                        <div class="checkout__steps-nav">
-                          <ul>
-                            <li class="is-active"><span data-num="1">Покупатель</span></li>
-                            <li><span data-num="2">Доставка</span></li>
-                            <li><span data-num="3">Оплата</span></li>
-                          </ul>
-                        </div>
-                        <div class="checkout__steps-content">
-                          <div class="checkout__steps-item is-active">
-                                  <div class="checkout-user">
-                                    <div class="checkout-user__tabs">
-                                      <ul>
-                                        <li class="is-active"><span>Физическое лицо</span></li>
-                                        <li><span>Юр. лицо</span></li>
-                                      </ul>
-                                    </div>
-                                    <div class="checkout-user__tabs-container">
-                                      <div class="checkout-user__tabs-item is-active">
-                                        <div class="form">
-                                          <div class="form__item">
-                                            <div class="form__subitem">
-                                              <div class="input-material">
-                                                <input type="text" value="" required="required"/>
-                                                <label>ФИО <span class=star-required >*</span></label>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="form__item">
-                                            <div class="form__subitem">
-                                              <div class="input-material">
-                                                <input type="email" value="" required="required"/>
-                                                <label>Email <span class=star-required >*</span></label>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="form__item">
-                                            <div class="form__subitem">
-                                              <div class="multi-mask">
-                                                <div class="input-material">
-                                                  <input type="text" max-length="60" required>
-                                                  <label>Контактный телефон</label>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="checkout-user__tabs-item">
-                                        <div class="form">
-                                          <div class="form__item">
-                                            <div class="form__subitem">
-                                              <div class="input-material">
-                                                <input type="text" value="" required="required"/>
-                                                <label>Название компании <span class=star-required >*</span></label>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="form__item">
-                                            <div class="form__subitem">
-                                              <div class="input-material">
-                                                <input type="text" value="" required="required"/>
-                                                <label>Контактное лицо <span class=star-required >*</span></label>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="form__item">
-                                            <div class="form__subitem">
-                                              <div class="input-material">
-                                                <input type="text" value=""/>
-                                                <label>ИНН</label>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="form__item">
-                                            <div class="form__subitem">
-                                              <div class="input-material">
-                                                <input type="email" value="" required="required"/>
-                                                <label>Email <span class=star-required >*</span></label>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="form__item">
-                                            <div class="form__subitem">
-                                              <div class="multi-mask">
-                                                <div class="input-material">
-                                                  <input type="text" max-length="60" required>
-                                                  <label>Контактный телефон</label>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="checkout-user__subscribe">
-                                      <label class="checkbox">
-                                        <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Даю согласие на получение информационных рассылок</span>
-                                      </label>
-                                    </div>
-                                    <div class="checkout-user__next">
-                                      <button class="btn" data-next-step>Следющий шаг</button>
-                                    </div>
-                                  </div>
+                      <form action="#">
+                        <div class="checkout__steps">
+                          <div class="checkout__steps-nav">
+                            <ul>
+                              <li class="is-active"><span data-num="1">Покупатель</span></li>
+                              <li><span data-num="2">Доставка</span></li>
+                              <li><span data-num="3">Оплата</span></li>
+                            </ul>
                           </div>
-                          <div class="checkout__steps-item">
-                                  <div class="checkout-delivery">
-                                    <div class="checkout-delivery__tabs">
-                                      <label>
-                                        <input type="radio" name="type-delivery" checked>
-                                        <div class="box-radio">
-                                          <div class="box-radio__text">Самовывоз</div>
-                                          <div class="box-radio__elem"> </div>
-                                        </div>
-                                      </label>
-                                      <label>
-                                        <input type="radio" name="type-delivery">
-                                        <div class="box-radio">
-                                          <div class="box-radio__text">СДЭК</div>
-                                          <div class="box-radio__elem"></div>
-                                        </div>
-                                      </label>
-                                      <label>
-                                        <input type="radio" name="type-delivery">
-                                        <div class="box-radio">
-                                          <div class="box-radio__text">ТК и Почтой России</div>
-                                          <div class="box-radio__elem"></div>
-                                        </div>
-                                      </label>
-                                      <label>
-                                        <input type="radio" name="type-delivery">
-                                        <div class="box-radio">
-                                          <div class="box-radio__text">Быстрая доставка по СПБ и МСК</div>
-                                          <div class="box-radio__elem"></div>
-                                        </div>
-                                      </label>
-                                    </div>
-                                    <div class="checkout-delivery__content">
-                                      <div class="checkout-delivery__content-item is-active">
-                                        <div class="checkout-pickup">
-                                          <div class="checkout-pickup__list">
-                                            <div class="checkout-pickup-point" data-coordinates="59.91029756419331,30.313954499999973">
-                                              <div class="checkout-pickup-point__title">Санкт-Петербург, ул. Егорова, 25</div>
-                                              <div class="checkout-pickup-point__time">Работает с 10:00 до 22:00</div>
-                                              <div class="checkout-pickup-point__select">
-                                                <button class="btn btn-line btn-small" data-selected="Выбрано">Выбрать</button>
-                                              </div>
-                                            </div>
-                                            <div class="checkout-pickup-point" data-coordinates="55.73571756901459,37.681712000000026">
-                                              <div class="checkout-pickup-point__title">Москва, Малая Калитниковская ул., д. 9</div>
-                                              <div class="checkout-pickup-point__time">Работает с 10:00 до 22:00</div>
-                                              <div class="checkout-pickup-point__select">
-                                                <button class="btn btn-line btn-small" data-selected="Выбрано">Выбрать</button>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="checkout-pickup__map">
-                                            <div class="ymap-container" id="map"></div>
-                                          </div>
-                                        </div>
+                          <div class="checkout__steps-content">
+                            <div class="checkout__steps-item is-active">
+                                    <div class="checkout-user">
+                                      <div class="checkout-user__tabs">
+                                        <ul>
+                                          <li class="is-active"><span>Физическое лицо</span></li>
+                                          <li><span>Юр. лицо</span></li>
+                                        </ul>
                                       </div>
-                                      <div class="checkout-delivery__content-item">
-                                        <div class="checkout-sdek">
-                                          <div class="checkout-field">
-                                            <div class="checkout-field__label">Способ получения</div>
-                                            <div class="checkout-field__radio">
-                                              <label class="radio">
-                                                <input type="radio" name="undefined" value="undefined"/><span class="radio__elem"></span><span class="radio__text">Курьером</span>
-                                              </label>
-                                              <label class="radio">
-                                                <input type="radio" name="undefined" value="undefined"/><span class="radio__elem"></span><span class="radio__text">до ПВЗ</span>
-                                              </label>
-                                            </div>
-                                            <div class="checkout-field__label">Данные получателя</div>
-                                            <div class="checkout-field__input">
-                                              <div class="input-material input--suggest">
-                                                <input type="text" name="city" autocomplete="off">
-                                                <label>Город <span class="star-required" >*</span></label>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="checkout-delivery__content-item">
-                                        <div class="checkout-post">
-                                          <div class="checkout-field">
-                                            <div class="checkout-field__label">Способ получения</div>
-                                            <div class="checkout-field__radio">
-                                              <label class="radio">
-                                                <input type="radio" name="undefined" value="undefined"/><span class="radio__elem"></span><span class="radio__text">Почтой Росии</span>
-                                              </label>
-                                              <label class="radio">
-                                                <input type="radio" name="undefined" value="undefined"/><span class="radio__elem"></span><span class="radio__text">ТК</span>
-                                              </label>
-                                            </div>
-                                            <div class="checkout-field__label">Данные получателя</div>
-                                            <div class="checkout-field__input">
-                                              <div class="input-material input--suggest">
-                                                <input type="text" name="city" autocomplete="off">
-                                                <label>Город <span class="star-required" >*</span></label>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="checkout-delivery__content-item">
-                                        <div class="checkout-fast">
+                                      <div class="checkout-user__tabs-container">
+                                        <div class="checkout-user__tabs-item is-active">
                                           <div class="form">
                                             <div class="form__item">
                                               <div class="form__subitem">
-                                                <div class="form__label">Данные получателя</div>
-                                              </div>
-                                            </div>
-                                            <div class="form__item">
-                                              <div class="form__subitem">
-                                                <p>Город <span class="star-required" >*</span></p>
-                                                <select name="city">
-                                                  <option value="">Москва</option>
-                                                  <option value="">Санкт-Питербург</option>
-                                                </select>
+                                                <div class="input-material">
+                                                  <input type="text" value="" required="required" max-length="60" data-input-mask="name"/>
+                                                  <label>ФИО <span class=star-required >*</span></label>
+                                                </div>
                                               </div>
                                             </div>
                                             <div class="form__item">
                                               <div class="form__subitem">
                                                 <div class="input-material">
-                                                  <input type="text" value=""/>
-                                                  <label>Улица <span class=star-required >*</span></label>
+                                                  <input type="email" value="" required="required" max-length="60" data-input-mask="email"/>
+                                                  <label>Email <span class=star-required >*</span></label>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="form__item">
+                                              <div class="form__subitem">
+                                                <div class="multi-mask">
+                                                  <div class="input-material">
+                                                    <input type="text" max-length="60" required>
+                                                    <label>Контактный телефон <span class=star-required >*</span></label>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="checkout-user__tabs-item">
+                                          <div class="form">
+                                            <div class="form__item">
+                                              <div class="form__subitem">
+                                                <div class="input-material">
+                                                  <input type="text" value="" required="required" max-length="60" data-input-mask="name"/>
+                                                  <label>Название компании <span class=star-required >*</span></label>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="form__item">
+                                              <div class="form__subitem">
+                                                <div class="input-material">
+                                                  <input type="text" value="" required="required" max-length="60" data-input-mask="name"/>
+                                                  <label>Контактное лицо <span class=star-required >*</span></label>
                                                 </div>
                                               </div>
                                             </div>
@@ -652,65 +489,233 @@
                                               <div class="form__subitem">
                                                 <div class="input-material">
                                                   <input type="text" value=""/>
-                                                  <label>Дом <span class=star-required >*</span></label>
+                                                  <label>ИНН</label>
                                                 </div>
                                               </div>
+                                            </div>
+                                            <div class="form__item">
                                               <div class="form__subitem">
                                                 <div class="input-material">
-                                                  <input type="text" value=""/>
-                                                  <label>Квартира/Офис <span class=star-required >*</span></label>
+                                                  <input type="email" value="" required="required" max-length="60" data-input-mask="email"/>
+                                                  <label>Email <span class=star-required >*</span></label>
                                                 </div>
                                               </div>
                                             </div>
                                             <div class="form__item">
                                               <div class="form__subitem">
-                                                <div class="form__label">Комментарий</div>
-                                              </div>
-                                            </div>
-                                            <div class="form__item">
-                                              <div class="form__subitem">
-                                                <textarea placeholder=""></textarea>
+                                                <div class="multi-mask">
+                                                  <div class="input-material">
+                                                    <input type="text" max-length="60" required>
+                                                    <label>Контактный телефон <span class=star-required >*</span></label>
+                                                  </div>
+                                                </div>
                                               </div>
                                             </div>
                                           </div>
                                         </div>
                                       </div>
+                                      <div class="checkout-user__subscribe">
+                                        <label class="checkbox">
+                                          <input type="checkbox" name="policy"/><span class="checkbox__elem"></span><span class="checkbox__text">Даю согласие на получение информационных рассылок</span>
+                                        </label>
+                                      </div>
+                                      <div class="checkout-user__next">
+                                        <button class="btn" data-next-step>Следющий шаг</button>
+                                      </div>
                                     </div>
-                                    <div class="checkout-delivery__next">
-                                      <button class="btn btn-gray" data-prev-step>Предыдущий шаг</button>
-                                      <button class="btn" data-next-step>Следющий шаг</button>
+                            </div>
+                            <div class="checkout__steps-item">
+                                    <div class="checkout-delivery">
+                                      <div class="checkout-delivery__tabs">
+                                        <label>
+                                          <input type="radio" name="type-delivery" checked>
+                                          <div class="box-radio">
+                                            <div class="box-radio__text">Самовывоз</div>
+                                            <div class="box-radio__elem"> </div>
+                                          </div>
+                                        </label>
+                                        <label>
+                                          <input type="radio" name="type-delivery">
+                                          <div class="box-radio">
+                                            <div class="box-radio__text">СДЭК</div>
+                                            <div class="box-radio__elem"></div>
+                                          </div>
+                                        </label>
+                                        <label>
+                                          <input type="radio" name="type-delivery">
+                                          <div class="box-radio">
+                                            <div class="box-radio__text">ТК и Почтой России</div>
+                                            <div class="box-radio__elem"></div>
+                                          </div>
+                                        </label>
+                                        <label>
+                                          <input type="radio" name="type-delivery">
+                                          <div class="box-radio">
+                                            <div class="box-radio__text">Быстрая доставка по СПБ и МСК</div>
+                                            <div class="box-radio__elem"></div>
+                                          </div>
+                                        </label>
+                                      </div>
+                                      <div class="checkout-delivery__content">
+                                        <div class="checkout-delivery__content-item is-active">
+                                          <div class="checkout-pickup">
+                                            <div class="checkout-pickup__list">
+                                              <div class="checkout-pickup-point" data-coordinates="59.91029756419331,30.313954499999973">
+                                                <div class="checkout-pickup-point__title">Санкт-Петербург, ул. Егорова, 25</div>
+                                                <div class="checkout-pickup-point__time">Работает с 10:00 до 22:00</div>
+                                                <div class="checkout-pickup-point__select">
+                                                  <button class="btn btn-line btn-small" data-selected="Выбрано">Выбрать</button>
+                                                </div>
+                                              </div>
+                                              <div class="checkout-pickup-point" data-coordinates="55.73571756901459,37.681712000000026">
+                                                <div class="checkout-pickup-point__title">Москва, Малая Калитниковская ул., д. 9</div>
+                                                <div class="checkout-pickup-point__time">Работает с 10:00 до 22:00</div>
+                                                <div class="checkout-pickup-point__select">
+                                                  <button class="btn btn-line btn-small" data-selected="Выбрано">Выбрать</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="checkout-pickup__map">
+                                              <div class="ymap-container" id="map"></div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="checkout-delivery__content-item">
+                                          <div class="checkout-sdek">
+                                            <div class="checkout-field">
+                                              <div class="checkout-field__label">Способ получения</div>
+                                              <div class="checkout-field__radio">
+                                                <label class="radio">
+                                                  <input type="radio" name="sd" checked="" value="1"/><span class="radio__elem"></span><span class="radio__text">Курьером</span>
+                                                </label>
+                                                <label class="radio">
+                                                  <input type="radio" name="sd" value="2"/><span class="radio__elem"></span><span class="radio__text">до ПВЗ</span>
+                                                </label>
+                                              </div>
+                                              <div class="checkout-field__label">Данные получателя</div>
+                                              <div class="checkout-field__input">
+                                                <div class="input-material input--suggest">
+                                                  <input type="text" name="city" autocomplete="off">
+                                                  <label>Город <span class="star-required" >*</span></label>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="checkout-delivery__content-item">
+                                          <div class="checkout-post">
+                                            <div class="checkout-field">
+                                              <div class="checkout-field__label">Способ получения</div>
+                                              <div class="checkout-field__radio">
+                                                <label class="radio">
+                                                  <input type="radio" name="post-tk" checked="" value="1"/><span class="radio__elem"></span><span class="radio__text">Почтой Росии</span>
+                                                </label>
+                                                <label class="radio">
+                                                  <input type="radio" name="post-tk" value="2"/><span class="radio__elem"></span><span class="radio__text">ТК</span>
+                                                </label>
+                                              </div>
+                                              <div class="checkout-field__label">Данные получателя</div>
+                                              <div class="checkout-field__input">
+                                                <div class="input-material input--suggest">
+                                                  <input type="text" name="city" autocomplete="off">
+                                                  <label>Город <span class="star-required" >*</span></label>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="checkout-delivery__content-item">
+                                          <div class="checkout-fast">
+                                            <div class="form">
+                                              <div class="form__item">
+                                                <div class="form__subitem">
+                                                  <div class="form__label">Данные получателя</div>
+                                                </div>
+                                              </div>
+                                              <div class="form__item">
+                                                <div class="form__subitem">
+                                                  <p>Город <span class="star-required" >*</span></p>
+                                                  <select name="city">
+                                                    <option value="">Москва</option>
+                                                    <option value="">Санкт-Питербург</option>
+                                                  </select>
+                                                </div>
+                                              </div>
+                                              <div class="form__item">
+                                                <div class="form__subitem">
+                                                  <div class="input-material">
+                                                    <input type="text" value=""/>
+                                                    <label>Улица <span class=star-required >*</span></label>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="form__item">
+                                                <div class="form__subitem">
+                                                  <div class="input-material">
+                                                    <input type="text" value=""/>
+                                                    <label>Дом <span class=star-required >*</span></label>
+                                                  </div>
+                                                </div>
+                                                <div class="form__subitem">
+                                                  <div class="input-material">
+                                                    <input type="text" value=""/>
+                                                    <label>Квартира/Офис <span class=star-required >*</span></label>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="form__item">
+                                                <div class="form__subitem">
+                                                  <div class="form__label">Комментарий</div>
+                                                </div>
+                                              </div>
+                                              <div class="form__item">
+                                                <div class="form__subitem">
+                                                  <textarea placeholder=""></textarea>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="checkout-delivery__next">
+                                        <button class="btn btn-gray" data-prev-step>Предыдущий шаг</button>
+                                        <button class="btn" data-next-step>Следющий шаг</button>
+                                      </div>
                                     </div>
-                                  </div>
-                          </div>
-                          <div class="checkout__steps-item">
-                                  <div class="checkout-pay">
-                                    <div class="checkout-delivery__tabs">
-                                      <label>
-                                        <input type="radio" name="type-payment" checked>
-                                        <div class="box-radio">
-                                          <div class="box-radio__text">Картой на сайте</div>
-                                          <div class="box-radio__elem"> </div>
-                                        </div>
-                                      </label>
-                                      <label>
-                                        <input type="radio" name="type-payment">
-                                        <div class="box-radio">
-                                          <div class="box-radio__text">Наличными</div>
-                                          <div class="box-radio__elem"></div>
-                                        </div>
-                                      </label>
-                                      <label>
-                                        <input type="radio" name="type-payment">
-                                        <div class="box-radio">
-                                          <div class="box-radio__text">Счет на оплату</div>
-                                          <div class="box-radio__elem"></div>
-                                        </div>
-                                      </label>
+                            </div>
+                            <div class="checkout__steps-item">
+                                    <div class="checkout-pay">
+                                      <div class="checkout-pay__tabs">
+                                        <label>
+                                          <input type="radio" name="type-payment" checked>
+                                          <div class="box-radio">
+                                            <div class="box-radio__text">Картой на сайте</div>
+                                            <div class="box-radio__elem"> </div>
+                                          </div>
+                                        </label>
+                                        <label>
+                                          <input type="radio" name="type-payment">
+                                          <div class="box-radio">
+                                            <div class="box-radio__text">Наличными</div>
+                                            <div class="box-radio__elem"></div>
+                                          </div>
+                                        </label>
+                                        <label>
+                                          <input type="radio" name="type-payment">
+                                          <div class="box-radio">
+                                            <div class="box-radio__text">Счет на оплату</div>
+                                            <div class="box-radio__elem"></div>
+                                          </div>
+                                        </label>
+                                      </div>
+                                      <div class="checkout-pay__back">
+                                        <button class="btn btn-gray" data-prev-step>Предыдущий шаг</button>
+                                      </div>
                                     </div>
-                                  </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </form>
                     </div>
                     <div class="checkout__aside">
                             <div class="checkout-aside">
@@ -720,15 +725,29 @@
                                   <div class="checkout-aside__prop">
                                     <ul>
                                       <li><span>Товары (17)</span><strong>39 400 ₽ </strong></li>
-                                      <li><span>Ваша выгода</span><strong class="color--green">- 500 ₽</strong></li>
+                                      <li>
+                                        <div class="aside-dropdown">
+                                          <div class="aside-dropdown__title"><span>Ваша выгода</span><strong class="color--green">- 500 ₽</strong></div>
+                                          <div class="aside-dropdown__content">
+                                            <div class="aside-dropdown__item"><span>Промокод</span><strong>- 250 ₽</strong></div>
+                                            <div class="aside-dropdown__item"><span>Скидки</span><strong>- 250 ₽</strong></div>
+                                          </div>
+                                        </div>
+                                      </li>
                                     </ul>
                                   </div>
-                                  <div class="checkout-aside__more"><span>Подробнее</span></div>
+                                  <div class="checkout-aside__promocode">
+                                    <div class="input-material">
+                                      <input type="text">
+                                      <label>Промокод</label>
+                                    </div>
+                                  </div>
+                                  <div class="checkout-aside__more"><span data-popup="ajax" data-url="/parts/_popup-cart.html">Подробнее</span></div>
                                 </div>
                                 <div class="checkout-aside__logo">
                                   <label class="checkbox">
                                     <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Нужно нанесение логотипа </span>
-                                  </label><a data-popup="ajax" data-url="/parts/_popup-cart.html">Подробнее...</a>
+                                  </label><a href="/print-logo.html">Подробнее...</a>
                                 </div>
                                 <div class="checkout-aside__prop checkout-aside__prop--details">
                                   <ul>
@@ -775,7 +794,7 @@
                     <div class="form__subitem">
                       <div class="form__note">
                         <label class="checkbox">
-                          <input type="checkbox" name="true" checked=""/><span class="checkbox__elem"></span><span class="checkbox__text">Даю согласие на получение информационных рассылок</span>
+                          <input type="checkbox" name="policy" checked=""/><span class="checkbox__elem"></span><span class="checkbox__text">Даю согласие на получение информационных рассылок</span>
                         </label>
                       </div>
                     </div>

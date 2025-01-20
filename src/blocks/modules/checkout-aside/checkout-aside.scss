@@ -1,7 +1,7 @@
 .section-checkout {
     overflow: visible;
 }
- 
+
 .checkout-aside {
     padding: 36px 0;
 
@@ -10,7 +10,11 @@
     }
 
     @media screen and (min-width: $w992) {
-    margin-top: -30px;
+        margin-top: -30px;
+    }
+
+    &__promocode {
+        padding: 12px 0;
     }
 
     &__title {
@@ -23,9 +27,9 @@
         }
     }
 
-    
+    &__prop {
 
-    &__prop{
+        padding-bottom: 4px;
 
         & ul {
             & li {
@@ -38,14 +42,19 @@
                 @media screen and (min-width: $w760) {
                     padding: 6px 0;
                 }
-                
+
+                & span {
+                    margin-right: 12px;
+                }
 
                 & strong {
                     font-weight: bold;
+                    text-align: right;
 
                     &.color--green {
                         color: #3CAA3C;
                     }
+
                     &.color--red {
                         color: rgb(192, 24, 24);
                     }
@@ -65,7 +74,7 @@
         }
     }
 
-    &__more{
+    &__more {
         font-size: 15px;
         font-weight: 600;
         color: var(--accent);
@@ -77,10 +86,21 @@
 
         & span {
             cursor: pointer;
+
+            &::after {
+                content: '';
+                width: 12px;
+                height: 8px;
+                display: inline-block;
+                margin-left: 10px;
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTS40NjUgMi4wOTNsNC44NzcgNC43NzNhLjc3OS43NzkgMCAwMDEuMDgzIDBsNC44NzctNC43NzNjLjMtLjI5My4zLS43NjggMC0xLjA2MWEuNzc4Ljc3OCAwIDAwLTEuMDg0IDBMNS44ODMgNS4yNzUgMS41NDggMS4wMzJhLjc3OC43NzggMCAwMC0xLjA4MyAwYy0uMy4yOTMtLjMuNzY4IDAgMS4wNnoiIGZpbGw9IiMwMDkwYzMiLz48L3N2Zz4=);
+                background-position: center;
+                background-repeat: no-repeat;
+            }
         }
     }
 
-    &__logo{
+    &__logo {
         display: flex;
         align-items: center;
         border-top: 1px solid rgba($color: #000000, $alpha: 0.12);
@@ -102,7 +122,7 @@
         }
     }
 
-    &__total{
+    &__total {
         border-top: 1px solid rgba($color: #000000, $alpha: 0.12);
         padding-top: 29px;
         display: flex;
@@ -115,9 +135,75 @@
         }
     }
 
-    &__pay{
+    &__pay {
         padding-top: 36px;
     }
 
 
+}
+
+.aside-dropdown {
+
+    width: 100%;
+
+    &__title {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+
+        & span {
+
+            &:hover {
+                color: var(--accent);
+            }
+
+            &::after {
+                content: '';
+                width: 12px;
+                height: 8px;
+                display: inline-block;
+                margin-left: 10px;
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTS40NjUgMi4wOTNsNC44NzcgNC43NzNhLjc3OS43NzkgMCAwMDEuMDgzIDBsNC44NzctNC43NzNjLjMtLjI5My4zLS43NjggMC0xLjA2MWEuNzc4Ljc3OCAwIDAwLTEuMDg0IDBMNS44ODMgNS4yNzUgMS41NDggMS4wMzJhLjc3OC43NzggMCAwMC0xLjA4MyAwYy0uMy4yOTMtLjMuNzY4IDAgMS4wNnoiIGZpbGw9IiNBNkE2QTYiLz48L3N2Zz4=);
+                background-position: center;
+                background-repeat: no-repeat;
+                transition: 0.3s ease;
+            }
+        }
+    }
+
+    &__content {
+        background-color: #eee;
+        padding: 12px;
+        margin-top: 12px;
+        display: none;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding-bottom: 5px;
+        color: #555;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+
+    &.is-open {
+        & .aside-dropdown {
+            &__content {
+                display: block;
+            }
+
+            &__title {
+                & span {
+                    &::after {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+    }
 }

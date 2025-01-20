@@ -117,9 +117,18 @@ mixin input-material(type, placeholder, value)
     label!= placeholder 
 
 mixin input-material-required(type, placeholder, value)
-  .input-material
-    input(type=''+type+'' value=(value?value:'') required)
-    label!= placeholder 
+
+  if(type == 'text')
+
+    .input-material
+      input(type=''+type+'' value=(value?value:'') required max-length="60" data-input-mask="name")
+      label!= placeholder 
+
+  if(type == 'email')
+
+    .input-material
+      input(type=''+type+'' value=(value?value:'') required max-length="60" data-input-mask="email")
+      label!= placeholder 
 
 mixin input-material-date(type, placeholder, value)
   .input-material.input-material--date

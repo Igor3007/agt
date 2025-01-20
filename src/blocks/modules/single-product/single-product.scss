@@ -1,6 +1,7 @@
 .section-single-product {
     overflow: visible;
 }
+
 .single-product {
 
     display: flex;
@@ -41,7 +42,7 @@
         }
     }
 
-    
+
 
     &__head {
         order: 3;
@@ -52,19 +53,19 @@
             z-index: 11;
             background-color: #fff;
             top: -1px;
-            
+
 
             &.is-sticky {
 
                 padding: 16px 0;
 
-                &  h1 {
+                & h1 {
                     white-space: nowrap;
                     text-overflow: ellipsis;
                     overflow: hidden;
                 }
 
-                &~.single-product__details:not(.is-nofixed) { 
+                &~.single-product__details:not(.is-nofixed) {
                     position: fixed;
                     top: 100px;
                     right: 40px;
@@ -78,8 +79,12 @@
                     }
 
                     &.is-opacity {
-                        opacity: 0;
-                    } 
+                        position: absolute;
+                        top: auto;
+                        bottom: 0;
+                        right: 5%;
+                        padding-bottom: 0;
+                    }
                 }
             }
         }
@@ -121,7 +126,7 @@
         }
 
         @media screen and (min-width: $w1440) {
-         width: calc(100% - 610px);
+            width: calc(100% - 610px);
         }
 
         @media screen and (min-width: $w1200) {
@@ -932,7 +937,7 @@
             right: 30px;
             top: 22px;
 
-             
+
         }
 
         & span {
@@ -945,7 +950,7 @@
             font-family: var(--font-montserrat);
         }
 
-       
+
     }
 
     & picture {
@@ -1147,7 +1152,14 @@
     }
 
     &__right {
-        text-align: right;
+        max-width: 57px;
+        text-align: left;
+        line-height: 120%;
+
+        @media screen and (min-width: $w991) {
+            max-width: none;
+            text-align: right;
+        }
 
         & span {
 
@@ -1652,9 +1664,9 @@
 }
 
 .action-bar {
-	background-color: var(--accent);
-	padding: 15px 24px;
-	display: flex;
+    background-color: var(--accent);
+    padding: 15px 24px;
+    display: flex;
     color: #fff;
     gap: 12px;
     position: fixed;
@@ -1664,14 +1676,14 @@
     z-index: 11;
 
     @media screen and (min-width: $w576) {
-    display: none;
+        display: none;
     }
 
     & div {
         display: flex;
         justify-content: center;
         align-items: center;
-        
+
         cursor: pointer;
     }
 
@@ -1682,7 +1694,7 @@
         fill: #fff;
     }
 
-    &__cart{
+    &__cart {
         display: flex;
         align-items: center;
         margin-left: auto;
@@ -1699,7 +1711,7 @@
         }
     }
 
-    &__wishlist{
+    &__wishlist {
         background-color: #fff;
         border-radius: 50%;
         height: 36px;

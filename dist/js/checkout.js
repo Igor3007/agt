@@ -39,7 +39,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
             Array.from(this.container.children).forEach((el, i) => {
                 el.classList.toggle('is-active', i == index)
 
-                if (this.params.onChange) this.params.onChange(el, index)
+                if (this.params.onChange && i == index) {
+                    this.params.onChange(el, index)
+                }
                 this.currentSlide = index
             })
 
@@ -404,8 +406,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
                 }
 
+                //hide aside
 
-
+                document.querySelector('.checkout__aside').classList.toggle('is-open', index == 2)
+                document.querySelectorAll('.checkout__steps-nav ul li').forEach((item, i) => {
+                    item.classList.toggle('is-complete', i < index)
+                })
             }
         })
 
@@ -441,6 +447,16 @@ document.addEventListener('DOMContentLoaded', function (event) {
     })
 
     selectCustom.init()
+
+    /* ==================================
+    show-hide 
+    ==================================*/
+
+    if (document.querySelector('.aside-dropdown__title')) {
+        document.querySelector('.aside-dropdown__title').addEventListener('click', (e) => {
+            e.target.closest('.aside-dropdown').classList.toggle('is-open')
+        })
+    }
 
 
 });

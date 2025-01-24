@@ -7203,7 +7203,6 @@ body.open-mobile-menu main {
   transition: 0.3s ease;
   z-index: 3;
   display: flex;
-  background-color: #fff;
   border-radius: 50px;
   padding: 3px;
   gap: 4px;
@@ -7296,7 +7295,6 @@ body.open-mobile-menu main {
 
 .minicard__tocart .ic-hover {
   display: none;
-  animation: flip-cart-icon 0.8s ease;
 }
 
 .minicard__tocart .incart-text {
@@ -7552,11 +7550,11 @@ body.open-mobile-menu main {
   opacity: 1;
 }
 
-.minicard--large .minicard__photo picture {
+.minicard--large div.minicard__photo picture {
   padding-top: 65.7%;
 }
 
-.minicard--large .minicard__photo picture img {
+.minicard--large div.minicard__photo picture img {
   object-fit: cover;
 }
 
@@ -10397,6 +10395,18 @@ a[data-tooltip]:hover::before {
   margin-right: 12px;
 }
 
+.sp-gallery .splide:not(.is-initialized) .splide--one .splide__slide {
+  width: 100%;
+}
+
+.sp-gallery .splide--one:not(.is-initialized) {
+  visibility: visible;
+}
+
+.sp-gallery .splide--one:not(.is-initialized) .splide__slide {
+  width: calc(100%);
+}
+
 .sp-gallery .splide__pagination {
   position: static;
   padding-top: 32px;
@@ -10458,6 +10468,10 @@ a[data-tooltip]:hover::before {
 
 .sp-details__tocart .btn {
   width: 100%;
+}
+
+.sp-details__tocart .btn svg {
+  margin-right: 6px;
 }
 
 .sp-details__border {
@@ -13147,7 +13161,7 @@ span[data-color=fff] {
     font-size: 18px;
   }
 
-  .minicard--large .minicard__main {
+  .minicard--large div.minicard__main {
     max-width: 50%;
   }
 
@@ -13640,6 +13654,14 @@ span[data-color=fff] {
     margin: 6px;
   }
 
+  .section-home-faq--noform .home-faq__title {
+    font-size: 24px;
+  }
+
+  .home-faq__h2 {
+    font-size: 24px;
+  }
+
   .home-faq__desc {
     text-align: center;
   }
@@ -13824,6 +13846,10 @@ span[data-color=fff] {
     padding-left: 30px;
   }
 
+  .sp-gallery .splide--one picture {
+    padding-top: 49%;
+  }
+
   .sp-details__desc ul li {
     padding-left: 25px;
   }
@@ -13926,8 +13952,13 @@ span[data-color=fff] {
     font-size: 27px;
   }
 
-  .section-home-faq--noform .home-faq__title {
-    font-size: 27px;
+  .one-article__row {
+    display: flex;
+    gap: 24px;
+  }
+
+  .one-article__row > div {
+    width: 50%;
   }
 
   .single-product__top {
@@ -13975,7 +14006,7 @@ span[data-color=fff] {
     position: absolute;
     top: auto;
     bottom: 0;
-    right: 5%;
+    right: 0;
     padding-bottom: 0;
   }
 
@@ -14199,6 +14230,14 @@ span[data-color=fff] {
   .single-product__head.is-sticky ~ .single-product__details:not(.is-nofixed) {
     right: 6.9%;
     top: 135px;
+  }
+
+  .single-product__head.is-sticky ~ .single-product__details:not(.is-nofixed).is-opacity {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    right: 5%;
+    padding-bottom: 0;
   }
 }
 
@@ -14824,15 +14863,6 @@ span[data-color=fff] {
     margin-top: -20px;
   }
 
-  .one-article__row {
-    display: flex;
-    gap: 24px;
-  }
-
-  .one-article__row > div {
-    width: 50%;
-  }
-
   .one-article__link {
     padding-bottom: 42px;
   }
@@ -14981,10 +15011,6 @@ span[data-color=fff] {
 
   .section-home-faq--noform .faq-item {
     padding: 15px 0;
-  }
-
-  .home-faq__h2 {
-    font-size: 24px;
   }
 
   .section-home-faq--noform .home-faq__right {
@@ -15857,6 +15883,10 @@ span[data-color=fff] {
     display: block;
   }
 
+  footer.footer-action-bar {
+    padding-bottom: 180px;
+  }
+
   .footer__menu {
     flex-direction: column;
     gap: 36px;
@@ -16178,6 +16208,16 @@ span[data-color=fff] {
     width: 40px;
     height: 40px;
   }
+
+  .category-products.column-one .category-products__item .minicard__tocart {
+    width: 42px;
+    height: 42px;
+  }
+
+  .category-products.column-one .category-products__item .minicard__tocart svg {
+    width: 42px;
+    height: 42px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -16232,6 +16272,22 @@ span[data-color=fff] {
 
   .company-tile__item--min .company-tile__text {
     font-size: 12px;
+  }
+
+  .minicard--large div.minicard__tofav,
+  .minicard--large div.minicard__compare {
+    width: 40px;
+    height: 40px;
+  }
+
+  .minicard--large div.minicard__tocart {
+    width: 42px;
+    height: 42px;
+  }
+
+  .minicard--large div.minicard__tocart svg {
+    width: 42px;
+    height: 42px;
   }
 
   .category-products .minicard__prop .minicard-prop {
@@ -16313,7 +16369,9 @@ span[data-color=fff] {
     max-width: 730px;
     margin: 0 auto;
   }
+}
 
+@media screen and (min-width: 767px) and (max-width: 991.98px) {
   .one-article__image {
     display: none;
   }
@@ -16321,7 +16379,6 @@ span[data-color=fff] {
 
 @media screen and (min-width: 991.98px) and (max-width: 1200px) {
   .sp-head__title h1 {
-    white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
     max-width: 55vw;

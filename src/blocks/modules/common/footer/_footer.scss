@@ -3,6 +3,13 @@ footer {
     padding: 56px 0 120px;
     font-size: 15px;
 
+    &.footer-action-bar {
+        @media screen and (max-width: 576px) {
+            padding-bottom: 180px
+        }
+    }
+
+
 
     @media screen and (min-width: $w576) {
         padding-bottom: 56px;

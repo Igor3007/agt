@@ -667,6 +667,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         items.forEach(slider => {
 
+            let totalSlide = slider.querySelectorAll('.splide__slide').length
+
+            if(totalSlide < 2) {
+                slider.classList.add('splide--one')
+            }
+
             let splide = new Splide(slider, {
 
                 arrows: true,
@@ -674,18 +680,25 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 pagination: true,
                 gap: 20,
                 start: 0,
-                perPage: 2,
-                perMove: 2,
+                perPage: (totalSlide > 1 ? 2 : 1),
+                perMove: (totalSlide > 1 ? 2 : 1),
                 flickMaxPages: 1,
                 flickPower: 100,
 
 
                 breakpoints: {
 
-                    1200: {
-                        perPage: 1,
-                        perMove: 1,
-                        gap: 0,
+                    breakpoints: {
+
+                        992: {
+                            perPage: (totalSlide > 1 ? 2 : 1),
+                            perMove: (totalSlide > 1 ? 2 : 1),
+                        },
+    
+                        576: {
+                            perPage: 1,
+                            gap: 16,
+                        },
                     },
 
 
@@ -707,25 +720,25 @@ document.addEventListener('DOMContentLoaded', function (event) {
     fixed sticky details
     ======================================*/
 
-    if (document.querySelector('.single-product__head')) {
-        // get the sticky element
-
+    if(document.querySelector('.single-product__head')) {
+         
         const stickyElm = document.querySelector('.single-product__head')
-        const observer = new IntersectionObserver(
-            ([e]) => e.target.classList.toggle('is-sticky', e.intersectionRatio < 1), {
-                threshold: [1]
-            }
+        const observer = new IntersectionObserver( 
+        ([e]) => e.target.classList.toggle('is-sticky', e.intersectionRatio < 1),
+            {threshold: [1]}
         );
 
         observer.observe(stickyElm)
-
-        let scrollHeight = document.querySelector('.single-product').clientHeight
+        
         let scrollPosition = window.scrollY - document.querySelector('.sp-details').clientHeight
         let detailsHeight = document.querySelector('.sp-details').clientHeight
 
         window.addEventListener('scroll', e => {
-            scrollPosition = window.scrollY - (detailsHeight) + 180
-            document.querySelector('.single-product__details').classList.toggle('is-opacity', (scrollPosition > scrollHeight))
+            let scrollHeight = document.querySelector('.section-single-product').clientHeight + document.querySelector('header').clientHeight
+            scrollPosition = scrollHeight - (detailsHeight + 130)
+            document.querySelector('.single-product__details').classList.toggle('is-opacity', (window.scrollY > scrollPosition))
+            document.querySelector('.single-product__details').classList.toggle('is-nofixed', (detailsHeight > window.innerHeight - css_variable()['hgtheader']))
+
         })
     }
 
@@ -3287,6 +3300,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         document.querySelectorAll('.minicard').forEach(item => new Minicard(item))
 
+    }
+
+    /* ====================================
+    action bar
+    ====================================*/
+
+    if(document.querySelector('.action-bar')) {
+        document.querySelector('footer').classList.add('footer-action-bar')
     }
 
 

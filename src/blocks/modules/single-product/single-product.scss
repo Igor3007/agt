@@ -76,13 +76,21 @@
                     @media screen and (min-width: $w1200) {
                         right: 6.9%;
                         top: 135px;
+                        
+                        &.is-opacity {
+                            position: absolute;
+                            top: auto;
+                            bottom: 0;
+                            right: 5%;
+                            padding-bottom: 0;
+                        }
                     }
 
                     &.is-opacity {
                         position: absolute;
                         top: auto;
                         bottom: 0;
-                        right: 5%;
+                        right: 0;
                         padding-bottom: 0;
                     }
                 }
@@ -697,7 +705,7 @@
             line-height: 125%;
 
             @media screen and (min-width: $w991) and (max-width: $w1200) {
-                white-space: nowrap;
+                 
                 text-overflow: ellipsis;
                 overflow: hidden;
                 max-width: 55vw;
@@ -975,6 +983,8 @@
         }
     }
 
+    
+
     & .splide {
 
         &:not(.is-initialized) {
@@ -985,6 +995,26 @@
                 &__slide {
                     width: calc(50% - 12px);
                     margin-right: 12px;
+                }
+                
+                &--one {
+                    & .splide__slide {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        &--one {
+            &:not(.is-initialized) {
+
+                visibility: visible;
+    
+                & .splide {
+                    &__slide {
+                        width: calc(100%);
+                        
+                    }
                 }
             }
         }
@@ -997,6 +1027,14 @@
                 position: absolute;
                 padding-top: 0;
                 bottom: -42px;
+            }
+        }
+
+        &--one {
+            & picture {
+                @media screen and (min-width: $w760) {
+                    padding-top: 49%;
+                }
             }
         }
     }
@@ -1104,6 +1142,10 @@
 
         & .btn {
             width: 100%;
+
+            & svg {
+                margin-right: 6px;
+            }
         }
     }
 

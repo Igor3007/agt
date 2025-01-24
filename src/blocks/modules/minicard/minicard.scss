@@ -119,7 +119,6 @@
         transition: 0.3s ease;
         z-index: 3;
         display: flex;
-        background-color: #fff;
         border-radius: 50px;
         padding: 3px;
         gap: 4px;
@@ -215,7 +214,7 @@
 
             @media screen and (max-width: $w576) {
                 width: 36px;
-                height: 36px;
+                height: 36px; 
             }
         }
 
@@ -225,8 +224,6 @@
 
         & .ic-hover {
             display: none;
-            animation: flip-cart-icon 0.8s ease;
-
         }
 
         & .incart-text {
@@ -550,7 +547,7 @@
     }
 
     &--large {
-        & .minicard {
+        & div.minicard {
             &__photo {
                 & picture {
 
@@ -566,6 +563,26 @@
             &__main {
                 @media screen and (min-width: $w576) {
                     max-width: 50%;
+                }
+            }
+
+            &__tofav,
+            &__compare {
+                @media screen and (max-width: $w480) {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+
+            &__tocart{
+                @media screen and (max-width: $w480) {
+                    width: 42px;
+                    height: 42px;
+
+                    & svg {
+                        width: 42px;
+                        height: 42px;
+                    }
                 }
             }
         }

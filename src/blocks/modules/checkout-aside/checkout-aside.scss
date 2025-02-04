@@ -2,6 +2,8 @@
     overflow: visible;
 }
 
+
+
 .checkout-aside {
     padding: 36px 0;
 
@@ -13,8 +15,14 @@
         margin-top: -30px;
     }
 
+
+
     &__promocode {
         padding: 12px 0;
+
+        & .input-material {
+            border: 1px solid rgba(0, 0, 0, 0.2);
+        }
     }
 
     &__title {
@@ -57,6 +65,10 @@
 
                     &.color--red {
                         color: rgb(192, 24, 24);
+                    }
+
+                    &.max-size {
+                        font-size: 24px;
                     }
                 }
             }
@@ -139,6 +151,32 @@
         padding-top: 36px;
     }
 
+    &__login {
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        font-size: 14px;
+        font-family: var(--font-montserrat);
+        padding: 20px 24px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 38px;
+        line-height: 140%;
+
+        & a {
+            color: #fff;
+            text-decoration: underline;
+        }
+    }
+
+    &__checkout {
+        & a {
+            margin-top: 20px;
+            display: block;
+        }
+    }
+
 
 }
 
@@ -206,4 +244,63 @@
             }
         }
     }
+}
+
+.checkout-aside.checkout-aside--cart {
+    @media screen and (min-width: $w1440) {
+        margin-top: -150px;
+    }
+}
+
+.aside-info {
+    padding: 20px;
+
+    &__title {
+        font-weight: 700;
+        font-size: 20px;
+        padding-bottom: 12px;
+    }
+
+    &__desc {
+        font-size: 14px;
+        color: #888;
+        padding-bottom: 14px;
+    }
+
+    &__contact {
+        display: flex;
+        align-items: center;
+    }
+
+    &__left {
+        font-family: var(--font-montserrat);
+    }
+
+    &__phone {
+        & a {
+            font-weight: 500;
+            font-size: 17px;
+        }
+    }
+
+    &__right {
+        margin-left: auto;
+
+        & ul {
+            display: flex;
+            gap: 6px;
+
+            & a {
+
+                background-color: #eee;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
 }

@@ -52,6 +52,16 @@
 
     }
 
+    &__spoiler {
+        font-family: var(--font-montserrat);
+            font-size: 13px;
+            line-height: 150%;
+
+            @media screen and (min-width: $w1200) {
+                font-size: 15px;
+                line-height: 160%;
+            }
+    }
     &__desc {
 
         padding-bottom: 18px;

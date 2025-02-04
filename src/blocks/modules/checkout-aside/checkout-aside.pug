@@ -53,3 +53,68 @@ mixin checkout-aside
 
             .checkout-aside__pay
                 a(href='/thanks.html'): button.btn.btn-full Оплатить
+
+
+
+mixin cart-aside
+    .checkout-aside.checkout-aside--cart
+        .checkout-aside__wrp
+           
+            .checkout-aside__cart
+
+                .checkout-aside__login
+                    .checkout-aside__login-icon
+                        +icons('#ic_arrow-login')
+                    .checkout-aside__login-text
+                        a(href='#') Авторизуйтесь, 
+                        | чтобы отслеживать заказы
+                    
+
+
+                .checkout-aside__prop
+                    ul
+                        li
+                            span 35 товаров 
+                            strong.max-size 39 400 ₽ 
+
+                .checkout-aside__logo
+                    +checkbox('Нужно нанесение логотипа ')
+                    a(href="/print-logo.html") Подробнее...
+
+                .checkout-aside__promocode
+                    .input-material
+                        input(type="text" )
+                        label Промокод
+                        
+
+                .checkout-aside__dropdown
+                    .aside-dropdown
+                        .aside-dropdown__title
+                            span Ваша выгода
+                            strong.color--green - 500 ₽
+                        .aside-dropdown__content
+                            .aside-dropdown__item
+                                span Промокод
+                                strong - 250 ₽
+                            .aside-dropdown__item
+                                span Скидки
+                                strong - 250 ₽
+ 
+
+                .checkout-aside__checkout
+                    a(href='/thanks.html'): button.btn.btn-full Оформить заказ
+                    a(href='/thanks.html'): button.btn.btn-full.btn-gray Быстрый заказ
+
+            .checkout-aside__info
+                .aside-info
+                    .aside-info__title Консультация 
+                    .aside-info__desc Консультация  и видео презентация товаров
+                    .aside-info__contact
+                        .aside-info__left
+                            .aside-info__phone: a(href='tel:+78123098028') +7 (812) 309-80-28
+                            .aside-info__name Федоров Алексей
+                        .aside-info__right
+                            ul
+                                li: a(href='#'): +icons('#ic_wa-dark')
+                                li: a(href='#'): +icons('#ic_tg-dark')
+                

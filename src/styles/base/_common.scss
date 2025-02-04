@@ -309,6 +309,20 @@ span[data-color=fff] {
             margin: 0;
             @include font-h1;
         }
+
+        &--cart {
+            padding-bottom: 16px;
+
+            @media screen and (min-width: $w760) {
+                padding-top: 18px;
+                padding-bottom: 28px;
+            }
+
+            @media screen and (min-width: $w1440) {
+                padding-top: 0;
+                padding-bottom: 26px;
+            }
+        }
     }
 
     &__breadcrumbs {
@@ -322,6 +336,16 @@ span[data-color=fff] {
             margin-bottom: -5px;
         }
     }
+
+    &__desc {
+        font-size: 16px;
+        padding-bottom: 16px;
+        font-weight: 600;
+    }
+
+
+
+
 
 }
 

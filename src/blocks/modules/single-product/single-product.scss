@@ -53,6 +53,7 @@
             z-index: 11;
             background-color: #fff;
             top: -1px;
+            padding: 16px 0;
 
 
             &.is-sticky {
@@ -68,15 +69,20 @@
                 &~.single-product__details:not(.is-nofixed) {
                     position: fixed;
                     top: 100px;
-                    right: 40px;
+                    right: 30px;
                     transition-property: opacity, top;
                     transition-duration: 0.3s;
                     transition-timing-function: ease;
 
+                    @media screen and (min-width: $w1024) {
+                        right: 40px;
+                    }
+
                     @media screen and (min-width: $w1200) {
                         right: 6.9%;
                         top: 135px;
-                        
+
+
                         &.is-opacity {
                             position: absolute;
                             top: auto;
@@ -149,14 +155,14 @@
         @media screen and (min-width: $w991) {
             position: absolute;
             right: 0;
-            top: 100px;
+            top: calc(var(--hgt-sp-head, 82px) + 64px);
             width: 275px;
         }
 
         @media screen and (min-width: $w1200) {
             width: 400px;
             right: 3.5%;
-            top: 132px;
+            top: calc(var(--hgt-sp-head, 85px) + 65px);
         }
 
         @media screen and (min-width: $w1376) {
@@ -705,7 +711,7 @@
             line-height: 125%;
 
             @media screen and (min-width: $w991) and (max-width: $w1200) {
-                 
+
                 text-overflow: ellipsis;
                 overflow: hidden;
                 max-width: 55vw;
@@ -769,7 +775,7 @@
     &__price {
         font-weight: 600;
         font-size: 29px;
-        color: var(--accent);
+
 
         @media screen and (min-width: $w991) {
             font-size: 23px;
@@ -983,7 +989,7 @@
         }
     }
 
-    
+
 
     & .splide {
 
@@ -996,7 +1002,7 @@
                     width: calc(50% - 12px);
                     margin-right: 12px;
                 }
-                
+
                 &--one {
                     & .splide__slide {
                         width: 100%;
@@ -1009,11 +1015,11 @@
             &:not(.is-initialized) {
 
                 visibility: visible;
-    
+
                 & .splide {
                     &__slide {
                         width: calc(100%);
-                        
+
                     }
                 }
             }
@@ -1198,7 +1204,7 @@
         text-align: left;
         line-height: 120%;
 
-        @media screen and (min-width: $w991) {
+        @media screen and (min-width: $w1024) {
             max-width: none;
             text-align: right;
         }

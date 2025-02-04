@@ -42,4 +42,33 @@
         @include font-h2;
         padding-bottom: 36px;
     }
+
+    @media screen and (max-width: 480px) {
+        &:not(.minicard--large) {
+            & .minicard {
+                &__action {
+                    position: static;
+                    margin: 6px;
+                    background-color: #fff;
+                }
+
+                &__top {
+                    background-color: var(--bg);
+                    border-radius: 8px;
+                }
+
+                &__bg {
+                    flex-direction: row-reverse;
+                    margin-right: 0;
+                    flex-grow: 1;
+                    justify-content: flex-end;
+                }
+
+                &__tofav {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+    }
 }

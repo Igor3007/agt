@@ -1,3 +1,130 @@
+include ../../modules/checkout-aside/checkout-aside.pug
+
+-
+    const cartproduct = [
+         {
+            image: '/img/product/p6',
+            sale: '12%',
+            size: false,
+        },
+        {
+            image: '/img/product/p5',
+            sale: '12%',
+            size: true,
+        },
+       
+        {
+            image: '/img/product/p7',
+            sale: '12%',
+            size: true,
+        },
+        {
+            image: '/img/product/p8',
+            sale: false,
+            size: true,
+        },
+        {
+            image: '/img/product/p10',
+            sale: '12%',
+            size: true,
+        },
+    ]
+
+mixin cart-item(data)
+    .cart-item
+        .cart-item__wrp
+            .cart-item__checkbox
+                label.checkbox
+                    input(type="checkbox")
+                    .checkbox__elem
+            .cart-item__content
+                .cart-item__top
+                    .cart-item__left
+                        .cart-item__name
+                            a(href='#') Кофта мужская зимняя KW 215, синий/черный цвет, Brodeks
+                        .cart-item__sticker
+                            span Новинка
+                    .cart-item__right
+                        .cart-item__pricetotal 64 400 ₽
+                        .cart-item__total за 7шт.
+                .cart-item__main
+                    .cart-item__images
+                        +picture(data.image)
+                    .cart-item__group
+                        .cart-item__details
+                            .cart-item__pricebar
+                                .cart-item__price-current(class= data.sale ? 'price--color': '') 7200 ₽
+                                .cart-item__price-unit за шт.
+
+                                if data.sale
+                                    .cart-item__price-old: span 9200 ₽
+                                    .cart-item__price-sale: span 12%
+                            .cart-item__colorbar
+                                .cart-item__coloritem 
+                                    span.color-preview
+                                        .multi-color 
+                                            .multi-color__wrp
+                                                span(style="background-color:#4A4A4A")
+                                    span.color-text Черный / графит
+
+                        .cart-item__size
+                            .cart-size 
+                                if !data.size
+                                    .cart-size__top
+                                        span Не выбран размер
+                                        span 6 шт
+                                else
+
+                                    .cart-size__table
+                                        .cart-size__tr
+                                            .cart-size__td: strong 44
+                                            .cart-size__td рост. 170-176
+                                            .cart-size__td: strong 6 шт 
+                                        .cart-size__tr
+                                            .cart-size__td: strong 48
+                                            .cart-size__td рост. 175-180
+                                            .cart-size__td: strong 1 шт 
+                                        .cart-size__tr
+                                            .cart-size__td: strong 44
+                                            .cart-size__td рост. 170-176
+                                            .cart-size__td: strong 6 шт 
+                                        .cart-size__tr
+                                            .cart-size__td: strong 48
+                                            .cart-size__td рост. 175-180
+                                            .cart-size__td: strong 1 шт 
+
+                                .cart-size__bottom
+                                    button.btn.btn-line.btn-small(data-select-color="open") Редактировать размеры
+        .cart-item__bottom
+            .cart-item__action
+                .cart-item__compare
+                    span: +icons('#ic_compare', 40)
+                .cart-item__wishlist
+                    span: +icons('#ic_heart', 40)
+                .cart-item__remove
+                    span: +icons('#ic_trash', 40)
+
+            .cart-item__sku Артикул: KW204BLACK
+
+        
+                
+
 mixin cart
     section.section-cart
-        .container cart
+        .container
+            .cart
+                .cart__wrp
+                    .cart__content
+                        .cart__select-bar
+                            .cart-select-bar
+                                .cart-select-bar__checkbox
+                                    +checkbox('Выбрать все')
+                                .cart-select-bar__button
+                                    button.btn.btn-line.btn-small Удалить <span>выбранное</span>
+
+                        .cart__list
+                            each item in cartproduct
+                                .cart__item
+                                    +cart-item(item)
+
+                    .cart__aside: +cart-aside

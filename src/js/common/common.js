@@ -12,10 +12,19 @@ document.addEventListener('DOMContentLoaded', function (event) {
         let vh = window.innerHeight * 0.01;
         let hgtheader = document.querySelector('.header') ? document.querySelector('.header').clientHeight : 64
         let hgtheadertop = document.querySelector('.header-top') ? document.querySelector('.header-top').clientHeight : 41
+        let sphead = document.querySelector('.sp-head') ? document.querySelector('.sp-head').clientHeight : 41
 
         document.documentElement.style.setProperty('--vh', vh + 'px');
         document.documentElement.style.setProperty('--hgt-header', hgtheader + 'px');
         document.documentElement.style.setProperty('--hgt-header-top', hgtheadertop + 'px');
+        document.documentElement.style.setProperty('--hgt-sp-head', sphead + 'px');
+
+        return {
+            vh,
+            hgtheader,
+            hgtheadertop,
+            sphead
+        }
     }
 
     window.addEventListener('load', css_variable)
@@ -669,7 +678,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
             let totalSlide = slider.querySelectorAll('.splide__slide').length
 
-            if(totalSlide < 2) {
+            if (totalSlide < 2) {
                 slider.classList.add('splide--one')
             }
 
@@ -694,7 +703,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                             perPage: (totalSlide > 1 ? 2 : 1),
                             perMove: (totalSlide > 1 ? 2 : 1),
                         },
-    
+
                         576: {
                             perPage: 1,
                             gap: 16,
@@ -720,16 +729,17 @@ document.addEventListener('DOMContentLoaded', function (event) {
     fixed sticky details
     ======================================*/
 
-    if(document.querySelector('.single-product__head')) {
-         
+    if (document.querySelector('.single-product__head')) {
+
         const stickyElm = document.querySelector('.single-product__head')
-        const observer = new IntersectionObserver( 
-        ([e]) => e.target.classList.toggle('is-sticky', e.intersectionRatio < 1),
-            {threshold: [1]}
+        const observer = new IntersectionObserver(
+            ([e]) => e.target.classList.toggle('is-sticky', e.intersectionRatio < 1), {
+                threshold: [1]
+            }
         );
 
         observer.observe(stickyElm)
-        
+
         let scrollPosition = window.scrollY - document.querySelector('.sp-details').clientHeight
         let detailsHeight = document.querySelector('.sp-details').clientHeight
 
@@ -3306,7 +3316,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     action bar
     ====================================*/
 
-    if(document.querySelector('.action-bar')) {
+    if (document.querySelector('.action-bar')) {
         document.querySelector('footer').classList.add('footer-action-bar')
     }
 

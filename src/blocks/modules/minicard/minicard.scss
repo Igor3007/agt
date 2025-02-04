@@ -214,7 +214,7 @@
 
             @media screen and (max-width: $w576) {
                 width: 36px;
-                height: 36px; 
+                height: 36px;
             }
         }
 
@@ -574,7 +574,7 @@
                 }
             }
 
-            &__tocart{
+            &__tocart {
                 @media screen and (max-width: $w480) {
                     width: 42px;
                     height: 42px;
@@ -592,12 +592,11 @@
         &:hover {
             & .minicard {
                 &__photo {
-
-                    visibility: hidden;
-
                     &-hover {
-                        opacity: 1;
-                        z-index: 3;
+                        @media screen and (min-width: $w576) {
+                            opacity: 1;
+                            z-index: 3;
+                        }
                     }
                 }
             }

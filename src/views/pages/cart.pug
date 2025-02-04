@@ -7,19 +7,26 @@ block variables
 
 block main 
 
+  include ../../blocks/components/breadcrumb/breadcrumb.pug
   include ../../blocks/modules/cart/cart.pug
 
-  +cart() 
+  section.section-page
+    .container
+        .page
+            .page__breadcrumbs
+                +breadcrumb([
+                    'AGT',
+                    'Корзина',
+                ])
+            
+            .page__title.page__title--cart: h1 Корзина
+            .page__desc Проверьте правильность заказа и выбранные размеров. 
+
+  +cart()
  
   
-
-  
-
- 
-
- 
- 
  
 block scripts
   script(src="/js/vendor.js") 
   script(src="/js/common.js")   
+  script(src="/js/checkout.js")   

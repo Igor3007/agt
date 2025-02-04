@@ -11,8 +11,8 @@
         overflow-y: auto;
         overflow-x: hidden;
 
-        scrollbar-color: transparent transparent;
-        scrollbar-width: thin !important;
+         
+        scrollbar-width: none !important;
 
         &::-webkit-scrollbar {
             display: none;

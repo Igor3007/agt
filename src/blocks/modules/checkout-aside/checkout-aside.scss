@@ -35,6 +35,24 @@
         }
     }
 
+    &__dropdown {
+        & .color--green {
+            color: #3CAA3C;
+            font-weight: 600;
+        }
+
+        & .aside-dropdown {
+            &__title {
+                color: #787878;
+                font-size: 15px;
+            }
+
+            &__content {
+                font-size: 15px;
+            }
+        }
+    }
+
     &__prop {
 
         padding-bottom: 4px;
@@ -114,10 +132,14 @@
 
     &__logo {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         border-top: 1px solid rgba($color: #000000, $alpha: 0.12);
         padding: 20px 0;
         gap: 12px;
+
+        @media screen and (min-width: $w1024) {
+            align-items: center;
+        }
 
         & a {
             color: var(--accent);
@@ -151,18 +173,33 @@
         padding-top: 36px;
     }
 
+    &__cart {
+        display: flex;
+        flex-direction: column;
+    }
+
     &__login {
         background-color: rgba(0, 0, 0, 0.8);
         color: #fff;
         font-size: 14px;
         font-family: var(--font-montserrat);
-        padding: 20px 24px;
+        padding: 16px 20px;
         border-radius: 10px;
         display: flex;
         align-items: center;
-        gap: 24px;
+        gap: 14px;
         margin-bottom: 38px;
         line-height: 140%;
+
+        @media screen and (min-width: $w1440) {
+            padding: 20px 24px;
+            gap: 24px;
+        }
+
+        @media screen and (max-width: $w760) {
+            order: 100;
+            margin-top: 20px;
+        }
 
         & a {
             color: #fff;
@@ -247,13 +284,29 @@
 }
 
 .checkout-aside.checkout-aside--cart {
+
+    @media screen and (max-width: $w480) {
+        padding-top: 0;
+    }
+
     @media screen and (min-width: $w1440) {
         margin-top: -150px;
+    }
+
+    & .checkout-aside {
+        &__logo {
+            border: none;
+        }
     }
 }
 
 .aside-info {
-    padding: 20px;
+    padding: 20px 0;
+    margin-top: 40px;
+
+    @media screen and (min-width: $w992) {
+        padding: 20px;
+    }
 
     &__title {
         font-weight: 700;

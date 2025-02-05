@@ -20,9 +20,14 @@
      }
 
      &__wrp {
-         @media screen and (min-width: $w991) {
+         @media screen and (min-width: $w1100) {
              display: flex;
              gap: 55px;
+         }
+
+         @media screen and (min-width: $w991) {
+             display: flex;
+             gap: 24px;
          }
 
          @media screen and (min-width: $w1440) {
@@ -31,14 +36,13 @@
      }
 
      &__content {
-         @media screen and (min-width: $w1200) {
+         @media screen and (min-width: $w1440) {
              width: calc(100% - 460px);
 
          }
 
          @media screen and (min-width: $w991) {
-             width: calc(100% - 280px);
-
+             width: calc(100% - 300px);
              margin-right: auto;
          }
      }
@@ -46,7 +50,7 @@
      &__aside {
 
          @media screen and (max-width: $w991) {
-             display: none;
+
 
              &.is-open {
                  display: block;
@@ -58,7 +62,7 @@
          }
 
          @media screen and (min-width: $w991) {
-             width: 280px;
+             width: 300px;
          }
 
      }
@@ -161,6 +165,7 @@
 
          @media screen and (min-width: $w1440) {
              gap: 14px;
+             padding-bottom: 42px;
          }
      }
 
@@ -233,6 +238,7 @@
          display: flex;
          align-items: center;
          padding-top: 12px;
+         align-items: flex-end;
 
          @media screen and (min-width: $w760) {
              padding-top: 0;
@@ -256,10 +262,11 @@
 
      &__total {
          color: #8d8d8d;
-         margin-left: 5px;
+         margin-left: 7px;
          font-size: 13px;
          font-weight: 600;
          white-space: nowrap;
+         line-height: 80%;
      }
 
      &__top {
@@ -401,9 +408,17 @@
              padding-bottom: 32px;
          }
 
+         @media screen and (min-width: $w1376) {
+
+             width: 308px;
+         }
+
          @media screen and (min-width: $w1200) {
              margin-left: auto;
-             width: 308px;
+         }
+
+         @media screen and (min-width: $w992) {
+             width: 220px;
          }
      }
 
@@ -412,7 +427,7 @@
          display: flex;
          align-items: center;
          margin: -19px -14px;
-         padding: 6px 14px;
+         padding: 10px 14px;
          border-radius: 0 0 10px 10px;
      }
 
@@ -594,5 +609,83 @@
 
 
          }
+     }
+ }
+
+ .confirm-container {
+     position: fixed;
+     bottom: 100px;
+     left: 24px;
+     right: 24px;
+     max-width: 1270px;
+     z-index: 50;
+ }
+
+ .remove-confirm {
+
+     background-color: var(--bg);
+     padding: 14px;
+     box-shadow: 0 3px 17px 0 #00000030;
+
+     border-radius: 10px;
+
+     text-align: center;
+     display: flex;
+     flex-direction: column;
+     gap: 8px;
+
+     @media screen and (min-width: $w992) {
+         flex-direction: row-reverse;
+         align-items: center;
+         justify-content: space-between;
+         gap: 24px;
+         bottom: 40px;
+     }
+
+     &__icon {
+         color: var(--critical);
+         font-family: var(--font-montserrat);
+         font-weight: 600;
+         display: flex;
+         align-items: center;
+         gap: 12px;
+         justify-content: center;
+
+         &::after {
+             content: '';
+             width: 20px;
+             height: 20px;
+             display: inline-block;
+             background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTkiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE2LjM4IDMuOTQyaC0yLjU0MWMtLjE5LS44NDYtLjY5NC0xLjYwNy0xLjQyNi0yLjE1M0E0LjM0OCA0LjM0OCAwIDAwOS44MjIuOTQyaC0xLjY0Yy0uOTQ0LjAwMS0xLjg2LjMtMi41OTEuODQ3YTMuNzEzIDMuNzEzIDAgMDAtMS40MjUgMi4xNTNIMS42MjRhLjg2Ljg2IDAgMDAtLjU4LjIyLjcyLjcyIDAgMDAtLjI0LjUzYzAgLjIuMDg3LjM5LjI0LjUzYS44Ni44NiAwIDAwLjU4LjIyaC44MnY5Ljc1Yy4wMDEuOTk1LjQzNCAxLjk0OCAxLjIwMiAyLjY1Ljc2OS43MDQgMS44MSAxLjEgMi44OTcgMS4xaDQuOTE4YzEuMDg3IDAgMi4xMjktLjM5NiAyLjg5Ny0xLjEuNzY5LS43MDIgMS4yLTEuNjU1IDEuMjAyLTIuNjV2LTkuNzVoLjgyYS44Ni44NiAwIDAwLjU4LS4yMi43Mi43MiAwIDAwLjI0LS41My43Mi43MiAwIDAwLS4yNC0uNTMuODYuODYgMCAwMC0uNTgtLjIyem0tOC4xOTgtMS41aDEuNjRhMi42MyAyLjYzIDAgMDExLjQyLjQxNGMuNDE1LjI2OS43MjkuNjQ4Ljg5OSAxLjA4Nkg1Ljg2M2MuMTctLjQzOC40ODUtLjgxNy45LTEuMDg2YTIuNjI0IDIuNjI0IDAgMDExLjQyLS40MTR6bTUuNzM5IDEyLjc1YzAgLjU5Ny0uMjYgMS4xNy0uNzIgMS41OTFhMi41OCAyLjU4IDAgMDEtMS43NC42Nkg2LjU0M2EyLjU4IDIuNTggMCAwMS0xLjczOS0uNjYgMi4xNTggMi4xNTggMCAwMS0uNzItMS41OXYtOS43NWg5LjgzN3Y5Ljc1eiIgZmlsbD0iI0ZGMzIzMiIvPjxwYXRoIGQ9Ik05LjAwMyAxNC40NDJjLjI0MyAwIC40NzYtLjA3OS42NDgtLjIyYS42ODkuNjg5IDAgMDAuMjY4LS41M3YtNC41YS42ODkuNjg5IDAgMDAtLjI2OC0uNTMgMS4wMyAxLjAzIDAgMDAtLjY0OC0uMjIgMS4wMyAxLjAzIDAgMDAtLjY0OS4yMi42ODkuNjg5IDAgMDAtLjI2OC41M3Y0LjVjMCAuMi4wOTcuMzkuMjY4LjUzLjE3Mi4xNDEuNDA1LjIyLjY0OS4yMnoiIGZpbGw9IiNGRjMyMzIiLz48L3N2Zz4=);
+             background-position: center;
+             background-repeat: no-repeat;
+         }
+     }
+
+     &__recovery {
+         display: flex;
+         justify-content: center;
+
+
+
+         & .btn {
+             height: 41px;
+         }
+     }
+
+     &__name {
+         font-size: 16px;
+         font-weight: 600;
+         padding-bottom: 5px;
+
+         @media screen and (min-width: $w992) {
+             margin-right: auto;
+         }
+     }
+
+     &__time {
+         font-family: var(--font-montserrat);
+         color: var(--accent);
+         font-weight: 600;
      }
  }

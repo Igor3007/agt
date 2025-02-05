@@ -4,18 +4,18 @@ include ../../modules/checkout-aside/checkout-aside.pug
     const cartproduct = [
          {
             image: '/img/product/p6',
-            sale: '12%',
+            sale: '-12%',
             size: false,
         },
         {
             image: '/img/product/p5',
-            sale: '12%',
+            sale: '-12%',
             size: true,
         },
        
         {
             image: '/img/product/p7',
-            sale: '12%',
+            sale: '-12%',
             size: true,
         },
         {
@@ -25,7 +25,7 @@ include ../../modules/checkout-aside/checkout-aside.pug
         },
         {
             image: '/img/product/p10',
-            sale: '12%',
+            sale: '-12%',
             size: true,
         },
     ]
@@ -94,7 +94,7 @@ mixin cart-item(data)
                                             .cart-size__td: strong 1 шт 
 
                                 .cart-size__bottom
-                                    button.btn.btn-line.btn-small(data-select-color="open") Редактировать размеры
+                                    button.btn.btn-line.btn-small(data-select-size="open") Редактировать размеры
         .cart-item__bottom
             .cart-item__action
                 .cart-item__compare
@@ -102,7 +102,7 @@ mixin cart-item(data)
                 .cart-item__wishlist
                     span: +icons('#ic_heart', 40)
                 .cart-item__remove
-                    span: +icons('#ic_trash', 40)
+                    span(data-cart="remove"): +icons('#ic_trash', 40)
 
             .cart-item__sku Артикул: KW204BLACK
 
@@ -118,7 +118,12 @@ mixin cart
                         .cart__select-bar
                             .cart-select-bar
                                 .cart-select-bar__checkbox
-                                    +checkbox('Выбрать все')
+                                  
+                                    label.checkbox
+                                        input(type="checkbox" name="select-all" data-cart="select-all" )
+                                        span.checkbox__elem
+                                        span.checkbox__text Выбрать все
+                                     
                                 .cart-select-bar__button
                                     button.btn.btn-line.btn-small Удалить <span>выбранное</span>
 

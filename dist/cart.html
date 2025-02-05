@@ -419,7 +419,7 @@
                         <div class="cart-select-bar">
                           <div class="cart-select-bar__checkbox">
                             <label class="checkbox">
-                              <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Выбрать все</span>
+                              <input type="checkbox" name="select-all" data-cart="select-all"><span class="checkbox__elem"></span><span class="checkbox__text">Выбрать все</span>
                             </label>
                           </div>
                           <div class="cart-select-bar__button">
@@ -473,7 +473,7 @@
                                             <div class="cart-size"> 
                                               <div class="cart-size__top"><span>Не выбран размер</span><span>6 шт</span></div>
                                               <div class="cart-size__bottom">
-                                                <button class="btn btn-line btn-small" data-select-color="open">Редактировать размеры</button>
+                                                <button class="btn btn-line btn-small" data-select-size="open">Редактировать размеры</button>
                                               </div>
                                             </div>
                                           </div>
@@ -491,7 +491,7 @@
                                           <svg width="40" height="40">
                                             <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
                                           </svg></span></div>
-                                      <div class="cart-item__remove"><span>
+                                      <div class="cart-item__remove"><span data-cart="remove">
                                           <svg width="40" height="40">
                                             <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
                                           </svg></span></div>
@@ -566,7 +566,7 @@
                                                 </div>
                                               </div>
                                               <div class="cart-size__bottom">
-                                                <button class="btn btn-line btn-small" data-select-color="open">Редактировать размеры</button>
+                                                <button class="btn btn-line btn-small" data-select-size="open">Редактировать размеры</button>
                                               </div>
                                             </div>
                                           </div>
@@ -584,7 +584,7 @@
                                           <svg width="40" height="40">
                                             <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
                                           </svg></span></div>
-                                      <div class="cart-item__remove"><span>
+                                      <div class="cart-item__remove"><span data-cart="remove">
                                           <svg width="40" height="40">
                                             <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
                                           </svg></span></div>
@@ -659,7 +659,7 @@
                                                 </div>
                                               </div>
                                               <div class="cart-size__bottom">
-                                                <button class="btn btn-line btn-small" data-select-color="open">Редактировать размеры</button>
+                                                <button class="btn btn-line btn-small" data-select-size="open">Редактировать размеры</button>
                                               </div>
                                             </div>
                                           </div>
@@ -677,7 +677,7 @@
                                           <svg width="40" height="40">
                                             <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
                                           </svg></span></div>
-                                      <div class="cart-item__remove"><span>
+                                      <div class="cart-item__remove"><span data-cart="remove">
                                           <svg width="40" height="40">
                                             <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
                                           </svg></span></div>
@@ -750,7 +750,7 @@
                                                 </div>
                                               </div>
                                               <div class="cart-size__bottom">
-                                                <button class="btn btn-line btn-small" data-select-color="open">Редактировать размеры</button>
+                                                <button class="btn btn-line btn-small" data-select-size="open">Редактировать размеры</button>
                                               </div>
                                             </div>
                                           </div>
@@ -768,7 +768,7 @@
                                           <svg width="40" height="40">
                                             <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
                                           </svg></span></div>
-                                      <div class="cart-item__remove"><span>
+                                      <div class="cart-item__remove"><span data-cart="remove">
                                           <svg width="40" height="40">
                                             <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
                                           </svg></span></div>
@@ -843,7 +843,7 @@
                                                 </div>
                                               </div>
                                               <div class="cart-size__bottom">
-                                                <button class="btn btn-line btn-small" data-select-color="open">Редактировать размеры</button>
+                                                <button class="btn btn-line btn-small" data-select-size="open">Редактировать размеры</button>
                                               </div>
                                             </div>
                                           </div>
@@ -861,7 +861,7 @@
                                           <svg width="40" height="40">
                                             <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
                                           </svg></span></div>
-                                      <div class="cart-item__remove"><span>
+                                      <div class="cart-item__remove"><span data-cart="remove">
                                           <svg width="40" height="40">
                                             <use xlink:href="/img/sprites/sprite.svg#ic_trash"></use>
                                           </svg></span></div>
@@ -912,27 +912,27 @@
                                   <div class="checkout-aside__checkout"><a href="/thanks.html">
                                       <button class="btn btn-full">Оформить заказ</button></a><a href="/thanks.html">
                                       <button class="btn btn-full btn-gray">Быстрый заказ</button></a></div>
-                                </div>
-                                <div class="checkout-aside__info">
-                                  <div class="aside-info">
-                                    <div class="aside-info__title">Консультация </div>
-                                    <div class="aside-info__desc">Консультация  и видео презентация товаров</div>
-                                    <div class="aside-info__contact">
-                                      <div class="aside-info__left">
-                                        <div class="aside-info__phone"><a href="tel:+78123098028">+7 (812) 309-80-28</a></div>
-                                        <div class="aside-info__name">Федоров Алексей</div>
-                                      </div>
-                                      <div class="aside-info__right">
-                                        <ul>
-                                          <li><a href="#">
-                                              <svg width="24" height="24">
-                                                <use xlink:href="/img/sprites/sprite.svg#ic_wa-dark"></use>
-                                              </svg></a></li>
-                                          <li><a href="#">
-                                              <svg width="24" height="24">
-                                                <use xlink:href="/img/sprites/sprite.svg#ic_tg-dark"></use>
-                                              </svg></a></li>
-                                        </ul>
+                                  <div class="checkout-aside__info">
+                                    <div class="aside-info">
+                                      <div class="aside-info__title">Консультация </div>
+                                      <div class="aside-info__desc">Консультация  и видео презентация товаров</div>
+                                      <div class="aside-info__contact">
+                                        <div class="aside-info__left">
+                                          <div class="aside-info__phone"><a href="tel:+78123098028">+7 (812) 309-80-28</a></div>
+                                          <div class="aside-info__name">Федоров Алексей</div>
+                                        </div>
+                                        <div class="aside-info__right">
+                                          <ul>
+                                            <li><a href="#">
+                                                <svg width="24" height="24">
+                                                  <use xlink:href="/img/sprites/sprite.svg#ic_wa-dark"></use>
+                                                </svg></a></li>
+                                            <li><a href="#">
+                                                <svg width="24" height="24">
+                                                  <use xlink:href="/img/sprites/sprite.svg#ic_tg-dark"></use>
+                                                </svg></a></li>
+                                          </ul>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
@@ -1190,7 +1190,7 @@
             </div>
     </footer>
   </body>
-  <script src="/js/vendor.js"> </script>
-  <script src="/js/common.js">  </script>
-  <script src="/js/checkout.js">  </script>
+  <script src="/js/vendor.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/cart.js"></script>
 </html>

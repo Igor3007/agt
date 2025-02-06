@@ -619,6 +619,12 @@
      right: 24px;
      max-width: 1270px;
      z-index: 50;
+
+     @media screen and (min-width: $w992) {
+         bottom: 30px;
+         left: 40px;
+         right: 40px;
+     }
  }
 
  .remove-confirm {
@@ -626,20 +632,20 @@
      background-color: var(--bg);
      padding: 14px;
      box-shadow: 0 3px 17px 0 #00000030;
-
      border-radius: 10px;
-
      text-align: center;
      display: flex;
      flex-direction: column;
      gap: 8px;
+     margin: 8px 0;
+     animation: 0.2s ease 0.2s both zoomInUp;
 
      @media screen and (min-width: $w992) {
          flex-direction: row-reverse;
          align-items: center;
          justify-content: space-between;
          gap: 24px;
-         bottom: 40px;
+
      }
 
      &__icon {
@@ -680,6 +686,9 @@
 
          @media screen and (min-width: $w992) {
              margin-right: auto;
+             text-align: left;
+             line-height: 130%;
+             max-width: 50%;
          }
      }
 
@@ -687,5 +696,16 @@
          font-family: var(--font-montserrat);
          color: var(--accent);
          font-weight: 600;
+         min-width: 60px;
      }
+ }
+
+ .cart-item.is-hide {
+     display: none;
+ }
+
+ .cart-item.is-hide-animate {
+     opacity: 0;
+     filter: grayscale(1);
+     transition: 0.6s ease;
  }

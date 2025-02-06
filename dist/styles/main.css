@@ -11959,6 +11959,8 @@ a[data-tooltip]:hover::before {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin: 8px 0;
+  animation: 0.2s ease 0.2s both zoomInUp;
 }
 
 .remove-confirm__icon {
@@ -12000,6 +12002,17 @@ a[data-tooltip]:hover::before {
   font-family: var(--font-montserrat);
   color: var(--accent);
   font-weight: 600;
+  min-width: 60px;
+}
+
+.cart-item.is-hide {
+  display: none;
+}
+
+.cart-item.is-hide-animate {
+  opacity: 0;
+  filter: grayscale(1);
+  transition: 0.6s ease;
 }
 
 @keyframes to-change-tab {
@@ -15536,16 +15549,24 @@ span[data-color=fff] {
     width: 220px;
   }
 
+  .confirm-container {
+    bottom: 30px;
+    left: 40px;
+    right: 40px;
+  }
+
   .remove-confirm {
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    bottom: 40px;
   }
 
   .remove-confirm__name {
     margin-right: auto;
+    text-align: left;
+    line-height: 130%;
+    max-width: 50%;
   }
 
   .checkout-aside {

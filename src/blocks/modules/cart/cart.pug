@@ -6,32 +6,37 @@ include ../../modules/checkout-aside/checkout-aside.pug
             image: '/img/product/p6',
             sale: '-12%',
             size: false,
+            id: '24',
         },
         {
             image: '/img/product/p5',
             sale: '-12%',
             size: true,
+            id: '454',
         },
        
         {
             image: '/img/product/p7',
             sale: '-12%',
             size: true,
+            id: '76',
         },
         {
             image: '/img/product/p8',
             sale: false,
             size: true,
+            id: '35',
         },
         {
             image: '/img/product/p10',
             sale: '-12%',
             size: true,
+            id: '678',
         },
     ]
 
 mixin cart-item(data)
-    .cart-item
+    .cart-item(data-id=data.id)
         .cart-item__wrp
             .cart-item__checkbox
                 label.checkbox
@@ -125,7 +130,7 @@ mixin cart
                                         span.checkbox__text Выбрать все
                                      
                                 .cart-select-bar__button
-                                    button.btn.btn-line.btn-small Удалить <span>выбранное</span>
+                                    button.btn.btn-line.btn-small(data-cart="remove-selected") Удалить <span>выбранное</span>
 
                         .cart__list
                             each item in cartproduct

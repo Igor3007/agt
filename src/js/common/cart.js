@@ -36,6 +36,7 @@ class Cart {
     removeConfirm(data) {
         return `
             <div class="remove-confirm" >
+                <div class="remove-confirm__close" ></div>
                 <div class="remove-confirm__icon" >
                     <span>Товар удален из корзины</span>
                 </div>
@@ -44,6 +45,7 @@ class Cart {
                     <button class="btn" >Восстановить</button>
                 </div>
                 <div class="remove-confirm__time" >00:${(this.timeout/1000)}</div>
+                
             </div>
         `;
     }
@@ -82,7 +84,7 @@ class Cart {
 
         let timer = setTimeout(() => {
             this.removeAjax(items)
-            popupConfirm.remove()
+            //popupConfirm.remove()
         }, this.timeout)
 
         popupConfirm.querySelector('.btn').addEventListener('click', () => {
@@ -92,6 +94,10 @@ class Cart {
                 item.classList.toggle('is-hide', false)
                 item.classList.toggle('is-hide-animate', false)
             })
+        })
+
+        popupConfirm.querySelector('.remove-confirm__close').addEventListener('click', () => {
+            popupConfirm.remove()
         })
 
 
@@ -130,9 +136,25 @@ class Cart {
 }
 
 document.addEventListener('DOMContentLoaded', function (event) {
+
+    /* =================================
+    init cart
+    =================================*/
+
     document.querySelectorAll('.cart').forEach(el => {
         new Cart({
             el
         })
     })
+
+    /* ==================================
+    show-hide 
+    ==================================*/
+
+    if (document.querySelector('.aside-dropdown__title')) {
+        document.querySelector('.aside-dropdown__title').addEventListener('click', (e) => {
+            e.target.closest('.aside-dropdown').classList.toggle('is-open')
+        })
+    }
+
 });

@@ -40,7 +40,7 @@ mixin minicard(data)
                     .minicard__sale
                         span 12%
 
-            .minicard__desc
+            .minicard__desc(data-popup="ajax" data-url="/parts/_popup-quickview.html")
                  span= data.desc
 
             .minicard__vcode

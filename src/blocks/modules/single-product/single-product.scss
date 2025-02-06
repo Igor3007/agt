@@ -645,22 +645,7 @@
         align-items: center;
     }
 
-    &__ic {
-        display: flex;
-        align-items: center;
 
-        & span {
-            display: flex;
-            align-items: center;
-        }
-
-        & svg {
-            @media screen and (min-width: $w991) {
-                width: 40px;
-                height: 40px;
-            }
-        }
-    }
 
     &__back {
         display: none;
@@ -754,6 +739,23 @@
             margin-right: 5%;
         }
 
+    }
+
+    &__ic {
+        display: flex;
+        align-items: center;
+
+        & span {
+            display: flex;
+            align-items: center;
+        }
+
+        & svg {
+            @media screen and (min-width: $w991) {
+                width: 40px;
+                height: 40px;
+            }
+        }
     }
 
     &__action {

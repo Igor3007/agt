@@ -1,0 +1,194 @@
+.quickview {
+    padding: 24px;
+    max-width: 560px;
+
+    @media screen and (min-width: $w992) {
+        padding: 36px;
+    }
+
+    &__ic {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        & span {
+            display: flex;
+            align-items: center;
+        }
+
+        & svg {
+            @media screen and (min-width: $w991) {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+
+    &__action {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        padding-bottom: 24px;
+
+        & span {
+            cursor: pointer;
+
+            &:hover {
+                & svg {
+                    fill: var(--accent);
+                }
+            }
+        }
+    }
+
+    &__name {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0;
+        line-height: 125%;
+        padding-bottom: 24px;
+
+        @media screen and (min-width: $w991) {
+            font-size: 20px;
+
+        }
+    }
+
+
+
+
+
+    &__price {
+        font-weight: 600;
+        font-size: 29px;
+        padding-bottom: 24px;
+
+
+        @media screen and (min-width: $w991) {
+            font-size: 23px;
+        }
+
+        @media screen and (min-width: $w1200) {
+            font-size: 28px;
+        }
+    }
+
+    &__wrp-price {
+
+        @media screen and (max-width: $w576) {
+            display: flex;
+            gap: 16px;
+        }
+
+
+        @media screen and (min-width: $w1200) {
+            display: flex;
+            gap: 16px;
+        }
+    }
+
+    &__oldprice {
+        font-weight: 600;
+        font-size: 16px;
+        color: #8D8D8D;
+        text-decoration: line-through;
+
+        @media screen and (min-width: $w1200) {
+            font-size: 20px;
+        }
+    }
+
+    &__sale {
+        & span {
+            font-size: 12px;
+            background-color: var(--accent);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+    }
+
+    &__slider {
+
+        margin-left: -24px;
+        margin-right: -24px;
+        padding-bottom: 16px;
+
+        @media screen and (min-width: $w992) {
+            margin-left: -36px;
+            margin-right: -36px;
+        }
+
+        & picture {
+            @include picture(133%, contain);
+            background-color: #f2f7fa;
+
+            @media screen and (min-width: $w991) {
+
+                border-radius: 0px;
+
+                & img {
+                    border-radius: 0px;
+                }
+            }
+
+        }
+
+
+
+        & .splide {
+
+            &:not(.is-initialized) {
+
+                visibility: visible;
+
+                & .splide {
+                    &__slide {
+                        width: calc(50% - 12px);
+                        margin-right: 12px;
+                    }
+
+                    &--one {
+                        & .splide__slide {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+
+
+            &__pagination {
+                position: static;
+                padding-top: 32px;
+
+                @media screen and (min-width: $w1200) {
+                    position: absolute;
+                    padding-top: 0;
+                    bottom: -42px;
+                }
+            }
+
+
+        }
+    }
+
+    &__ach {
+
+        padding-bottom: 16px;
+
+        & ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            & .bgimage {
+                width: 30px;
+                height: 40px;
+                @include bgimage-contain;
+            }
+
+        }
+    }
+}

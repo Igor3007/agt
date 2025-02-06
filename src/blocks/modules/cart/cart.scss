@@ -698,6 +698,28 @@
          font-weight: 600;
          min-width: 60px;
      }
+
+
+     &__close {
+
+         @media screen and (max-width: $w992) {
+             position: absolute;
+             right: 8px;
+             top: 8px;
+         }
+
+         &::before {
+             content: '';
+             width: 28px;
+             height: 28px;
+             font-size: 36px;
+             background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNC4xIDE1TDUgNS45bC45MDEtLjkgOS4xIDkuMS0uOS45eiIvPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNS45IDE1TDE1IDUuOWwtLjktLjlMNSAxNC4xbC45Ljl6Ii8+PC9zdmc+);
+             display: inherit;
+             background-size: 28px;
+             opacity: 0.5;
+             cursor: pointer;
+         }
+     }
  }
 
  .cart-item.is-hide {

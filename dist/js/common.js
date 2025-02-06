@@ -2975,7 +2975,33 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     initSharedLink(document)
 
+    /* =====================================
+    init QuickviewPopup
+    =====================================*/
 
+    function initQuickviewPopup(popup) {
+
+        if (popup.querySelector('[data-slider="quickview"]')) {
+            const items = popup.querySelectorAll('[data-slider="quickview"]')
+
+            items.forEach(slider => {
+                let splide = new Splide(slider, {
+                    arrows: true,
+                    arrowPath: SLIDER_ARROW_PATH,
+                    pagination: false,
+                    gap: 5,
+                    start: 0,
+                    perPage: 2,
+                    perMove: 2,
+                    flickMaxPages: 1,
+                    flickPower: 100
+                });
+
+                splide.mount();
+            })
+
+        }
+    }
 
 
     /* ====================================
@@ -3078,7 +3104,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
                             window.addEventListener('scroll', e => {
                                 this.tooltipRemove()
                             })
-
                         })
 
                         //add event close on outher click 
@@ -3172,6 +3197,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
                     if (popup.modal.querySelector('[data-popup="ajax"]')) {
                         initAjaxPopup(popup.modal)
+                    }
+
+                    if (popup.modal.querySelector('.quickview')) {
+                        initQuickviewPopup(popup.modal)
                     }
 
                 })

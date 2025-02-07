@@ -464,6 +464,123 @@ document.addEventListener('DOMContentLoaded', function (event) {
         mainbanner.mount();
     }
 
+    /* =========================================
+    ajax tooltip
+    ==========================================*/
+
+    class TooltipAjax {
+        constructor() {
+            this.$items = document.querySelectorAll('[data-prop-tooltip]')
+            this.addEvents()
+            this.tooltip = null;
+        }
+
+        ajaxLoadTooltip(e, callback) {
+            callback({
+                title: '',
+                text: e.target.dataset.propTooltip || e.target.closest('[data-prop-tooltip]').dataset.propTooltip
+            })
+        }
+
+        getTemplate(data) {
+            let html = ` <div class="tooltip-box" ><div class="af-spiner" ></div></div> `;
+            if (data) {
+
+                html = `<div class="tooltip-box" >
+                               <div class="tooltip-box__title" >${data.title}</div>
+                               <div class="tooltip-box__text" >${data.text}</div>
+                           </div> `;
+            }
+            return html;
+        }
+
+        positionTooltip(e) {
+            const DomRect = e.target.getBoundingClientRect()
+            const tooltipW = this.tooltip.clientWidth;
+            const tooltipH = this.tooltip.clientHeight;
+            const offset = 12;
+
+            this.tooltip.style.left = (DomRect.x - (tooltipW / 2) + (offset / 2)) + 'px'
+            this.tooltip.style.top = (DomRect.y - tooltipH - (offset / 2)) + 'px'
+
+
+            if (this.tooltip.getBoundingClientRect().left < offset) {
+                this.tooltip.classList.add('tooltip-box-item--left')
+                this.tooltip.style.left = (DomRect.x - (DomRect.x / 2) + (offset / 2)) + 'px'
+            }
+
+            if (this.tooltip.getBoundingClientRect().top < offset) {
+                this.tooltip.classList.add('tooltip-box-item--top')
+                this.tooltip.style.top = (DomRect.y + (offset)) + 'px'
+            }
+        }
+
+        tooltipDesctop(e) {
+
+            this.tooltipRemove()
+            this.tooltip = document.createElement('div')
+            this.tooltip.innerHTML = this.getTemplate(false)
+            this.tooltip.classList.add('tooltip-box-item')
+
+            e.target.closest('span').append(this.tooltip)
+            this.positionTooltip(e)
+
+            //load data
+
+            this.ajaxLoadTooltip(e, (response) => {
+                this.tooltip.innerHTML = this.getTemplate(response)
+                this.positionTooltip(e)
+            })
+        }
+
+        tooltipPopup(e) {
+            const tooltipPopup = new afLightbox({
+                mobileInBottom: true
+            })
+
+            tooltipPopup.open('<div class="popup-tooltip-box" >' + this.getTemplate(false) + '</div>', () => {
+                this.ajaxLoadTooltip(e, (response) => {
+                    tooltipPopup.changeContent('<div class="popup-tooltip-box" >' + this.getTemplate(response) + '</div>')
+                })
+            })
+        }
+
+        tooltipRemove() {
+            !this.tooltip || this.tooltip.remove()
+        }
+
+        addEvents() {
+            this.$items.forEach(item => {
+
+                //for desctop
+                if (document.body.clientWidth > 576) {
+
+                    item.addEventListener('mouseenter', e => {
+                        this.tooltipDesctop(e)
+
+                        //add event close on scroll
+                        window.addEventListener('scroll', e => {
+                            this.tooltipRemove()
+                        })
+                    })
+
+                    //add event close on outher click 
+                    item.addEventListener('mouseleave', e => {
+                        this.tooltipRemove()
+                    })
+
+                } else {
+                    item.addEventListener('click', e => {
+                        //for mobile
+                        this.tooltipPopup(e)
+                    })
+                }
+
+            })
+        }
+
+    }
+
     /* ========================================
     TopBrands
     ========================================*/
@@ -2897,6 +3014,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 this.btnAdd = item;
                 item.addEventListener('click', (e) => this.sizeAdd())
             })
+
+            initAjaxPopup(this.popup.modal)
         }
 
 
@@ -3001,6 +3120,34 @@ document.addEventListener('DOMContentLoaded', function (event) {
             })
 
         }
+
+        //init shared popup
+        initSharedLink(popup)
+
+        //init select size
+        popup.querySelectorAll('[data-select-size="open"]').forEach(item => {
+            item.addEventListener('click', () => {
+                let sizeSelect = new SelectSize({
+                    el: item
+                })
+                sizeSelect.open()
+            })
+        })
+
+        //init select color
+
+        popup.querySelectorAll('[data-select-color="open"]').forEach(item => {
+            item.addEventListener('click', () => {
+                let selectColor = new SelectColor({
+                    el: item
+                })
+
+                selectColor.open()
+            })
+        })
+
+        // init tooltip
+        new TooltipAjax()
     }
 
 
@@ -3009,122 +3156,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     ====================================*/
 
     if (document.querySelector('[data-prop-tooltip]')) {
-
-        class TooltipAjax {
-            constructor() {
-                this.$items = document.querySelectorAll('[data-prop-tooltip]')
-                this.addEvents()
-                this.tooltip = null;
-            }
-
-            ajaxLoadTooltip(e, callback) {
-                callback({
-                    title: '',
-                    text: e.target.dataset.propTooltip || e.target.closest('[data-prop-tooltip]').dataset.propTooltip
-                })
-            }
-
-            getTemplate(data) {
-                let html = ` <div class="tooltip-box" ><div class="af-spiner" ></div></div> `;
-                if (data) {
-
-                    html = `<div class="tooltip-box" >
-                               <div class="tooltip-box__title" >${data.title}</div>
-                               <div class="tooltip-box__text" >${data.text}</div>
-                           </div> `;
-                }
-                return html;
-            }
-
-            positionTooltip(e) {
-                const DomRect = e.target.getBoundingClientRect()
-                const tooltipW = this.tooltip.clientWidth;
-                const tooltipH = this.tooltip.clientHeight;
-                const offset = 12;
-
-                this.tooltip.style.left = (DomRect.x - (tooltipW / 2) + (offset / 2)) + 'px'
-                this.tooltip.style.top = (DomRect.y - tooltipH - (offset / 2)) + 'px'
-
-
-                if (this.tooltip.getBoundingClientRect().left < offset) {
-                    this.tooltip.classList.add('tooltip-box-item--left')
-                    this.tooltip.style.left = (DomRect.x - (DomRect.x / 2) + (offset / 2)) + 'px'
-                }
-
-                if (this.tooltip.getBoundingClientRect().top < offset) {
-                    this.tooltip.classList.add('tooltip-box-item--top')
-                    this.tooltip.style.top = (DomRect.y + (offset)) + 'px'
-                }
-            }
-
-            tooltipDesctop(e) {
-
-                this.tooltipRemove()
-                this.tooltip = document.createElement('div')
-                this.tooltip.innerHTML = this.getTemplate(false)
-                this.tooltip.classList.add('tooltip-box-item')
-
-                e.target.closest('span').append(this.tooltip)
-                this.positionTooltip(e)
-
-                //load data
-
-                this.ajaxLoadTooltip(e, (response) => {
-                    this.tooltip.innerHTML = this.getTemplate(response)
-                    this.positionTooltip(e)
-                })
-            }
-
-            tooltipPopup(e) {
-                const tooltipPopup = new afLightbox({
-                    mobileInBottom: true
-                })
-
-                tooltipPopup.open('<div class="popup-tooltip-box" >' + this.getTemplate(false) + '</div>', () => {
-                    this.ajaxLoadTooltip(e, (response) => {
-                        tooltipPopup.changeContent('<div class="popup-tooltip-box" >' + this.getTemplate(response) + '</div>')
-                    })
-                })
-            }
-
-            tooltipRemove() {
-                !this.tooltip || this.tooltip.remove()
-            }
-
-            addEvents() {
-                this.$items.forEach(item => {
-
-                    //for desctop
-                    if (document.body.clientWidth > 576) {
-
-                        item.addEventListener('mouseenter', e => {
-                            this.tooltipDesctop(e)
-
-                            //add event close on scroll
-                            window.addEventListener('scroll', e => {
-                                this.tooltipRemove()
-                            })
-                        })
-
-                        //add event close on outher click 
-                        item.addEventListener('mouseleave', e => {
-                            this.tooltipRemove()
-                        })
-
-                    } else {
-                        item.addEventListener('click', e => {
-                            //for mobile
-                            this.tooltipPopup(e)
-                        })
-                    }
-
-                })
-            }
-
-        }
-
         new TooltipAjax()
-
     }
 
     /* ====================================

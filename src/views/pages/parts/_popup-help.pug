@@ -1,0 +1,29 @@
+include ../../helpers/mixins.pug
+ 
+.popup-form
+    .popup-form__wrp
+ 
+        .popup-form__title Помочь с подбором размера 
+        .popup-form__desc  Оставьте ваши контакты и наш специалист свяжется с вами для онлайн консультации.
+        .popup-form__form
+            form(action="/action.php")
+                .form
+                    .form__item
+                        .form__subitem
+                            .input-material
+                                input(type='text' required="" data-input-mask='name' max-length="60")
+                                label= 'ФИО'
+                    .form__item
+                        .form__subitem
+                            .multi-mask
+                                .input-material
+                                    input(type='text' required="" max-length="60")
+                                    label= 'Контактный телефон'
+                    .form__item
+                        .form__subitem.form__subitem--free
+                            .form__note
+                                +checkbox('Отправляя заявку вы соглашаетесь с обработкой персональных даных', 'policy', 'checked')
+                    .form__item
+                        .form__subitem.form__subitem--free
+                            button.btn.btn-small(type="submit") Отправить
+                                    

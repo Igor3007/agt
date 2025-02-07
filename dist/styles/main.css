@@ -309,7 +309,7 @@ input[type="date"] {
 }
 
 .formated-text a {
-  color: var(--color-accent-2);
+  color: var(--accent);
 }
 
 .formated-text a:hover {
@@ -348,7 +348,7 @@ input[type="date"] {
   top: 0.5em;
   transform: rotate(45deg);
   border-radius: 1px;
-  background-color: var(--color-accent-2);
+  background-color: var(--accent);
 }
 
 .formated-text img {
@@ -371,7 +371,7 @@ input[type="date"] {
 
 .formated-text ol > li::before {
   content: counter(number-list) "/";
-  color: var(--color-accent-2);
+  color: var(--accent);
   min-width: 35px;
   display: inline-block;
   position: absolute;
@@ -481,7 +481,7 @@ input[type="date"] {
   top: 0.5em;
   transform: rotate(45deg);
   border-radius: 1px;
-  background-color: var(--color-accent-2);
+  background-color: var(--accent);
 }
 
 .sp-button_link,
@@ -509,7 +509,7 @@ input[type="date"] {
 .sp-button_link:hover,
 .sp-button_link:link:hover,
 .sp-button_link:visited:hover {
-  background-color: var(--color-accent-2);
+  background-color: var(--accent);
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -2058,7 +2058,7 @@ select {
 }
 
 .btn.btn-white:hover {
-  color: var(--color-accent-2);
+  color: var(--accent);
 }
 
 .btn.btn-white:disabled {
@@ -2081,7 +2081,7 @@ select {
 }
 
 .btn.btn-light:hover {
-  color: var(--color-accent-2);
+  color: var(--accent);
   background-color: var(--color-bg-3);
 }
 
@@ -3522,6 +3522,7 @@ select {
   z-index: 102;
   position: relative;
   min-height: 100%;
+  overflow: hidden;
 }
 
 .af-popup--visible {
@@ -3567,7 +3568,7 @@ select {
 }
 
 .af-popup__close svg:hover {
-  stroke: var(--color-accent-2);
+  stroke: var(--accent);
   transform: rotate(90deg);
 }
 
@@ -3610,6 +3611,10 @@ select {
 .dark-mode .af-popup__close {
   top: 20px;
   right: 20px;
+}
+
+.af-popup.af-position-left.af-content-center.af-popup--visible .af-spiner {
+  margin: 0 150px;
 }
 
 /* ========================== */
@@ -4087,7 +4092,7 @@ select {
 }
 
 .table__tr:hover .table__td {
-  background-color: var(--color-accent-2);
+  background-color: var(--accent);
   color: #fff;
 }
 

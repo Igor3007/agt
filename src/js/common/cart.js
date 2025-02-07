@@ -84,7 +84,7 @@ class Cart {
 
         let timer = setTimeout(() => {
             this.removeAjax(items)
-            //popupConfirm.remove()
+            popupConfirm.remove()
         }, this.timeout)
 
         popupConfirm.querySelector('.btn').addEventListener('click', () => {

@@ -8532,14 +8532,6 @@ body.open-mobile-menu main {
   padding-top: 0;
 }
 
-.tag-collections__list.is-init.is-open ul {
-  flex-wrap: nowrap;
-  white-space: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-  justify-content: flex-start;
-}
-
 .catalog-category__banner .section-banner-small {
   padding: 19px 0;
 }
@@ -17074,6 +17066,14 @@ span[data-color=fff] {
 
   .minicard__colors {
     display: none;
+  }
+
+  .tag-collections__list.is-init.is-open ul {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content: flex-start;
   }
 
   .catalog-category__subcat ul li {

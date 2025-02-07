@@ -180,10 +180,12 @@
 
 }
 
-.tag-collections__list.is-init.is-open ul {
-    flex-wrap: nowrap;
-    white-space: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-    justify-content: flex-start;
+@media screen and (max-width: $w576) {
+    .tag-collections__list.is-init.is-open ul {
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        justify-content: flex-start;
+    }
 }

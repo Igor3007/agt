@@ -1842,7 +1842,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
             render() {
 
-                if (this.$el.closest('.catalog-category__tags').classList.contains('is-open')) {
+                if (this.$el.closest(this.params.container).classList.contains('is-open')) {
                     return false;
                 }
 
@@ -1850,11 +1850,20 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
                 this.showMoreBotton.style.display = (this.widthItems() > this.widthContainer() ? 'flex' : 'none')
 
+                let i = 0;
+
+                console.log(this.widthItems(), 'this.widthItems()')
+                console.log(this.widthContainer(), 'this.widthContainer()')
+
                 while (this.widthItems() > this.widthContainer()) {
                     let visibleElements = this.$el.querySelectorAll('li:not(.is-hide)')
                     if (visibleElements[(visibleElements.length - 1)]) {
                         visibleElements[(visibleElements.length - 1)].classList.add('is-hide')
                     }
+
+                    i++;
+
+                    if (i > 100) return false
                 }
 
 
@@ -1909,6 +1918,26 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         }
 
+        //flex collections
+
+        if (document.querySelector('[data-isopen="tag-collections"]')) {
+            const items = document.querySelectorAll('[data-isopen="tag-collections"]')
+
+            items.forEach(item => {
+
+                const buttonText = item.innerText
+
+                if (item.dataset.isopen) {
+                    item.addEventListener('click', e => {
+                        let el = e.target.closest('.' + item.dataset.isopen)
+                        el.classList.toggle('is-open')
+                        el.querySelector('span').innerText = el.classList.contains('is-open') ? 'Свернуть' : buttonText
+                    })
+                }
+            })
+
+        }
+
         // subcat
 
         if (document.querySelector('[data-isopen="catalog-category__subcat"]')) {
@@ -1939,6 +1968,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
             })
 
         }
+
+
 
 
     }
@@ -3380,6 +3411,102 @@ document.addEventListener('DOMContentLoaded', function (event) {
     if (document.querySelector('.action-bar')) {
         document.querySelector('footer').classList.add('footer-action-bar')
     }
+
+    /* ====================================
+    flex collections
+    ====================================*/
+
+    class FlexCollections {
+        constructor(params) {
+            this.params = params
+            this.$el = document.querySelector(params.el) || document
+            this.widthButtonShowMore = 110;
+            this.container = document.querySelector(this.params.container) || document
+            this.showMoreBotton = this.container.querySelector('.show-more-tag')
+            this.init()
+        }
+
+        init() {
+            this.addEvent()
+            this.render()
+
+        }
+
+        heightItems() {
+            return this.$el.clientHeight;
+        }
+
+        heightContainer() {
+
+            let heightItem = this.$el.querySelector('li').offsetHeight
+
+            if (document.body.clientWidth > 760) {
+                return heightItem * 2
+            } else {
+                return heightItem
+            }
+
+        }
+
+        render() {
+
+            if (this.$el.closest(this.params.container).classList.contains('is-open')) {
+                return false;
+            }
+
+            this.$el.querySelectorAll('li.is-hide').forEach(li => li.classList.remove('is-hide'))
+
+            this.showMoreBotton.style.display = (this.heightItems() > this.heightContainer() ? 'flex' : 'none')
+
+            let i = 0;
+
+            while (this.heightItems() > this.heightContainer()) {
+                let visibleElements = this.$el.querySelectorAll('li:not(.is-hide)')
+                if (visibleElements[(visibleElements.length - 1)]) {
+                    visibleElements[(visibleElements.length - 1)].classList.add('is-hide')
+                }
+
+                i++;
+
+                if (i > 100) return false
+            }
+
+            this.container.classList.contains('is-init') || this.container.classList.add('is-init')
+
+        }
+
+        debounce(method, delay, e) {
+            clearTimeout(method._tId);
+            method._tId = setTimeout(function () {
+                method(e);
+            }, delay);
+        }
+
+
+        addEvent() {
+            const resizeHahdler = (e) => {
+                this.render()
+            }
+
+            const observer = new ResizeObserver((entries) => {
+                this.debounce(resizeHahdler, 30, entries)
+            });
+
+            observer.observe(document.querySelector(this.params.container));
+
+            this.showMoreBotton.addEventListener('click', e => {
+                this.container.classList.toggle('is-open');
+                this.showMoreBotton.querySelector('span').innerText = this.container.classList.contains('is-open') ? 'Свернуть' : 'Eще...'
+
+            })
+        }
+
+    }
+
+    let collections = new FlexCollections({
+        el: '.tag-collections__list ul',
+        container: '.tag-collections__list'
+    })
 
 
 

@@ -20,7 +20,7 @@
     }
 
     &__more {
-        padding-top: 30px;
+
         padding-left: 15px;
         padding-right: 16px;
         font-weight: 500;
@@ -37,7 +37,22 @@
         }
 
         & span {
-            text-decoration: underline;
+            display: flex;
+            border: 2px solid var(--accent);
+            height: 45px;
+            align-items: center;
+            padding: 0 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            text-decoration: none;
+            cursor: pointer;
+            font-family: var(--font-montserrat);
+            font-weight: 500;
+
+            @media screen and (min-width: $w1440) {
+                height: 50px;
+
+            }
         }
     }
 
@@ -60,21 +75,21 @@
             & li {
 
                 padding: 6px;
-                display: none;
+
 
                 @media screen and (min-width: $w1440) {
                     padding: 5px;
                 }
 
-                &:nth-child(-n + 5) {
-                    display: block;
-                }
+                // &:nth-child(-n + 5) {
+                //     display: block;
+                // }
 
-                @media screen and (min-width: $w992) {
-                    &:nth-child(-n + 7) {
-                        display: block;
-                    }
-                }
+                // @media screen and (min-width: $w992) {
+                //     &:nth-child(-n + 7) {
+                //         display: block;
+                //     }
+                // }
 
                 & a {
                     padding: 12px 16px;
@@ -98,6 +113,10 @@
                     @media screen and (min-width: $w1440) {
                         padding: 13px 20px;
                     }
+                }
+
+                &.is-hide {
+                    display: none;
                 }
             }
 
@@ -158,4 +177,13 @@
             padding-top: 0;
         }
     }
+
+}
+
+.tag-collections__list.is-init.is-open ul {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content: flex-start;
 }

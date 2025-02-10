@@ -2534,7 +2534,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
         validateText(form) {
 
             form.querySelectorAll('[type="text"]').forEach(input => {
-                if (input.required) {
+                if (input.required && !e.target.value) {
                     if (input.closest('.input-material')) {
 
                         if (input.closest('.multi-mask')) {

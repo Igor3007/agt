@@ -4,7 +4,7 @@ include ../../helpers/mixins.pug
     .popup-form__wrp
         .popup-form__icon
             span(style="background-image:url(/img/icons/ic_live-color.svg)")
-        .popup-form__title Оставьте заявку на онлайн показ
+        .popup-form__title Оставьте заявку <br> на онлайн показ
         .popup-form__desc  и наш специалист свяжется с вами для уточнения даты и времени онлайн встречи.
         .popup-form__form
             form(action="/action.php")
@@ -18,7 +18,7 @@ include ../../helpers/mixins.pug
                         .form__subitem
                             .multi-mask
                                 .input-material
-                                    input(type='text' required="" max-length="60" )
+                                    input(type='tel' required="" max-length="60" )
                                     label= 'Контактный телефон'
                     .form__item
                         .form__subitem.form__subitem--free

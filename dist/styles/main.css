@@ -11449,11 +11449,19 @@ a[data-tooltip]:hover::before {
   padding-bottom: 16px;
 }
 
+.popup-form__title--left {
+  text-align: left;
+}
+
 .popup-form__desc {
   padding-bottom: 24px;
   text-align: center;
   font-family: var(--font-montserrat);
   font-size: 15px;
+}
+
+.popup-form__desc--left {
+  text-align: left;
 }
 
 .popup-form__form .input-material:not(.err) {
@@ -12844,6 +12852,10 @@ a[data-tooltip]:hover::before {
   background-position: center;
   background-repeat: no-repeat;
   display: block;
+}
+
+.quickview .sp-details__radio {
+  padding-bottom: 2px;
 }
 
 /* common styles */

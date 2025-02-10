@@ -3,15 +3,15 @@ include ../../helpers/mixins.pug
 .popup-form
     .popup-form__wrp
  
-        .popup-form__title Онлайн консультация
-        .popup-form__desc  Выберите удобный способ онлайн консультации:
+        .popup-form__title.popup-form__title--left Онлайн консультация
+        .popup-form__desc.popup-form__desc--left  Выберите удобный способ онлайн консультации:
         .popup-form__tile
             div.company-tile__item(data-popup="ajax" data-url="/parts/_popup-live.html")
                 .company-tile__wrp
                     .company-tile__icon
                         +bgimage('/img/icons/ic_live.svg')
                     .company-tile__bottom
-                        .company-tile__text Онлайн показ
+                        .company-tile__text Онлайн <br> показ
                         .company-tile__arrow
                             +icons('#ic_arr-right', 40)
             div.company-tile__item(data-popup="ajax" data-url="/parts/_popup-expert.html")

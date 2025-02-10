@@ -2405,6 +2405,18 @@ document.addEventListener('DOMContentLoaded', function (event) {
             })
         }
 
+        this.reset = function () {
+            document.querySelectorAll('.input-material input, .input-material textarea').forEach(function (input) {
+                input.removeAttribute('area-valid')
+            })
+
+            document.querySelectorAll('.input-material, .multi-mask').forEach(function (im) {
+                im.classList.toggle('err', false)
+            })
+
+            this.init()
+        }
+
         this.addEvent = function (input) {
             input.addEventListener('keyup', function (event) {
                 if (event.target.value.length) {
@@ -2465,6 +2477,28 @@ document.addEventListener('DOMContentLoaded', function (event) {
                         this.validateEmail(form)
                     })
                 })
+
+                form.querySelectorAll('[type=text], [type=tel], [type=email]').forEach(input => {
+                    input.addEventListener('input', e => {
+                        if (input.required && !e.target.value) {
+                            if (input.closest('.input-material')) {
+
+                                if (input.closest('.multi-mask')) {
+                                    input.closest('.multi-mask').classList.add('err')
+                                } else {
+                                    input.closest('.input-material').classList.add('err')
+                                }
+
+                            } else {
+                                input.classList.add('err')
+                            }
+
+                        } else {
+                            this.clearErr(input)
+                        }
+                    })
+                })
+
             })
 
         }
@@ -2473,6 +2507,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
             if (input.closest('.input-material')) {
                 !input.closest('.input-material').classList.contains('err') || input.closest('.input-material').classList.remove('err')
+            } else {
+                !input.classList.contains('err') || input.classList.remove('err')
+            }
+
+            if (input.closest('.multi-mask')) {
+                !input.closest('.multi-mask').classList.contains('err') || input.closest('.multi-mask').classList.remove('err')
             } else {
                 !input.classList.contains('err') || input.classList.remove('err')
             }
@@ -3197,6 +3237,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     function popupSuccess() {
         let popup = new afLightbox({
             mobileInBottom: true,
+            clases: 'af-position-left af-content-center'
         })
 
         let html = `
@@ -3248,11 +3289,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
                         })
                     })
 
-                    // valid
+                    // validation
                     new Validation(popup.modal.querySelectorAll('form'))
 
                     // input
                     new materialInput().init()
+
+                    //init maska
+                    initMaska()
 
                     if (popup.modal.querySelector('form')) {
                         popup.modal.querySelector('form').addEventListener('submit', e => onSubmitPopup(e, popup))
@@ -3294,7 +3338,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             e.preventDefault()
             item.reset()
             popupSuccess()
-            MATERIAL_INPUT.init()
+            MATERIAL_INPUT.reset()
 
         })
     })
@@ -3503,12 +3547,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     }
 
-    let collections = new FlexCollections({
-        el: '.tag-collections__list ul',
-        container: '.tag-collections__list'
-    })
-
-
+    if (document.querySelector('.tag-collections__list')) {
+        let collections = new FlexCollections({
+            el: '.tag-collections__list ul',
+            container: '.tag-collections__list'
+        })
+    }
 
 
 

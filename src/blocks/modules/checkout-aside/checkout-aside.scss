@@ -61,7 +61,7 @@
             & li {
                 display: flex;
                 justify-content: space-between;
-                font-size: 15px;
+                font-size: 14px;
                 font-weight: 500;
                 padding: 8px 0;
 
@@ -87,6 +87,10 @@
 
                     &.max-size {
                         font-size: 24px;
+
+                        @media screen and (min-width: $w992) {
+                            font-size: 28px;
+                        }
                     }
                 }
             }
@@ -145,7 +149,7 @@
             color: var(--accent);
             font-weight: bold;
             margin-left: auto;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         & .checkbox {
@@ -211,6 +215,12 @@
         & a {
             margin-top: 20px;
             display: block;
+        }
+
+        & .btn {
+            @media screen and (min-width: $w992) {
+                font-size: 16px;
+            }
         }
     }
 
@@ -318,6 +328,10 @@
         font-size: 14px;
         color: #888;
         padding-bottom: 14px;
+
+        @media screen and (min-width: $w992) {
+            font-size: 13px;
+        }
     }
 
     &__contact {
@@ -333,6 +347,18 @@
         & a {
             font-weight: 500;
             font-size: 17px;
+
+            @media screen and (min-width: $w992) {
+                font-size: 18px;
+            }
+        }
+    }
+
+    &__name {
+        font-size: 17px;
+
+        @media screen and (min-width: $w992) {
+            font-size: 18px;
         }
     }
 

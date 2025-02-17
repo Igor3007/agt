@@ -6,7 +6,7 @@ class Cart {
         this.items = this.$el.querySelectorAll('.cart-item')
         this.popupConfirm = null
         this.popupContainer = null
-        this.timeout = 10000
+        this.timeout = 15000
         this.init()
     }
 

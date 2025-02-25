@@ -164,7 +164,7 @@
                   </svg><span>Каталог</span></a></div>
             </div>
             <div class="header__find">
-              <input type="text" placeholder="Найти..."><span class="find-icon">
+              <input type="text" placeholder="Найти..." data-find="input"><span class="find-icon">
                 <svg width="40" height="40">
                   <use xlink:href="/img/sprites/sprite.svg#ic_find"></use>
                 </svg></span>
@@ -390,6 +390,18 @@
                 </div>
               </div>
       </div>
+            <div class="top-search">
+              <div class="top-search__wrp">
+                <div class="top-search__suggest" data-find="sgst">
+                  <div class="container">
+                    <div class="top-search__list" data-find="list"></div>
+                    <div class="top-search__all">
+                      <button class="btn btn-gray" type="submit" onclick="this.closest('.top-search').querySelector('form').submit()">Все результаты</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
     </header>
     <main> 
             <section class="section-single-product">
@@ -909,13 +921,15 @@
                                             </svg>
                                           </div>
                                         </div>
-                                        <div class="minicard__tocart"><span class="incart-text">В корзине</span><span class="ic-default">
-                                            <svg width="40" height="40">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart"></use>
-                                            </svg></span><span class="ic-hover">
-                                            <svg width="40" height="40">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_cart-plus"></use>
-                                            </svg></span></div>
+                                        <div class="minicard__tocart">
+                                          <button class="btn-tocart"><span class="ic-default">
+                                              <svg width="33" height="33">
+                                                <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-plus"></use>
+                                              </svg></span><span class="ic-active">
+                                              <svg width="33" height="33">
+                                                <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-check"></use>
+                                              </svg></span><span class="tocart-text">В корзину</span></button>
+                                        </div>
                                       </div>
                                     </div>
                                     <div class="minicard__main">
@@ -1002,13 +1016,15 @@
                                             </svg>
                                           </div>
                                         </div>
-                                        <div class="minicard__tocart"><span class="incart-text">В корзине</span><span class="ic-default">
-                                            <svg width="40" height="40">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart"></use>
-                                            </svg></span><span class="ic-hover">
-                                            <svg width="40" height="40">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_cart-plus"></use>
-                                            </svg></span></div>
+                                        <div class="minicard__tocart">
+                                          <button class="btn-tocart"><span class="ic-default">
+                                              <svg width="33" height="33">
+                                                <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-plus"></use>
+                                              </svg></span><span class="ic-active">
+                                              <svg width="33" height="33">
+                                                <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-check"></use>
+                                              </svg></span><span class="tocart-text">В корзину</span></button>
+                                        </div>
                                       </div>
                                     </div>
                                     <div class="minicard__main">
@@ -1095,13 +1111,15 @@
                                             </svg>
                                           </div>
                                         </div>
-                                        <div class="minicard__tocart"><span class="incart-text">В корзине</span><span class="ic-default">
-                                            <svg width="40" height="40">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart"></use>
-                                            </svg></span><span class="ic-hover">
-                                            <svg width="40" height="40">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_cart-plus"></use>
-                                            </svg></span></div>
+                                        <div class="minicard__tocart">
+                                          <button class="btn-tocart"><span class="ic-default">
+                                              <svg width="33" height="33">
+                                                <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-plus"></use>
+                                              </svg></span><span class="ic-active">
+                                              <svg width="33" height="33">
+                                                <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-check"></use>
+                                              </svg></span><span class="tocart-text">В корзину</span></button>
+                                        </div>
                                       </div>
                                     </div>
                                     <div class="minicard__main">
@@ -1188,13 +1206,15 @@
                                             </svg>
                                           </div>
                                         </div>
-                                        <div class="minicard__tocart"><span class="incart-text">В корзине</span><span class="ic-default">
-                                            <svg width="40" height="40">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart"></use>
-                                            </svg></span><span class="ic-hover">
-                                            <svg width="40" height="40">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_cart-plus"></use>
-                                            </svg></span></div>
+                                        <div class="minicard__tocart">
+                                          <button class="btn-tocart"><span class="ic-default">
+                                              <svg width="33" height="33">
+                                                <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-plus"></use>
+                                              </svg></span><span class="ic-active">
+                                              <svg width="33" height="33">
+                                                <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-check"></use>
+                                              </svg></span><span class="tocart-text">В корзину</span></button>
+                                        </div>
                                       </div>
                                     </div>
                                     <div class="minicard__main">
@@ -1281,13 +1301,15 @@
                                             </svg>
                                           </div>
                                         </div>
-                                        <div class="minicard__tocart"><span class="incart-text">В корзине</span><span class="ic-default">
-                                            <svg width="40" height="40">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart"></use>
-                                            </svg></span><span class="ic-hover">
-                                            <svg width="40" height="40">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_cart-plus"></use>
-                                            </svg></span></div>
+                                        <div class="minicard__tocart">
+                                          <button class="btn-tocart"><span class="ic-default">
+                                              <svg width="33" height="33">
+                                                <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-plus"></use>
+                                              </svg></span><span class="ic-active">
+                                              <svg width="33" height="33">
+                                                <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-check"></use>
+                                              </svg></span><span class="tocart-text">В корзину</span></button>
+                                        </div>
                                       </div>
                                     </div>
                                     <div class="minicard__main">
@@ -1374,13 +1396,15 @@
                                             </svg>
                                           </div>
                                         </div>
-                                        <div class="minicard__tocart"><span class="incart-text">В корзине</span><span class="ic-default">
-                                            <svg width="40" height="40">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart"></use>
-                                            </svg></span><span class="ic-hover">
-                                            <svg width="40" height="40">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_cart-plus"></use>
-                                            </svg></span></div>
+                                        <div class="minicard__tocart">
+                                          <button class="btn-tocart"><span class="ic-default">
+                                              <svg width="33" height="33">
+                                                <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-plus"></use>
+                                              </svg></span><span class="ic-active">
+                                              <svg width="33" height="33">
+                                                <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-check"></use>
+                                              </svg></span><span class="tocart-text">В корзину</span></button>
+                                        </div>
                                       </div>
                                     </div>
                                     <div class="minicard__main">
@@ -1467,13 +1491,15 @@
                                             </svg>
                                           </div>
                                         </div>
-                                        <div class="minicard__tocart"><span class="incart-text">В корзине</span><span class="ic-default">
-                                            <svg width="40" height="40">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart"></use>
-                                            </svg></span><span class="ic-hover">
-                                            <svg width="40" height="40">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_cart-plus"></use>
-                                            </svg></span></div>
+                                        <div class="minicard__tocart">
+                                          <button class="btn-tocart"><span class="ic-default">
+                                              <svg width="33" height="33">
+                                                <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-plus"></use>
+                                              </svg></span><span class="ic-active">
+                                              <svg width="33" height="33">
+                                                <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-check"></use>
+                                              </svg></span><span class="tocart-text">В корзину</span></button>
+                                        </div>
                                       </div>
                                     </div>
                                     <div class="minicard__main">
@@ -1560,13 +1586,15 @@
                                             </svg>
                                           </div>
                                         </div>
-                                        <div class="minicard__tocart"><span class="incart-text">В корзине</span><span class="ic-default">
-                                            <svg width="40" height="40">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart"></use>
-                                            </svg></span><span class="ic-hover">
-                                            <svg width="40" height="40">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_cart-plus"></use>
-                                            </svg></span></div>
+                                        <div class="minicard__tocart">
+                                          <button class="btn-tocart"><span class="ic-default">
+                                              <svg width="33" height="33">
+                                                <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-plus"></use>
+                                              </svg></span><span class="ic-active">
+                                              <svg width="33" height="33">
+                                                <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-check"></use>
+                                              </svg></span><span class="tocart-text">В корзину</span></button>
+                                        </div>
                                       </div>
                                     </div>
                                     <div class="minicard__main">

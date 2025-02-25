@@ -22,12 +22,12 @@ mixin minicard(data)
                 .minicard__bg
                     .minicard__tofav(data-wishlist=data.id): +icons('#ic_heart', 40)
                     .minicard__compare(data-compare=data.id): +icons('#ic_compare', 40)
+
                 .minicard__tocart
-                    span.incart-text В корзине
-                    span.ic-default
-                        +icons('#ic_to-cart', 40)
-                    span.ic-hover
-                        +icons('#ic_cart-plus', 40)
+                    button.btn-tocart
+                        span.ic-default: +icons('#ic_to-cart-plus', 33)
+                        span.ic-active: +icons('#ic_to-cart-check', 33)
+                        span.tocart-text В корзину
                     
 
         .minicard__main

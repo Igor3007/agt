@@ -3555,5 +3555,210 @@ document.addEventListener('DOMContentLoaded', function (event) {
     }
 
 
+    /* =================================
+    top-search
+    =================================*/
+
+    class Find {
+        constructor(params) {
+            this.params = params
+            this.$el = document.querySelector(params.el) || console.error('error: el undefined')
+            this.openButton = document.querySelectorAll('[data-find="open"]')
+            this.closeButton = document.querySelectorAll('[data-find="close"]')
+            this.blockSuggest = this.$el.querySelector('[data-find="sgst"]')
+            this.listSuggest = this.$el.querySelector('[data-find="list"]')
+            this.input = document.querySelector('[data-find="input"]')
+            this.isiOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+
+
+            this.addEvents()
+        }
+
+        lockScroll(val) {
+            if (val) {
+                //fix iOS body scroll
+                if (this.isiOS) {
+                    document.body.style.marginTop = `-${ window.scrollY }px`
+                    document.documentElement.classList.add('safari-fixed')
+                }
+                document.documentElement.classList.add('page-hidden')
+            } else {
+
+                //fix iOS body scroll
+                let documentBody = document.body
+
+                if (this.isiOS) {
+                    if (document.documentElement.classList.contains('safari-fixed')) document.documentElement.classList.remove('safari-fixed')
+                    const bodyMarginTop = parseInt(documentBody.style.marginTop, 10)
+                    documentBody.style.marginTop = ''
+                    if (bodyMarginTop || bodyMarginTop === 0) window.scrollTo(0, -bodyMarginTop)
+                }
+
+                document.documentElement.classList.remove('page-hidden')
+            }
+        }
+
+        hideKeyboardMobile() {
+            this.input.setAttribute('readonly', 'readonly');
+            this.input.setAttribute('disabled', 'true');
+            setTimeout(() => {
+                this.input.blur();
+                this.input.removeAttribute('readonly');
+                this.input.removeAttribute('disabled');
+            }, 100);
+        }
+
+        openFind() {
+            this.$el.classList.add('is-open')
+            this.lockScroll(true)
+
+            if (this.input.value) {
+                setTimeout(() => {
+                    this.changeInput({
+                        target: {
+                            value: this.input.value
+                        }
+                    })
+                }, 400)
+            }
+
+            // close in out
+            // const closeInOut = (e) => {
+
+            //     if (e.target.closest('[data-find="open"]')) return false
+
+            //     if (!e.target.closest(this.params.el)) {
+            //         this.closeFind()
+            //         document.removeEventListener('click', closeInOut)
+            //     }
+            // }
+
+            // document.addEventListener('click', closeInOut)
+        }
+
+        closeFind() {
+            this.closeSuggest()
+            this.$el.classList.remove('is-open')
+            this.lockScroll(false)
+        }
+
+        openSuggest() {
+            this.blockSuggest.style.setProperty('display', 'block')
+        }
+
+        closeSuggest() {
+            this.blockSuggest.style.removeProperty('display')
+        }
+
+        getTemplateCategory(data) {
+            return `
+                <div class="top-search__category"><a href="${data.href}">
+                    <div class="top-search__title">${data.title}</div>
+                    <div class="top-search__path">${data.desc}</div></a>
+                </div>`;
+        }
+
+        getTemplateProduct(data) {
+            return `
+                <div class="top-search__product"><a href="${data.href}">
+                    <div class="top-search__row">
+                        <div class="top-search__image">
+                            <span class="bgimage" style="background-image: url(${data.image});"></span>
+                        </div>
+                        <div class="top-search__main">
+                            <div class="top-search__title">${data.title}</div>
+                            <div class="top-search__desc">${data.desc}</div>
+                            <div class="top-search__cost">${data.cost}</div>
+                        </div>
+                    </div></a>
+                </div>`;
+        }
+
+        ajaxRequest(value, callback) {
+            window.ajax({
+                type: 'GET',
+                url: '/json/suggest.json?q=' + value,
+                responseType: 'json'
+
+            }, function (status, response) {
+                callback(response)
+            })
+        }
+
+        render(json) {
+
+            //clear before render
+            this.listSuggest.innerHTML = ''
+
+            if (json['category']) {
+
+                json['category'].forEach(item => {
+                    let el = document.createElement('div')
+                    el.classList.add('top-search__item')
+                    el.innerHTML = this.getTemplateCategory(item)
+
+                    this.listSuggest.append(el)
+                })
+            }
+
+            if (json['products']) {
+                json['products'].forEach(item => {
+                    let el = document.createElement('div')
+                    el.classList.add('top-search__item')
+                    el.innerHTML = this.getTemplateProduct(item)
+
+                    this.listSuggest.append(el)
+                })
+            }
+        }
+
+        changeInput(e) {
+            e.target.value.length > 1 ? this.openSuggest() : this.closeSuggest()
+
+            this.ajaxRequest(e.target.value, (response) => {
+                this.render(response)
+                //this.hideKeyboardMobile()
+            })
+        }
+
+        debounce(method, delay, e) {
+            clearTimeout(method._tId);
+            method._tId = setTimeout(function () {
+                method(e);
+            }, delay);
+        }
+
+        addEvents() {
+
+            // this.openButton.forEach(button => {
+            //     button.addEventListener('click', e => this.openFind())
+            // })
+
+            this.input.addEventListener('focus', () => {
+                this.openFind()
+            })
+
+            this.closeButton.forEach(button => {
+                button.addEventListener('click', e => {
+                    this.closeFind()
+                    this.input.value = ''
+                })
+            })
+
+            const keyupHahdler = (e) => {
+                this.changeInput(e)
+            }
+
+            this.input.addEventListener('keyup', e => this.debounce(keyupHahdler, 200, e))
+
+        }
+    }
+
+    window.find = new Find({
+        el: '.top-search'
+    })
+
+
+
 
 }); //dcl

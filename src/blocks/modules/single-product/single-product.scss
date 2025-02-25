@@ -34,7 +34,7 @@
 
     &__breadcrumbs {
         width: calc(100% - 45px);
-        margin-left: 10px;
+        margin-left: 13px;
 
         @media screen and (min-width: $w991) {
             margin-left: 0;
@@ -162,7 +162,7 @@
         @media screen and (min-width: $w1200) {
             width: 400px;
             right: 3.5%;
-            top: calc(var(--hgt-sp-head, 85px) + 65px);
+            top: calc(var(--hgt-sp-head, 85px) + 70px);
         }
 
         @media screen and (min-width: $w1376) {
@@ -201,6 +201,7 @@
             width: 36px;
             height: 36px;
             border-radius: 50%;
+            margin-left: -9px;
 
             & svg {
                 width: 35px;
@@ -245,7 +246,7 @@
     }
 
     &__set {
-        margin: 30px 0;
+        margin: 30px 0 0px 0;
     }
 }
 
@@ -689,6 +690,10 @@
             width: 60vw;
         }
 
+        @media screen and (max-width: $w992) {
+            margin-top: 20px;
+        }
+
         & h1 {
             font-size: 18px;
             font-weight: 600;
@@ -696,7 +701,6 @@
             line-height: 125%;
 
             @media screen and (min-width: $w991) and (max-width: $w1200) {
-
                 text-overflow: ellipsis;
                 overflow: hidden;
                 max-width: 55vw;
@@ -704,10 +708,12 @@
 
             @media screen and (min-width: $w991) {
                 font-size: 24px;
-
             }
 
-
+            @media screen and (max-width: $w992) {
+                font-size: 30px;
+                line-height: 120%;
+            }
         }
 
         & span {
@@ -715,6 +721,18 @@
             font-size: 14px;
             color: #8D8D8D;
             padding-bottom: 6px;
+
+            @media screen and (max-width: 576px) {
+
+
+                font-family: var(--font-montserrat);
+                font-size: 14px;
+                color: #8D8D8D;
+                padding-bottom: 10px;
+
+
+
+            }
 
             @media screen and (min-width: $w991) {
                 padding-bottom: 0;
@@ -744,6 +762,7 @@
     &__ic {
         display: flex;
         align-items: center;
+        gap: 15px;
 
         & span {
             display: flex;
@@ -763,6 +782,15 @@
         display: flex;
         align-items: center;
 
+        @media screen and (max-width: 576px) {
+
+
+
+
+            display: none;
+
+        }
+
         & span {
             cursor: pointer;
 
@@ -775,8 +803,11 @@
     }
 
     &__price {
-        font-weight: 600;
-        font-size: 29px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        font-size: 28px;
+        color: var(--primary);
+        white-space: nowrap;
 
 
         @media screen and (min-width: $w991) {
@@ -785,6 +816,7 @@
 
         @media screen and (min-width: $w1200) {
             font-size: 28px;
+            white-space: nowrap;
         }
     }
 
@@ -798,7 +830,7 @@
 
         @media screen and (min-width: $w1200) {
             display: flex;
-            gap: 16px;
+            gap: 11px;
         }
     }
 
@@ -807,6 +839,7 @@
         font-size: 16px;
         color: #8D8D8D;
         text-decoration: line-through;
+        white-space: nowrap;
 
         @media screen and (min-width: $w1200) {
             font-size: 20px;
@@ -824,6 +857,10 @@
         }
     }
 
+}
+
+.sp-head__price.sp-price-color {
+    color: var(--accent);
 }
 
 .sp-gallery {
@@ -921,10 +958,16 @@
 
     &__brand {
         position: absolute;
-        left: 0;
-        top: 35px;
         z-index: 5;
         mix-blend-mode: multiply;
+
+        left: 0px;
+        top: 0px;
+        display: flex;
+        width: 100px;
+        height: 100px;
+        justify-content: center;
+        align-items: center;
 
         @media screen and (min-width: $w1200) {
             left: 36px;
@@ -957,13 +1000,14 @@
         }
 
         & span {
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 600;
             text-transform: uppercase;
             background-color: #fff;
             border-radius: 30px;
-            padding: 5px 12px;
+            padding: 3px 8px;
             font-family: var(--font-montserrat);
+            letter-spacing: 0.5px;
         }
 
 
@@ -1079,7 +1123,8 @@
     }
 
     &__desc {
-        padding-bottom: 10px;
+        padding-bottom: 35px;
+        font-family: var(--font-montserrat);
 
         @media screen and (min-width: $w991) {
             order: -1;
@@ -1098,9 +1143,9 @@
             & li {
 
                 position: relative;
-                padding-left: 20px;
-                padding-bottom: 5px;
-                line-height: 120%;
+                padding-bottom: 11px;
+                line-height: 125%;
+                padding-left: 14px;
 
                 @media screen and (min-width: $w991) {
                     padding-bottom: 11px;
@@ -1232,7 +1277,7 @@
 
     &__left {
         flex-wrap: wrap;
-        gap: 4px;
+        gap: 10px;
 
 
         &--nowrap {
@@ -1269,7 +1314,8 @@
 
 .size-name {
     font-weight: 600;
-    font-size: 14px;
+    letter-spacing: 0.5px;
+    font-size: 15px;
     padding-left: 8px;
 
     @media screen and (min-width: $w991) {
@@ -1308,7 +1354,8 @@
     color: #000;
     text-transform: uppercase;
     font-weight: 600;
-    padding-left: 10px;
+    letter-spacing: 0.5px;
+    padding-left: 3px;
     white-space: nowrap;
 
     max-width: 195px;
@@ -1324,9 +1371,17 @@
 .card-advantages {
     &__icon {
         & .bgimage {
-            width: 40px;
-            height: 40px;
+            width: 60px;
+            height: 60px;
             @include bgimage-contain;
+        }
+    }
+
+    &__text {
+        max-width: 100px;
+
+        @media screen and (max-width: $w992) {
+            font-size: 13px;
         }
     }
 }
@@ -1341,7 +1396,11 @@
     }
 
     @media screen and (min-width: $w1200) {
-        padding-bottom: 30px;
+        padding-bottom: 0;
+    }
+
+    @media screen and (max-width: $w992) {
+        padding-top: 0px;
     }
 
 
@@ -1356,7 +1415,8 @@
         & ul {
             display: flex;
             overflow-x: auto;
-            padding-bottom: 12px;
+            padding-bottom: 0px;
+            gap: 12px 35px;
 
             @media screen and (min-width: $w991) {
                 flex-wrap: wrap;
@@ -1370,7 +1430,7 @@
 
                 @media screen and (min-width: $w1200) {
                     width: auto;
-                    flex-basis: 180px;
+                    flex-basis: initial;
                 }
             }
         }
@@ -1439,8 +1499,9 @@
 }
 
 .card-advantages {
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    gap: 5px;
 
     &__main {
         padding-left: 12px;
@@ -1509,6 +1570,10 @@
         @media screen and (min-width: $w1200) {
             padding-bottom: 54px;
             font-size: 30px;
+        }
+
+        @media screen and (max-width: $w992) {
+            padding-top: 16px;
         }
     }
 

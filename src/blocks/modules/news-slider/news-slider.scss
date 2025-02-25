@@ -306,3 +306,27 @@
         }
     }
 }
+
+/******************************************************************
+Слайдер Новостей
+******************************************************************/
+.card-news__title:hover {
+    text-decoration: none;
+
+}
+
+.card-news__title:hover a {
+
+    color: var(--accent);
+}
+
+.card-news__date {
+    padding-top: 16px;
+    font-weight: 600;
+    opacity: 0.3;
+}
+
+.card-news:hover .card-news__date {
+    opacity: 1;
+
+}

@@ -1,0 +1,42 @@
+-
+    const findcat = [
+        'Мужская спецодежда',
+        'Женская спецодежда',
+        'Специализированная категория',
+        'Категория'
+    ];
+   
+
+mixin find-cat(title)
+    .top-search__category
+        a(href='#')
+            .top-search__title= title
+            .top-search__path
+                ul
+                    li Главная
+                    li Спецодежда
+                    li Мужская спецодежда
+
+mixin find-product(title)
+    .top-search__product
+        a(href='#')
+            .top-search__row
+                .top-search__image: +bgimage('/img/product/ks223/ks223-2.jpg')
+                .top-search__main
+                    .top-search__title KW 204
+                    .top-search__desc Летняя рабочая куртка для руководителей и ИТР.
+                    .top-search__cost 14 500 ₽
+                    
+
+mixin top-search
+    .top-search
+        .top-search__wrp
+             
+            .top-search__suggest(data-find="sgst")
+                .container
+                    .top-search__list(data-find="list")
+                       
+                    .top-search__all
+                        button.btn.btn-gray(type="submit" onclick="this.closest('.top-search').querySelector('form').submit()") Все результаты
+                    
+

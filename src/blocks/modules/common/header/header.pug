@@ -1,4 +1,5 @@
 include parts.pug
+include ../../top-search/top-search.pug
 
 .header-top
     .container
@@ -42,7 +43,7 @@ include parts.pug
                         span Каталог
             
             .header__find
-                input(type="text" placeholder="Найти...")
+                input(type="text" placeholder="Найти..." data-find="input")
                 span.find-icon
                     +icons('#ic_find', 40)
 
@@ -104,3 +105,5 @@ include parts.pug
     +header-catalog
     +header-professions
     +header-brand
+    
++top-search

@@ -58,7 +58,7 @@
         }
 
         & .icon-cross {
-            transform: rotate(315deg);
+            transform: rotate(45deg);
 
             &::after {
                 // transition: 0.5s ease 0.45s;
@@ -86,7 +86,7 @@
     &__answer {
         max-height: 0;
         overflow: hidden;
-        transition: 0.5s ease;
+        transition: none;
         color: #555;
         font-size: 15px;
         line-height: 125%;
@@ -155,7 +155,7 @@
     display: inline-block;
     position: relative;
 
-    transition: 0.8s ease;
+    transition: .3s ease;
 
     @media screen and (min-width: $w576) {
         width: 16px;
@@ -202,4 +202,21 @@
     height: 40px;
     border-radius: 50%;
 
+}
+
+/******************************************************************
+FAQ
+******************************************************************/
+
+@media screen and (min-width: 1440.98px) {
+    .faq-item {
+        padding: 15px 0;
+    }
+}
+
+@media screen and (min-width: 992.98px) {
+    .home-faq {
+
+        gap: 50px;
+    }
 }

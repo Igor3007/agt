@@ -101,6 +101,8 @@
                     font-family: var(--font-montserrat);
                     transition: 0.3s ease;
 
+
+
                     @media screen and (min-width: $w480) {
                         font-size: 14px;
                     }
@@ -187,5 +189,41 @@
         overflow-x: auto;
         overflow-y: hidden;
         justify-content: flex-start;
+    }
+}
+
+/******************************************************************
+Тэги
+******************************************************************/
+.tag-collections__list ul li a {
+    border: 1px solid #d5e2e7;
+    font-weight: 500;
+    font-size: 15px;
+    font-family: 'Involve';
+    color: var(--accent);
+}
+
+.tag-collections__list ul li a:hover {
+    border-color: var(--accent);
+}
+
+
+@media screen and (min-width: 480px) {
+    .tag-collections__list ul li a {
+        font-size: 15px;
+        font-weight: 500;
+        letter-spacing: 0.2px;
+    }
+}
+
+@media screen and (min-width: 1440.98px) {
+    .tag-collections__list ul li a {
+        padding: 11px 19px;
+    }
+}
+
+@media screen and (min-width: 1440.98px) {
+    .tag-collections__list ul li {
+        padding: 6px;
     }
 }

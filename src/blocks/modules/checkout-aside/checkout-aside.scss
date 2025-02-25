@@ -325,7 +325,7 @@
     }
 
     &__desc {
-        font-size: 14px;
+        font-size: 13px;
         color: #888;
         padding-bottom: 14px;
 
@@ -348,7 +348,7 @@
             font-weight: 500;
             font-size: 17px;
 
-            @media screen and (min-width: $w992) {
+            @media screen and (min-width: $w760) {
                 font-size: 18px;
             }
         }
@@ -357,7 +357,7 @@
     &__name {
         font-size: 17px;
 
-        @media screen and (min-width: $w992) {
+        @media screen and (min-width: $w760) {
             font-size: 18px;
         }
     }

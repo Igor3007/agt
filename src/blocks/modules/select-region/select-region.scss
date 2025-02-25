@@ -345,3 +345,70 @@
         }
     }
 }
+
+/******************************************************************
+Попап выбор Ваш регион
+******************************************************************/
+
+.pane-selectcity__close {
+    top: 20px;
+    right: 19px;
+
+}
+
+.pane-selectcity__title {
+    padding-bottom: 15px;
+}
+
+
+.pane-selectcity__item-list li {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 106.5%;
+    padding-bottom: 20px;
+    cursor: pointer;
+    font-family: var(--font-montserrat);
+}
+
+.pane-selectcity__fast ul li span {
+
+    padding: 7px 12px;
+    font-size: 15px;
+    font-weight: 600;
+
+}
+
+.pane-selectcity__fast ul {
+
+    margin: 0 -13px;
+    padding-bottom: 28px;
+}
+
+.pane-selectcity__item-letter {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 127.273%;
+    padding-bottom: 24px;
+}
+
+
+
+
+@media screen and (min-width: 480px) {
+    .select-region__content {
+        width: 435px;
+    }
+}
+
+/******************************************************************
+Ваш регион
+******************************************************************/
+.region-popup__title {
+    padding-bottom: 20px;
+}
+
+.region-popup__close {
+    margin-right: -10px;
+    margin-top: -15px;
+}

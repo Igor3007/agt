@@ -1,0 +1,54 @@
+{
+
+
+    "category": [{
+            "image": false,
+            "href": "/category.html",
+            "title": "Мужская спецодежда",
+            "desc": "Главная / Спецодежда / Мужская спецодежда"
+        },
+        {
+            "image": false,
+            "href": "/category.html",
+            "title": "Женская спецодежда",
+            "desc": "Главная / Спецодежда / Мужская спецодежда"
+        },
+        {
+            "image": false,
+            "href": "/category.html",
+            "title": "Специализированная категория",
+            "desc": "Главная / Спецодежда / Мужская спецодежда"
+        },
+        {
+            "image": false,
+            "href": "/category.html",
+            "title": "Категория",
+            "desc": "Главная / Спецодежда / Мужская спецодежда"
+        }
+
+    ],
+
+    "products": [{
+            "image": "/img/product/catalog/cat1.png",
+            "href": "/category.html",
+            "title": "KW 204",
+            "cost": "14 500 ₽",
+            "desc": "Летняя рабочая куртка для ИТР"
+        },
+        {
+            "image": "/img/product/catalog/cat2.png",
+            "href": "/category.html",
+            "title": "KW 204",
+            "cost": "14 500 ₽",
+            "desc": "Летняя рабочая куртка для ИТР"
+        },
+        {
+            "image": "/img/product/catalog/cat3.png",
+            "href": "/category.html",
+            "title": "KW 204",
+            "cost": "14 500 ₽",
+            "desc": "Летняя рабочая куртка для ИТР"
+        }
+    ]
+
+}

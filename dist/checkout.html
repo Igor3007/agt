@@ -164,7 +164,7 @@
                   </svg><span>Каталог</span></a></div>
             </div>
             <div class="header__find">
-              <input type="text" placeholder="Найти..."><span class="find-icon">
+              <input type="text" placeholder="Найти..." data-find="input"><span class="find-icon">
                 <svg width="40" height="40">
                   <use xlink:href="/img/sprites/sprite.svg#ic_find"></use>
                 </svg></span>
@@ -390,6 +390,18 @@
                 </div>
               </div>
       </div>
+            <div class="top-search">
+              <div class="top-search__wrp">
+                <div class="top-search__suggest" data-find="sgst">
+                  <div class="container">
+                    <div class="top-search__list" data-find="list"></div>
+                    <div class="top-search__all">
+                      <button class="btn btn-gray" type="submit" onclick="this.closest('.top-search').querySelector('form').submit()">Все результаты</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
     </header>
     <main> 
       <section class="section-page">
@@ -559,6 +571,7 @@
                                       <div class="checkout-delivery__content">
                                         <div class="checkout-delivery__content-item is-active">
                                           <div class="checkout-pickup">
+                                            <div class="checkout-pickup__title">Адреса магазинов</div>
                                             <div class="checkout-pickup__list">
                                               <div class="checkout-pickup-point" data-coordinates="59.91029756419331,30.313954499999973">
                                                 <div class="checkout-pickup-point__title">Санкт-Петербург, ул. Егорова, 25</div>

@@ -122,3 +122,42 @@
         }
     }
 }
+
+/******************************************************************
+Слайдер брендов
+******************************************************************/
+
+
+
+
+.top-brands__slider .bgimage {
+
+    background-size: 70%;
+
+}
+
+
+
+@media screen and (min-width: 992.98px) {
+    .top-brands__title {
+        width: 320px;
+
+        font-size: 27px;
+        line-height: 120%;
+
+    }
+
+    .top-brands__slider .splide__arrow--prev {
+        left: -50px;
+    }
+
+
+    .top-brands__slider {
+        width: calc(100% - 320px);
+        max-width: 1500px;
+        margin-left: auto;
+        padding: 0 50px;
+    }
+
+
+}

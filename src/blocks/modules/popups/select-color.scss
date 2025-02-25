@@ -30,6 +30,12 @@
     padding: 12px;
     height: 100%;
 
+    @media screen and (max-width: 992.98px) {
+        .popup-select-color {
+            padding: 12px 12px 30px 12px;
+        }
+    }
+
 
 
     @media screen and (min-width: $w576) {
@@ -54,8 +60,8 @@
         @media screen and (min-width: $w480) {
             overflow-y: visible;
             max-height: none;
-            margin-left: -16px;
-            margin-right: -16px;
+            margin-left: 0;
+            margin-right: 0;
         }
     }
 
@@ -84,10 +90,11 @@
         right: 0;
         padding-top: 24px;
         position: absolute;
-        bottom: 16px;
+        bottom: 29px;
         display: flex;
         justify-content: center;
         z-index: 10;
+
 
         & .btn {
             width: 68%;
@@ -97,6 +104,7 @@
     &__item {
         background-color: var(--bg);
         width: calc(50% - 6px);
+        border-radius: 8px;
 
         & label {
 
@@ -110,7 +118,8 @@
                 &:checked {
                     &~.product-checkbox {
 
-                        border: 1px solid var(--accent);
+                        border: 2px solid var(--accent);
+                        border-radius: 8px;
 
                         & .multi-color {
 
@@ -183,15 +192,19 @@
                 width: 30px;
                 height: 30px;
                 border-radius: 50%;
-                background-color: #ddd;
+                background-color: #f2f6f9;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
                 margin-left: auto;
 
+                opacity: 0.3;
+                pointer-events: none;
+
                 &:hover {
                     background-color: #ccc;
+                    opacity: 1;
                 }
 
                 &::before {
@@ -277,6 +290,8 @@
         height: 100%;
         display: flex;
         align-items: center;
+        padding: 7px;
+        border-radius: 8px;
 
         & input {
             width: 40px;
@@ -284,6 +299,8 @@
             font-weight: bold;
             border: none;
             text-align: center;
+            background: transparent;
+
 
             &[data-is-empty="true"] {
                 color: var(--accent);
@@ -308,8 +325,8 @@
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
-            opacity: 0.5;
             transition: 0.3s ease;
+            opacity: 1;
 
         }
 
@@ -336,13 +353,14 @@
 
 .product-checkbox {
 
-    border: 1px solid transparent;
     transition: 0.3s ease;
     cursor: pointer;
     height: 100%;
+    border: 2px solid transparent;
+    border-radius: 8px;
 
     &:hover {
-        border-color: #a1a1a1;
+        border-color: #dce2e7;
     }
 
     &__image {
@@ -407,9 +425,9 @@
 .item-size {
     border-radius: 24px;
     overflow: hidden;
-    display: flex;
+    display: flex !important;
     align-items: center;
-    gap: 2px;
+    gap: 0;
 
     @media screen and (max-width: $w576) {
         display: none;
@@ -424,15 +442,16 @@
         background-color: var(--bg);
         font-size: 13px;
         font-weight: 600;
-        padding: 4px 8px;
+        padding: 0 8px;
         display: inline-block;
 
         &:nth-child(1) {
             padding-right: 5px;
+            background-color: #dfe3e6;
         }
 
         &:nth-child(2) {
-            padding-left: 5px;
+            padding-left: 7px;
         }
     }
 }
@@ -538,4 +557,30 @@
 
 .af-popup__content .popup-confirm {
     display: block;
+}
+
+.popup-select-color__tr:has(input[data-is-empty="true"]) .td-remove span {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.popup-select-color__td.td-remove span:hover {
+    background-color: #dfe7ed;
+}
+
+.popup-select-color__tr:has(input[data-is-empty="true"]) .counter__input {
+
+    background-color: var(--bg);
+
+}
+
+.popup-select-color__tr:has(input[data-is-empty="false"]) .counter__input {
+
+    opacity: 0.3;
+
+}
+
+.popup-select-color__tr:has(input[data-is-empty="false"]) .counter__input:hover,
+.popup-select-color__tr:has(input[data-is-empty="false"]:focus) .counter__input {
+    opacity: 1;
 }

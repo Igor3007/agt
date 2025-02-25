@@ -21,7 +21,7 @@
 
     &__banner {
         & .section-banner-small {
-            padding: 19px 0;
+            padding: 40px 0 20px 0;
 
             & .container {
                 width: 100%;
@@ -212,7 +212,7 @@
 
     &__breadcrumb {
         margin-top: -8px;
-        padding-bottom: 8px;
+        padding-bottom: 20px;
 
         @media screen and (min-width: $w480) {
             padding-bottom: 12px;
@@ -227,7 +227,7 @@
         padding-bottom: 9px;
 
         @media screen and (min-width: $w480) {
-            padding-bottom: 22px;
+            padding-bottom: 35px;
         }
 
         & h1 {
@@ -242,7 +242,7 @@
         padding: 10px 0;
         align-items: center;
         background-color: #fff;
-        margin-bottom: 22px;
+        margin-bottom: 10px;
         flex-wrap: wrap;
 
 
@@ -403,8 +403,8 @@
         margin-bottom: 0;
         width: 100%;
         scrollbar-width: none !important;
-        margin-top: 12px;
-        padding-bottom: 8px;
+        margin-top: 0;
+        padding-bottom: 20px;
 
         @media screen and (min-width: $w576) {
             margin-top: 0;
@@ -425,7 +425,8 @@
             & .show-more-tag {
                 margin-left: 0;
                 margin-top: 12px;
-
+                background-color: var(--black);
+                color: #fff;
             }
         }
 
@@ -488,7 +489,7 @@
 
                 & span,
                 & a {
-                    background-color: #ededed;
+                    background-color: --bg;
                     border-radius: 30px;
                     min-height: 30px;
                     display: flex;
@@ -496,12 +497,16 @@
                     padding: 0 1em;
                     white-space: nowrap;
                     cursor: pointer;
-                    font-size: 14px;
+                    font-size: 13px;
                     font-family: var(--font-montserrat);
                     font-weight: 500;
 
                     @media screen and (min-width: $w480) {
                         padding: 0 1.45em;
+                    }
+
+                    &:hover {
+                        color: var(--accent);
                     }
 
                 }
@@ -511,7 +516,7 @@
         }
 
         & .show-more-tag {
-            background-color: #ededed;
+            background-color: var(--bg);
             border-radius: 30px;
             min-height: 32px;
             display: flex;
@@ -522,9 +527,10 @@
             display: none;
             font-family: var(--font-montserrat);
             font-weight: 500;
+            font-size: 13px;
 
             &:hover {
-                background-color: #ddd;
+                background-color: #e1e7eb;
             }
         }
 
@@ -545,6 +551,11 @@
             & .show-more-tag {
                 background-color: var(--black);
                 color: #fff;
+
+                &:hover {
+                    background-color: #383838;
+                    color: #fff;
+                }
             }
 
             & .tags-category-wrp {
@@ -560,6 +571,10 @@
     &__collections {
 
         padding-top: 40px;
+
+        @media screen and (max-width: $w992) {
+            padding-top: 15px;
+        }
 
         @media screen and (min-width: $w1440) {
             padding-top: 62px;
@@ -580,6 +595,10 @@
 
         padding-top: 80px;
 
+        @media screen and (max-width: $w992) {
+            padding-top: 10px;
+        }
+
         & .pagination {
             &__page {
                 margin-left: auto;
@@ -587,6 +606,10 @@
 
                 @media screen and (min-width: $w992) {
                     padding: 36px 0;
+                }
+
+                @media screen and (max-width: $w992) {
+                    padding: 14px 0;
                 }
             }
         }
@@ -709,9 +732,10 @@
 
     & .title-subcat {
 
-        font-size: 15px;
+        line-height: 120%;
+        letter-spacing: 0.2px;
+        font-size: 17px;
         font-weight: 600;
-        line-height: 108%;
         margin-top: 14px;
         padding: 0 16px 16px;
         text-align: center;
@@ -845,6 +869,7 @@
     border-radius: 30px;
     width: 80px;
     display: none;
+    padding: 0 8px;
 
     @media screen and (min-width: $w576) {
         display: flex;
@@ -882,8 +907,8 @@
             }
 
             & svg {
-                width: 20px;
-                height: 14px;
+                width: 16px;
+                height: 12px;
                 fill: rgba(0, 0, 0, 0.27);
             }
 
@@ -933,7 +958,7 @@
 
         @media screen and (min-width: $w1660) {
             width: 25%;
-            padding-bottom: 60px;
+            padding-bottom: 10px;
 
             &--lg {
                 width: 50%;
@@ -942,7 +967,7 @@
 
         @media screen and (min-width: $w1200) {
             width: 33.33%;
-            padding-bottom: 60px;
+            padding-bottom: 10px;
 
             &--lg {
                 width: 66.66%;
@@ -1097,6 +1122,11 @@
                             display: block;
                         }
 
+                        &__brand {
+                            width: 66px;
+                            height: 66px;
+                        }
+
 
                     }
                 }
@@ -1156,8 +1186,8 @@
             & .category-products {
                 &__item {
                     width: 100%;
-                    padding-bottom: 24px;
-                    border-bottom: 1px solid #ddd;
+                    padding-bottom: 0px;
+                    border-bottom: 0px solid #ddd;
                     margin-bottom: 16px;
                     padding-left: 0;
                     padding-right: 0;
@@ -1259,9 +1289,18 @@
                         flex-direction: row;
                         gap: 12px;
 
+                        @media screen and (min-width: $w760) {
+                            background-color: var(--bg);
+                            border-radius: 8px;
+                        }
+
                         & .minicard {
                             &__top {
                                 width: calc(100% - 350px);
+
+                                @media screen and (min-width: $w760) {
+                                    width: calc(50%);
+                                }
                             }
 
                             &__main {
@@ -1278,7 +1317,7 @@
                             &__photo-hover,
                             &__photo {
                                 & picture {
-                                    padding-top: 39%;
+                                    padding-top: 65%;
                                 }
                             }
 

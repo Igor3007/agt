@@ -2,14 +2,37 @@ class afLightbox {
     constructor(opion) {
 
         this.modal = '';
+        this.instanseIndex = null;
         if (opion) {
             this.mobileBottom = (opion.mobileInBottom ? opion.mobileInBottom : false)
             this.clases = (opion.clases ? opion.clases : null)
         }
+
+        this.init()
     }
 
     init() {
-        //this.createTemplate()
+
+        if (typeof window.afLightbox == 'undefined') {
+            window.afLightbox = {
+                items: [],
+                close: null,
+                closeAll: null
+            };
+        }
+
+        window.afLightbox.items.push(this);
+        this.instanseIndex = (window.afLightbox.items.length - 1)
+
+        window.afLightbox.closeAll = () => {
+            window.afLightbox.items.forEach(el => el.close())
+            window.afLightbox.items = [];
+        }
+
+        window.afLightbox.close = () => {
+            window.afLightbox.items[(window.afLightbox.items.length - 1)].close()
+        }
+
     }
 
     createTemplate() {
@@ -82,6 +105,9 @@ class afLightbox {
 
         setTimeout(() => {
             this.instanse.remove()
+            window.afLightbox.items.splice(this.instanseIndex, 1)
         }, 300)
+
+
     }
 }

@@ -181,7 +181,7 @@
         }
     }
 
-    &__qr{
+    &__qr {
         & .bgimage {
             width: 80px;
             height: 80px;
@@ -433,4 +433,96 @@
         }
     }
 
+}
+
+/******************************************************************
+AGT восококлассный...
+******************************************************************/
+.company-about__logo {
+    padding-bottom: 30px;
+}
+
+
+.company-about__desc {
+
+    font-size: 15px;
+
+    line-height: 170%;
+
+    font-weight: 400;
+    font-family: 'Montserrat';
+}
+
+.company-tile__text,
+.tile-lg-about__title {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 107%;
+}
+
+@media screen and (max-width: 992.98px) {
+
+    .company-tile__text,
+    .tile-lg-about__title {
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 107%;
+    }
+
+    .company-digits {
+
+        padding: 40px 0px 0px 0px;
+    }
+
+    .company-digits__item span {
+        font-size: 80px;
+    }
+
+    .stores-slider__address {
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .stores-slider__left {
+        padding-bottom: 0px;
+    }
+
+    .stores-slider {
+        padding-bottom: 30px;
+    }
+
+    .home-faq__list {
+        padding-bottom: 40px;
+    }
+
+}
+
+
+
+.company-tile__item:hover {
+    background-color: var(--accent-hover);
+}
+
+
+@media screen and (min-width: 992.98px) {
+    .company-about__title {
+        font-size: 22px;
+        padding-bottom: 27px;
+    }
+}
+
+
+@media screen and (min-width: 992.98px) {
+    .company-digits__col:nth-child(3) p {
+        font-size: 18px;
+        margin: 24px 0;
+
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .company-digits__col:nth-child(3) p {
+
+        font-weight: 500;
+    }
 }

@@ -209,7 +209,7 @@
         flex-direction: column;
         justify-content: flex-end;
         width: 100%;
-        max-width: 285px;
+        max-width: 320px;
         margin: 0 auto;
 
         @media screen and (min-width: $w576) {
@@ -362,8 +362,8 @@
     }
 
     &__about {
-        padding-bottom: 40px;
-        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-top: 0px;
 
         @media screen and (min-width: $w1440) {
             flex-direction: column;
@@ -389,6 +389,7 @@
                 display: flex;
                 justify-content: space-between;
                 padding-top: 0;
+                max-width: 390px;
 
                 @media screen and (max-width: $w760) {
                     display: none;
@@ -448,6 +449,39 @@
             }
         }
 
+
+    }
+}
+
+/******************************************************************
+Магазины
+******************************************************************/
+
+.stores-slider__worktime {
+
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+
+
+@media screen and (min-width: 576px) {
+    .stores-slider__address {
+
+        font-size: 20px;
+
+        font-weight: 500;
+    }
+}
+
+
+.stores-slider__city {
+    padding-bottom: 13px;
+}
+
+@media screen and (min-width: 992.98px) {
+    .stores-slider__city {
+        font-size: 18px;
 
     }
 }

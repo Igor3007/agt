@@ -326,3 +326,132 @@ header {
 @import 'header-brands.scss';
 @import 'header-professions';
 @import 'header-catalog';
+
+/******************************************************************
+Header
+******************************************************************/
+.header-top {
+    padding: 6px 0;
+}
+
+.header-top__location {
+
+    font-size: 14px;
+
+}
+
+.header__find input {
+    font-family: 'Montserrat';
+}
+
+
+.header-top__location svg {
+
+    margin-top: 1px;
+    width: 18px;
+    height: 18px;
+}
+
+.header-top__links ul a {
+
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+
+}
+
+.header-menu__wrp ul li a {
+
+    font-size: 15px;
+    font-weight: 600;
+
+}
+
+.menu-catalog a span {
+
+    letter-spacing: 0.4px;
+}
+
+.menu-catalog a {
+
+    padding: 0 22px;
+    margin-right: -10px;
+}
+
+.menu-catalog a:hover svg {
+    transform: rotate(0deg);
+    transition: .3s ease;
+}
+
+.header-contact__label a {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+}
+
+.header-contact__value a {
+    font-weight: 500;
+    font-size: 24px;
+
+}
+
+.header__actions ul li span {
+    color: var(--accent);
+}
+
+.header__actions ul li a:hover {
+    background-color: transparent;
+
+}
+
+.header__actions ul li span {
+
+    top: 80%;
+
+}
+
+.header__actions ul {
+    gap: 10px;
+}
+
+.header-top__msgr ul {
+
+    gap: 15px;
+}
+
+.header-top__msgr {
+    margin-left: 30px;
+}
+
+
+@media screen and (min-width: 576px) {
+    .header {
+        padding: 14px 0 15px 0;
+    }
+
+    .header__actions {
+
+        margin-top: 5px;
+    }
+
+}
+
+
+@media screen and (min-width: 767px) {
+    .header-menu {
+        display: block;
+        padding: 3px 0 24px 0;
+    }
+}
+
+
+@media screen and (min-width: 992.98px) {
+    .header__actions ul {
+        margin-top: -9px;
+
+    }
+
+    .header__contacts {
+        margin: 0px 15px;
+    }
+}

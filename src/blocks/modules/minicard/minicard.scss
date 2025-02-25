@@ -30,6 +30,13 @@
 
     &__brand {
         margin-left: auto;
+        left: 0px;
+        top: 0px;
+        display: flex;
+        width: 56px;
+        height: 56px;
+        justify-content: center;
+        align-items: center;
     }
 
 
@@ -65,23 +72,27 @@
         position: absolute;
         left: 10px;
         right: 0;
-        top: 5px;
+        top: 0;
         z-index: 4;
         display: flex;
         justify-content: space-between;
         gap: 6px;
+        margin-right: 10px;
+
 
         @media screen and (min-width: $w480) {
             left: 20px;
             right: 20px;
-            top: 20px;
+            top: 0;
             gap: 12px;
+            margin-right: 0;
         }
     }
 
     &__sticker {
 
         display: none;
+        padding-top: 15px;
 
         @media screen and (min-width: $w576) {
             display: block;
@@ -135,7 +146,6 @@
 
 
     &__kp,
-    &__tocart,
     &__compare,
     &__tofav {
         background-color: #fff;
@@ -145,7 +155,7 @@
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        margin-bottom: 1px;
+
         border-radius: 50%;
         transition: 0.5s ease;
 
@@ -176,105 +186,76 @@
 
     &__tocart {
 
-        min-width: 36px;
-
-        @keyframes flip-cart-icon {
-            from {
-                transform: rotate(-360deg);
-            }
-
-            to {
-                transform: rotate(0);
+        & .tocart-text {
+            @media screen and (max-width: $w576) {
+                display: none;
             }
         }
 
-        @keyframes show-cart-icon {
-            from {
-                transform: scale(0);
-            }
-
-            to {
-                transform: sacle(1);
-            }
-        }
-
-        background-color: var(--accent);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        & span {
+        & .btn-tocart {
             display: flex;
-            width: 100%;
-            height: 100%;
+            align-items: center;
+            white-space: nowrap;
+            background: #fff;
+            border: none;
+            border-radius: 50px;
+            height: 43px;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 0 16px 0 12px;
+            cursor: pointer;
+            line-height: 120%;
+            transition: 0.4s ease;
+
+            @media screen and (max-width: $w576) {
+                padding: 0 12px 0 12px;
+            }
+
+            &:hover {
+                color: var(--accent);
+
+                & svg {
+                    fill: var(--accent);
+
+                }
+            }
         }
 
         & svg {
-            fill: #fff;
+
+            margin-right: 6px;
+            transition: 0.4s ease;
 
             @media screen and (max-width: $w576) {
-                width: 36px;
-                height: 36px;
-            }
-        }
-
-        & .ic-default {
-            animation: show-cart-icon 0.3s ease;
-        }
-
-        & .ic-hover {
-            display: none;
-        }
-
-        & .incart-text {
-            max-width: 0;
-            overflow: hidden;
-            transition: 0.5s ease;
-            white-space: nowrap;
-            opacity: 1;
-            color: #fff;
-            font-weight: 600;
-            font-size: 15px;
-        }
-
-        &:hover {
-            & .ic-default {
-                display: none;
-            }
-
-            & .ic-hover {
-                display: block;
-                width: 40px;
+                margin-right: 0;
             }
         }
 
         &.is-active {
-            width: auto;
-            display: flex;
-            align-items: center;
-            border-radius: 30px;
-            padding-right: 5px;
-
-            & .incart-text {
-                max-width: 180px;
-                display: flex;
-                align-items: center;
-                padding-left: 14px;
-            }
-
-            & .ic-default {
-                display: block;
-                width: 40px;
+            & .btn-tocart {
+                background-color: var(--accent);
+                color: #fff;
 
                 & svg {
                     fill: #fff;
                 }
+
+                &:hover {
+                    background-color: var(--accent-hover);
+                }
             }
 
-            & .ic-hover {
+            & .ic-active {
+                display: inline-block;
+            }
+
+            & .ic-default {
                 display: none;
-
             }
+        }
+
+        & .ic-active {
+            display: none;
         }
     }
 
@@ -367,13 +348,16 @@
 
     &__desc {
         padding-bottom: 10px;
-        min-height: 89px;
+        min-height: 90px;
         flex-grow: 1;
+        order: 4;
 
         & span {
             @include line-clamp(4);
             color: var(--black);
-            font-size: 14px;
+
+            font-size: 16px;
+            letter-spacing: 0.4px;
             line-height: 122%;
             font-weight: 500;
             line-height: 140%;
@@ -382,9 +366,11 @@
     }
 
     &__vcode {
-        font-size: 12px;
+        font-size: 13px;
         color: #797979;
-        padding-bottom: 9px;
+        padding-bottom: 2px;
+        font-family: 'Montserrat';
+        order: 3;
     }
 
     &__main {
@@ -399,19 +385,32 @@
         align-items: center;
         gap: 12px;
         padding-bottom: 12px;
-        font-size: 18px;
+
+        font-size: 20px;
+        letter-spacing: 0.5px;
+        order: 2;
     }
 
     &__price {
-        font-weight: bold;
+
+        font-weight: 500;
+        color: var(--black);
+
+        @media screen and (max-width: $w576) {
+
+            font-weight: 600;
+            font-size: 17px;
+
+        }
     }
 
     &__oldprice {
-        font-size: 12px;
         font-weight: 600;
-        color: #8d8d8d;
         text-decoration: line-through;
         display: none;
+        color: #000000;
+        font-size: 16px;
+        letter-spacing: 0.5px;
 
 
         @media screen and (min-width: $w480) {
@@ -433,10 +432,10 @@
             border-radius: 24px;
             color: #fff;
             font-family: var(--font-montserrat);
-            font-size: 12px;
             font-weight: 600;
-            padding: 5px 10px;
-            letter-spacing: 3%;
+            font-size: 11px;
+            padding: 3px 6px;
+            letter-spacing: 0px;
         }
     }
 
@@ -446,6 +445,10 @@
 
         transition: 0.3s ease;
         overflow: hidden;
+
+        order: 1;
+        margin-bottom: 13px;
+        margin-top: 1px;
 
 
 
@@ -457,13 +460,14 @@
         & ul {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 2px;
 
 
             & li {
 
+                border-width: 2px;
+                border-color: #bec6cb !important;
 
-                border-width: 1px;
                 border-style: solid;
                 border-radius: 50%;
                 cursor: pointer;
@@ -498,7 +502,7 @@
         margin-right: auto;
         background-color: #fff;
         border-radius: 50px;
-        padding: 2px;
+        padding: 1px;
         opacity: 1;
         transition: 0.3s ease;
 
@@ -510,7 +514,8 @@
             display: flex;
 
             & svg {
-                width: 36px;
+                height: 33px;
+                height: 33px;
             }
 
             &:hover {
@@ -702,22 +707,21 @@
 
 @media screen and (max-width: $w576) {
 
-    .minicard {
-        &__price {
-            text-align: center;
-        }
+    .minicard__colors {
+        display: block;
+    }
 
-        &__desc {
-            text-align: center;
-        }
+    .minicard__price {
+        font-weight: 600;
+        font-size: 17px;
+    }
 
-        &__vcode {
-            text-align: center;
-        }
+    .minicard__vcode {
+        text-align: left;
+    }
 
-        &__colors {
-            display: none;
-        }
+    .minicard__desc {
+        text-align: left;
     }
 
 

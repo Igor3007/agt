@@ -148,6 +148,7 @@
             @media screen and (min-width: $w576) {
                 width: calc(50% - 12px);
                 max-width: 293px;
+                min-width: 180px;
             }
         }
 

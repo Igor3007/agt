@@ -30,13 +30,32 @@ mixin find-product(title)
 
 mixin top-search
     .top-search
-        .top-search__wrp
-             
-            .top-search__suggest(data-find="sgst")
-                .container
-                    .top-search__list(data-find="list")
-                       
-                    .top-search__all
-                        button.btn.btn-gray(type="submit" onclick="this.closest('.top-search').querySelector('form').submit()") Все результаты
+        .container
+            .top-search__wrp
+                .top-search__left
+                    .top-search__looking
+                        .top-search__label Ранее вы искали
+                        ul
+                            li Рабочая обувь <span class="ts-remove" ></span>
+                            li Зимний комбинезон Brodeks KW 505, желтый/черный <span class="ts-remove" ></span>
+                            li Ремень <span class="ts-remove" ></span>
+
+                    .top-search__popular
+                        .top-search__label Часто ищут
+                        ul
+                            li: span Отражающий жилет
+                            li: span Очки
+                            li: span Каска
+                            li: span Куртка утепленная
+                            li: span Ботинки
+                            li: span Перчатки
+                            li: span Женский костюм
+                .top-search__right
                     
+                    .top-search__suggest(data-find="sgst")
+                        .top-search__label Найдено <span>237 товаров</span>
+                        .top-search__list(data-find="list")
+                        .top-search__all
+                            button.btn.btn-gray(type="submit" onclick="this.closest('.top-search').querySelector('form').submit()") Все результаты
+                        
 

@@ -1,0 +1,24 @@
+extends ../layouts/main
+ 
+block variables
+  include ../../data/data.pug
+  - const title = "AGT - Сравнение товаров"
+ 
+
+block main
+
+  include ../../blocks/modules/top-catalog/top-catalog.pug
+  include ../../blocks/modules/compare/compare.pug
+
+ 
+  +compare 
+
+ 
+
+ 
+ 
+ 
+block scripts
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js")
+  script(src="/js/compare.js") 

@@ -1,0 +1,329 @@
+include ../../components/breadcrumb/breadcrumb.pug
+include ../../modules/minicard/minicard.pug
+
+mixin colors 
+    .colors-compare
+        ul
+            li
+                .multi-color
+                    .multi-color__wrp
+                        span(style='background-color: #E43A28') 
+            li
+                .multi-color
+                    .multi-color__wrp
+                        span(style='background-color: #405284') 
+            li
+                .multi-color
+                    .multi-color__wrp
+                        span(style='background-color: #E43A28') 
+                        span(style='background-color: #44454E') 
+            li
+                .multi-color
+                    .multi-color__wrp
+                        span(style='background-color: #44454E') 
+mixin colors-2
+    .colors-compare
+        ul
+            li
+                .multi-color
+                    .multi-color__wrp
+                        span(style='background-color: #E43A28') 
+            li
+                .multi-color
+                    .multi-color__wrp
+                        span(style='background-color: #405284') 
+            li
+                .multi-color
+                    .multi-color__wrp
+                        span(style='background-color: #E43A28') 
+                        span(style='background-color: #44454E') 
+            li
+                .multi-color
+                    .multi-color__wrp
+                        span(style='background-color: #44454E') 
+            li
+                .multi-color
+                    .multi-color__wrp
+                        span(style='background-color: #405284') 
+            li
+                .multi-color
+                    .multi-color__wrp
+                        span(style='background-color: #E43A28') 
+                        span(style='background-color: #44454E') 
+            li
+                .multi-color
+                    .multi-color__wrp
+                        span(style='background-color: #405284') 
+            li
+                .multi-color
+                    .multi-color__wrp
+                        span(style='background-color: #E43A28') 
+                        span(style='background-color: #44454E') 
+            li
+                .multi-color
+                    .multi-color__wrp
+                        span(style='background-color: #44454E') 
+            li
+                .multi-color
+                    .multi-color__wrp
+                        span(style='background-color: #405284') 
+            li
+                .multi-color
+                    .multi-color__wrp
+                        span(style='background-color: #E43A28') 
+                        span(style='background-color: #44454E') 
+            li
+                .multi-color
+                    .multi-color__wrp
+                        span(style='background-color: #44454E') 
+            li
+                .multi-color
+                    .multi-color__wrp
+                        span(style='background-color: #405284') 
+            li
+                .multi-color
+                    .multi-color__wrp
+                        span(style='background-color: #E43A28') 
+                        span(style='background-color: #44454E') 
+            li
+                .multi-color
+                    .multi-color__wrp
+                        span(style='background-color: #44454E') 
+
+mixin compare
+    section.section-compare
+        .container
+            .compare
+                .compare__breadcrumbs: +breadcrumb([
+                    'AGT',
+                    'Сравнение товаров',
+                ])
+                .compare__title Сравнение товаров
+                .compare__info
+                    .rotate-device
+                        .rotate-device__icon
+                            span.ic_24(style="background-image: url('/img/common/icon-rotate-device.svg')")
+                        .rotate-device__text Поверните экран, так удобнее
+                        .rotate-device__close: span.icon-cross.ic_24
+                .compare__tabs
+                    ul
+                        li.is-active: a(href='#') Зимняя одежда <span class="tab-total">(22)</span>
+                        li: a(href='#') Светоотражающая одежда <span class="tab-total">(22)</span>
+                .compare__nav
+                    .compare__nav-prev(data-se-slider="prev"): +icons('#ic_arr-left', 40)
+                    .compare__nav-next(data-se-slider="next"): +icons('#ic_arr-right', 40)
+                .compare__content.dragscroll
+                    table
+                        tr
+                            td.td-compensate
+                            td.td-title.td-title--setting
+                                div(data-similar)
+                                    +toggle('Только различия')
+                                ul
+                                    li: a(data-similar="clear" data-url="/clear?id=12")
+                                            +icons('#ic_trash-24', '15')
+                                            span Очистить список
+
+                                    li: a(data-similar="share" data-url="https://agt.ru/compare/share?id=12")
+                                            +icons('#ic_upload-24', '15')
+                                            span Поделиться списком
+
+                                
+                            td.td-minicard: +minicard-compare(products[0])
+                            td.td-minicard: +minicard-compare(products[0])
+                            td.td-minicard: +minicard-compare(products[1])
+                            td.td-minicard: +minicard-compare(products[2])
+                            td.td-minicard: +minicard-compare(products[0])
+                            td.td-minicard: +minicard-compare(products[1])
+                            td.td-minicard: +minicard-compare(products[2])
+                            
+                        tr.product-table__prop
+                            td.td-compensate Коллекция
+                            td.td-title Коллекция
+                            td Городская серия
+                            td Городская серия
+                            td Городская серия
+                            td Городская серия
+                            td Городская серия
+                            td Городская серия
+                        tr.product-table__prop
+                            td.td-compensate Пол
+                            td.td-title Пол
+                            td Женская
+                            td Мужская
+                            td Унисекс
+                            td Женская
+                            td Мужская
+                            td Унисекс
+                        tr.product-table__prop
+                            td.td-compensate Цвета
+                            td.td-title Цвета
+                            td: +colors()
+                            td: +colors-2()
+                            td: +colors()
+                            td: +colors()
+                            td: +colors-2()
+                            td: +colors()
+                        tr.product-table__prop
+                            td.td-compensate Паропроницаемость
+                            td.td-title Паропроницаемость
+                            td -
+                            td 5000
+                            td 2000
+                            td -
+                            td 5000
+                            td 2000
+                        tr.product-table__prop
+                            td.td-compensate Коллекция
+                            td.td-title Коллекция
+                            td Городская серия
+                            td Городская серия
+                            td Городская серия
+                            td Городская серия
+                            td Городская серия
+                            td Городская серия
+                        tr.product-table__prop
+                            td.td-compensate Описание
+                            td.td-title Описание
+                            td Летняя рабочая куртка для руководителей и ИТР.
+                            td Летняя рабочая куртка для руководителей и ИТР.
+                            td Летняя рабочая куртка для руководителей и ИТР.
+                            td Летняя рабочая куртка для руководителей и ИТР.
+                            td Летняя рабочая куртка для руководителей и ИТР.
+                            td Летняя рабочая куртка для руководителей и ИТР.
+                        tr.product-table__prop
+                            td.td-compensate Тип утеплителя
+                            td.td-title Тип утеплителя
+                            td -
+                            td -
+                            td Пух
+                            td -
+                            td -
+                            td Пух
+                        tr.product-table__prop
+                            td.td-compensate Паропроницаемость 
+                            td.td-title Паропроницаемость
+                            td -
+                            td 5000
+                            td 2000
+                            td -
+                            td 5000
+                            td 2000
+                        tr.product-table__prop
+                            td.td-compensate Коллекция
+                            td.td-title Коллекция
+                            td Городская серия
+                            td Городская серия
+                            td Городская серия
+                            td Городская серия
+                            td Городская серия
+                            td Городская серия
+                        tr.product-table__prop
+                            td.td-compensate Пол
+                            td.td-title Пол
+                            td Женская
+                            td Мужская
+                            td Унисекс
+                            td Женская
+                            td Мужская
+                            td Унисекс
+                        tr.product-table__prop
+                            td.td-compensate Тип утеплителя
+                            td.td-title Тип утеплителя
+                            td -
+                            td -
+                            td Пух
+                            td -
+                            td -
+                            td Пух
+                        tr.product-table__prop
+                            td.td-compensate Паропроницаемость
+                            td.td-title Паропроницаемость
+                            td -
+                            td 5000
+                            td 2000
+                            td -
+                            td 5000
+                            td 2000
+                        tr.product-table__prop
+                            td.td-compensate Коллекция
+                            td.td-title Коллекция
+                            td Городская серия
+                            td Городская серия
+                            td Городская серия
+                            td Городская серия
+                            td Городская серия
+                            td Городская серия
+                        tr.product-table__prop
+                            td.td-compensate
+                            td.td-title Пол
+                            td Женская
+                            td Мужская
+                            td Унисекс
+                            td Женская
+                            td Мужская
+                            td Унисекс
+                        tr.product-table__prop
+                            td.td-compensate Тип утеплителя
+                            td.td-title Тип утеплителя
+                            td -
+                            td -
+                            td Пух
+                            td -
+                            td -
+                            td Пух
+                        tr.product-table__prop
+                            td.td-compensate Паропроницаемость
+                            td.td-title Паропроницаемость
+                            td -
+                            td 5000
+                            td 2000
+                            td -
+                            td 5000
+                            td 2000
+                        tr.product-table__prop
+                            td.td-compensate Коллекция
+                            td.td-title Коллекция
+                            td Городская серия
+                            td Городская серия
+                            td Городская серия
+                            td Городская серия
+                            td Городская серия
+                            td Городская серия
+                        tr.product-table__prop
+                            td.td-compensate
+                            td.td-title Пол
+                            td Женская
+                            td Мужская
+                            td Унисекс
+                            td Женская
+                            td Мужская
+                            td Унисекс
+                        tr.product-table__prop
+                            td.td-compensate Тип утеплителя
+                            td.td-title Тип утеплителя
+                            td -
+                            td -
+                            td Пух
+                            td -
+                            td -
+                            td Пух
+                        tr.product-table__prop
+                            td.td-compensate Паропроницаемость
+                            td.td-title Паропроницаемость
+                            td -
+                            td 5000
+                            td 2000
+                            td -
+                            td 5000
+                            td 2000
+                        tr.product-table__prop
+                            td.td-compensate Вес
+                            td.td-title Вес
+                            td -
+                            td 5000
+                            td 2000
+                            td -
+                            td 5000
+                            td 2000
+                    

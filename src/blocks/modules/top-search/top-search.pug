@@ -32,28 +32,32 @@ mixin top-search
     .top-search
         .container
             .top-search__wrp
+                .top-search__close(data-find="close")
+                    +icons('#ic_cross')
                 .top-search__left
                     .top-search__looking
                         .top-search__label Ранее вы искали
                         ul
-                            li Рабочая обувь <span class="ts-remove" ></span>
-                            li Зимний комбинезон Brodeks KW 505, желтый/черный <span class="ts-remove" ></span>
-                            li Ремень <span class="ts-remove" ></span>
+                            li <a href="/">Рабочая обувь</a> <span class="ts-remove" ></span>
+                            li <a href="/">Зимний комбинезон Brodeks KW 505, желтый/черный</a> <span class="ts-remove" ></span>
+                            li <a href="/">Ремень</a> <span class="ts-remove" ></span>
 
                     .top-search__popular
                         .top-search__label Часто ищут
                         ul
-                            li: span Отражающий жилет
-                            li: span Очки
-                            li: span Каска
-                            li: span Куртка утепленная
-                            li: span Ботинки
-                            li: span Перчатки
-                            li: span Женский костюм
+                            li: a(href='/search.html') Отражающий жилет
+                            li: a(href='/search.html') Очки
+                            li: a(href='/search.html') Каска
+                            li: a(href='/search.html') Куртка утепленная
+                            li: a(href='/search.html') Ботинки
+                            li: a(href='/search.html') Перчатки
+                            li: a(href='/search.html') Женский костюм
+
                 .top-search__right
                     
+                    .top-search__placeholder(data-find="placeholder") Начните вводить поисковую фразу...
                     .top-search__suggest(data-find="sgst")
-                        .top-search__label Найдено <span>237 товаров</span>
+                        .top-search__label Найдено <span data-find="total" >237 товаров</span>
                         .top-search__list(data-find="list")
                         .top-search__all
                             button.btn.btn-gray(type="submit" onclick="this.closest('.top-search').querySelector('form').submit()") Все результаты

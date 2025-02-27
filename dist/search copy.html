@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AGT - Сравнение товаров</title>
+    <title>AG Technologies - Результаты поиска</title>
     <meta name="theme-color" content="#1EBC61">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -213,18 +213,13 @@
               <div class="top-search">
                 <div class="container">
                   <div class="top-search__wrp">
-                    <div class="top-search__close" data-find="close">
-                      <svg width="24" height="24">
-                        <use xlink:href="/img/sprites/sprite.svg#ic_cross"></use>
-                      </svg>
-                    </div>
                     <div class="top-search__left">
                       <div class="top-search__looking">
                         <div class="top-search__label">Ранее вы искали</div>
                         <ul>
-                          <li><a href="/">Рабочая обувь</a> <span class="ts-remove" ></span></li>
-                          <li><a href="/">Зимний комбинезон Brodeks KW 505, желтый/черный</a> <span class="ts-remove" ></span></li>
-                          <li><a href="/">Ремень</a> <span class="ts-remove" ></span></li>
+                          <li>Рабочая обувь <span class="ts-remove" ></span></li>
+                          <li>Зимний комбинезон Brodeks KW 505, желтый/черный <span class="ts-remove" ></span></li>
+                          <li>Ремень <span class="ts-remove" ></span></li>
                         </ul>
                       </div>
                       <div class="top-search__popular">
@@ -241,9 +236,8 @@
                       </div>
                     </div>
                     <div class="top-search__right">
-                      <div class="top-search__placeholder" data-find="placeholder">Начните вводить поисковую фразу...</div>
                       <div class="top-search__suggest" data-find="sgst">
-                        <div class="top-search__label">Найдено <span data-find="total" >237 товаров</span></div>
+                        <div class="top-search__label">Найдено <span>237 товаров</span></div>
                         <div class="top-search__list" data-find="list"></div>
                         <div class="top-search__all">
                           <button class="btn btn-gray" type="submit" onclick="this.closest('.top-search').querySelector('form').submit()">Все результаты</button>
@@ -435,66 +429,486 @@
       </div>
     </header>
     <main> 
-            <section class="section-compare">
+            <div class="catalog-category catalog-category--search">
               <div class="container">
-                <div class="compare">
-                  <div class="compare__breadcrumbs">
+                <div class="catalog-category__topnbar">
+                  <div class="catalog-category__breadcrumb">
                           <div class="breadcrumb">
                             <ul>
                               <li><a href="/">AGT</a></li>
-                              <li><span>Сравнение товаров</span></li>
+                              <li><span>Каталог</span></li>
                             </ul>
                           </div>
                   </div>
-                  <div class="compare__title">Сравнение товаров</div>
-                  <div class="compare__info">
-                    <div class="rotate-device">
-                      <div class="rotate-device__icon"><span class="ic_24" style="background-image: url('/img/common/icon-rotate-device.svg')"></span></div>
-                      <div class="rotate-device__text">Поверните экран, так удобнее</div>
-                      <div class="rotate-device__close"><span class="icon-cross ic_24"></span></div>
+                  <div class="catalog-category__h1">
+                    <h1>Результаты поиска «Куртка»</h1>
+                  </div>
+                </div>
+                <div class="catalog-category__top">
+                  <div class="catalog-category__filter">
+                    <div class="button-filter" data-filter="open"><span class="ic_24">
+                        <svg width="16" height="16">
+                          <use xlink:href="/img/sprites/sprite.svg#ic_filtr"></use>
+                        </svg></span><span>Фильтр</span></div>
+                  </div>
+                  <div class="catalog-category__sort">
+                    <div class="catalog-category__sortable">
+                      <div class="sortable-category">
+                        <div class="sortable-category__item"><a href="#">
+                            <svg width="24" height="24">
+                              <use xlink:href="/img/sprites/sprite.svg#ic_sort"></use>
+                            </svg><span>По цене</span></a></div>
+                        <div class="sortable-category__item is-active"><a href="#">
+                            <svg width="24" height="24">
+                              <use xlink:href="/img/sprites/sprite.svg#ic_sort"></use>
+                            </svg><span>По популярности</span></a></div>
+                      </div>
                     </div>
                   </div>
-                  <div class="compare__tabs">
-                    <ul>
-                      <li class="is-active"><a href="#">Зимняя одежда <span class="tab-total">(22)</span></a></li>
-                      <li><a href="#">Светоотражающая одежда <span class="tab-total">(22)</span></a></li>
-                    </ul>
-                  </div>
-                  <div class="compare__nav">
-                    <div class="compare__nav-prev" data-se-slider="prev">
-                      <svg width="40" height="40">
-                        <use xlink:href="/img/sprites/sprite.svg#ic_arr-left"></use>
-                      </svg>
+                  <div class="catalog-category__view">
+                    <div class="change-view">
+                      <div class="change-view__item">
+                        <label>
+                          <input type="radio" name="view-type-1" value="grid" checked>
+                          <svg width="14" height="14">
+                            <use xlink:href="/img/sprites/sprite.svg#ic_view-grid"></use>
+                          </svg>
+                        </label>
+                      </div>
+                      <div class="change-view__item">
+                        <label>
+                          <input type="radio" name="view-type-1" value="list">
+                          <svg width="14" height="14">
+                            <use xlink:href="/img/sprites/sprite.svg#ic_view-list"></use>
+                          </svg>
+                        </label>
+                      </div>
                     </div>
-                    <div class="compare__nav-next" data-se-slider="next">
-                      <svg width="40" height="40">
-                        <use xlink:href="/img/sprites/sprite.svg#ic_arr-right"></use>
-                      </svg>
+                    <div class="change-view change-view--column">
+                      <div class="change-view__item">
+                        <label>
+                          <input type="radio" name="view-type" value="one">
+                          <svg width="14" height="14">
+                            <use xlink:href="/img/sprites/sprite.svg#ic_view-one"></use>
+                          </svg>
+                        </label>
+                      </div>
+                      <div class="change-view__item">
+                        <label>
+                          <input type="radio" name="view-type" value="two" checked>
+                          <svg width="14" height="14">
+                            <use xlink:href="/img/sprites/sprite.svg#ic_view-two"></use>
+                          </svg>
+                        </label>
+                      </div>
                     </div>
                   </div>
-                  <div class="compare__content dragscroll">
-                    <table>
-                      <tr>
-                        <td class="td-compensate"></td>
-                        <td class="td-title td-title--setting">
-                          <div data-similar>
-                            <label class="toggle">
-                              <input type="checkbox" name="" value="1"/>
-                              <div><span class="toggle-slide"></span><span class="toggle-active">Только различия</span><span class="toggle-deactive">Только различия</span></div>
-                            </label>
+                </div>
+                <div class="catalog-category__wrp">
+                  <div class="catalog-category__aside">
+                          <div class="specify-category">
+                            <div class="specify-category__label">Выберите категорию</div>
+                            <div class="specify-category__list">
+                              <ul>
+                                <li><a href="#">Отражающий жилет</a><span class="sc-remove"></span></li>
+                                <li class="is-active"><a href="#">Зимняя одежда</a><span class="sc-remove"></span></li>
+                                <li><a href="#">Мужская одежда</a><span class="sc-remove"></span></li>
+                              </ul>
+                            </div>
                           </div>
-                          <ul>
-                            <li><a data-similar="clear" data-url="/clear?id=12">
-                                <svg width="15" height="15">
-                                  <use xlink:href="/img/sprites/sprite.svg#ic_trash-24"></use>
-                                </svg><span>Очистить список</span></a></li>
-                            <li><a data-similar="share" data-url="https://agt.ru/compare/share?id=12">
-                                <svg width="15" height="15">
-                                  <use xlink:href="/img/sprites/sprite.svg#ic_upload-24"></use>
-                                </svg><span>Поделиться списком</span></a></li>
-                          </ul>
-                        </td>
-                        <td class="td-minicard">
+                          <div class="category-filter" data-filter-container="catalog">
+                            <div class="category-filter__head">
+                              <div class="category-filter__head-title"> <span class="ic_24">
+                                  <svg width="16" height="16">
+                                    <use xlink:href="/img/sprites/sprite.svg#ic_filtr"></use>
+                                  </svg></span><span>Фильтр</span></div>
+                              <div class="category-filter__head-close"><span class="icon-cross" data-filter="open" data-elem="catalog"></span></div>
+                            </div>
+                            <div class="category-filter__wrp">
+                              <form action="#" method="POST">
+                                <div class="category-filter__props">
+                                  <div class="category-filter__item">
+                                          <div class="filter-properties">
+                                            <div class="filter-properties__head">
+                                              <div class="filter-properties__title">Цена</div>
+                                              <div class="filter-properties__cross"></div>
+                                            </div>
+                                            <div class="filter-properties__list">
+                                              <div class="filter-properties__range">
+                                                <div class="filter-properties__row">
+                                                  <div class="filter-properties__input">
+                                                    <input type="text" placeholder="от" data-price-range="min" value="10000">
+                                                  </div>
+                                                  <div class="filter-properties__input">
+                                                    <input type="text" placeholder="до" data-price-range="max" value="300000">
+                                                  </div>
+                                                </div>
+                                                <div class="filter-properties__slider">
+                                                  <div class="slider" id="price-range" se-min="2500" se-max="950000" se-step="1" se-min-value="10000" se-max-value="300000">
+                                                    <div class="slider-touch-left"><span></span></div>
+                                                    <div class="slider-touch-right"><span></span></div>
+                                                    <div class="slider-line"><span></span></div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                  </div>
+                                  <div class="category-filter__item">
+                                          <div class="filter-properties">
+                                            <div class="filter-properties__head">
+                                              <div class="filter-properties__title">Цвет</div>
+                                              <div class="filter-properties__cross"></div>
+                                            </div>
+                                            <div class="filter-properties__list">
+                                              <ul class="colors-checkbox">
+                                                <li class="color--white">
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="Белый" value="#fff"><span class="checkbox__elem" style="background-color:#fff"></span><span class="checkbox__text">Белый</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="Синий" value="#1A42D0"><span class="checkbox__elem" style="background-color:#1A42D0"></span><span class="checkbox__text">Синий</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="Красный" value="#D01A67"><span class="checkbox__elem" style="background-color:#D01A67"></span><span class="checkbox__text">Красный</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="Красный" value="#D01A1A"><span class="checkbox__elem" style="background-color:#D01A1A"></span><span class="checkbox__text">Красный</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="Красный" value="#FF0000"><span class="checkbox__elem" style="background-color:#FF0000"></span><span class="checkbox__text">Красный</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="Оранжевый" value="#F0AB5A"><span class="checkbox__elem" style="background-color:#F0AB5A"></span><span class="checkbox__text">Оранжевый</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="Желтый/Фиолетовый" value="#FFD12D"><span class="checkbox__elem" style="background-color:#FFD12D"></span><span class="checkbox__text">Желтый/Фиолетовый</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="Зеленый" value="#C0F05A"><span class="checkbox__elem" style="background-color:#C0F05A"></span><span class="checkbox__text">Зеленый</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="Голубой" value="#4790E5"><span class="checkbox__elem" style="background-color:#4790E5"></span><span class="checkbox__text">Голубой</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="Голубой-Черный" value="#477DE5"><span class="checkbox__elem" style="background-color:#477DE5"></span><span class="checkbox__text">Голубой-Черный</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="Голубой" value="#42AAFF"><span class="checkbox__elem" style="background-color:#42AAFF"></span><span class="checkbox__text">Голубой</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="Филетовый" value="#B247E5"><span class="checkbox__elem" style="background-color:#B247E5"></span><span class="checkbox__text">Филетовый</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="Розовый" value="#E547C2"><span class="checkbox__elem" style="background-color:#E547C2"></span><span class="checkbox__text">Розовый</span>
+                                                  </label>
+                                                </li>
+                                              </ul>
+                                            </div>
+                                          </div>
+                                  </div>
+                                  <div class="category-filter__item">
+                                          <div class="filter-properties">
+                                            <div class="filter-properties__head">
+                                              <div class="filter-properties__title">Раздел</div>
+                                              <div class="filter-properties__cross"></div>
+                                            </div>
+                                            <div class="filter-properties__list">
+                                              <ul>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Куртки</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Брюки</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Футболки</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Костюмы</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Кофты</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Куртки</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Брюки</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Футболки</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Костюмы</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Кофты</span>
+                                                  </label>
+                                                </li>
+                                              </ul>
+                                            </div>
+                                          </div>
+                                  </div>
+                                  <div class="category-filter__item">
+                                          <div class="filter-properties">
+                                            <div class="filter-properties__head">
+                                              <div class="filter-properties__title">Пол</div>
+                                              <div class="filter-properties__cross"></div>
+                                            </div>
+                                            <div class="filter-properties__list">
+                                              <ul>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Мужской</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Женский</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Унисекс</span>
+                                                  </label>
+                                                </li>
+                                              </ul>
+                                            </div>
+                                          </div>
+                                  </div>
+                                  <div class="category-filter__item">
+                                          <div class="filter-properties">
+                                            <div class="filter-properties__head">
+                                              <div class="filter-properties__title">Размер</div>
+                                              <div class="filter-properties__cross"></div>
+                                            </div>
+                                            <div class="filter-properties__list">
+                                              <ul>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                              </ul>
+                                            </div>
+                                          </div>
+                                  </div>
+                                  <div class="category-filter__item">
+                                          <div class="filter-properties">
+                                            <div class="filter-properties__head">
+                                              <div class="filter-properties__title">Тип одежды</div>
+                                              <div class="filter-properties__cross"></div>
+                                            </div>
+                                            <div class="filter-properties__list">
+                                              <ul>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                              </ul>
+                                            </div>
+                                          </div>
+                                  </div>
+                                  <div class="category-filter__item">
+                                          <div class="filter-properties">
+                                            <div class="filter-properties__head">
+                                              <div class="filter-properties__title">Сезон</div>
+                                              <div class="filter-properties__cross"></div>
+                                            </div>
+                                            <div class="filter-properties__list">
+                                              <ul>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                              </ul>
+                                            </div>
+                                          </div>
+                                  </div>
+                                  <div class="category-filter__item">
+                                          <div class="filter-properties">
+                                            <div class="filter-properties__head">
+                                              <div class="filter-properties__title">Сезон</div>
+                                              <div class="filter-properties__cross"></div>
+                                            </div>
+                                            <div class="filter-properties__list">
+                                              <ul>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                                <li>
+                                                  <label class="checkbox">
+                                                    <input type="checkbox" name="undefined"/><span class="checkbox__elem"></span><span class="checkbox__text">Тип одежды</span>
+                                                  </label>
+                                                </li>
+                                              </ul>
+                                            </div>
+                                          </div>
+                                  </div>
+                                </div>
+                                <div class="category-filter__submit">
+                                  <div class="category-filter__send" data-filter="submit">
+                                    <button class="btn"><span>Применить фильтры</span></button>
+                                  </div>
+                                  <div class="category-filter__clear" data-filter="clear">
+                                    <button class="btn btn-gray">Сбросить фильтры </button>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                  </div>
+                  <div class="catalog-category__content">
+                    <div class="catalog-category__tags dragscroll"> 
+                      <div class="tags-category-label">Уточнить:</div>
+                      <div class="tags-category-wrp">
+                        <ul data-category="tags">
+                          <li><a href="#">Хлопок</a></li>
+                          <li><a href="#">Флис</a></li>
+                          <li><a href="#">Синяя</a></li>
+                          <li><a href="#">Хлопок</a></li>
+                          <li><a href="#">Полиамид</a></li>
+                          <li><a href="#">Флис</a></li>
+                        </ul>
+                        <div class="show-more-tag" data-isopen="catalog-category__tags"><span>...еще</span></div>
+                      </div>
+                    </div>
+                    <div class="catalog-category__products">
+                      <div class="category-products">
+                        <div class="category-products__item">
                                 <div class="minicard" data-popup="product-preview" data-id="875">
                                   <div class="minicard__top">
                                     <div class="minicard__head">
@@ -551,7 +965,7 @@
                                             <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
                                           </svg>
                                         </div>
-                                        <div class="minicard__compare is-active" data-compare="12">
+                                        <div class="minicard__compare" data-compare="12">
                                           <svg width="40" height="40">
                                             <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
                                           </svg>
@@ -573,10 +987,498 @@
                                       <div class="minicard__price">14 500 <span>₽</span></div>
                                     </div>
                                     <div class="minicard__desc" data-popup="ajax" data-url="/parts/_popup-quickview.html"><span>Зимний светоотражающий полукомбинезон Portwest S489, сигнальный желтый/темно-синий</span></div>
+                                    <div class="minicard__vcode"><span>Арт.: KS213RED</span></div>
+                                    <div class="minicard__colors">
+                                      <ul>
+                                        <li style="border-color: #405284 "> <span data-color="123" style="background-color: #405284 "></span>
+                                        </li>
+                                        <li style="border-color: #E43A28 "> <span data-color="785" style="background-color: #E43A28 "></span>
+                                        </li>
+                                        <li style="border-color: #EAEAEA "> <span data-color="678" style="background-color: #EAEAEA "></span>
+                                        </li>
+                                        <li style="border-color: #44454E "> <span data-color="354" style="background-color: #44454E "></span>
+                                        </li>
+                                      </ul>
+                                    </div>
                                   </div>
                                 </div>
-                        </td>
-                        <td class="td-minicard">
+                        </div>
+                        <div class="category-products__item">
+                                <div class="minicard" data-popup="product-preview" data-id="875">
+                                  <div class="minicard__top">
+                                    <div class="minicard__head">
+                                      <div class="minicard__sticker"><span>Новинка</span></div>
+                                      <div class="minicard__brand"><span class="bgimage lazyload" data-bg="/img/brands/brodeks.png"></span>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__images">
+                                      <div class="minicard__picture is-active" data-image-color="123">
+                                        <div class="minicard__photo"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p2.webp" type="image/webp"/><img src="/img/product/p2.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                        <div class="minicard__photo-hover"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                      </div>
+                                      <div class="minicard__picture" data-image-color="785">
+                                        <div class="minicard__photo"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/p2.webp" type="image/webp"/><img src="/img/product/kw204/p2.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                        <div class="minicard__photo-hover"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                      </div>
+                                      <div class="minicard__picture" data-image-color="678">
+                                        <div class="minicard__photo"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/kw204-gray.webp" type="image/webp"/><img src="/img/product/kw204/kw204-gray.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                        <div class="minicard__photo-hover"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                      </div>
+                                      <div class="minicard__picture" data-image-color="354">
+                                        <div class="minicard__photo"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/kw204-black.webp" type="image/webp"/><img src="/img/product/kw204/kw204-black.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                        <div class="minicard__photo-hover"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__action"> 
+                                      <div class="minicard__bg">
+                                        <div class="minicard__tofav" data-wishlist="14">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
+                                          </svg>
+                                        </div>
+                                        <div class="minicard__compare" data-compare="14">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
+                                          </svg>
+                                        </div>
+                                      </div>
+                                      <div class="minicard__tocart">
+                                        <button class="btn-tocart"><span class="ic-default">
+                                            <svg width="33" height="33">
+                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-plus"></use>
+                                            </svg></span><span class="ic-active">
+                                            <svg width="33" height="33">
+                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-check"></use>
+                                            </svg></span><span class="tocart-text">В корзину</span></button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="minicard__main">
+                                    <div class="minicard__prices">
+                                      <div class="minicard__price">14 500 <span>₽</span></div>
+                                    </div>
+                                    <div class="minicard__desc" data-popup="ajax" data-url="/parts/_popup-quickview.html"><span>Зимний светоотражающий полукомбинезон Portwest S489, сигнальный желтый/темно-синий</span></div>
+                                    <div class="minicard__vcode"><span>Арт.: KS213RED</span></div>
+                                    <div class="minicard__colors">
+                                      <ul>
+                                        <li style="border-color: #E43A28 "> <span data-color="123" style="background-color: #E43A28 "></span>
+                                        </li>
+                                        <li style="border-color: #405284 "> <span data-color="785" style="background-color: #405284 "></span>
+                                        </li>
+                                        <li style="border-color: #EAEAEA "> <span data-color="678" style="background-color: #EAEAEA "></span>
+                                        </li>
+                                        <li style="border-color: #44454E "> <span data-color="354" style="background-color: #44454E "></span>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                        </div>
+                        <div class="category-products__item">
+                                <div class="minicard" data-popup="product-preview" data-id="875">
+                                  <div class="minicard__top">
+                                    <div class="minicard__head">
+                                      <div class="minicard__sticker"><span>Новинка</span></div>
+                                      <div class="minicard__brand"><span class="bgimage lazyload" data-bg="/img/brands/brodeks.png"></span>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__images">
+                                      <div class="minicard__picture is-active" data-image-color="123">
+                                        <div class="minicard__photo"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p2.webp" type="image/webp"/><img src="/img/product/p2.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                        <div class="minicard__photo-hover"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                      </div>
+                                      <div class="minicard__picture" data-image-color="785">
+                                        <div class="minicard__photo"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/p2.webp" type="image/webp"/><img src="/img/product/kw204/p2.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                        <div class="minicard__photo-hover"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                      </div>
+                                      <div class="minicard__picture" data-image-color="678">
+                                        <div class="minicard__photo"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/kw204-gray.webp" type="image/webp"/><img src="/img/product/kw204/kw204-gray.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                        <div class="minicard__photo-hover"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                      </div>
+                                      <div class="minicard__picture" data-image-color="354">
+                                        <div class="minicard__photo"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/kw204-black.webp" type="image/webp"/><img src="/img/product/kw204/kw204-black.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                        <div class="minicard__photo-hover"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__action"> 
+                                      <div class="minicard__bg">
+                                        <div class="minicard__tofav" data-wishlist="14">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
+                                          </svg>
+                                        </div>
+                                        <div class="minicard__compare" data-compare="14">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
+                                          </svg>
+                                        </div>
+                                      </div>
+                                      <div class="minicard__tocart">
+                                        <button class="btn-tocart"><span class="ic-default">
+                                            <svg width="33" height="33">
+                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-plus"></use>
+                                            </svg></span><span class="ic-active">
+                                            <svg width="33" height="33">
+                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-check"></use>
+                                            </svg></span><span class="tocart-text">В корзину</span></button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="minicard__main">
+                                    <div class="minicard__prices">
+                                      <div class="minicard__price">14 500 <span>₽</span></div>
+                                    </div>
+                                    <div class="minicard__desc" data-popup="ajax" data-url="/parts/_popup-quickview.html"><span>Зимний светоотражающий полукомбинезон Portwest S489, сигнальный желтый/темно-синий</span></div>
+                                    <div class="minicard__vcode"><span>Арт.: KS213RED</span></div>
+                                    <div class="minicard__colors">
+                                      <ul>
+                                        <li style="border-color: #E43A28 "> <span data-color="123" style="background-color: #E43A28 "></span>
+                                        </li>
+                                        <li style="border-color: #405284 "> <span data-color="785" style="background-color: #405284 "></span>
+                                        </li>
+                                        <li style="border-color: #EAEAEA "> <span data-color="678" style="background-color: #EAEAEA "></span>
+                                        </li>
+                                        <li style="border-color: #44454E "> <span data-color="354" style="background-color: #44454E "></span>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                        </div>
+                        <div class="category-products__item">
+                                <div class="minicard" data-popup="product-preview" data-id="875">
+                                  <div class="minicard__top">
+                                    <div class="minicard__head">
+                                      <div class="minicard__sticker"><span>Новинка</span></div>
+                                      <div class="minicard__brand"><span class="bgimage lazyload" data-bg="/img/brands/brodeks.png"></span>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__images">
+                                      <div class="minicard__picture is-active" data-image-color="123">
+                                        <div class="minicard__photo"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p2.webp" type="image/webp"/><img src="/img/product/p2.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                        <div class="minicard__photo-hover"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                      </div>
+                                      <div class="minicard__picture" data-image-color="785">
+                                        <div class="minicard__photo"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/p2.webp" type="image/webp"/><img src="/img/product/kw204/p2.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                        <div class="minicard__photo-hover"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                      </div>
+                                      <div class="minicard__picture" data-image-color="678">
+                                        <div class="minicard__photo"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/kw204-gray.webp" type="image/webp"/><img src="/img/product/kw204/kw204-gray.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                        <div class="minicard__photo-hover"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                      </div>
+                                      <div class="minicard__picture" data-image-color="354">
+                                        <div class="minicard__photo"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/kw204-black.webp" type="image/webp"/><img src="/img/product/kw204/kw204-black.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                        <div class="minicard__photo-hover"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__action"> 
+                                      <div class="minicard__bg">
+                                        <div class="minicard__tofav" data-wishlist="14">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
+                                          </svg>
+                                        </div>
+                                        <div class="minicard__compare" data-compare="14">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
+                                          </svg>
+                                        </div>
+                                      </div>
+                                      <div class="minicard__tocart">
+                                        <button class="btn-tocart"><span class="ic-default">
+                                            <svg width="33" height="33">
+                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-plus"></use>
+                                            </svg></span><span class="ic-active">
+                                            <svg width="33" height="33">
+                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-check"></use>
+                                            </svg></span><span class="tocart-text">В корзину</span></button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="minicard__main">
+                                    <div class="minicard__prices">
+                                      <div class="minicard__price">14 500 <span>₽</span></div>
+                                    </div>
+                                    <div class="minicard__desc" data-popup="ajax" data-url="/parts/_popup-quickview.html"><span>Зимний светоотражающий полукомбинезон Portwest S489, сигнальный желтый/темно-синий</span></div>
+                                    <div class="minicard__vcode"><span>Арт.: KS213RED</span></div>
+                                    <div class="minicard__colors">
+                                      <ul>
+                                        <li style="border-color: #E43A28 "> <span data-color="123" style="background-color: #E43A28 "></span>
+                                        </li>
+                                        <li style="border-color: #405284 "> <span data-color="785" style="background-color: #405284 "></span>
+                                        </li>
+                                        <li style="border-color: #EAEAEA "> <span data-color="678" style="background-color: #EAEAEA "></span>
+                                        </li>
+                                        <li style="border-color: #44454E "> <span data-color="354" style="background-color: #44454E "></span>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                        </div>
+                        <div class="category-products__item">
+                                <div class="minicard" data-popup="product-preview" data-id="875">
+                                  <div class="minicard__top">
+                                    <div class="minicard__head">
+                                      <div class="minicard__sticker"><span>Новинка</span></div>
+                                      <div class="minicard__brand"><span class="bgimage lazyload" data-bg="/img/brands/brodeks.png"></span>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__images">
+                                      <div class="minicard__picture is-active" data-image-color="123">
+                                        <div class="minicard__photo"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p2.webp" type="image/webp"/><img src="/img/product/p2.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                        <div class="minicard__photo-hover"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                      </div>
+                                      <div class="minicard__picture" data-image-color="785">
+                                        <div class="minicard__photo"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/p2.webp" type="image/webp"/><img src="/img/product/kw204/p2.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                        <div class="minicard__photo-hover"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                      </div>
+                                      <div class="minicard__picture" data-image-color="678">
+                                        <div class="minicard__photo"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/kw204-gray.webp" type="image/webp"/><img src="/img/product/kw204/kw204-gray.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                        <div class="minicard__photo-hover"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                      </div>
+                                      <div class="minicard__picture" data-image-color="354">
+                                        <div class="minicard__photo"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/kw204-black.webp" type="image/webp"/><img src="/img/product/kw204/kw204-black.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                        <div class="minicard__photo-hover"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__action"> 
+                                      <div class="minicard__bg">
+                                        <div class="minicard__tofav" data-wishlist="14">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
+                                          </svg>
+                                        </div>
+                                        <div class="minicard__compare" data-compare="14">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
+                                          </svg>
+                                        </div>
+                                      </div>
+                                      <div class="minicard__tocart">
+                                        <button class="btn-tocart"><span class="ic-default">
+                                            <svg width="33" height="33">
+                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-plus"></use>
+                                            </svg></span><span class="ic-active">
+                                            <svg width="33" height="33">
+                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-check"></use>
+                                            </svg></span><span class="tocart-text">В корзину</span></button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="minicard__main">
+                                    <div class="minicard__prices">
+                                      <div class="minicard__price">14 500 <span>₽</span></div>
+                                    </div>
+                                    <div class="minicard__desc" data-popup="ajax" data-url="/parts/_popup-quickview.html"><span>Зимний светоотражающий полукомбинезон Portwest S489, сигнальный желтый/темно-синий</span></div>
+                                    <div class="minicard__vcode"><span>Арт.: KS213RED</span></div>
+                                    <div class="minicard__colors">
+                                      <ul>
+                                        <li style="border-color: #E43A28 "> <span data-color="123" style="background-color: #E43A28 "></span>
+                                        </li>
+                                        <li style="border-color: #405284 "> <span data-color="785" style="background-color: #405284 "></span>
+                                        </li>
+                                        <li style="border-color: #EAEAEA "> <span data-color="678" style="background-color: #EAEAEA "></span>
+                                        </li>
+                                        <li style="border-color: #44454E "> <span data-color="354" style="background-color: #44454E "></span>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                        </div>
+                        <div class="category-products__item">
+                                <div class="minicard" data-popup="product-preview" data-id="875">
+                                  <div class="minicard__top">
+                                    <div class="minicard__head">
+                                      <div class="minicard__sticker"><span>Новинка</span></div>
+                                      <div class="minicard__brand"><span class="bgimage lazyload" data-bg="/img/brands/brodeks.png"></span>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__images">
+                                      <div class="minicard__picture is-active" data-image-color="123">
+                                        <div class="minicard__photo"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p2.webp" type="image/webp"/><img src="/img/product/p2.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                        <div class="minicard__photo-hover"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                      </div>
+                                      <div class="minicard__picture" data-image-color="785">
+                                        <div class="minicard__photo"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/p2.webp" type="image/webp"/><img src="/img/product/kw204/p2.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                        <div class="minicard__photo-hover"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                      </div>
+                                      <div class="minicard__picture" data-image-color="678">
+                                        <div class="minicard__photo"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/kw204-gray.webp" type="image/webp"/><img src="/img/product/kw204/kw204-gray.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                        <div class="minicard__photo-hover"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                      </div>
+                                      <div class="minicard__picture" data-image-color="354">
+                                        <div class="minicard__photo"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/kw204/kw204-black.webp" type="image/webp"/><img src="/img/product/kw204/kw204-black.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                        <div class="minicard__photo-hover"><a href="/single-product.html">
+                                            <picture>
+                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
+                                            </picture></a></div>
+                                      </div>
+                                    </div>
+                                    <div class="minicard__action"> 
+                                      <div class="minicard__bg">
+                                        <div class="minicard__tofav" data-wishlist="14">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
+                                          </svg>
+                                        </div>
+                                        <div class="minicard__compare" data-compare="14">
+                                          <svg width="40" height="40">
+                                            <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
+                                          </svg>
+                                        </div>
+                                      </div>
+                                      <div class="minicard__tocart">
+                                        <button class="btn-tocart"><span class="ic-default">
+                                            <svg width="33" height="33">
+                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-plus"></use>
+                                            </svg></span><span class="ic-active">
+                                            <svg width="33" height="33">
+                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-check"></use>
+                                            </svg></span><span class="tocart-text">В корзину</span></button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="minicard__main">
+                                    <div class="minicard__prices">
+                                      <div class="minicard__price">14 500 <span>₽</span></div>
+                                    </div>
+                                    <div class="minicard__desc" data-popup="ajax" data-url="/parts/_popup-quickview.html"><span>Зимний светоотражающий полукомбинезон Portwest S489, сигнальный желтый/темно-синий</span></div>
+                                    <div class="minicard__vcode"><span>Арт.: KS213RED</span></div>
+                                    <div class="minicard__colors">
+                                      <ul>
+                                        <li style="border-color: #E43A28 "> <span data-color="123" style="background-color: #E43A28 "></span>
+                                        </li>
+                                        <li style="border-color: #405284 "> <span data-color="785" style="background-color: #405284 "></span>
+                                        </li>
+                                        <li style="border-color: #EAEAEA "> <span data-color="678" style="background-color: #EAEAEA "></span>
+                                        </li>
+                                        <li style="border-color: #44454E "> <span data-color="354" style="background-color: #44454E "></span>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                        </div>
+                        <div class="category-products__item">
                                 <div class="minicard" data-popup="product-preview" data-id="875">
                                   <div class="minicard__top">
                                     <div class="minicard__head">
@@ -633,7 +1535,7 @@
                                             <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
                                           </svg>
                                         </div>
-                                        <div class="minicard__compare is-active" data-compare="12">
+                                        <div class="minicard__compare" data-compare="12">
                                           <svg width="40" height="40">
                                             <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
                                           </svg>
@@ -655,10 +1557,23 @@
                                       <div class="minicard__price">14 500 <span>₽</span></div>
                                     </div>
                                     <div class="minicard__desc" data-popup="ajax" data-url="/parts/_popup-quickview.html"><span>Зимний светоотражающий полукомбинезон Portwest S489, сигнальный желтый/темно-синий</span></div>
+                                    <div class="minicard__vcode"><span>Арт.: KS213RED</span></div>
+                                    <div class="minicard__colors">
+                                      <ul>
+                                        <li style="border-color: #405284 "> <span data-color="123" style="background-color: #405284 "></span>
+                                        </li>
+                                        <li style="border-color: #E43A28 "> <span data-color="785" style="background-color: #E43A28 "></span>
+                                        </li>
+                                        <li style="border-color: #EAEAEA "> <span data-color="678" style="background-color: #EAEAEA "></span>
+                                        </li>
+                                        <li style="border-color: #44454E "> <span data-color="354" style="background-color: #44454E "></span>
+                                        </li>
+                                      </ul>
+                                    </div>
                                   </div>
                                 </div>
-                        </td>
-                        <td class="td-minicard">
+                        </div>
+                        <div class="category-products__item">
                                 <div class="minicard" data-popup="product-preview" data-id="875">
                                   <div class="minicard__top">
                                     <div class="minicard__head">
@@ -715,7 +1630,7 @@
                                             <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
                                           </svg>
                                         </div>
-                                        <div class="minicard__compare is-active" data-compare="14">
+                                        <div class="minicard__compare" data-compare="14">
                                           <svg width="40" height="40">
                                             <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
                                           </svg>
@@ -737,813 +1652,54 @@
                                       <div class="minicard__price">14 500 <span>₽</span></div>
                                     </div>
                                     <div class="minicard__desc" data-popup="ajax" data-url="/parts/_popup-quickview.html"><span>Зимний светоотражающий полукомбинезон Portwest S489, сигнальный желтый/темно-синий</span></div>
-                                  </div>
-                                </div>
-                        </td>
-                        <td class="td-minicard">
-                                <div class="minicard" data-popup="product-preview" data-id="875">
-                                  <div class="minicard__top">
-                                    <div class="minicard__head">
-                                      <div class="minicard__sticker"><span>Новинка</span></div>
-                                      <div class="minicard__brand"><span class="bgimage lazyload" data-bg="/img/brands/brodeks.png"></span>
-                                      </div>
-                                    </div>
-                                    <div class="minicard__images">
-                                      <div class="minicard__picture is-active" data-image-color="123">
-                                        <div class="minicard__photo"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/p2.webp" type="image/webp"/><img src="/img/product/p2.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                        <div class="minicard__photo-hover"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                      </div>
-                                      <div class="minicard__picture" data-image-color="785">
-                                        <div class="minicard__photo"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/kw204/p2.webp" type="image/webp"/><img src="/img/product/kw204/p2.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                        <div class="minicard__photo-hover"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                      </div>
-                                      <div class="minicard__picture" data-image-color="678">
-                                        <div class="minicard__photo"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/kw204/kw204-gray.webp" type="image/webp"/><img src="/img/product/kw204/kw204-gray.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                        <div class="minicard__photo-hover"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                      </div>
-                                      <div class="minicard__picture" data-image-color="354">
-                                        <div class="minicard__photo"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/kw204/kw204-black.webp" type="image/webp"/><img src="/img/product/kw204/kw204-black.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                        <div class="minicard__photo-hover"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                      </div>
-                                    </div>
-                                    <div class="minicard__action"> 
-                                      <div class="minicard__bg">
-                                        <div class="minicard__tofav" data-wishlist="14">
-                                          <svg width="40" height="40">
-                                            <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
-                                          </svg>
-                                        </div>
-                                        <div class="minicard__compare is-active" data-compare="14">
-                                          <svg width="40" height="40">
-                                            <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
-                                          </svg>
-                                        </div>
-                                      </div>
-                                      <div class="minicard__tocart">
-                                        <button class="btn-tocart"><span class="ic-default">
-                                            <svg width="33" height="33">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-plus"></use>
-                                            </svg></span><span class="ic-active">
-                                            <svg width="33" height="33">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-check"></use>
-                                            </svg></span><span class="tocart-text">В корзину</span></button>
-                                      </div>
+                                    <div class="minicard__vcode"><span>Арт.: KS213RED</span></div>
+                                    <div class="minicard__colors">
+                                      <ul>
+                                        <li style="border-color: #E43A28 "> <span data-color="123" style="background-color: #E43A28 "></span>
+                                        </li>
+                                        <li style="border-color: #405284 "> <span data-color="785" style="background-color: #405284 "></span>
+                                        </li>
+                                        <li style="border-color: #EAEAEA "> <span data-color="678" style="background-color: #EAEAEA "></span>
+                                        </li>
+                                        <li style="border-color: #44454E "> <span data-color="354" style="background-color: #44454E "></span>
+                                        </li>
+                                      </ul>
                                     </div>
                                   </div>
-                                  <div class="minicard__main">
-                                    <div class="minicard__prices">
-                                      <div class="minicard__price">14 500 <span>₽</span></div>
-                                    </div>
-                                    <div class="minicard__desc" data-popup="ajax" data-url="/parts/_popup-quickview.html"><span>Зимний светоотражающий полукомбинезон Portwest S489, сигнальный желтый/темно-синий</span></div>
-                                  </div>
                                 </div>
-                        </td>
-                        <td class="td-minicard">
-                                <div class="minicard" data-popup="product-preview" data-id="875">
-                                  <div class="minicard__top">
-                                    <div class="minicard__head">
-                                      <div class="minicard__sticker"><span>Новинка</span></div>
-                                      <div class="minicard__brand"><span class="bgimage lazyload" data-bg="/img/brands/brodeks.png"></span>
-                                      </div>
-                                    </div>
-                                    <div class="minicard__images">
-                                      <div class="minicard__picture is-active" data-image-color="123">
-                                        <div class="minicard__photo"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/p1.webp" type="image/webp"/><img src="/img/product/p1.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                        <div class="minicard__photo-hover"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                      </div>
-                                      <div class="minicard__picture" data-image-color="785">
-                                        <div class="minicard__photo"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/kw204/p2.webp" type="image/webp"/><img src="/img/product/kw204/p2.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                        <div class="minicard__photo-hover"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                      </div>
-                                      <div class="minicard__picture" data-image-color="678">
-                                        <div class="minicard__photo"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/kw204/kw204-gray.webp" type="image/webp"/><img src="/img/product/kw204/kw204-gray.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                        <div class="minicard__photo-hover"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                      </div>
-                                      <div class="minicard__picture" data-image-color="354">
-                                        <div class="minicard__photo"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/kw204/kw204-black.webp" type="image/webp"/><img src="/img/product/kw204/kw204-black.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                        <div class="minicard__photo-hover"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                      </div>
-                                    </div>
-                                    <div class="minicard__action"> 
-                                      <div class="minicard__bg">
-                                        <div class="minicard__tofav" data-wishlist="12">
-                                          <svg width="40" height="40">
-                                            <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
-                                          </svg>
-                                        </div>
-                                        <div class="minicard__compare is-active" data-compare="12">
-                                          <svg width="40" height="40">
-                                            <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
-                                          </svg>
-                                        </div>
-                                      </div>
-                                      <div class="minicard__tocart">
-                                        <button class="btn-tocart"><span class="ic-default">
-                                            <svg width="33" height="33">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-plus"></use>
-                                            </svg></span><span class="ic-active">
-                                            <svg width="33" height="33">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-check"></use>
-                                            </svg></span><span class="tocart-text">В корзину</span></button>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="minicard__main">
-                                    <div class="minicard__prices">
-                                      <div class="minicard__price">14 500 <span>₽</span></div>
-                                    </div>
-                                    <div class="minicard__desc" data-popup="ajax" data-url="/parts/_popup-quickview.html"><span>Зимний светоотражающий полукомбинезон Portwest S489, сигнальный желтый/темно-синий</span></div>
-                                  </div>
-                                </div>
-                        </td>
-                        <td class="td-minicard">
-                                <div class="minicard" data-popup="product-preview" data-id="875">
-                                  <div class="minicard__top">
-                                    <div class="minicard__head">
-                                      <div class="minicard__sticker"><span>Новинка</span></div>
-                                      <div class="minicard__brand"><span class="bgimage lazyload" data-bg="/img/brands/brodeks.png"></span>
-                                      </div>
-                                    </div>
-                                    <div class="minicard__images">
-                                      <div class="minicard__picture is-active" data-image-color="123">
-                                        <div class="minicard__photo"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/p2.webp" type="image/webp"/><img src="/img/product/p2.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                        <div class="minicard__photo-hover"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                      </div>
-                                      <div class="minicard__picture" data-image-color="785">
-                                        <div class="minicard__photo"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/kw204/p2.webp" type="image/webp"/><img src="/img/product/kw204/p2.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                        <div class="minicard__photo-hover"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                      </div>
-                                      <div class="minicard__picture" data-image-color="678">
-                                        <div class="minicard__photo"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/kw204/kw204-gray.webp" type="image/webp"/><img src="/img/product/kw204/kw204-gray.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                        <div class="minicard__photo-hover"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                      </div>
-                                      <div class="minicard__picture" data-image-color="354">
-                                        <div class="minicard__photo"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/kw204/kw204-black.webp" type="image/webp"/><img src="/img/product/kw204/kw204-black.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                        <div class="minicard__photo-hover"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                      </div>
-                                    </div>
-                                    <div class="minicard__action"> 
-                                      <div class="minicard__bg">
-                                        <div class="minicard__tofav" data-wishlist="14">
-                                          <svg width="40" height="40">
-                                            <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
-                                          </svg>
-                                        </div>
-                                        <div class="minicard__compare is-active" data-compare="14">
-                                          <svg width="40" height="40">
-                                            <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
-                                          </svg>
-                                        </div>
-                                      </div>
-                                      <div class="minicard__tocart">
-                                        <button class="btn-tocart"><span class="ic-default">
-                                            <svg width="33" height="33">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-plus"></use>
-                                            </svg></span><span class="ic-active">
-                                            <svg width="33" height="33">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-check"></use>
-                                            </svg></span><span class="tocart-text">В корзину</span></button>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="minicard__main">
-                                    <div class="minicard__prices">
-                                      <div class="minicard__price">14 500 <span>₽</span></div>
-                                    </div>
-                                    <div class="minicard__desc" data-popup="ajax" data-url="/parts/_popup-quickview.html"><span>Зимний светоотражающий полукомбинезон Portwest S489, сигнальный желтый/темно-синий</span></div>
-                                  </div>
-                                </div>
-                        </td>
-                        <td class="td-minicard">
-                                <div class="minicard" data-popup="product-preview" data-id="875">
-                                  <div class="minicard__top">
-                                    <div class="minicard__head">
-                                      <div class="minicard__sticker"><span>Новинка</span></div>
-                                      <div class="minicard__brand"><span class="bgimage lazyload" data-bg="/img/brands/brodeks.png"></span>
-                                      </div>
-                                    </div>
-                                    <div class="minicard__images">
-                                      <div class="minicard__picture is-active" data-image-color="123">
-                                        <div class="minicard__photo"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/p2.webp" type="image/webp"/><img src="/img/product/p2.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                        <div class="minicard__photo-hover"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                      </div>
-                                      <div class="minicard__picture" data-image-color="785">
-                                        <div class="minicard__photo"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/kw204/p2.webp" type="image/webp"/><img src="/img/product/kw204/p2.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                        <div class="minicard__photo-hover"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                      </div>
-                                      <div class="minicard__picture" data-image-color="678">
-                                        <div class="minicard__photo"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/kw204/kw204-gray.webp" type="image/webp"/><img src="/img/product/kw204/kw204-gray.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                        <div class="minicard__photo-hover"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                      </div>
-                                      <div class="minicard__picture" data-image-color="354">
-                                        <div class="minicard__photo"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/kw204/kw204-black.webp" type="image/webp"/><img src="/img/product/kw204/kw204-black.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                        <div class="minicard__photo-hover"><a href="/single-product.html">
-                                            <picture>
-                                              <source srcset="/img/product/p9.webp" type="image/webp"/><img src="/img/product/p9.png" loading="lazy" alt="image"/>
-                                            </picture></a></div>
-                                      </div>
-                                    </div>
-                                    <div class="minicard__action"> 
-                                      <div class="minicard__bg">
-                                        <div class="minicard__tofav" data-wishlist="14">
-                                          <svg width="40" height="40">
-                                            <use xlink:href="/img/sprites/sprite.svg#ic_heart"></use>
-                                          </svg>
-                                        </div>
-                                        <div class="minicard__compare is-active" data-compare="14">
-                                          <svg width="40" height="40">
-                                            <use xlink:href="/img/sprites/sprite.svg#ic_compare"></use>
-                                          </svg>
-                                        </div>
-                                      </div>
-                                      <div class="minicard__tocart">
-                                        <button class="btn-tocart"><span class="ic-default">
-                                            <svg width="33" height="33">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-plus"></use>
-                                            </svg></span><span class="ic-active">
-                                            <svg width="33" height="33">
-                                              <use xlink:href="/img/sprites/sprite.svg#ic_to-cart-check"></use>
-                                            </svg></span><span class="tocart-text">В корзину</span></button>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="minicard__main">
-                                    <div class="minicard__prices">
-                                      <div class="minicard__price">14 500 <span>₽</span></div>
-                                    </div>
-                                    <div class="minicard__desc" data-popup="ajax" data-url="/parts/_popup-quickview.html"><span>Зимний светоотражающий полукомбинезон Portwest S489, сигнальный желтый/темно-синий</span></div>
-                                  </div>
-                                </div>
-                        </td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate">Коллекция</td>
-                        <td class="td-title">Коллекция</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate">Пол</td>
-                        <td class="td-title">Пол</td>
-                        <td>Женская</td>
-                        <td>Мужская</td>
-                        <td>Унисекс</td>
-                        <td>Женская</td>
-                        <td>Мужская</td>
-                        <td>Унисекс</td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate">Цвета</td>
-                        <td class="td-title">Цвета</td>
-                        <td>
-                                <div class="colors-compare">
-                                  <ul>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #E43A28"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #405284"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #E43A28"> </span><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                  </ul>
-                                </div>
-                        </td>
-                        <td>
-                                <div class="colors-compare">
-                                  <ul>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #E43A28"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #405284"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #E43A28"> </span><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #405284"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #E43A28"> </span><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #405284"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #E43A28"> </span><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #405284"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #E43A28"> </span><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #405284"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #E43A28"> </span><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                  </ul>
-                                </div>
-                        </td>
-                        <td>
-                                <div class="colors-compare">
-                                  <ul>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #E43A28"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #405284"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #E43A28"> </span><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                  </ul>
-                                </div>
-                        </td>
-                        <td>
-                                <div class="colors-compare">
-                                  <ul>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #E43A28"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #405284"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #E43A28"> </span><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                  </ul>
-                                </div>
-                        </td>
-                        <td>
-                                <div class="colors-compare">
-                                  <ul>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #E43A28"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #405284"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #E43A28"> </span><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #405284"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #E43A28"> </span><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #405284"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #E43A28"> </span><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #405284"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #E43A28"> </span><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #405284"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #E43A28"> </span><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                  </ul>
-                                </div>
-                        </td>
-                        <td>
-                                <div class="colors-compare">
-                                  <ul>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #E43A28"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #405284"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #E43A28"> </span><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                    <li>
-                                      <div class="multi-color">
-                                        <div class="multi-color__wrp"><span style="background-color: #44454E"> </span></div>
-                                      </div>
-                                    </li>
-                                  </ul>
-                                </div>
-                        </td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate">Паропроницаемость</td>
-                        <td class="td-title">Паропроницаемость</td>
-                        <td>-</td>
-                        <td>5000</td>
-                        <td>2000</td>
-                        <td>-</td>
-                        <td>5000</td>
-                        <td>2000</td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate">Коллекция</td>
-                        <td class="td-title">Коллекция</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate">Описание</td>
-                        <td class="td-title">Описание</td>
-                        <td>Летняя рабочая куртка для руководителей и ИТР.</td>
-                        <td>Летняя рабочая куртка для руководителей и ИТР.</td>
-                        <td>Летняя рабочая куртка для руководителей и ИТР.</td>
-                        <td>Летняя рабочая куртка для руководителей и ИТР.</td>
-                        <td>Летняя рабочая куртка для руководителей и ИТР.</td>
-                        <td>Летняя рабочая куртка для руководителей и ИТР.</td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate">Тип утеплителя</td>
-                        <td class="td-title">Тип утеплителя</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>Пух</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>Пух</td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate">Паропроницаемость </td>
-                        <td class="td-title">Паропроницаемость</td>
-                        <td>-</td>
-                        <td>5000</td>
-                        <td>2000</td>
-                        <td>-</td>
-                        <td>5000</td>
-                        <td>2000</td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate">Коллекция</td>
-                        <td class="td-title">Коллекция</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate">Пол</td>
-                        <td class="td-title">Пол</td>
-                        <td>Женская</td>
-                        <td>Мужская</td>
-                        <td>Унисекс</td>
-                        <td>Женская</td>
-                        <td>Мужская</td>
-                        <td>Унисекс</td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate">Тип утеплителя</td>
-                        <td class="td-title">Тип утеплителя</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>Пух</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>Пух</td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate">Паропроницаемость</td>
-                        <td class="td-title">Паропроницаемость</td>
-                        <td>-</td>
-                        <td>5000</td>
-                        <td>2000</td>
-                        <td>-</td>
-                        <td>5000</td>
-                        <td>2000</td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate">Коллекция</td>
-                        <td class="td-title">Коллекция</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate"></td>
-                        <td class="td-title">Пол</td>
-                        <td>Женская</td>
-                        <td>Мужская</td>
-                        <td>Унисекс</td>
-                        <td>Женская</td>
-                        <td>Мужская</td>
-                        <td>Унисекс</td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate">Тип утеплителя</td>
-                        <td class="td-title">Тип утеплителя</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>Пух</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>Пух</td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate">Паропроницаемость</td>
-                        <td class="td-title">Паропроницаемость</td>
-                        <td>-</td>
-                        <td>5000</td>
-                        <td>2000</td>
-                        <td>-</td>
-                        <td>5000</td>
-                        <td>2000</td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate">Коллекция</td>
-                        <td class="td-title">Коллекция</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                        <td>Городская серия</td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate"></td>
-                        <td class="td-title">Пол</td>
-                        <td>Женская</td>
-                        <td>Мужская</td>
-                        <td>Унисекс</td>
-                        <td>Женская</td>
-                        <td>Мужская</td>
-                        <td>Унисекс</td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate">Тип утеплителя</td>
-                        <td class="td-title">Тип утеплителя</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>Пух</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>Пух</td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate">Паропроницаемость</td>
-                        <td class="td-title">Паропроницаемость</td>
-                        <td>-</td>
-                        <td>5000</td>
-                        <td>2000</td>
-                        <td>-</td>
-                        <td>5000</td>
-                        <td>2000</td>
-                      </tr>
-                      <tr class="product-table__prop">
-                        <td class="td-compensate">Вес</td>
-                        <td class="td-title">Вес</td>
-                        <td>-</td>
-                        <td>5000</td>
-                        <td>2000</td>
-                        <td>-</td>
-                        <td>5000</td>
-                        <td>2000</td>
-                      </tr>
-                    </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="catalog-category__pagination">
+                            <div class="pagination">
+                              <div class="pagination__more"><a href="#">
+                                  <button class="btn btn-light"><span>Показать ещё 35</span></button></a></div>
+                              <div class="pagination__page">
+                                <ul>
+                                  <li class="prev"><span>
+                                      <svg width="36" height="36">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_arr-left"></use>
+                                      </svg></span></li>
+                                  <li class="active"><a href="#1">1</a></li>
+                                  <li><a href="#2">2</a></li>
+                                  <li><a href="#3">3</a></li>
+                                  <li><a href="#3">4</a></li>
+                                  <li><a href="#3">5</a></li>
+                                  <li><a href="#3">6</a></li>
+                                  <li><a href="#3">7</a></li>
+                                  <li><span>...</span></li>
+                                  <li class="next"><a href="#2">
+                                      <svg width="36" height="36">
+                                        <use xlink:href="/img/sprites/sprite.svg#ic_arr-right"></use>
+                                      </svg></a></li>
+                                </ul>
+                              </div>
+                            </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </section>
+            </div>
     </main>
     <footer>
       <div class="container">
@@ -1791,6 +1947,5 @@
     </footer>
   </body>
   <script src="/js/vendor.js"> </script>
-  <script src="/js/common.js"></script>
-  <script src="/js/compare.js"> </script>
+  <script src="/js/common.js">  </script>
 </html>

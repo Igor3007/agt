@@ -3,37 +3,60 @@
     z-index: 9;
     background-color: #fff;
     left: 0;
-    top: 0;
+    top: 100%;
     right: 0;
-    max-height: calc(100vh - 69px);
+    max-height: calc(100vh - 150px);
     overflow-y: auto;
     overflow-x: hidden;
     visibility: hidden;
     box-shadow: 0px 29px 36px 0px rgba(0, 0, 0, 0.09);
-    transition: 0.4s ease;
+
+    @media screen and (min-width: $w480) {
+        transition: 0.4s ease;
+    }
+
+    @media screen and (min-width: $w576) {
+        max-height: calc(100vh - 69px);
+    }
 
     &.is-open {
         visibility: visible;
         top: 100%;
     }
 
+    & .hide {
+        display: none;
+    }
+
     &__wrp {
 
-        padding: 36px 0;
+
+        padding: 36px 0 20px 0;
+        position: relative;
+
 
         @media screen and (min-width: $w992) {
             display: flex;
             gap: 50px;
+            padding: 36px 0;
         }
     }
 
     &__left {
 
+        gap: 30px;
+        flex-direction: column;
+        padding-bottom: 36px;
+        display: none;
+
+        @media screen and (min-width: $w576) {
+            display: flex;
+        }
+
         @media screen and (min-width: $w992) {
             width: 285px;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
+
+
         }
     }
 
@@ -54,6 +77,7 @@
 
 
 
+                & a,
                 & span {
 
                     background-color: var(--bg);
@@ -110,7 +134,9 @@
                 }
 
                 &:hover {
-                    color: var(--accent);
+                    & a {
+                        color: var(--accent);
+                    }
                 }
             }
         }
@@ -171,6 +197,12 @@
         }
     }
 
+    &__placeholder {
+        font-size: 15px;
+        font-family: var(--font-montserrat);
+        color: rgba(0, 0, 0, 0.60);
+    }
+
     &__input {
         flex-grow: 1;
         position: relative;
@@ -225,6 +257,10 @@
         line-height: 107%;
         padding-bottom: 4px;
         color: var(--black);
+
+        &:hover {
+            color: var(--accent);
+        }
     }
 
     &__path {
@@ -320,7 +356,7 @@
 
         & .btn {
             color: var(--accent);
-            border-radius: 3px;
+
             font-size: 17px;
 
             &:hover {
@@ -330,14 +366,49 @@
         }
     }
 
+    &__close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        border: 2px solid var(--accent);
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        display: none;
+
+        @media screen and (min-width: $w576) {
+            display: flex;
+        }
+
+        & svg {
+            fill: var(--accent);
+        }
+    }
+
     &__list {
-        max-height: calc((var(--vh, 1vh) * 100) - var(--hgt-header, 68px) - 185px);
+        @media screen and (min-width: $w992) {
+            max-height: calc((var(--vh, 1vh) * 100) - var(--hgt-header, 68px) - 220px);
+        }
+
         overflow-y: auto;
         overflow-x: hidden;
         scroll-behavior: smooth;
         overscroll-behavior: contain;
     }
 
+}
+
+.header.is-fixed {
+    & .top-search {
+        &__list {
+            @media screen and (min-width: $w992) {
+                max-height: calc((var(--vh, 1vh) * 100) - var(--hgt-header, 68px) - 184px);
+            }
+        }
+    }
 }
 
 .ts-remove {
@@ -348,4 +419,33 @@
     background-position: center;
     background-repeat: no-repeat;
     background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEwLjEzOSAxMS4zOTFsMS4zMzUtMS4zMzUtNC4wMDYtNC4wMDUgNC4wMDYtNC4wMDVMMTAuMTM5LjcxIDYuMTMzIDQuNzE2IDIuMTI4LjcxLjc5MyAyLjA0NiA0Ljc5OCA2LjA1Ljc5MyAxMC4wNTZsMS4zMzUgMS4zMzUgNC4wMDUtNC4wMDUgNC4wMDYgNC4wMDV6IiBmaWxsPSIjMDA5MEMzIi8+PC9zdmc+);
+}
+
+header.is-mobile {
+    & .header {
+        &__find {
+            & input {
+                @media screen and (max-width: $w576) {
+                    position: absolute;
+                    display: block;
+                    left: 20px;
+                    right: 20px;
+                    top: 66px;
+                    z-index: 107;
+                    width: auto;
+                }
+            }
+        }
+    }
+
+    & .find-icon {
+        background-color: #eee;
+        border-radius: 50%;
+    }
+
+    & .top-search.is-open {
+        visibility: visible;
+        top: 100%;
+        padding-top: 20px;
+    }
 }

@@ -82,6 +82,11 @@
                 @media screen and (max-width: $w480) {
 
 
+                    width: calc(100% - 12px);
+                    flex-basis: 150px;
+                    flex-grow: 1;
+
+
 
                     & a {
                         display: flex;
@@ -97,6 +102,7 @@
                     &:nth-child(2),
                     &:nth-child(1) {
                         width: 100%;
+                        flex-basis: auto;
 
                         & a {
                             display: flex;

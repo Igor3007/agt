@@ -3563,22 +3563,38 @@ document.addEventListener('DOMContentLoaded', function (event) {
         constructor(params) {
             this.params = params
             this.$el = document.querySelector(params.el) || console.error('error: el undefined')
+            this.placeholder = document.querySelector('[data-find="placeholder"]')
             this.openButton = document.querySelectorAll('[data-find="open"]')
             this.closeButton = document.querySelectorAll('[data-find="close"]')
             this.blockSuggest = this.$el.querySelector('[data-find="sgst"]')
             this.listSuggest = this.$el.querySelector('[data-find="list"]')
             this.input = document.querySelector('[data-find="input"]')
+            this.totalResult = this.$el.querySelector('[data-find="total"]')
+            this.timer = null
             this.isiOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+            this.recent = []
 
-
+            this.init()
             this.addEvents()
+
+        }
+
+        init() {
+            if (localStorage.getItem('find_queries') == null || localStorage.getItem('find_queries') == '') {
+                localStorage.setItem('find_queries', JSON.stringify([]))
+
+            } else {
+                this.recent = JSON.parse(localStorage.getItem('find_queries'))
+            }
+
+            this.getRecentQuery()
         }
 
         lockScroll(val) {
             if (val) {
                 //fix iOS body scroll
                 if (this.isiOS) {
-                    document.body.style.marginTop = `-${ window.scrollY }px`
+                    document.body.style.marginTop = `-${window.scrollY}px`
                     document.documentElement.classList.add('safari-fixed')
                 }
                 document.documentElement.classList.add('page-hidden')
@@ -3612,42 +3628,50 @@ document.addEventListener('DOMContentLoaded', function (event) {
             this.$el.classList.add('is-open')
             this.lockScroll(true)
 
-            if (this.input.value) {
-                setTimeout(() => {
-                    this.changeInput({
-                        target: {
-                            value: this.input.value
-                        }
-                    })
-                }, 400)
-            }
-
-            // close in out
-            // const closeInOut = (e) => {
-
-            //     if (e.target.closest('[data-find="open"]')) return false
-
-            //     if (!e.target.closest(this.params.el)) {
-            //         this.closeFind()
-            //         document.removeEventListener('click', closeInOut)
-            //     }
+            // if (this.input.value) {
+            //     this.openSuggest()
             // }
 
-            // document.addEventListener('click', closeInOut)
+            // close in out
+            const closeInOut = (e) => {
+
+                if (e.target.closest('.header')) return false
+
+                if (!e.target.closest(this.params.el)) {
+                    this.closeFind()
+                    document.removeEventListener('click', closeInOut)
+                }
+            }
+
+            document.addEventListener('click', closeInOut)
         }
 
         closeFind() {
-            this.closeSuggest()
             this.$el.classList.remove('is-open')
+            //this.closeSuggest()
             this.lockScroll(false)
+            document.querySelector('header').classList.toggle('is-mobile', false)
+
         }
 
         openSuggest() {
             this.blockSuggest.style.setProperty('display', 'block')
+            this.placeholder.classList.toggle('hide', true)
         }
 
         closeSuggest() {
             this.blockSuggest.style.removeProperty('display')
+            this.placeholder.classList.toggle('hide', false)
+        }
+
+        declination(value, words) {
+            value = Number(value);
+            value = Math.abs(value) % 100;
+            var num = value % 10;
+            if (value > 10 && value < 20) return words[2];
+            if (num > 1 && num < 5) return words[1];
+            if (num == 1) return words[0];
+            return words[2];
         }
 
         getTemplateCategory(data) {
@@ -3672,6 +3696,21 @@ document.addEventListener('DOMContentLoaded', function (event) {
                         </div>
                     </div></a>
                 </div>`;
+        }
+
+        getRecentQuery() {
+
+            if (!this.recent.length) {
+                this.$el.querySelector('.top-search__looking').remove();
+                return false
+            }
+
+            let str = this.recent.reduce((prev, curr) => {
+                return prev + `<li>${curr} <span class="ts-remove" ></span></li>`
+            }, '')
+
+            this.$el.querySelector('.top-search__looking ul').innerHTML = str
+
         }
 
         ajaxRequest(value, callback) {
@@ -3699,6 +3738,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
                     this.listSuggest.append(el)
                 })
+
+
             }
 
             if (json['products']) {
@@ -3709,11 +3750,19 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
                     this.listSuggest.append(el)
                 })
+
+                this.totalResult.innerText = json['products'].length + this.declination(json['products'].length, [' товар', ' товара', ' товаров'])
             }
         }
 
         changeInput(e) {
-            e.target.value.length > 1 ? this.openSuggest() : this.closeSuggest()
+
+            if (e.target.value.length > 1) {
+                this.openFind()
+                this.openSuggest()
+            } else {
+                this.closeSuggest()
+            }
 
             this.ajaxRequest(e.target.value, (response) => {
                 this.render(response)
@@ -3722,21 +3771,34 @@ document.addEventListener('DOMContentLoaded', function (event) {
         }
 
         debounce(method, delay, e) {
-            clearTimeout(method._tId);
-            method._tId = setTimeout(function () {
-                method(e);
-            }, delay);
+            clearTimeout(this.timer);
+            this.timer = setTimeout(() => method(e), delay);
+        }
+
+        saveLocalstorage() {
+            localStorage.setItem('find_queries', JSON.stringify(this.recent))
         }
 
         addEvents() {
 
-            // this.openButton.forEach(button => {
-            //     button.addEventListener('click', e => this.openFind())
-            // })
+            const keyupHahdler = (e) => {
+                this.changeInput(e)
+            }
 
-            this.input.addEventListener('focus', () => {
-                this.openFind()
+            this.input.addEventListener('focus', (e) => {
+                this.changeInput(e)
             })
+
+            this.input.addEventListener('keydown', e => {
+                if (e.keyCode == 13) {
+                    window.location.href = '/search.html'
+
+                    this.recent.push(e.target.value)
+                    this.saveLocalstorage()
+                }
+            })
+
+            this.input.addEventListener('keyup', e => this.debounce(keyupHahdler, 200, e))
 
             this.closeButton.forEach(button => {
                 button.addEventListener('click', e => {
@@ -3745,11 +3807,17 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 })
             })
 
-            const keyupHahdler = (e) => {
-                this.changeInput(e)
-            }
+            document.querySelector('.find-icon').addEventListener('click', (e) => {
+                e.target.closest('header').classList.toggle('is-mobile')
+                e.target.closest('header').classList.contains('is-mobile') ? this.openFind() : this.closeFind()
+            })
 
-            this.input.addEventListener('keyup', e => this.debounce(keyupHahdler, 200, e))
+            document.querySelectorAll('.top-search__looking .ts-remove').forEach(item => {
+                item.addEventListener('click', e => {
+                    e.stopPropagation()
+                    e.target.closest('li').remove()
+                })
+            })
 
         }
     }

@@ -1,5 +1,5 @@
 include parts.pug
-include ../../top-search/top-search.pug
+include ../../top-search/top-search.pug 
 
 .header-top
     .container
@@ -22,9 +22,9 @@ include ../../top-search/top-search.pug
                     nav
                         ul
                             li: a(href='#') Юр. лицам
-                            li: a(href='#') География поставок
-                            li: a(href='#') О компании
-                            li: a(href='#') Контакты
+                            li: a(href='/delivery.html') География поставок
+                            li: a(href='/about.html') О компании
+                            li: a(href='/contacts.html') Контакты
                 .header-top__msgr
                     ul
                         li: a(href='#'): +bgimage--nolazy('/img/icons/ic_wa.svg')

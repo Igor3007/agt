@@ -2965,7 +2965,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
         open() {
             this.popup.open('<div class="af-spiner" ></div>', false)
 
-            return false;
+
 
             window.ajax({
                 type: 'GET',
@@ -3283,7 +3283,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
                 popup.open('<div class="af-spiner" ></div>', false)
 
-                return false
+
 
                 window.ajax({
                     type: 'GET',
@@ -3870,6 +3870,38 @@ document.addEventListener('DOMContentLoaded', function (event) {
             e.target.closest('.attach-file').classList.add('is-loaded')
             e.target.closest('.attach-file').append(file)
         })
+    }
+
+    /* ===================================
+    tab delivery
+    ===================================*/
+
+    if (document.querySelector('[data-tab-container="type"]')) {
+
+        const tabs = document.querySelectorAll('[data-tab]')
+        const tabitems = document.querySelectorAll('[data-tabitem]')
+        const container = document.querySelector('[data-tab-container="type"]')
+
+        tabs.forEach(tab => {
+
+            tab.addEventListener('click', e => {
+                tabitems.forEach(tabitem => {
+                    if (tabitem.dataset.tabitem == tab.dataset.tab) {
+                        tabitem.classList.add('is-active')
+                    } else {
+                        !tabitem.classList.contains('is-active') || tabitem.classList.remove('is-active')
+                    }
+                })
+
+                tabs.forEach(item => {
+                    !item.classList.contains('is-active') || item.classList.remove('is-active')
+                })
+
+                tab.classList.add('is-active')
+            })
+
+        })
+
     }
 
 

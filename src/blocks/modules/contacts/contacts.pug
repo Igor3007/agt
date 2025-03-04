@@ -1,0 +1,100 @@
+include ../../components/breadcrumb/breadcrumb.pug
+
+mixin contacts
+    section.section-contacts
+        .container
+            .contacts
+                .contacts__main
+                    .contacts__requisites
+                        
+                        .contacts__item
+                            .contacts-item
+                                .contacts-item__title Юридический адрес
+                                .contacts-item__text
+                                    p 190005, Санкт-Петербург, ул. Егорова, д. 25, Литер А, пом. 28-Н, офис 1
+                                    p 
+                                        | ИНН 7813563436
+                                        br
+                                        | КПП 783901001
+                                        br 
+                                        | ОКПО 23039051
+                                        br 
+                                        | ОГРН 1137847204362
+                                        br 
+                                        | ОКАТО 40288563000
+                                        br 
+                                        strong Платежные реквизиты:
+                                        br 
+                                        | Р/сч. 40702810855160003291
+                                        br 
+                                        | Кор.сч. 30101810500000000653
+                                        br
+                                        | БИК 044030653
+                                        br
+                                        | Северо-Западный банк ПАО Сбербанк
+
+                        .contacts__item
+                            .contacts-item.contacts-item--question
+                                .contacts-item__title Остались вопросы?
+                                .contacts-item__text
+                                    p
+                                        a(href='tel:8 800 777-35-68') 8 800 777-35-68
+                                        br
+                                        a(href='mailto:info@ag-technologies.ru') 
+                                            | info@ag-technologies.ru
+                                            span.copy-field: +icons('#ic_copy')
+                    .contacts__offers
+                        .contacts-item
+                            .contacts-item__title.contacts-item__title--offer Пожелания и предложения
+                            .contacts-item__text
+                                p Нам очень важна обратная связь, потому что ваши отзывы помогают нам стать лучше!
+
+                                p Мы знаем, что в своей рабочей одежде вы проводите по 40 часов в неделю. Знаем, как вам важна эргономика и удобство. И мы хотим, чтобы эти часы, проходили с комфортом и удобством. <br> Поэтому нам так важно ваше мнение! Ведь именно для вас мы и делаем нашу спецодежду.
+
+                                p Хотите похвалить или поругать? Отправить предложение или сделать замечание? <br> Вам не хватает кармана или неудобна посадка? <br> Поделитесь своим опытом использования нашей спецодежды! <br><br>
+                               
+                                p.mb0 Пишите нам на почту
+                                p.mb0
+                                    a(href='mailto:info@ag-technologies.ru' class="link-email") 
+                                        | info@ag-technologies.ru
+                                        span.copy-field: +icons('#ic_copy')
+
+                    .contacts__mail
+                        .contacts__mail-title Напишите нам
+                        .contacts__mail-form
+                            form(action='#' method='POST' data-form="contacts" )
+                                .form
+                                    .form__item
+                                        .form__subitem
+                                            .input-material
+                                                input(type='text' data-input-mask='name' max-length="60")
+                                                label= 'ФИО' 
+                                            
+                                        
+                                    .form__item
+                                        .form__subitem
+                                            .input-material
+                                                input(type='email' data-input-mask='email' max-length="60")
+                                                label= 'Email'
+                                            
+                                    .form__item
+                                        .form__subitem 
+                                            .multi-mask
+                                                .input-material
+                                                    input(type='tel' max-length="60" required)
+                                                    label= 'Контактный телефон'
+                                        
+                                    .form__item
+                                        .form__subitem
+                                            .input-material.input-material--textarea
+                                                textarea(placeholder="" max-length="600" )
+                                                label= 'Сообщение'
+                                    .form__item: .form__subitem
+                                        label Вложение
+                                        div.attach-file
+                                            label.attach-file__button
+                                                input(type="file")
+                                                span.btn-attach Загрузить
+                                            span.text-attach До 20 файлов (общий размер — до 20 МБ).
+                                    .form__item: .form__subitem
+                                        button.btn Отправить

@@ -204,6 +204,30 @@
         }
     }
 
+    &__phone {
+        padding-bottom: 16px;
+        padding-top: 16px;
+        text-align: center;
+
+        @media screen and (min-width: $w576) {
+            text-align: left;
+        }
+
+        @media screen and (min-width: $w1024) {
+            padding-bottom: 30px;
+        }
+
+        & a {
+            font-size: 20px;
+            font-weight: 600;
+
+            &:hover {
+                color: var(--accent);
+            }
+
+        }
+    }
+
     &__bottom {
         display: flex;
         flex-direction: column;
@@ -459,8 +483,10 @@
 
 .stores-slider__worktime {
 
-    font-size: 15px;
-    letter-spacing: 0.5px;
+    @media screen and (max-width: $w1024) {
+        font-size: 15px;
+        letter-spacing: 0.5px;
+    }
 }
 
 
@@ -483,5 +509,42 @@
     .stores-slider__city {
         font-size: 18px;
 
+    }
+}
+
+.section-stores-slider--contacts {
+    @media screen and (min-width: $w992) {
+        padding-top: 55px;
+        padding-bottom: 60px;
+    }
+
+    @media screen and (min-width: $w1440) {
+        & .stores-slider {
+            &__city {
+                font-size: 21px;
+                padding-bottom: 25px;
+            }
+
+            &__address {
+                font-size: 27px;
+                font-weight: 600;
+            }
+        }
+    }
+
+    @media screen and (min-width: $w1024) {
+        & .stores-slider {
+            &__left {
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    @media screen and (min-width: $w760) {
+        & .stores-slider {
+            &__left {
+                padding-bottom: 24px;
+            }
+        }
     }
 }

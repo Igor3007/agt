@@ -1,0 +1,34 @@
+extends ../layouts/main
+ 
+block variables
+  include ../../data/data.pug
+  - const title = "AGT - Контакты"
+ 
+
+block main
+ 
+    include ../../blocks/modules/stores-slider/stores-slider.pug
+    include ../../blocks/modules/contacts/contacts.pug
+
+    section.section-page
+      .container
+          .page
+              .page__breadcrumbs
+                  +breadcrumb([
+                      'AGT',
+                      'Контакты',
+                  ])
+              .page__title: h1 Контакты
+              
+              
+
+    +stores-slider--contacts
+    +contacts
+
+ 
+ 
+ 
+block scripts
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js")
+  script(src="/js/compare.js") 

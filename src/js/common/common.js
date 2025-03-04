@@ -908,6 +908,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
             if (container.querySelector('.stores-slider__city--mobile')) {
                 container.querySelector('.stores-slider__city--mobile').innerHTML = params.city
             }
+            if (container.querySelector('.stores-slider__phone')) {
+                container.querySelector('.stores-slider__phone').innerHTML = params.phone
+            }
 
             container.querySelector('.stores-slider__city').innerHTML = params.city
             container.querySelector('.stores-slider__address').innerHTML = params.address
@@ -2962,6 +2965,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
         open() {
             this.popup.open('<div class="af-spiner" ></div>', false)
 
+            return false;
+
             window.ajax({
                 type: 'GET',
                 url: '/parts/_select-size.html'
@@ -3265,6 +3270,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
     popup ajax
     ====================================*/
 
+
+
     function initAjaxPopup(container) {
         container.querySelectorAll('[data-popup="ajax"]').forEach(item => {
             item.addEventListener('click', () => {
@@ -3276,10 +3283,15 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
                 popup.open('<div class="af-spiner" ></div>', false)
 
+                return false
+
                 window.ajax({
                     type: 'GET',
                     url: item.dataset.url,
                 }, (status, response) => {
+
+
+
                     popup.changeContent(response)
 
                     //mask
@@ -3825,6 +3837,40 @@ document.addEventListener('DOMContentLoaded', function (event) {
     window.find = new Find({
         el: '.top-search'
     })
+
+    /* ===================================
+    attach file
+    ====================================*/
+
+    if (document.querySelector('.attach-file')) {
+        const input = document.querySelector('.attach-file input')
+
+        input.addEventListener('change', function (e) {
+
+            let file = document.createElement('span')
+            file.classList.add('file-attach')
+            file.innerHTML = `
+                <div class="file-attach__name" >${this.files[0]['name']}</div>
+                <div class="file-attach__remove" >+</div>
+            `;
+
+            file.querySelector('.file-attach__remove').addEventListener('click', event => {
+                event.preventDefault()
+                event.stopPropagation()
+                file.remove();
+                e.target.closest('.attach-file').classList.remove('is-loaded')
+                e.target.value = '';
+
+            })
+
+            if (e.target.closest('.attach-file').querySelector('.file-attach')) {
+                e.target.closest('.attach-file').querySelector('.file-attach').remove()
+            }
+
+            e.target.closest('.attach-file').classList.add('is-loaded')
+            e.target.closest('.attach-file').append(file)
+        })
+    }
 
 
 

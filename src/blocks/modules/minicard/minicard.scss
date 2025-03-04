@@ -211,6 +211,10 @@
                 padding: 0 12px 0 12px;
             }
 
+            @media screen and (max-width: $w375) {
+                padding: 0 5px 0 5px;
+            }
+
             &:hover {
                 color: var(--accent);
 
@@ -579,17 +583,7 @@
                 }
             }
 
-            &__tocart {
-                @media screen and (max-width: $w480) {
-                    width: 42px;
-                    height: 42px;
 
-                    & svg {
-                        width: 42px;
-                        height: 42px;
-                    }
-                }
-            }
         }
     }
 

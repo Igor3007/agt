@@ -1,0 +1,18 @@
+mixin subscribe
+    section.section-subscribe
+        .container
+            .subscribe
+                .subscribe__text Подпишитесь на рассылку и будьте в курсе! <br> Акции, скидки, новые обзоры
+                .subscribe__form
+                    form(action='#' method='POST')
+                        .form
+                          .form__item
+                            .form__subitem: input(type="email" placeholder="Укажите ваш Email")
+                            .form__subitem
+                                button.btn Подписаться на новости
+                .subscribe__subtitle Социальные медиа
+                .subscribe__social
+                    ul
+                        li: a.ic-tg(href='#'): +icons('#ic_tg')
+                        li: a.ic-vk(href='#'): +icons('#ic_vk')
+                        li: a.ic-yt(href='#'): +icons('#ic_yt')

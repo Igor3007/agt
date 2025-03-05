@@ -1,0 +1,21 @@
+extends ../layouts/main
+ 
+block variables
+  include ../../data/data.pug
+  - const title = "AGT - Блог"
+ 
+
+block main
+
+  include ../../blocks/modules/blog/blog.pug
+  include ../../blocks/modules/subscribe/subscribe.pug
+
+  +news({
+    title: 'Новости'
+  })
+  +subscribe()
+
+ 
+block scripts
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js")

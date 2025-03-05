@@ -1,0 +1,125 @@
+include ../../components/breadcrumb/breadcrumb.pug
+include ../../components/pagination/pagination.pug
+
+mixin card-blog-large(data)
+    .card-blog-large
+        .card-blog-large__wrp
+            .card-blog-large__image
+                 +picture(data.img)
+            .card-blog-large__content
+                .card-blog-large__title
+                    a(href='blog-details.html')= data.title
+
+mixin card-blog-small(data)
+    .card-blog-small
+        .card-blog-small__image
+            a(href='blog-details.html'): +picture(data.img)
+        .card-blog-small__title: a(href='blog-details.html')= data.title
+        .card-blog-small__tags
+            ul
+                li: a(href='#') #Лидеры
+                li: a(href='#') #На выставке
+                li: a(href='#') #Команда Brodeks
+
+
+
+ 
+mixin news(data)
+    section.section-blog
+        .container
+            .blog
+                .blog__breadcrumbs
+                    +breadcrumb([
+                        'BRODEKS',
+                        'Новости',
+                    ]) 
+
+                .blog__title= data.title
+                
+                .blog__category
+                    ul
+                        li: a(href="news-category.html") Все
+                        li: a(href="news-category.html") Обзоры 
+                        li: a(href="news-category.html") Выставки
+                        li: a(href="news-category.html") Полезная информация
+                .blog__group
+                    .blog__top
+                        .blog__head Обзоры
+
+                    .blog__list
+
+                        each item in [1,1]
+
+                            .blog__item: +card-blog-small({
+                                title: 'Испытание куртки  KW346 по мокрому',
+                                img: '/img/common/blog1'
+                            })
+
+                            .blog__item: +card-blog-small({
+                                title: 'Полный обзор светоотражающей линейки',
+                                img: '/img/common/blog2'
+                            })
+
+                            .blog__item: +card-blog-small({
+                                title: 'Как выбрать спецодежду для города?',
+                                img: '/img/common/main-bg'
+                            })
+
+                    .blog__all: button.btn Смотреть все 
+                    
+                .blog__group
+                    .blog__top
+                        .blog__head Обзоры
+
+                    .blog__list
+
+                        each item in [1,1]
+
+                            .blog__item: +card-blog-small({
+                                title: 'Испытание куртки  KW346 по мокрому',
+                                img: '/img/common/blog1'
+                            })
+
+                            .blog__item: +card-blog-small({
+                                title: 'Полный обзор светоотражающей линейки',
+                                img: '/img/common/blog2'
+                            })
+
+                            .blog__item: +card-blog-small({
+                                title: 'Как выбрать спецодежду для города?',
+                                img: '/img/common/main-bg'
+                            })
+
+                    .blog__all: button.btn Смотреть все 
+
+
+mixin blog-category 
+    section.section-blog
+        .container
+            .blog
+                .blog__breadcrumbs
+                    +breadcrumb([
+                        'BRODEKS',
+                        'Статьи',
+                    ]) 
+
+                .blog__title Статьи
+
+                .blog__list
+
+                    each item in [1,1,1,1,1]
+
+                        .blog__item: +card-blog-small({
+                            title: 'Испытание куртки  KW346 по мокрому',
+                            img: '/img/common/blog1'
+                        })
+                        .blog__item: +card-blog-small({
+                            title: 'Полный обзор светоотражающей линейки',
+                            img: '/img/common/blog2'
+                        })
+                        .blog__item: +card-blog-small({
+                            title: 'Как выбрать спецодежду для города?',
+                            img: '/img/common/main-bg'
+                        })
+
+                .blog__pagination: +pagination-showmore()

@@ -1,0 +1,161 @@
+.section-similar-product {
+    padding: 50px 0;
+
+    &--blog {
+
+
+
+        & .similar-product {
+            &__title {
+                text-align: center;
+            }
+        }
+    }
+}
+
+.similar-product {
+
+
+
+    &__item {
+
+        width: calc(50vw - 32px);
+
+        @media screen and (min-width: $w760) {
+            width: 240px;
+        }
+
+        @media screen and (min-width: $w991) {
+            width: 303px;
+        }
+
+        @media screen and (min-width: $w1440) {
+            width: 335px;
+        }
+    }
+
+    &__title {
+        color: #020202;
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 120%;
+        padding-bottom: 30px;
+        width: 100%;
+
+        @media screen and (min-width: $w1440) {
+            padding-bottom: 60px;
+        }
+
+        @media screen and (max-width: $w576) {
+
+            display: flex;
+
+            &::after {
+                content: '';
+                width: 40px;
+                height: 40px;
+                margin-left: auto;
+                display: block;
+                background-position: center;
+                background-repeat: no-repeat;
+                animation: swipe-touch-device 1.2s linear infinite;
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAgCAYAAAABtRhCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOqSURBVHgBzVdZKG1hGF1HJzLlwZAxU8ZkyhAl44MkhDKVJF54IEPyRlK64hWZo8iDKQ+GKMWrB1NJhpSSEhkjw219t+NyOZx97ul218vZ+/x777XXN6zv36qXl5cf+Icw0vXC5+dnnJ+f4+HhAX+DbwlJUl9fD1tbW9jZ2cHc3Bz+/v6Yn5+XlzAo4ePjIyorK9HV1YWKigohmZiYQExMDAoKCtDT0wOlUH+12N3djeXlZSwtLSE4OPj1/9TUVDg4OKCmpkaOHR0doSu0KqS6mZkZZGZmCtnp6Smmp6extrYmoSwrKxMivowSaFV4dXWFk5MT5OXlYWdnB9HR0bCwsMD19TUiIiIwOTkJT09P7O/vQwm0KjQzM4OpqamQdnR0ICgoSNT09vZidXUVKysrODs7g6WlJZRAq0ITExNkZGRIYTB04eHhosjKygqurq6S3+3tbQm5EnxZpYWFhbi7u8PGxsaHtdnZWeTn5wu5wQjZdwyjh4fHh7WSkhK0tbVBKb5tfIbRy8vr9w1Gv26h47S2tkrlKjEANfTEwMAAoqKixBQiIyMl9AcHB0hPT0d1dTXs7e31J1SpVK/Ht7e3uL+/R3l5OZqamqR42JPJycmoqqpCY2Mjjo+P4e7uLrbItYCAAGWEb/H09CSm4OfnB7VaLb7KMDc3NyM0NBSXl5eoq6tDSkqKtEx8fDxGR0eRmJgo97/L4c3NDY6Ojr7MiY2NjTiPxs4YOpIy1xoYGxuL55IoLCwMU1NTr2uvhH19fXBzc4O3t7c8YGtr61NCTovx8XEkJSXJuY+Pj7QN+5NgZYeEhAgpYW1tLa71jpCxrq2tlXjPzc2JgqKiIuzt7UEpsrKy5IW0QQgvLi7khBUWGxuL4eFhODk5IS4uTqtSbWDevpoeQsiHc8CywthfLIbOzk4p++LiYqk6Q0EIGe+xsTFxfhJwFLEYqJRFwpnI6jQYIREYGIj+/n7JYWlpqSjli7DPEhISxMwNSkiwhBcXF3F4eChKOZqYj4WFBekzgxMSGqUk0Sg1JD41bzoGldIE2B5Uqi/Ycpqe1EpI0P8GBweFWF+ltMD19XX4+vp+T0jQADRKc3Nzsbu7C11Be2xpaZFtSlpamm6EBJUODQ3Jbi07O1t2cpwW35Fxa9Le3i5T5a3PqnT9tmAuOI5GRkbEG1nRLi4uYhJ/Xse9DlPQ0NAgNfAWKqUfM5ubm2J3/GUxMU9vwRBSUU5ODpydnT/cr/pvv54MhZ8Tr6WQAc7JKwAAAABJRU5ErkJggg==');
+            }
+        }
+    }
+
+    &__slider {
+        @media screen and (max-width: $w480) {
+            & .splide {
+                margin-right: -16px;
+            }
+        }
+
+        & .splide:not(.is-overflow) {
+            & .splide {
+                &__arrow {
+                    &[disabled] {
+                        display: none;
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    &__nav {
+        display: flex;
+        cursor: pointer;
+        margin: 0 -10px;
+        padding-bottom: 20px;
+        justify-content: flex-end;
+        padding-right: 16px;
+
+        @media screen and (min-width: $w480) {
+            padding-right: 0;
+        }
+
+        @media screen and (min-width: $w760) {
+            padding-bottom: 0;
+        }
+
+
+    }
+
+    &__arrow {
+        display: flex;
+        justify-content: center;
+
+        & div[aria-hidden] {
+            display: none;
+        }
+
+        & div[disabled] {
+            opacity: 0.5 !important;
+            cursor: default;
+            pointer-events: none;
+            touch-action: none;
+        }
+
+
+        &>div {
+            padding: 0 4px;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+
+        & svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--black);
+        }
+
+
+
+        &-prev,
+        &-next {
+            &:hover {
+                & svg {
+                    fill: var(--red);
+                }
+            }
+        }
+
+
+    }
+
+    &__dots {
+        padding: 16px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    & .splide__track {
+        overflow: visible;
+    }
+}

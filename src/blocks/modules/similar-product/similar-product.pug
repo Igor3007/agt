@@ -1,0 +1,28 @@
+include ../minicard/minicard.pug
+
+mixin similar-product
+    section.section-similar-product
+        .container
+            .similar-product__title C этим товаром смотрят:
+            .similar-product__slider
+                .splide(data-slider="default")
+                        .splide__track
+                            .splide__list
+                                each item in products
+                                    .splide__slide: .similar-product__item: +minicard(item)
+                        .similar-product__nav
+                            .similar-product__dots: ul.splide__pagination
+                            .similar-product__arrow
+                                .similar-product__arrow-prev(data-slider-prev="default"): +icons('#ic_slider-prev', 40)
+                                .similar-product__arrow-next(data-slider-next="default"): +icons('#ic_slider-next', 40)
+
+mixin similar-product-details-blog
+    section.section-similar-product.section-similar-product--blog
+        .container
+            .similar-product__title Связанные товары
+            .similar-product__slider
+                .splide(data-slider="default")
+                        .splide__track
+                            .splide__list
+                                each item in newsdetails
+                                    .splide__slide: .similar-product__item: +minicard(item)

@@ -34,4 +34,28 @@ mixin news-slider
                             .splide__list
                                 each item in reviews
                                     .splide__slide: .news-slider__item: +card-news(item)
+mixin news-slider-recomendet
+
+    -
+        const reviews = [
+            {img: '/img/news/n1', 'name':'Испытание куртки KW346 по мокрому'}, 
+            {img: '/img/news/n2', 'name':'Полный обзор светоотражающей линейки'}, 
+            {img: '/img/news/n3', 'name':'Как выбрать спецодежду для города?'}, 
+        ]
+
+    section.section-news-slider
+        .container
+            .news-slider
+                
+                .news-slider__top
+                    .news-slider__title Рекомендуем так же посмотреть:
+                    .news-slider__all
+                        a(href='#') 
+                            span Все новости
+                .news-slider__list
+                    .splide(data-slider="default")
+                        .splide__track
+                            .splide__list
+                                each item in reviews
+                                    .splide__slide: .news-slider__item: +card-news(item)
                         

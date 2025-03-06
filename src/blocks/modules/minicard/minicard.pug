@@ -54,6 +54,62 @@ mixin minicard(data)
                                     span(data-color=item.color style="background-color: "+item.hex+" " )
                                     if item.hex2
                                         span(data-color=item.color style="background-color: "+item.hex2+" " )
+mixin minicard(data)
+    .minicard(data-popup="product-preview" data-id="875" class=data.type ? data.type : '' )
+        .minicard__top
+
+            .minicard__head
+                .minicard__sticker
+                    span Новинка
+                .minicard__brand
+                    +bgimage('/img/brands/brodeks.png')
+
+
+            .minicard__images
+                each img in data.images
+                    .minicard__picture(class = img.class ? img.class : ''  data-image-color=img.color)
+                        .minicard__photo: a(href='/single-product.html'): +picturePng(img.main)
+
+                        if !data.type
+                            .minicard__photo-hover: a(href='/single-product.html'): +picturePng('/img/product/p9')
+                      
+               
+            .minicard__action 
+                .minicard__bg
+                    .minicard__tofav(data-wishlist=data.id): +icons('#ic_heart', 40)
+                    .minicard__compare(data-compare=data.id): +icons('#ic_compare', 40)
+
+                .minicard__tocart
+                    button.btn-tocart
+                        span.ic-default: +icons('#ic_to-cart-plus', 33)
+                        span.ic-active: +icons('#ic_to-cart-check', 33)
+                        span.tocart-text В корзину
+                    
+
+        .minicard__main
+            .minicard__prices
+                .minicard__price(class=data.oldprice ? 'is-accent-color' : '')
+                    | 14 500 
+                    span ₽
+                if data.oldprice
+                    .minicard__oldprice!= data.oldprice + '<span>₽</span>'
+                    .minicard__sale
+                        span -12%
+
+            .minicard__desc(data-popup="ajax" data-url="/parts/_popup-quickview.html")
+                 span= data.desc
+
+            .minicard__vcode
+                 span Арт.: KS213RED
+
+            .minicard__colors
+                    ul
+                        each item in data.images
+                            if item.color 
+                                li(style="border-color: "+item.hex+" ")  
+                                    span(data-color=item.color style="background-color: "+item.hex+" " )
+                                    if item.hex2
+                                        span(data-color=item.color style="background-color: "+item.hex2+" " )
 
 mixin minicard-compare(data)
     .minicard(data-popup="product-preview" data-id="875" class=data.type ? data.type : '' )

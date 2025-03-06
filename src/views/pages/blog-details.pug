@@ -1,0 +1,18 @@
+extends ../layouts/main
+ 
+block variables
+  include ../../data/data.pug
+  - const title = "Brodeks - Блог"
+ 
+
+block main
+
+  include ../../blocks/modules/blog-details/blog-details.pug
+  include ../../blocks/modules/subscribe/subscribe.pug
+
+  +blog-details() 
+
+ 
+block scripts
+  script(src="/js/vendor.js") 
+  script(src="/js/common.js") 

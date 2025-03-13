@@ -5,6 +5,22 @@
         padding: 8px 0;
     }
 
+    @media screen and (max-width: $w1440) {
+
+        & .btn-tocart {
+
+            & svg {
+                margin-right: 0;
+            }
+
+            & .tocart-text {
+                display: none;
+            }
+        }
+
+
+    }
+
     &--rec {
         & .product-slider {
             &__title {

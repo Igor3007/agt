@@ -1,0 +1,97 @@
+mixin table-sizes
+        
+    -
+        const product = [
+                { img: 'image285', caption: 'Размер обуви' },
+                { img: 'image286', caption: 'В области коленей есть специальные вставки, обеспечивающие максимум свободы' },
+                { img: 'image287', caption: 'В области коленей есть специальные вставки' },
+                { img: 'image288', caption: 'Функционал учитывающий особенности профессий' },
+                { img: 'image289', caption: 'Вдохновение скандинавскими брендами' },
+                { img: 'image290', caption: 'Ткани и нити прошли тесты и испытания' },
+                { img: 'image286', caption: 'Функционал учитывающий особенности профессий' },
+                { img: 'image285', caption: 'Функционал учитывающий особенности профессий' },
+                { img: 'image288', caption: 'Вдохновение скандинавскими брендами' },
+                { img: 'image285', caption: 'Ткани и нити прошли тесты и испытания' },
+            ];
+
+    section.section-table-sizes
+        .table-sizes
+            .table-sizes__wrp
+                .table-sizes__main
+                    .table-sizes__slider
+                        .table-sizes__label Как снять мерки для определения размера?
+                        .table-sizes__carousel
+                            .splide(data-slider="default")
+                                .splide__track
+                                    .splide__list
+                                        each item in product
+                                            .splide__slide: +card-img-caption(item)
+
+                    .table-sizes__video
+                        +video-youtube({
+                            preview: '/img/common/blog2',
+                            link: 'https://www.youtube.com/watch?v=f5k7wWEWXx8'
+                        })
+
+                        h3 Как снять мерки для определения размера?
+
+                
+                .table-sizes__window
+                    .table-sizes__popup
+                        .table-sizes__head
+                            .table-sizes__title Размеры мужской одежды
+                            .table-sizes__close: +icons('#ic_cross')
+
+                        .table-sizes__table
+                            table
+                                tr
+                                    th RUS
+                                    th INT
+                                    th Рост <span>см</span>
+                                    th Обхват груди <span>см</span>
+                                    th Обхват талии <span>см</span>
+                                tr
+                                    td 44-46 
+                                    td XXS 
+                                    td 175 
+                                    td 78 
+                                    td 59 
+                                tr
+                                    td 44-46 
+                                    td XXS 
+                                    td 78 
+                                    td 78 
+                                    td 59 
+                                tr
+                                    td 44-46
+                                    td XXS
+                                    td 78
+                                    td 78
+                                    td 59
+                                tr
+                                    td 44-46
+                                    td XXS
+                                    td 78
+                                    td 78
+                                    td 59
+                                tr
+                                    td 44-46 
+                                    td XXS 
+                                    td 78 
+                                    td 78 
+                                    td 59 
+                                tr
+                                    td 44-46
+                                    td XXS
+                                    td 78
+                                    td 78
+                                    td 59
+                                tr
+                                    td 44-46
+                                    td XXS
+                                    td 78
+                                    td 78
+                                    td 59
+
+                        .table-sizes__button
+                            a(href='#'): button.btn.btn-gray Помочь с подбором размера

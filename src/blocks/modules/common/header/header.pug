@@ -43,7 +43,7 @@ include ../../top-search/top-search.pug
                         span Каталог
             
             .header__find
-                input(type="text" placeholder="Найти..." data-find="input")
+                form(action="/search.html" data-find="form"): input(type="text" placeholder="Найти..." data-find="input")
                 span.find-icon
                     +icons('#ic_find', 40)
 

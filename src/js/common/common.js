@@ -3581,6 +3581,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             this.blockSuggest = this.$el.querySelector('[data-find="sgst"]')
             this.listSuggest = this.$el.querySelector('[data-find="list"]')
             this.input = document.querySelector('[data-find="input"]')
+            this.form = document.querySelector('[data-find="form"]')
             this.totalResult = this.$el.querySelector('[data-find="total"]')
             this.timer = null
             this.isiOS = /iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
@@ -3608,6 +3609,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
             let button = document.createElement('span')
             button.classList.add('find-enter')
+
+            button.addEventListener('click', () => {
+                this.goToPage()
+            })
+
             document.querySelector('.header__find').append(button)
         }
 
@@ -3811,6 +3817,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
             localStorage.setItem('find_queries', JSON.stringify(this.recent.slice(-5)))
         }
 
+        goToPage() {
+            window.location.href = this.form.getAttribute('action')
+        }
+
         addEvents() {
 
             const keyupHahdler = (e) => {
@@ -3824,8 +3834,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
             this.input.addEventListener('keydown', e => {
                 if (e.keyCode == 13) {
-                    window.location.href = '/search.html'
 
+                    this.goToPage()
                     this.recent.push(e.target.value)
                     this.saveLocalstorage()
                 }

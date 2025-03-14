@@ -15,6 +15,10 @@
         display: flex;
     }
 
+    @media screen and (min-width: $w1440) {
+        padding: 114px 15px 68px;
+    }
+
 
     &__text {
         color: #020202;
@@ -65,8 +69,8 @@
 
         & svg {
             fill: #000;
-            width: 32px;
-            height: 20px;
+            width: 30px;
+            height: 22px;
 
             &:hover {
                 fill: var(--accent);
@@ -103,9 +107,10 @@
     &__subtitle {
         text-align: center;
         font-size: 15px;
-        font-weight: 500;
+        font-weight: 600;
         line-height: 18px;
         letter-spacing: 0.6px;
         padding-bottom: 17px;
+        letter-spacing: 4%;
     }
 }

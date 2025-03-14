@@ -14956,8 +14956,8 @@ header.is-mobile .top-search.is-open {
 
 .subscribe__social svg {
   fill: #000;
-  width: 32px;
-  height: 20px;
+  width: 30px;
+  height: 22px;
 }
 
 .subscribe__social svg:hover {
@@ -14985,14 +14985,15 @@ header.is-mobile .top-search.is-open {
 .subscribe__subtitle {
   text-align: center;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 18px;
   letter-spacing: 0.6px;
   padding-bottom: 17px;
+  letter-spacing: 4%;
 }
 
 .blog__breadcrumbs {
-  padding: 15px 0;
+  padding: 0px 0;
 }
 
 .blog__title {
@@ -15129,7 +15130,7 @@ header.is-mobile .top-search.is-open {
 .card-blog-small__image picture {
   position: relative;
   display: block;
-  padding-top: 67%;
+  padding-top: 66%;
 }
 
 .card-blog-small__image picture img {
@@ -15143,7 +15144,7 @@ header.is-mobile .top-search.is-open {
 }
 
 .card-blog-small__title {
-  padding-bottom: 5px;
+  padding-bottom: 0px;
 }
 
 .card-blog-small__title a {
@@ -17742,7 +17743,7 @@ span[data-color=fff] {
 
   .blog__list .blog__item {
     width: 33.33%;
-    margin-bottom: 60px;
+    margin-bottom: 26px;
   }
 
   .card-blog-small__title a {
@@ -19059,6 +19060,14 @@ span[data-color=fff] {
     padding-bottom: 0;
   }
 
+  .blog__all .btn {
+    height: 45px;
+  }
+
+  .blog__group {
+    padding-bottom: 95px;
+  }
+
   .blog-details__title {
     font-size: 40px;
   }
@@ -20048,10 +20057,26 @@ span[data-color=fff] {
     padding: 14px 10px;
   }
 
+  .subscribe {
+    padding: 114px 15px 68px;
+  }
+
   .subscribe__social {
     padding-top: 0;
     display: flex;
     align-items: center;
+  }
+
+  .blog__category {
+    margin-bottom: 70px;
+  }
+
+  .blog__category ul li a {
+    padding: 20px 20px;
+  }
+
+  .blog__all {
+    margin-top: 15px;
   }
 
   .similar-product__item {
@@ -21268,6 +21293,10 @@ span[data-color=fff] {
     font-weight: 600;
     height: 40px;
     padding: 0 10px;
+  }
+
+  .blog__all .btn {
+    width: 100%;
   }
 
   .similar-product__slider .splide {

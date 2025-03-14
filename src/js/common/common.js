@@ -2536,8 +2536,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         validateText(form) {
 
-            form.querySelectorAll('[type="text"]').forEach(input => {
-                if (input.required && !e.target.value) {
+            form.querySelectorAll('[type="text"],[type="tel"]').forEach(input => {
+                if (input.required && !input.value) {
                     if (input.closest('.input-material')) {
 
                         if (input.closest('.multi-mask')) {
@@ -3838,39 +3838,84 @@ document.addEventListener('DOMContentLoaded', function (event) {
         el: '.top-search'
     })
 
-    /* ===================================
+
+    /* ====================================
     attach file
     ====================================*/
 
     if (document.querySelector('.attach-file')) {
         const input = document.querySelector('.attach-file input')
+        const fileArray = [];
+
+        function removeFileFromFileList(index, input) {
+            const dt = new DataTransfer()
+            const {
+                files
+            } = input
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i]
+                if (index !== i) dt.items.add(file)
+            }
+
+            input.files = dt.files // Assign the updates list
+        }
 
         input.addEventListener('change', function (e) {
 
-            let file = document.createElement('span')
-            file.classList.add('file-attach')
-            file.innerHTML = `
-                <div class="file-attach__name" >${this.files[0]['name']}</div>
-                <div class="file-attach__remove" >+</div>
-            `;
-
-            file.querySelector('.file-attach__remove').addEventListener('click', event => {
-                event.preventDefault()
-                event.stopPropagation()
-                file.remove();
-                e.target.closest('.attach-file').classList.remove('is-loaded')
-                e.target.value = '';
-
-            })
+            const dt = new DataTransfer()
 
             if (e.target.closest('.attach-file').querySelector('.file-attach')) {
-                e.target.closest('.attach-file').querySelector('.file-attach').remove()
+                e.target.closest('.attach-file').querySelectorAll('.file-attach').forEach(f => {
+                    f.remove()
+                })
             }
 
-            e.target.closest('.attach-file').classList.add('is-loaded')
-            e.target.closest('.attach-file').append(file)
+            for (let i = 0; i < input.files.length; ++i) {
+
+                if (fileArray.length <= 19) {
+                    fileArray.push(input.files[i])
+                } else {
+                    window.STATUS.wrn('Допустимо не более 20 файлов. Лишние файлы были удалены')
+                }
+
+
+            }
+
+            fileArray.forEach((fileItem, i) => {
+
+                let file = document.createElement('span')
+                file.classList.add('file-attach')
+                file.innerHTML = `
+                    <div class="file-attach__name" >${fileItem['name']}</div>
+                    <div class="file-attach__remove" >+</div>
+                `;
+
+                //event remove
+                file.querySelector('.file-attach__remove').addEventListener('click', event => {
+                    event.preventDefault()
+                    event.stopPropagation()
+
+                    removeFileFromFileList(i, input);
+                    file.remove();
+
+                    console.log(fileArray)
+
+                    if (e.target.closest('.attach-file').querySelectorAll('.file-attach').length == 0) {
+                        e.target.closest('.attach-file').classList.remove('is-loaded')
+                    }
+                })
+
+
+                dt.items.add(fileItem)
+                input.files = dt.files;
+
+                e.target.closest('.attach-file').classList.add('is-loaded')
+                e.target.closest('.attach-file').append(file)
+            })
         })
     }
+
 
     /* ===================================
     tab delivery

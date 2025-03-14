@@ -67,34 +67,34 @@ mixin contacts
                                     .form__item
                                         .form__subitem
                                             .input-material
-                                                input(type='text' data-input-mask='name' max-length="60")
-                                                label= 'ФИО' 
+                                                input(type='text' data-input-mask='name' required maxlength="60")
+                                                label ФИО <span class=star-required >*</span>
                                             
                                         
                                     .form__item
                                         .form__subitem
                                             .input-material
-                                                input(type='email' data-input-mask='email' max-length="60")
-                                                label= 'Email'
+                                                input(type='email' data-input-mask='email' required maxlength="60")
+                                                label Email <span class=star-required >*</span>
                                             
                                     .form__item
                                         .form__subitem 
                                             .multi-mask
                                                 .input-material
-                                                    input(type='tel' max-length="60" required)
-                                                    label= 'Контактный телефон'
+                                                    input(type='tel' maxlength="60" required)
+                                                    label Контактный телефон <span class=star-required >*</span>
                                         
                                     .form__item
                                         .form__subitem
                                             .input-material.input-material--textarea
-                                                textarea(placeholder="" max-length="600" )
+                                                textarea(placeholder="" maxlength="600" )
                                                 label= 'Сообщение'
                                     .form__item: .form__subitem
                                         label Вложение
                                         div.attach-file
                                             label.attach-file__button
-                                                input(type="file")
+                                                input(type="file" multiple)
                                                 span.btn-attach Загрузить
                                             span.text-attach До 20 файлов (общий размер — до 20 МБ).
                                     .form__item: .form__subitem
-                                        button.btn Отправить
+                                        button.btn(type="submit") Отправить

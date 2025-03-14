@@ -13887,6 +13887,8 @@ header.is-mobile .top-search.is-open {
   margin-left: -3px;
   padding-left: 3px;
   font-family: involve;
+  padding-top: 14px;
+  font-size: 15px;
 }
 
 .compare__content table tr td.td-title::before {
@@ -14344,10 +14346,6 @@ header.is-mobile .top-search.is-open {
   line-height: 160%;
 }
 
-.contacts__item {
-  padding-bottom: 55px;
-}
-
 .contacts__title {
   padding-bottom: 30px;
 }
@@ -14379,13 +14377,15 @@ header.is-mobile .top-search.is-open {
 
 .contacts__mail-form .form label {
   font-size: 15px;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
   display: block;
   width: 100%;
 }
 
 .contacts__mail-form .form .attach-file {
   display: flex;
+  flex-wrap: wrap;
+  gap: 6px 6px;
 }
 
 .contacts__mail-form .form .attach-file__button {
@@ -14406,6 +14406,10 @@ header.is-mobile .top-search.is-open {
 
 .contacts .input-material {
   border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.contacts .input-material.err {
+  border-color: #FC4646;
 }
 
 .contacts .multi-mask {
@@ -14471,8 +14475,7 @@ header.is-mobile .top-search.is-open {
 .file-attach {
   display: flex;
   align-items: center;
-  width: 100%;
-  max-width: 360px;
+  max-width: 280px;
   border: 1px solid #ccc;
   border-radius: 30px;
   padding: 0 4px 0 14px;
@@ -14510,12 +14513,8 @@ header.is-mobile .top-search.is-open {
 
 .contacts-item__title {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 15px;
   padding-bottom: 2em;
-}
-
-.contacts-item__title--offer {
-  display: none;
 }
 
 .contacts-item__text {
@@ -14535,7 +14534,7 @@ header.is-mobile .top-search.is-open {
 
 .contacts-item .link-email {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 15px;
   color: var(--accent);
 }
 
@@ -16290,6 +16289,10 @@ span[data-color=fff] {
     width: auto;
   }
 
+  .contacts-item__title {
+    font-size: 18px;
+  }
+
   .similar-product__nav {
     padding-right: 0;
   }
@@ -16883,6 +16886,10 @@ span[data-color=fff] {
 
   .catalog-category--search .catalog-category__breadcrumb {
     padding-bottom: 2px;
+  }
+
+  .contacts__item {
+    padding-bottom: 55px;
   }
 
   .contacts__title h1 {
@@ -17652,7 +17659,6 @@ span[data-color=fff] {
     width: 290px;
     max-width: 290px;
     min-width: 290px;
-    font-size: 15px;
     font-weight: 600;
   }
 
@@ -17674,8 +17680,8 @@ span[data-color=fff] {
     min-width: 290px;
   }
 
-  .contacts-item__title--offer {
-    display: block;
+  .contacts-item .link-email {
+    font-size: 18px;
   }
 
   .delivery__header {
@@ -21180,8 +21186,43 @@ span[data-color=fff] {
     padding-top: 0;
   }
 
+  .section-page--contacts .page__breadcrumbs {
+    padding-bottom: 17px;
+  }
+
+  .section-page--contacts .page__title {
+    padding-bottom: 2px;
+  }
+
+  .section-stores-slider--contacts .stores-slider__title {
+    font-size: 24px;
+    padding-bottom: 11px;
+  }
+
+  .section-stores-slider--contacts .stores-slider__address {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .section-stores-slider--contacts .stores-slider__phone a {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .section-stores-slider--contacts .stores-slider__right picture {
+    padding-top: 57%;
+  }
+
+  .section-stores-slider--contacts .stores-slider {
+    padding-bottom: 43px;
+  }
+
   .contacts__title h1 {
     font-size: 20px;
+  }
+
+  .contacts-item__text p {
+    margin: 20px 0;
   }
 
   .delivery__tabs ul li .btn {
@@ -21246,9 +21287,33 @@ span[data-color=fff] {
   }
 }
 
+@media screen and (max-width: 1025px) and (min-width: 767px) {
+  .contacts__main {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .contacts__requisites {
+    width: 50%;
+    padding-right: 30px;
+  }
+
+  .contacts__item {
+    width: 100% !important;
+  }
+
+  .contacts__offers {
+    width: 50%;
+  }
+
+  .contacts__mail {
+    width: 100%;
+    padding-bottom: 40px;
+  }
+}
+
 @media screen and (max-width: 992.98px) and (min-width: 767px) {
   .contacts__requisites {
-    display: flex;
     margin: 0 -10px;
   }
 

@@ -435,7 +435,7 @@
       </div>
     </header>
     <main> 
-      <section class="section-page">
+      <section class="section-page section-page--contacts">
         <div class="container">
           <div class="page">
             <div class="page__breadcrumbs">
@@ -551,16 +551,16 @@
                             <div class="form__item">
                               <div class="form__subitem">
                                 <div class="input-material">
-                                  <input type="text" data-input-mask="name" max-length="60">
-                                  <label>ФИО</label>
+                                  <input type="text" data-input-mask="name" required maxlength="60">
+                                  <label>ФИО <span class=star-required >*</span></label>
                                 </div>
                               </div>
                             </div>
                             <div class="form__item">
                               <div class="form__subitem">
                                 <div class="input-material">
-                                  <input type="email" data-input-mask="email" max-length="60">
-                                  <label>Email</label>
+                                  <input type="email" data-input-mask="email" required maxlength="60">
+                                  <label>Email <span class=star-required >*</span></label>
                                 </div>
                               </div>
                             </div>
@@ -568,8 +568,8 @@
                               <div class="form__subitem"> 
                                 <div class="multi-mask">
                                   <div class="input-material">
-                                    <input type="tel" max-length="60" required>
-                                    <label>Контактный телефон</label>
+                                    <input type="tel" maxlength="60" required>
+                                    <label>Контактный телефон <span class=star-required >*</span></label>
                                   </div>
                                 </div>
                               </div>
@@ -577,7 +577,7 @@
                             <div class="form__item">
                               <div class="form__subitem">
                                 <div class="input-material input-material--textarea">
-                                  <textarea placeholder="" max-length="600"></textarea>
+                                  <textarea placeholder="" maxlength="600"></textarea>
                                   <label>Сообщение</label>
                                 </div>
                               </div>
@@ -587,14 +587,14 @@
                                 <label>Вложение</label>
                                 <div class="attach-file">
                                   <label class="attach-file__button">
-                                    <input type="file"><span class="btn-attach">Загрузить</span>
+                                    <input type="file" multiple><span class="btn-attach">Загрузить</span>
                                   </label><span class="text-attach">До 20 файлов (общий размер — до 20 МБ).</span>
                                 </div>
                               </div>
                             </div>
                             <div class="form__item">
                               <div class="form__subitem">
-                                <button class="btn">Отправить</button>
+                                <button class="btn" type="submit">Отправить</button>
                               </div>
                             </div>
                           </div>

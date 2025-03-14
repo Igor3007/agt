@@ -264,6 +264,8 @@
                         margin-left: -3px;
                         padding-left: 3px;
                         font-family: involve;
+                        padding-top: 14px;
+                        font-size: 15px;
 
                         @media screen and (min-width: $w1440) {
                             width: 340px;
@@ -275,7 +277,7 @@
                             width: 290px;
                             max-width: 290px;
                             min-width: 290px;
-                            font-size: 15px;
+
                             font-weight: 600;
                         }
 

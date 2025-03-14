@@ -50,14 +50,12 @@ mixin top-search
                             li: a(href='/search.html') Каска
                             li: a(href='/search.html') Куртка утепленная
                             li: a(href='/search.html') Ботинки
-                            li: a(href='/search.html') Перчатки
-                            li: a(href='/search.html') Женский костюм
 
                 .top-search__right
                     
                     .top-search__placeholder(data-find="placeholder") Начните вводить поисковую фразу...
                     .top-search__suggest(data-find="sgst")
-                        .top-search__label Найдено <span data-find="total" >237 товаров</span>
+                        .top-search__label Найдено <span data-find="total" ></span>
                         .top-search__list(data-find="list")
                         .top-search__all
                             button.btn.btn-gray(type="submit" onclick="this.closest('.top-search').querySelector('form').submit()") Все результаты

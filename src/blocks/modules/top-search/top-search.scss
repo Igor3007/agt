@@ -34,6 +34,10 @@
         padding: 36px 0 20px 0;
         position: relative;
 
+        @media screen and (max-width: $w480) {
+            padding: 45px 0 20px 0;
+        }
+
 
         @media screen and (min-width: $w992) {
             display: flex;
@@ -113,6 +117,16 @@
 
     &__looking {
         & ul {
+
+            @media screen and (min-width: $w480) and (max-width: $w992) {
+                display: flex;
+                gap: 8px;
+
+                & li {
+                    white-space: nowrap;
+                }
+            }
+
             & li {
                 font-size: 15px;
                 padding: 5px 0;
@@ -146,6 +160,10 @@
         font-size: 18px;
         font-weight: 600;
         padding-bottom: 12px;
+
+        @media screen and (max-width: $w480) {
+            padding-bottom: 15px;
+        }
 
         & span {
             color: var(--accent);
@@ -310,6 +328,12 @@
             &__title {
                 font-size: 16px;
                 font-weight: 500;
+                line-height: 140%;
+                padding-bottom: 14px;
+
+                @media screen and (min-width: $w576) {
+                    padding-bottom: 0;
+                }
             }
         }
     }
@@ -317,7 +341,8 @@
     &__image {
         min-width: 62px;
         width: 62px;
-        background-color: #eee;
+        background-color: var(--bg);
+        align-self: flex-start;
 
 
         & .bgimage {
@@ -337,11 +362,17 @@
 
     &__desc {
         opacity: 0.4;
-        @include line-clamp(2);
         margin-bottom: 5px;
         font-family: var(--font-montserrat);
         font-size: 14px;
         line-height: 130%;
+        font-weight: 500;
+        line-height: 132%;
+        padding-bottom: 12px;
+
+        @media screen and (min-width: $w576) {
+            padding-bottom: 0;
+        }
     }
 
     &__cost {
@@ -369,7 +400,7 @@
     &__close {
         position: absolute;
         right: 0;
-        top: 0;
+        top: 28px;
         width: 40px;
         height: 40px;
         border: 2px solid var(--accent);
@@ -425,7 +456,7 @@ header.is-mobile {
     & .header {
         &__find {
             & input {
-                @media screen and (max-width: $w576) {
+                @media screen and (max-width: $w760) {
                     position: absolute;
                     display: block;
                     left: 20px;
@@ -448,4 +479,25 @@ header.is-mobile {
         top: 100%;
         padding-top: 20px;
     }
+}
+
+.find-enter {
+    width: 20px;
+    height: 20px;
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIiIGhlaWdodD0iMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNi40NDkuNTA1bDQuNzczIDQuNzczYS43NS43NSAwIDAxMCAxLjA2MWwtNC43NzMgNC43NzNhLjc1Ljc1IDAgMDEtMS4wNi0xLjA2bDMuNDkyLTMuNDkzSC44NDh2LTEuNUgxOC44OGwtMy40OTMtMy40OTNhLjc1Ljc1IDAgMTExLjA2LTEuMDZ6IiBmaWxsPSIjMDA5MEMzIi8+PC9zdmc+);
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    cursor: pointer;
+    display: none;
+}
+
+.open-find-popup .find-enter {
+    display: inline-block;
+}
+
+.header__find {
+    position: relative;
 }

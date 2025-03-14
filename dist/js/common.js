@@ -3599,7 +3599,16 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 this.recent = JSON.parse(localStorage.getItem('find_queries'))
             }
 
+
+            this.createButtonEnter()
             this.getRecentQuery()
+        }
+
+        createButtonEnter() {
+
+            let button = document.createElement('span')
+            button.classList.add('find-enter')
+            document.querySelector('.header__find').append(button)
         }
 
         lockScroll(val) {
@@ -3640,11 +3649,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
             this.$el.classList.add('is-open')
             this.lockScroll(true)
 
-            // if (this.input.value) {
-            //     this.openSuggest()
-            // }
-
-            // close in out
             const closeInOut = (e) => {
 
                 if (e.target.closest('.header')) return false
@@ -3656,6 +3660,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             }
 
             document.addEventListener('click', closeInOut)
+            document.body.classList.toggle('open-find-popup', true)
         }
 
         closeFind() {
@@ -3663,6 +3668,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             //this.closeSuggest()
             this.lockScroll(false)
             document.querySelector('header').classList.toggle('is-mobile', false)
+            document.body.classList.toggle('open-find-popup', false)
 
         }
 
@@ -3717,12 +3723,26 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 return false
             }
 
-            let str = this.recent.reduce((prev, curr) => {
+            let str = this.recent.reverse().reduce((prev, curr) => {
                 return prev + `<li>${curr} <span class="ts-remove" ></span></li>`
             }, '')
 
             this.$el.querySelector('.top-search__looking ul').innerHTML = str
 
+            this.clickEl(this.$el.querySelectorAll('.top-search__looking ul li'))
+
+        }
+
+        clickEl(list) {
+            list.forEach(item => {
+                item.addEventListener('click', () => {
+                    this.input.value = item.innerText;
+                    this.ajaxRequest(this.input.value, (response) => {
+                        this.render(response)
+                        this.openSuggest()
+                    })
+                })
+            })
         }
 
         ajaxRequest(value, callback) {
@@ -3788,7 +3808,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
         }
 
         saveLocalstorage() {
-            localStorage.setItem('find_queries', JSON.stringify(this.recent))
+            localStorage.setItem('find_queries', JSON.stringify(this.recent.slice(-5)))
         }
 
         addEvents() {
@@ -3798,7 +3818,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
             }
 
             this.input.addEventListener('focus', (e) => {
-                this.changeInput(e)
+                //this.changeInput(e)
+                this.openFind()
             })
 
             this.input.addEventListener('keydown', e => {
@@ -3824,9 +3845,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 e.target.closest('header').classList.contains('is-mobile') ? this.openFind() : this.closeFind()
             })
 
-            document.querySelectorAll('.top-search__looking .ts-remove').forEach(item => {
+            document.querySelectorAll('.top-search__looking .ts-remove').forEach((item, index) => {
                 item.addEventListener('click', e => {
                     e.stopPropagation()
+                    this.recent.splice(index, 1)
+                    this.saveLocalstorage()
                     e.target.closest('li').remove()
                 })
             })

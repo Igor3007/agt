@@ -393,7 +393,7 @@ input[type="date"] {
 }
 
 .formated-text .note strong {
-  color: #26487B;
+  color: var(--accent);
   font-weight: 600;
   display: block;
 }
@@ -1099,7 +1099,7 @@ select {
 }
 
 .loading .indeterminate {
-  background-color: #26487B;
+  background-color: var(--accent);
 }
 
 .loading .indeterminate:before {
@@ -2415,11 +2415,11 @@ select {
 }
 
 .toggle input:checked ~ div .toggle-slide {
-  background: #26487B;
+  background: var(--accent);
 }
 
 .toggle input:checked ~ div .toggle-slide:hover {
-  background: #26487B;
+  background: var(--accent);
 }
 
 .toggle input:checked ~ div .toggle-slide::before {
@@ -2432,7 +2432,6 @@ select {
 
 .toggle input:checked ~ div .toggle-active {
   display: block;
-  color: #26487B;
 }
 
 .toggle input:checked ~ div .toggle-deactive {
@@ -2761,7 +2760,7 @@ select {
   font-weight: 600;
   font-size: 16px;
   width: 100%;
-  color: #26487B;
+  color: var(--accent);
   color: var(--text-01);
   padding-bottom: 10px;
 }
@@ -2845,7 +2844,7 @@ select {
   width: 100%;
   border: none;
   background: transparent;
-  color: #26487B;
+  color: var(--accent);
   font-weight: 500;
   height: 20px !important;
   transform: translateY(15px);
@@ -3591,7 +3590,7 @@ select {
   width: 40px;
   min-width: 40px;
   height: 40px;
-  border: 3px solid #26487B;
+  border: 3px solid var(--accent);
   border-radius: 50%;
   border-left-color: transparent !important;
   transition: transform 0.5s linear;
@@ -10547,7 +10546,7 @@ section-one-article
 
 .text-accordion__text ol > li::before {
   content: counter(number-list);
-  color: #26487B;
+  color: var(--accent);
   font-weight: bold;
   min-width: 35px;
   display: inline-block;
@@ -13696,6 +13695,8 @@ header.is-mobile .top-search.is-open {
   padding-bottom: 10px;
   scrollbar-color: transparent transparent;
   scrollbar-width: thin !important;
+  flex-wrap: wrap;
+  gap: 6px 0;
 }
 
 .compare__tabs ul::-webkit-scrollbar {
@@ -13885,6 +13886,7 @@ header.is-mobile .top-search.is-open {
   word-wrap: break-word;
   margin-left: -3px;
   padding-left: 3px;
+  font-family: involve;
 }
 
 .compare__content table tr td.td-title::before {
@@ -15451,6 +15453,7 @@ header.is-mobile .top-search.is-open {
   height: 100%;
   background-color: #000;
   z-index: 100;
+  display: none;
 }
 
 .table-sizes__label {

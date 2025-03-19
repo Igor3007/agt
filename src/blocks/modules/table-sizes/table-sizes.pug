@@ -26,14 +26,20 @@ mixin table-sizes
                                     .splide__list
                                         each item in product
                                             .splide__slide: +card-img-caption(item)
+                        .table-sizes__arr: +icons('#ic_arr-bottom')
 
                     .table-sizes__video
-                        +video-youtube({
-                            preview: '/img/common/blog2',
-                            link: 'https://www.youtube.com/watch?v=f5k7wWEWXx8'
-                        })
+                    
+                        .table-sizes__video-box
 
-                        h3 Как снять мерки для определения размера?
+                            .table-sizes__arr-up: +icons('#ic_arr-bottom')
+
+                            +video-youtube({
+                                preview: '/img/common/blog2',
+                                link: 'https://www.youtube.com/watch?v=f5k7wWEWXx8'
+                            })
+
+                            h3 Как снять мерки для определения размера?
 
                 
                 .table-sizes__window

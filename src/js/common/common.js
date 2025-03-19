@@ -3614,7 +3614,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 this.goToPage()
             })
 
-            document.querySelector('.header__find').append(button)
+            document.querySelector('.header__find form').append(button)
         }
 
         lockScroll(val) {
@@ -3980,6 +3980,21 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         })
 
+    }
+
+    /* ===================================
+    arr
+    ===================================*/
+
+    if (document.querySelector('.table-sizes__arr')) {
+        document.querySelector('.table-sizes__arr').addEventListener('click', () => {
+            document.querySelector('.table-sizes__main').style.setProperty('transform', 'translateY(-100%)')
+
+        })
+        document.querySelector('.table-sizes__arr-up').addEventListener('click', () => {
+            document.querySelector('.table-sizes__main').style.setProperty('transform', 'translateY(0)')
+
+        })
     }
 
 

@@ -455,7 +455,7 @@
 header.is-mobile {
     & .header {
         &__find {
-            & input {
+            & form {
                 @media screen and (max-width: $w760) {
                     position: absolute;
                     display: block;
@@ -465,6 +465,10 @@ header.is-mobile {
                     z-index: 107;
                     width: auto;
                 }
+            }
+
+            & input {
+                display: block;
             }
         }
     }
@@ -488,16 +492,21 @@ header.is-mobile {
     background-position: center;
     background-repeat: no-repeat;
     position: absolute;
-    right: 30px;
-    top: 10px;
+    right: 16px;
+    top: 11px;
     cursor: pointer;
     display: none;
+
+    @media screen and (min-width: $w480) {
+        right: 30px;
+
+    }
 }
 
 .open-find-popup .find-enter {
     display: inline-block;
 }
 
-.header__find {
+.header__find form {
     position: relative;
 }

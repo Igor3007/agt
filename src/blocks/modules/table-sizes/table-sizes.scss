@@ -6,8 +6,9 @@
      height: 100%;
      background-color: #000;
      z-index: 100;
-
      display: none;
+
+
 
      &__label {
          font-size: 24px;
@@ -54,8 +55,10 @@
 
          display: flex;
          flex-direction: column;
-         justify-content: center;
+         justify-content: flex-start;
          color: #fff;
+         transition: 0.3s ease;
+
 
          @media screen and (min-width: $w992) {
              width: 70%;
@@ -64,17 +67,33 @@
      }
 
      &__slider {
-         display: none;
+         min-height: 40vh;
+
+         @media screen and (min-width: $w992) {
+             min-height: 100vh;
+         }
+
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
      }
 
      &__video {
-         display: block;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         min-height: 40vh;
+
+         @media screen and (min-width: $w992) {
+             min-height: 100vh;
+         }
 
          & h3 {
              text-align: center;
              padding: 24px 0 0 0;
              font-weight: 500;
              max-width: 920px;
+             width: 100%;
              text-align: left;
              margin: 0 auto;
              padding-left: 16px;
@@ -219,10 +238,33 @@
          }
      }
 
+     &__arr-up svg {
+         transform: rotate(180deg);
+     }
+
+     &__arr-up,
+     &__arr {
+         display: flex;
+         justify-content: center;
+         padding: 30px 0;
+         cursor: pointer;
+
+         & svg {
+             width: 31px;
+             height: 31px;
+             fill: #fff;
+
+             &:hover {
+                 fill: var(--accent);
+             }
+         }
+     }
+
      & .yt-video {
          max-width: 920px;
          border-radius: 8px;
          background-color: #333;
+         width: 100%;
      }
 
      .yt-video.is-play .yt-video__preview {

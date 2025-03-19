@@ -5244,7 +5244,7 @@ footer {
 }
 
 .page-404__title {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
   color: var(--accent);
   text-align: center;
@@ -5253,7 +5253,7 @@ footer {
 }
 
 .page-404__label {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
   text-align: center;
 }
@@ -21146,6 +21146,10 @@ span[data-color=fff] {
   .header-top .container {
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  .page-404__title {
+    padding-bottom: 40px;
   }
 
   .page-404__title br {

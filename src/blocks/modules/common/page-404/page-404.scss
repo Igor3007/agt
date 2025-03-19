@@ -17,7 +17,7 @@
 
 
     &__title {
-        font-size: 20px;
+        font-size: 17px;
         font-weight: 600;
         color: var(--accent);
         text-align: center;
@@ -25,6 +25,9 @@
         line-height: 127%;
 
         @media screen and (max-width: $w480) {
+
+            padding-bottom: 40px;
+
             & br {
                 display: none;
             }
@@ -32,7 +35,7 @@
     }
 
     &__label {
-        font-size: 20px;
+        font-size: 17px;
         font-weight: 600;
         text-align: center;
 

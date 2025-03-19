@@ -9137,6 +9137,16 @@ AGT восококлассный...
   left: 3px;
 }
 
+.catalog-category__tags ul li.is-active span::before,
+.catalog-category__tags ul li.is-active a::before {
+  filter: invert(1);
+}
+
+.catalog-category__tags ul li.is-active span:hover,
+.catalog-category__tags ul li.is-active a:hover {
+  color: #fff;
+}
+
 .catalog-category__tags ul li span,
 .catalog-category__tags ul li a {
   background-color: --bg;

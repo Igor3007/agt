@@ -484,6 +484,14 @@
                             left: 3px;
 
                         }
+
+                        &::before {
+                            filter: invert(1);
+                        }
+
+                        &:hover {
+                            color: #fff;
+                        }
                     }
                 }
 

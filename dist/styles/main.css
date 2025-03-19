@@ -14229,7 +14229,7 @@ header.is-mobile .top-search.is-open {
 .rotate-device__text {
   padding-left: 10px;
   flex-grow: 1;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
 }
 
@@ -14245,6 +14245,11 @@ header.is-mobile .top-search.is-open {
 
 .rotate-device .icon-cross {
   transform: rotate(45deg);
+}
+
+.rotate-device .icon-cross::after,
+.rotate-device .icon-cross::before {
+  background: #000;
 }
 
 .catalog-category--search .catalog-category__tags {

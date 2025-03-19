@@ -98,13 +98,14 @@ mixin compare
                     'AGT',
                     'Сравнение товаров',
                 ])
-                .compare__title Сравнение товаров
                 .compare__info
                     .rotate-device
                         .rotate-device__icon
                             span.ic_24(style="background-image: url('/img/common/icon-rotate-device.svg')")
                         .rotate-device__text Поверните экран, так удобнее
                         .rotate-device__close: span.icon-cross.ic_24
+                .compare__title Сравнение товаров
+                
                 .compare__tabs
                     ul
                         li.is-active: a(href='#') Зимняя одежда <span class="tab-total">(22)</span>

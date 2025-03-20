@@ -113,6 +113,9 @@
                 }
 
                 & .btn {
+
+                    font-size: 16px;
+
                     @media screen and (max-width: $w480) {
                         font-size: 15px;
                         font-weight: 600;
@@ -144,7 +147,7 @@
         display: none;
 
         @media screen and (min-width: $w1024) {
-            max-width: 880px;
+            max-width: 923px;
         }
 
         &.is-active {
@@ -273,10 +276,10 @@
     }
 
     &__deal {
-        padding-bottom: 62px;
+        padding-bottom: 40px;
 
         @media screen and (min-width: $w1200) {
-            padding-bottom: 40px;
+            padding-bottom: 0;
             max-width: 1000px;
         }
 
@@ -318,6 +321,10 @@
                     font-weight: 600;
                     display: block;
                     padding-bottom: 12px;
+
+                    @media screen and (min-width: $w992) {
+                        font-size: 18px;
+                    }
                 }
 
 
@@ -327,6 +334,16 @@
 
     & .maxwdt-630 {
         max-width: 630px;
+    }
+}
+
+.title-deal {
+    @media screen and (min-width: $w1200) {
+        margin-bottom: -30px;
+    }
+
+    @media screen and (max-width: $w576) {
+        text-align: center;
     }
 }
 
@@ -405,6 +422,7 @@
 
         & svg {
             margin-right: 15px;
+            margin-bottom: -4px;
         }
     }
 
@@ -453,6 +471,12 @@
         flex-grow: 1;
         flex-basis: 320px;
 
+        &:first-child {
+            @media screen and (max-width: $w576) {
+                padding-bottom: 20px;
+            }
+        }
+
         & h3 {
             font-size: 16px;
             font-weight: 600;
@@ -498,6 +522,7 @@
     &__main {
         padding: 24px;
         background: var(--bg);
+        font-family: Involve;
     }
 
     &__city {
@@ -528,4 +553,16 @@
 
 .delivery-stores {
     padding-bottom: 40px;
+
+
+}
+
+.delivery__text>h3 {
+    @media screen and (min-width: $w1200) {
+        padding-top: 40px;
+    }
+}
+
+.title-no-padd {
+    padding: 0 !important;
 }

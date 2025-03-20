@@ -14620,6 +14620,10 @@ header.is-mobile .top-search.is-open {
   flex-grow: 1;
 }
 
+.delivery__tabs ul li .btn {
+  font-size: 16px;
+}
+
 .delivery__tabs ul li:hover .btn {
   background-color: var(--bg);
   color: var(--accent);
@@ -14723,7 +14727,7 @@ header.is-mobile .top-search.is-open {
 }
 
 .delivery__deal {
-  padding-bottom: 62px;
+  padding-bottom: 40px;
 }
 
 .delivery__deal ul {
@@ -14826,6 +14830,7 @@ header.is-mobile .top-search.is-open {
 
 .delivery-contacts__title svg {
   margin-right: 15px;
+  margin-bottom: -4px;
 }
 
 .delivery-contacts__desc {
@@ -14915,6 +14920,7 @@ header.is-mobile .top-search.is-open {
 .card-srore__main {
   padding: 24px;
   background: var(--bg);
+  font-family: Involve;
 }
 
 .card-srore__city {
@@ -14944,6 +14950,10 @@ header.is-mobile .top-search.is-open {
 
 .delivery-stores {
   padding-bottom: 40px;
+}
+
+.title-no-padd {
+  padding: 0 !important;
 }
 
 .subscribe {
@@ -19079,6 +19089,10 @@ span[data-color=fff] {
     margin-bottom: 100px;
   }
 
+  .delivery__deal ul li strong {
+    font-size: 18px;
+  }
+
   .subscribe {
     border-radius: 30px;
   }
@@ -19259,7 +19273,7 @@ span[data-color=fff] {
   }
 
   .delivery__tab-content {
-    max-width: 880px;
+    max-width: 923px;
   }
 
   .delivery-contacts__title {
@@ -19699,8 +19713,16 @@ span[data-color=fff] {
   }
 
   .delivery__deal {
-    padding-bottom: 40px;
+    padding-bottom: 0;
     max-width: 1000px;
+  }
+
+  .title-deal {
+    margin-bottom: -30px;
+  }
+
+  .delivery__text > h3 {
+    padding-top: 40px;
   }
 
   .blog-details__article .formated-text img {
@@ -21072,6 +21094,14 @@ span[data-color=fff] {
 
   .delivery__tabs ul {
     gap: 0 0px;
+  }
+
+  .title-deal {
+    text-align: center;
+  }
+
+  .text-column-2__col:first-child {
+    padding-bottom: 20px;
   }
 
   .blog__pagination .pagination__page {

@@ -2356,35 +2356,37 @@ document.addEventListener('DOMContentLoaded', function (event) {
     =========================================*/
 
     if (document.querySelector('.yt-video')) {
-        document.querySelectorAll('.yt-video').forEach(container => {
 
-            const getYoutubeId = (url) => {
-                var m = url.match(/^.*(?:youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/);
-                if (!m || !m[1]) return null;
-                return m[1];
-            }
+        function initYtVideo() {
+            document.querySelectorAll('.yt-video').forEach(container => {
 
-            container.querySelector('.yt-video__button').addEventListener('click', e => {
-                container.classList.add('is-play')
-
-                let iframe = document.createElement('iframe')
-                let v = container.dataset.id;
-
-                if (v.indexOf('dzen.ru') !== -1) {
-                    iframe.src = v + '?autoplay=true'
-                } else {
-                    iframe.src = '//www.youtube.com/embed/' + getYoutubeId(container.dataset.id) + '?autoplay=true'
+                const getYoutubeId = (url) => {
+                    var m = url.match(/^.*(?:youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/);
+                    if (!m || !m[1]) return null;
+                    return m[1];
                 }
 
+                container.querySelector('.yt-video__button').addEventListener('click', e => {
+                    container.classList.add('is-play')
 
+                    let iframe = document.createElement('iframe')
+                    let v = container.dataset.id;
 
+                    if (v.indexOf('dzen.ru') !== -1) {
+                        iframe.src = v + '?autoplay=true'
+                    } else {
+                        iframe.src = '//www.youtube.com/embed/' + getYoutubeId(container.dataset.id) + '?autoplay=true'
+                    }
 
+                    container.querySelector('.yt-video__iframe').append(iframe)
+                })
 
-                container.querySelector('.yt-video__iframe').append(iframe)
             })
+        }
+
+        initYtVideo()
 
 
-        })
     }
 
     /* ===========================================
@@ -3986,16 +3988,172 @@ document.addEventListener('DOMContentLoaded', function (event) {
     arr
     ===================================*/
 
-    if (document.querySelector('.table-sizes__arr')) {
-        document.querySelector('.table-sizes__arr').addEventListener('click', () => {
-            document.querySelector('.table-sizes__main').style.setProperty('transform', 'translateY(-100%)')
 
-        })
-        document.querySelector('.table-sizes__arr-up').addEventListener('click', () => {
-            document.querySelector('.table-sizes__main').style.setProperty('transform', 'translateY(0)')
 
-        })
+    class TableSizes {
+        constructor(params) {
+            this.btns = document.querySelectorAll(params.el)
+            this.$el = null
+
+            this.init()
+        }
+
+        init() {
+            this.addEvents()
+        }
+
+        afterLoad() {
+            this.initSlider()
+            this.$el.querySelector('.table-sizes__close').addEventListener('click', () => {
+                this.close()
+            })
+
+            initAjaxPopup(this.$el)
+            initYtVideo()
+        }
+
+        ajaxLoad(callback) {
+
+            let query = fetch('/parts/_table-sizes.html', {
+                method: 'GET',
+            })
+
+            query
+                .then((response) => response.text())
+                .then((html) => {
+                    this.$el = document.createElement('div')
+                    this.$el.innerHTML = html
+                    document.body.append(this.$el)
+                    this.$el = this.$el.querySelector('.table-sizes')
+                    callback()
+                })
+        }
+
+        initSlider() {
+            if (document.querySelector('[data-slider="default"]')) {
+
+                const items = document.querySelectorAll('[data-slider="default"]')
+
+                items.forEach(slider => {
+
+                    let splide = new Splide(slider, {
+
+                        arrows: true,
+                        arrowPath: SLIDER_ARROW_PATH,
+
+                        pagination: false,
+                        gap: 20,
+                        autoWidth: true,
+                        start: 0,
+                        perPage: 1,
+                        perMove: 4,
+                        flickMaxPages: 1,
+                        flickPower: 100,
+
+
+                        breakpoints: {
+
+                            1400: {
+                                perMove: 4,
+                            },
+
+                            1200: {
+                                perMove: 3,
+                            },
+
+                            992: {
+                                perMove: 2,
+                            },
+
+                            576: {
+                                perPage: 1,
+                                gap: 16,
+                            },
+                        },
+
+                    });
+
+                    const getTopArrowButtons = () => {
+
+                        if (slider) {
+                            let heigthEl = slider.querySelector('picture').clientHeight
+                            slider.querySelectorAll('.splide__arrow').forEach(btn => {
+                                btn.style.top = (heigthEl / 2) + 'px'
+                            })
+                        }
+                    }
+
+                    splide.on('mounted', (e) => {
+
+                        if (splide.length == (splide.options.perPage)) {
+                            nextButton.setAttribute('aria-hidden', '')
+                            prevButton.setAttribute('aria-hidden', '')
+                        }
+
+                        //auto perMove
+                        const getPerMove = () => {
+                            return Math.floor((splide.root.clientWidth / splide.root.querySelector('.splide__slide').clientWidth)) || 1
+                        }
+
+                        splide.options = {
+                            perMove: getPerMove(),
+                        };
+
+                        // top for nan button
+                        getTopArrowButtons()
+
+                    })
+
+                    splide.on('resize', (e) => {
+                        getTopArrowButtons()
+                    })
+
+
+                    splide.mount();
+                })
+
+
+
+            }
+
+            if (this.$el.querySelector('.table-sizes__arr')) {
+                this.$el.querySelector('.table-sizes__arr').addEventListener('click', () => {
+                    this.$el.querySelector('.table-sizes__main').style.setProperty('transform', 'translateY(-100%)')
+
+                })
+                this.$el.querySelector('.table-sizes__arr-up').addEventListener('click', () => {
+                    this.$el.querySelector('.table-sizes__main').style.setProperty('transform', 'translateY(0)')
+
+                })
+            }
+        }
+
+        close() {
+            this.$el.classList.toggle('is-open', false)
+        }
+
+        open() {
+            if (!this.$el) {
+                this.ajaxLoad(() => {
+                    this.$el.classList.add('is-open')
+
+                    this.afterLoad()
+                })
+            } else {
+                this.$el.classList.add('is-open')
+            }
+        }
+
+        addEvents() {
+            this.btns.forEach(item => {
+                item.addEventListener('click', e => this.open())
+            })
+        }
     }
+
+    new TableSizes({
+        el: '.sp-details__tablesize'
+    });
 
 
 

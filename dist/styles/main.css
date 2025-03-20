@@ -15501,10 +15501,14 @@ header.is-mobile .top-search.is-open {
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: #000;
   z-index: 100;
   display: none;
+}
+
+.table-sizes.is-open {
+  display: block;
 }
 
 .table-sizes__label {
@@ -15524,7 +15528,7 @@ header.is-mobile .top-search.is-open {
   background-color: #fff;
   position: relative;
   margin-top: auto;
-  border-radius: 20px 20px 0 0;
+  border-radius: 30px 30px 0 0;
 }
 
 .table-sizes__main {
@@ -15537,7 +15541,7 @@ header.is-mobile .top-search.is-open {
 
 .table-sizes__slider {
   min-height: 40vh;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
 }
@@ -15545,8 +15549,8 @@ header.is-mobile .top-search.is-open {
 .table-sizes__video {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  min-height: 40vh;
+  justify-content: flex-start;
+  min-height: calc((var(--vh, 1vh) * 40));
 }
 
 .table-sizes__video h3 {
@@ -15564,14 +15568,14 @@ header.is-mobile .top-search.is-open {
 }
 
 .table-sizes__popup {
-  padding: 16px;
+  padding: 24px 16px 16px 16px;
 }
 
 .table-sizes__title {
   text-align: center;
   font-size: 14px;
   font-weight: bold;
-  padding-bottom: 10px;
+  padding-bottom: 35px;
 }
 
 .table-sizes__button {
@@ -15589,8 +15593,8 @@ header.is-mobile .top-search.is-open {
   border-radius: 50px;
   cursor: pointer;
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 20px;
+  right: 20px;
 }
 
 .table-sizes__close svg {
@@ -15605,11 +15609,11 @@ header.is-mobile .top-search.is-open {
 }
 
 .table-sizes__table {
-  margin-bottom: 40px;
   text-align: center;
-  height: calc((var(--vh, 1vh) * 100) - (100vw*0.56) - 200px);
+  height: calc((var(--vh, 1vh) * 100) - (100vw*0.56) - (var(--vh, 1vh) * 22) - 100px);
   overflow-y: auto;
   overflow-x: auto;
+  margin-bottom: 16px;
 }
 
 .table-sizes__table table {
@@ -15687,9 +15691,12 @@ header.is-mobile .top-search.is-open {
   fill: var(--accent);
 }
 
+.table-sizes__arr-up {
+  display: none;
+}
+
 .table-sizes .yt-video {
   max-width: 920px;
-  border-radius: 8px;
   background-color: #333;
   width: 100%;
 }
@@ -15699,7 +15706,7 @@ header.is-mobile .top-search.is-open {
 }
 
 .table-sizes .card-img-caption {
-  width: 400px;
+  width: 310px;
 }
 
 .table-sizes .card-img-caption__picture picture {
@@ -16385,13 +16392,6 @@ span[data-color=fff] {
   .similar-product__nav {
     padding-right: 0;
   }
-
-  .table-sizes__video h3 {
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-bottom: 0;
-    font-size: 20px;
-  }
 }
 
 @media screen and (min-width: 576px) {
@@ -17058,12 +17058,25 @@ span[data-color=fff] {
     border-radius: 0;
   }
 
+  .table-sizes__video h3 {
+    font-size: 20px;
+  }
+
   .table-sizes__title {
     padding-bottom: 40px;
   }
 
+  .table-sizes__close {
+    top: 30px;
+    right: 30px;
+  }
+
   .table-sizes__table table th {
     font-size: 14px;
+  }
+
+  .table-sizes .yt-video {
+    border-radius: 8px;
   }
 
   .splide__arrow {
@@ -19170,7 +19183,6 @@ span[data-color=fff] {
 
   .table-sizes__window {
     width: 30%;
-    min-width: 480px;
   }
 
   .table-sizes__main {
@@ -19179,10 +19191,18 @@ span[data-color=fff] {
 
   .table-sizes__slider {
     min-height: 100vh;
+    display: flex;
   }
 
   .table-sizes__video {
     min-height: 100vh;
+    justify-content: center;
+  }
+
+  .table-sizes__video h3 {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0;
   }
 
   .table-sizes__popup {
@@ -19190,7 +19210,15 @@ span[data-color=fff] {
   }
 
   .table-sizes__table {
+    margin-bottom: 40px;
+  }
+
+  .table-sizes__table {
     height: calc((var(--vh, 1vh) * 100) - 240px);
+  }
+
+  .table-sizes__arr-up {
+    display: flex;
   }
 
   .page__back {
@@ -20175,6 +20203,10 @@ span[data-color=fff] {
 
   .section-similar-product.section-similar-product--blog + .section-news-slider {
     padding-bottom: 98px;
+  }
+
+  .table-sizes .card-img-caption {
+    width: 400px;
   }
 
   .page__back {
@@ -21399,6 +21431,11 @@ span[data-color=fff] {
 
   .similar-product__slider .splide {
     margin-right: -16px;
+  }
+
+  .table-sizes .yt-video__button {
+    width: 28px;
+    height: 28px;
   }
 }
 

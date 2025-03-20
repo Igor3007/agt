@@ -25,10 +25,9 @@
          flex-direction: column;
          height: 100%;
 
-         @media screen and (min-width: $w992) {
+         @media screen and (min-width: $w760) {
              display: flex;
              flex-direction: row;
-
          }
      }
 
@@ -42,14 +41,17 @@
              border-radius: 0;
          }
 
-         @media screen and (min-width: $w992) {
+         @media screen and (min-width: $w760) {
              height: auto;
              margin-top: 0;
          }
 
-         @media screen and (min-width: $w992) {
+         @media screen and (min-width: $w1200) {
              width: 30%;
-             //  min-width: 480px;
+         }
+
+         @media screen and (min-width: $w760) {
+             width: 40%;
          }
      }
 
@@ -62,8 +64,12 @@
          transition: 0.3s ease;
 
 
-         @media screen and (min-width: $w992) {
+         @media screen and (min-width: $w1200) {
              width: 70%;
+         }
+
+         @media screen and (min-width: $w760) {
+             width: 60%;
          }
 
      }
@@ -75,7 +81,7 @@
          flex-direction: column;
          justify-content: center;
 
-         @media screen and (min-width: $w992) {
+         @media screen and (min-width: $w760) {
              min-height: 100vh;
              display: flex;
          }
@@ -88,7 +94,7 @@
          justify-content: flex-start;
          min-height: calc((var(--vh, 1vh) * 40));
 
-         @media screen and (min-width: $w992) {
+         @media screen and (min-width: $w760) {
              min-height: 100vh;
              justify-content: center;
          }
@@ -110,7 +116,7 @@
                  font-size: 20px;
              }
 
-             @media screen and (min-width: $w992) {
+             @media screen and (min-width: $w760) {
                  padding-left: 0px;
                  padding-right: 0px;
                  padding-bottom: 0;
@@ -122,7 +128,7 @@
      &__popup {
          padding: 24px 16px 16px 16px;
 
-         @media screen and (min-width: $w992) {
+         @media screen and (min-width: $w760) {
              padding: 36px;
          }
      }
@@ -185,11 +191,11 @@
          margin-bottom: 16px;
 
 
-         @media screen and (min-width: $w992) {
+         @media screen and (min-width: $w760) {
              margin-bottom: 40px;
          }
 
-         @media screen and (min-width: $w992) {
+         @media screen and (min-width: $w760) {
              height: calc((var(--vh, 1vh) * 100) - 240px);
          }
 
@@ -286,7 +292,7 @@
 
          display: none;
 
-         @media screen and (min-width: $w992) {
+         @media screen and (min-width: $w760) {
              display: flex;
          }
      }

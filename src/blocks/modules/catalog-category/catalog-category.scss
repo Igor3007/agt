@@ -137,6 +137,13 @@
 
                 }
 
+                & a {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    height: 100%
+                }
+
 
                 & picture {
                     @include picture(100%, contain);

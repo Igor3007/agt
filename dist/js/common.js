@@ -4129,10 +4129,21 @@ document.addEventListener('DOMContentLoaded', function (event) {
         }
 
         close() {
-            this.$el.classList.toggle('is-open', false)
+
+            this.$el.classList.toggle('is-animate-close', true)
+
+            setTimeout(() => {
+                this.$el.classList.toggle('is-open', false)
+                this.$el.classList.toggle('is-animate-close', false)
+            }, 500)
+
+            document.body.classList.toggle('page-hidden', false)
         }
 
         open() {
+
+            document.body.classList.toggle('page-hidden', true)
+
             if (!this.$el) {
                 this.ajaxLoad(() => {
                     this.$el.classList.add('is-open')
@@ -4146,7 +4157,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         addEvents() {
             this.btns.forEach(item => {
-                item.addEventListener('click', e => this.open())
+                item.querySelector('span').addEventListener('click', e => this.open())
             })
         }
     }

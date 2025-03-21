@@ -10,6 +10,36 @@
 
      &.is-open {
          display: block;
+
+         @keyframes fade-in-main-table {
+             to {
+                 opacity: 1;
+             }
+         }
+
+         @keyframes fade-in-window-table {
+             to {
+                 opacity: 1;
+                 transform: translateX(0);
+             }
+         }
+
+         & .table-sizes {
+             &__main {
+                 animation: fade-in-main-table 0.95s ease forwards;
+             }
+
+             &__window {
+                 animation: fade-in-window-table 0.45s ease forwards;
+             }
+
+         }
+
+     }
+
+     &.is-animate-close {
+         opacity: 0;
+         transition: 0.4s ease;
      }
 
      &__label {
@@ -53,6 +83,11 @@
          @media screen and (min-width: $w760) {
              width: 40%;
          }
+
+         @media screen and (min-width: $w1200) {
+             opacity: 0;
+             transform: translateX(100%);
+         }
      }
 
      &__main {
@@ -62,6 +97,7 @@
          justify-content: flex-start;
          color: #fff;
          transition: 0.3s ease;
+         opacity: 0;
 
 
          @media screen and (min-width: $w1200) {
@@ -145,8 +181,17 @@
      }
 
      &__button {
-         display: flex;
-         justify-content: center;
+         display: none;
+
+         @media screen and (min-width: $w760) {
+             display: flex;
+             justify-content: center;
+         }
+
+         & a {
+             border-radius: 50%;
+         }
+
      }
 
      &__close {
@@ -345,6 +390,15 @@
          &__caption span {
              padding-left: 0;
              line-height: 160%;
+
+         }
+
+         &:hover {
+             & .card-img-caption {
+                 &__caption span {
+                     color: var(--accent);
+                 }
+             }
          }
      }
  }

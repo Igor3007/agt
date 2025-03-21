@@ -1099,6 +1099,8 @@
         flex-direction: column;
     }
 
+
+
     &__radio {
         padding-bottom: 7px;
         display: flex;
@@ -1301,6 +1303,11 @@
 
         & span {
             cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
         }
     }
 

@@ -85,10 +85,10 @@ mixin contacts
                                                     label Контактный телефон <span class=star-required >*</span>
                                         
                                     .form__item
-                                        .form__subitem
-                                            .input-material.input-material--textarea
-                                                textarea(placeholder="" maxlength="600" )
-                                                label= 'Сообщение'
+                                        .form__subitem.form__subitem--textarea
+                                            label= 'Сообщение'
+                                            textarea(placeholder="" maxlength="600" )
+                                                
                                     .form__item: .form__subitem
                                         label Вложение
                                         div.attach-file

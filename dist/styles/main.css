@@ -14454,6 +14454,7 @@ header.is-mobile .top-search.is-open {
   height: 54px;
   font-size: 18px;
   font-weight: 500;
+  font-family: involve;
 }
 
 .contacts .input-material {
@@ -14462,6 +14463,18 @@ header.is-mobile .top-search.is-open {
 
 .contacts .input-material.err {
   border-color: #FC4646;
+}
+
+.contacts .input-material:not(.input-material--textarea) {
+  height: 82px;
+}
+
+.contacts .input-material:not(.input-material--textarea) label {
+  top: 30px;
+}
+
+.contacts .input-material:not(.input-material--textarea) input {
+  margin-top: 16px;
 }
 
 .contacts .multi-mask {
@@ -14507,6 +14520,7 @@ header.is-mobile .top-search.is-open {
   font-size: 15px;
   font-weight: 600;
   transition: 0.3s ease;
+  font-family: involve;
 }
 
 .attach-file .btn-attach:hover {
@@ -14516,7 +14530,7 @@ header.is-mobile .top-search.is-open {
 }
 
 .attach-file .text-attach {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 140%;
 }
 
@@ -14595,6 +14609,19 @@ header.is-mobile .top-search.is-open {
   width: 20px;
   height: 20px;
   margin-bottom: -4px;
+}
+
+.form__subitem {
+  padding: 14px 10px !important;
+}
+
+.form textarea {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  min-height: 115px;
+}
+
+.form__subitem.form__subitem--textarea label {
+  padding-bottom: 5px;
 }
 
 .section-delivery {
@@ -20216,22 +20243,6 @@ span[data-color=fff] {
     width: 340px;
     max-width: 340px;
     min-width: 340px;
-  }
-
-  .contacts .input-material:not(.input-material--textarea) {
-    height: 82px;
-  }
-
-  .contacts .input-material:not(.input-material--textarea) label {
-    top: 30px;
-  }
-
-  .contacts .input-material:not(.input-material--textarea) input {
-    margin-top: 16px;
-  }
-
-  .form__subitem {
-    padding: 14px 10px;
   }
 
   .subscribe {

@@ -184,9 +184,11 @@
                     height: 54px;
                     font-size: 18px;
                     font-weight: 500;
+                    font-family: involve;
 
                     @media screen and (min-width: $w576) {
                         max-width: 224px;
+
                     }
                 }
             }
@@ -200,21 +202,21 @@
             border-color: #FC4646;
         }
 
-        @media screen and (min-width: $w1440) {
-            &:not(.input-material--textarea) {
-                height: 82px;
+        // @media screen and (min-width: $w1440) {
+        &:not(.input-material--textarea) {
+            height: 82px;
 
-                & label {
-                    top: 30px;
-                }
-
-                & input {
-                    margin-top: 16px;
-                }
+            & label {
+                top: 30px;
             }
 
-
+            & input {
+                margin-top: 16px;
+            }
         }
+
+
+        //}
     }
 
     & .multi-mask {
@@ -266,6 +268,7 @@
         font-size: 15px;
         font-weight: 600;
         transition: 0.3s ease;
+        font-family: involve;
 
         &:hover {
             background-color: var(--accent);
@@ -275,7 +278,7 @@
     }
 
     & .text-attach {
-        font-size: 14px;
+        font-size: 15px;
         line-height: 140%;
     }
 
@@ -390,8 +393,6 @@
         }
     }
 
-
-
     & .link-email {
         font-weight: 600;
         font-size: 15px;
@@ -411,13 +412,19 @@
         }
     }
 
-
 }
 
 .form {
     &__subitem {
-        @media screen and (min-width: $w1440) {
-            padding: 14px 10px;
-        }
+        padding: 14px 10px !important;
     }
+
+    & textarea {
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        min-height: 115px;
+    }
+}
+
+.form__subitem.form__subitem--textarea label {
+    padding-bottom: 5px;
 }

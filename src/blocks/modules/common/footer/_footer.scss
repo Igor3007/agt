@@ -1,6 +1,6 @@
 footer {
     background-color: #F2F6F9;
-    padding: 56px 0 120px;
+    padding: 40px 0 120px;
     font-size: 15px;
 
     &.footer-action-bar {
@@ -124,11 +124,12 @@ footer {
         justify-content: center;
         gap: 5.5%;
 
-        @media screen and (min-width: $w992) {
+        @media screen and (min-width: $w760) {
             justify-content: flex-start;
+            align-items: flex-start;
         }
 
-        @media screen and (max-width: $w576) {
+        @media screen and (max-width: $w760) {
             flex-direction: column;
             gap: 36px;
         }
@@ -469,7 +470,7 @@ footer {
             }
 
             @media screen and (min-width: $w991) {
-                padding-bottom: 20px;
+                padding-bottom: 5px;
             }
 
             & a {
@@ -487,8 +488,13 @@ footer {
             align-items: center;
             gap: 24px;
 
+            @media screen and (min-width: $w760) {
+                align-items: flex-start;
+            }
+
             @media screen and (min-width: 991px) {
                 display: block;
+
             }
 
             @media screen and (min-width: $w760) {
@@ -762,9 +768,7 @@ Footer
     }
 
 
-    .footer__col ul {
-        margin-top: 20px;
-    }
+
 
 
 
@@ -831,8 +835,6 @@ Footer
 
 
 footer {
-
-    padding: 40px 0 10px;
     font-size: 15px;
 }
 

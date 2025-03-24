@@ -186,12 +186,16 @@
     }
 
     &__head {
-        font-size: 22px;
+
         font-weight: 600;
         padding-bottom: 42px;
+        font-size: 24px;
 
-        @media screen and (min-width: $w576) {
-            font-size: 24px;
+
+        @media screen and (max-width: $w576) {
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 23px;
+            margin-bottom: 21px;
         }
     }
 
@@ -456,6 +460,10 @@
                 position: relative;
                 top: 6px;
                 width: 20px;
+            }
+
+            &:hover {
+                text-decoration: underline;
             }
         }
     }

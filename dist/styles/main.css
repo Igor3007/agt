@@ -4809,7 +4809,7 @@ Header
 
 footer {
   background-color: #F2F6F9;
-  padding: 56px 0 120px;
+  padding: 40px 0 120px;
   font-size: 15px;
 }
 
@@ -5208,7 +5208,6 @@ Footer
 }
 
 footer {
-  padding: 40px 0 10px;
   font-size: 15px;
 }
 
@@ -14702,9 +14701,9 @@ header.is-mobile .top-search.is-open {
 }
 
 .delivery__head {
-  font-size: 22px;
   font-weight: 600;
   padding-bottom: 42px;
+  font-size: 24px;
 }
 
 .delivery__note,
@@ -14900,6 +14899,10 @@ header.is-mobile .top-search.is-open {
   position: relative;
   top: 6px;
   width: 20px;
+}
+
+.delivery-contacts__link a:hover {
+  text-decoration: underline;
 }
 
 .text-column-2 {
@@ -17077,10 +17080,6 @@ span[data-color=fff] {
     flex-grow: unset;
   }
 
-  .delivery__head {
-    font-size: 24px;
-  }
-
   .delivery-stores__list {
     gap: 4%;
   }
@@ -17296,6 +17295,11 @@ span[data-color=fff] {
     width: 30%;
   }
 
+  .footer__menu {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
   .footer__logo {
     padding-bottom: 0;
   }
@@ -17354,6 +17358,10 @@ span[data-color=fff] {
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
+  }
+
+  .footer--bottom .footer__rules {
+    align-items: flex-start;
   }
 
   .footer--bottom .footer__rules {
@@ -18044,7 +18052,7 @@ span[data-color=fff] {
 
 @media screen and (min-width: 991.98px) {
   .footer--bottom .footer__policy {
-    padding-bottom: 20px;
+    padding-bottom: 5px;
   }
 
   .section-product-slider--rec .product-slider__title {
@@ -18538,10 +18546,6 @@ span[data-color=fff] {
 
   .footer__right {
     width: 425px;
-  }
-
-  .footer__menu {
-    justify-content: flex-start;
   }
 
   .footer__email a {
@@ -20423,10 +20427,6 @@ span[data-color=fff] {
     margin-bottom: 0px;
   }
 
-  .footer__col ul {
-    margin-top: 20px;
-  }
-
   .footer__menu {
     gap: 10px;
   }
@@ -20733,6 +20733,11 @@ span[data-color=fff] {
     display: none;
   }
 
+  .footer__menu {
+    flex-direction: column;
+    gap: 36px;
+  }
+
   .footer-store__item:first-child {
     display: none;
   }
@@ -20839,11 +20844,6 @@ span[data-color=fff] {
 
   footer.footer-action-bar {
     padding-bottom: 180px;
-  }
-
-  .footer__menu {
-    flex-direction: column;
-    gap: 36px;
   }
 
   .footer--top {
@@ -21200,6 +21200,12 @@ span[data-color=fff] {
 
   .delivery__tabs ul {
     gap: 0 0px;
+  }
+
+  .delivery__head {
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 23px;
+    margin-bottom: 21px;
   }
 
   .title-deal {

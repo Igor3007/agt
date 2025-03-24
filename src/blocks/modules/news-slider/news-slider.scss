@@ -311,7 +311,10 @@
             display: flex;
             flex-wrap: wrap;
             margin: 0px -5px;
-            margin-top: -12px;
+
+            @media screen and (min-width: $w576) {
+                margin-top: -12px;
+            }
 
 
             & li {
@@ -334,6 +337,26 @@
     }
 }
 
+.news-slider {
+    & .splide:not(.is-active) {
+        & .news-slider__item {
+            width: 100%;
+            margin-bottom: 50px;
+        }
+
+        & .card-news {
+
+            &__image {
+                border-radius: 0;
+
+                & picture {
+                    padding-top: 66%;
+                }
+            }
+        }
+    }
+}
+
 /******************************************************************
 Слайдер Новостей
 ******************************************************************/
@@ -343,7 +366,6 @@
 }
 
 .card-news__title:hover a {
-
     color: var(--accent);
 }
 

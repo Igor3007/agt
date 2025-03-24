@@ -7339,7 +7339,6 @@ AGT восококлассный...
   display: flex;
   flex-wrap: wrap;
   margin: 0px -5px;
-  margin-top: -12px;
 }
 
 .card-news__tags ul li {
@@ -7357,6 +7356,19 @@ AGT восококлассный...
 
 .card-news__tags ul li a:hover {
   color: var(--accent);
+}
+
+.news-slider .splide:not(.is-active) .news-slider__item {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.news-slider .splide:not(.is-active) .card-news__image {
+  border-radius: 0;
+}
+
+.news-slider .splide:not(.is-active) .card-news__image picture {
+  padding-top: 66%;
 }
 
 /******************************************************************
@@ -16899,6 +16911,10 @@ span[data-color=fff] {
 
   .card-news__desc {
     display: block;
+  }
+
+  .card-news__tags ul {
+    margin-top: -12px;
   }
 
   .minicard__sticker {

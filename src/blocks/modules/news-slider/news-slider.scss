@@ -305,6 +305,33 @@
             @include picture(57%, cover);
         }
     }
+
+    &__tags {
+        & ul {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0px -5px;
+            margin-top: -12px;
+
+
+            & li {
+                padding: 0px 5px;
+
+                & a {
+                    color: var(--black);
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 171.429%;
+                    font-family: var(--font-montserrat);
+                    color: var(--accent);
+
+                    &:hover {
+                        color: var(--accent);
+                    }
+                }
+            }
+        }
+    }
 }
 
 /******************************************************************

@@ -2748,6 +2748,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
                     this.selectedMask(e.target.closest('.multi-mask__dropd li'))
                 }
             })
+
+            this.input.addEventListener('blur', () => {
+                if (this.maska.options.mask.length > this.input.value.length) {
+                    this.input.value = ''
+                    this.input.removeAttribute('area-valid')
+                }
+            })
         }
     }
 
@@ -3437,6 +3444,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 this.$el.querySelectorAll('.minicard__tocart').forEach((item, index) => {
                     item.addEventListener('click', () => {
                         item.classList.toggle('is-active')
+
+                        item.querySelector('.tocart-text').innerText = item.classList.contains('is-active') ? 'В корзине' : 'В корзину'
 
                         let popup = new afLightbox({
                             mobileInBottom: true,
@@ -4137,12 +4146,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 this.$el.classList.toggle('is-animate-close', false)
             }, 500)
 
-            document.body.classList.toggle('page-hidden', false)
+            document.body.classList.toggle('page-hidden-ts', false)
         }
 
         open() {
 
-            document.body.classList.toggle('page-hidden', true)
+            document.body.classList.toggle('page-hidden-ts', true)
 
             if (!this.$el) {
                 this.ajaxLoad(() => {

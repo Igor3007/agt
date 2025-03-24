@@ -97,6 +97,7 @@ ul {
   line-height: 130%;
 }
 
+body.page-hidden-ts,
 body.page-hidden {
   touch-action: none;
   overflow: hidden !important;
@@ -2242,6 +2243,30 @@ select {
   background-size: contain;
 }
 
+@keyframes err-pulse {
+  0% {
+    transform: scale(1) rotate(0);
+  }
+
+  25% {
+    transform: scale(1.05) rotate(22deg);
+  }
+
+  75% {
+    transform: scale(1.05) rotate(-22deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+.checkbox input.err ~ .checkbox__elem {
+  border-color: #f00;
+  background-color: #ff000014;
+  animation: err-pulse 1s 2;
+}
+
 .checkbox input:checked ~ .checkbox__elem {
   z-index: 2;
   background-color: var(--accent);
@@ -3784,6 +3809,7 @@ select {
 .af-position-left .af-popup__close svg {
   width: 14px;
   height: 14px;
+  outline: none;
 }
 
 .af-position-left .af-popup__close svg path {
@@ -7307,6 +7333,30 @@ AGT восококлассный...
   height: 100%;
   object-fit: cover;
   color: transparent;
+}
+
+.card-news__tags ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px -5px;
+  margin-top: -12px;
+}
+
+.card-news__tags ul li {
+  padding: 0px 5px;
+}
+
+.card-news__tags ul li a {
+  color: var(--black);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 171.429%;
+  font-family: var(--font-montserrat);
+  color: var(--accent);
+}
+
+.card-news__tags ul li a:hover {
+  color: var(--accent);
 }
 
 /******************************************************************
@@ -10953,6 +11003,10 @@ section-one-article
   cursor: pointer;
 }
 
+.sp-details__right span:hover {
+  text-decoration: underline;
+}
+
 .sp-details__right,
 .sp-details__left {
   display: flex;
@@ -13257,6 +13311,11 @@ section-one-article
   padding-bottom: 24px;
 }
 
+.quickview__wrp-price {
+  display: flex;
+  gap: 16px;
+}
+
 .quickview__oldprice {
   font-weight: 600;
   font-size: 16px;
@@ -13336,6 +13395,10 @@ section-one-article
 
 .quickview .sp-details__radio {
   padding-bottom: 2px;
+}
+
+.quickview .sp-details__desc {
+  order: unset;
 }
 
 .top-search {
@@ -15363,7 +15426,7 @@ header.is-mobile .top-search.is-open {
 .blog-details__article .formated-text ul,
 .blog-details__article .formated-text ol,
 .blog-details__article .formated-text p {
-  max-width: 760px;
+  max-width: 890px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5px;
@@ -16020,7 +16083,7 @@ span[data-color=fff] {
   top: 50%;
   right: -45px;
   transform: rotate(-90deg);
-  z-index: 10;
+  z-index: 15;
   display: none;
 }
 
@@ -17118,7 +17181,7 @@ span[data-color=fff] {
   }
 
   .article-constructor ul.article-gallery li {
-    max-width: 33.33%;
+    max-width: 50%;
   }
 
   .card-article {
@@ -19290,6 +19353,18 @@ span[data-color=fff] {
     padding-bottom: 60px;
   }
 
+  .blog-details__article .formated-text h1,
+  .blog-details__article .formated-text h2,
+  .blog-details__article .formated-text h3,
+  .blog-details__article .formated-text h4,
+  .blog-details__article .formated-text h5,
+  .blog-details__article .formated-text h6,
+  .blog-details__article .formated-text ul,
+  .blog-details__article .formated-text ol,
+  .blog-details__article .formated-text p {
+    max-width: 760px;
+  }
+
   .blog-details__tags ul li:nth-child(-n + 7) {
     display: block;
   }
@@ -19300,6 +19375,23 @@ span[data-color=fff] {
 
   .article-constructor ul.article-gallery {
     margin: 60px 0;
+  }
+
+  .article-constructor ul.article-gallery li {
+    max-width: 33.33%;
+  }
+
+  .section-similar-product.section-similar-product--blog .tocart-text {
+    display: none;
+  }
+
+  .section-similar-product.section-similar-product--blog .ic-active svg,
+  .section-similar-product.section-similar-product--blog .ic-default svg {
+    margin: 0;
+  }
+
+  .section-similar-product.section-similar-product--blog .minicard__tocart .btn-tocart {
+    padding: 0 10px 0 11px;
   }
 
   .page__back {
@@ -19774,11 +19866,6 @@ span[data-color=fff] {
 
   .quickview__price {
     font-size: 28px;
-  }
-
-  .quickview__wrp-price {
-    display: flex;
-    gap: 16px;
   }
 
   .quickview__oldprice {
@@ -21191,11 +21278,6 @@ span[data-color=fff] {
 
   .checkout-pay__tabs label .box-radio {
     justify-content: space-between;
-  }
-
-  .quickview__wrp-price {
-    display: flex;
-    gap: 16px;
   }
 
   .delivery__tabs ul {

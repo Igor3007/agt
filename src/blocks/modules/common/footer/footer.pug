@@ -12,7 +12,9 @@ include ../../select-region/select-region.pug
                     .form
                         .form__item
                             .form__subitem
-                                +input-material("email", "Email")
+                                .input-material
+                                    input(type='email' value='' maxlength="60")
+                                    label Email
                             .form__subitem.form__subitem--btn
                                 button.btn Подписаться
                         .form__item

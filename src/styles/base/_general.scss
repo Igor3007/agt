@@ -124,6 +124,7 @@ ul {
     line-height: 130%;
 }
 
+body.page-hidden-ts,
 body.page-hidden {
     touch-action: none;
     overflow: hidden !important;

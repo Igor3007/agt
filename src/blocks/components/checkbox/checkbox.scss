@@ -62,6 +62,32 @@
 
     & input {
 
+        @keyframes err-pulse {
+            0% {
+                transform: scale(1) rotate(0);
+            }
+
+            25% {
+                transform: scale(1.05) rotate(22deg);
+            }
+
+            75% {
+                transform: scale(1.05) rotate(-22deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(0);
+            }
+        }
+
+        &.err {
+            &~.checkbox__elem {
+                border-color: #f00;
+                background-color: #ff000014;
+                animation: err-pulse 1s 2;
+            }
+        }
+
 
         &:checked~.checkbox__elem {
             z-index: 2;

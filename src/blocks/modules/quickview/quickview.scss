@@ -54,15 +54,10 @@
         }
     }
 
-
-
-
-
     &__price {
         font-weight: 600;
         font-size: 29px;
         padding-bottom: 24px;
-
 
         @media screen and (min-width: $w991) {
             font-size: 23px;
@@ -74,17 +69,8 @@
     }
 
     &__wrp-price {
-
-        @media screen and (max-width: $w576) {
-            display: flex;
-            gap: 16px;
-        }
-
-
-        @media screen and (min-width: $w1200) {
-            display: flex;
-            gap: 16px;
-        }
+        display: flex;
+        gap: 16px;
     }
 
     &__oldprice {
@@ -194,5 +180,9 @@
 
     & .sp-details__radio {
         padding-bottom: 2px;
+    }
+
+    & .sp-details__desc {
+        order: unset;
     }
 }

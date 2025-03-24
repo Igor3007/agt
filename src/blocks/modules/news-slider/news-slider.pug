@@ -57,5 +57,15 @@ mixin news-slider-recomendet
                         .splide__track
                             .splide__list
                                 each item in reviews
-                                    .splide__slide: .news-slider__item: +card-news(item)
+                                    .splide__slide: .news-slider__item
+                                        .card-news
+                                            .card-news__image
+                                                +picture(item.img)
+                                            .card-news__main
+                                                .card-news__title: a(href='#')= item.name
+                                                .card-news__tags
+                                                    ul
+                                                        li: a(href='#') #Лидеры
+                                                        li: a(href='#') #На выставке
+                                                        li: a(href='#') #Команда Brodeks
                         

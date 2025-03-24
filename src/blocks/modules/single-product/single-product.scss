@@ -1268,6 +1268,10 @@
                 line-height: 100%;
                 margin-right: 10px;
             }
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 

@@ -247,6 +247,12 @@ span[data-color=fff] {
     @media screen and (min-width: $w760) {
         display: block;
     }
+
+    @media (orientation: landscape) and (max-width: $w992) {
+        display: none;
+    }
+
+
 }
 
 .bottom-question .btn {

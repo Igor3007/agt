@@ -4910,7 +4910,7 @@ footer {
 .footer__label {
   font-weight: 600;
   text-align: center;
-  padding-bottom: 12px;
+  padding-bottom: 14px;
 }
 
 .footer__col {
@@ -14461,6 +14461,15 @@ header.is-mobile .top-search.is-open {
   visibility: visible;
 }
 
+.section-contacts .form__subitem {
+  padding: 14px 10px !important;
+}
+
+.section-contacts .form textarea {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  min-height: 115px;
+}
+
 .contacts .mb0 {
   margin-top: 0;
   margin-bottom: 0;
@@ -14683,15 +14692,6 @@ header.is-mobile .top-search.is-open {
   width: 20px;
   height: 20px;
   margin-bottom: -4px;
-}
-
-.form__subitem {
-  padding: 14px 10px !important;
-}
-
-.form textarea {
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  min-height: 115px;
 }
 
 .form__subitem.form__subitem--textarea label {
@@ -16878,10 +16878,6 @@ span[data-color=fff] {
     font-size: 27px;
   }
 
-  .home-faq__form {
-    padding: 56px;
-  }
-
   .home-faq .company-tile__item {
     width: calc(50% - 12px);
     max-width: 293px;
@@ -17386,10 +17382,6 @@ span[data-color=fff] {
   .footer__logo .bgimage {
     margin: none;
     margin: 0;
-  }
-
-  .footer__label {
-    padding-bottom: 0;
   }
 
   .footer__label {
@@ -19609,6 +19601,10 @@ span[data-color=fff] {
     padding: 15px 0;
   }
 
+  .home-faq__form {
+    padding: 56px;
+  }
+
   .section-home-faq--noform .home-faq__right {
     padding-top: 0;
   }
@@ -20522,8 +20518,6 @@ span[data-color=fff] {
   .footer__label {
     font-size: 16px;
     color: #2f3030;
-    font-weight: 600;
-    padding-bottom: 1px;
   }
 
   .footer__label.show-hide {
@@ -20719,6 +20713,12 @@ span[data-color=fff] {
   }
 }
 
+@media (orientation: landscape) and (max-width: 992.98px) {
+  .bottom-question {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 991.98px) {
   .cart__aside.is-open {
     display: block;
@@ -20838,7 +20838,11 @@ span[data-color=fff] {
 
   .footer__menu {
     flex-direction: column;
-    gap: 36px;
+    gap: 16px;
+  }
+
+  .footer__label:not(.is-open) {
+    padding-bottom: 0;
   }
 
   .footer-store__item:first-child {

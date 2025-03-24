@@ -131,7 +131,7 @@ footer {
 
         @media screen and (max-width: $w760) {
             flex-direction: column;
-            gap: 36px;
+            gap: 16px;
         }
     }
 
@@ -166,10 +166,14 @@ footer {
     &__label {
         font-weight: 600;
         text-align: center;
-        padding-bottom: 12px;
+        padding-bottom: 14px;
 
-        @media screen and (min-width: $w760) {
-            padding-bottom: 0;
+
+
+        &:not(.is-open) {
+            @media screen and (max-width: $w760) {
+                padding-bottom: 0;
+            }
         }
 
         @media screen and (min-width: $w1200) {
@@ -758,8 +762,7 @@ Footer
     .footer__label {
         font-size: 16px;
         color: #2f3030;
-        font-weight: 600;
-        padding-bottom: 1px;
+
 
     }
 

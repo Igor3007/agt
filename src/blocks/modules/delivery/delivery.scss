@@ -4,6 +4,13 @@
 
 .delivery {
 
+    & .pickup-title {
+        @media screen and (max-width: $w1024) and (min-width: $w760) {
+            padding-top: 40px;
+            font-size: 16px;
+        }
+    }
+
     &__breadcrumb {
         padding-top: 15px;
 

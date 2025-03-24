@@ -364,6 +364,11 @@
 
         @media screen and (min-width: $w1440) {
             padding: 20px 0;
+
+        }
+
+        @media screen and (min-width: $w992) {
+            padding-bottom: 70px !important;
         }
     }
 
@@ -381,6 +386,10 @@
 
         @media screen and (max-width: $w992) {
             padding: 0px 0 28px 0;
+        }
+
+        @media screen and (min-width: $w992) {
+            padding-bottom: 70px !important;
         }
 
         &:empty {

@@ -5,6 +5,9 @@
         padding: 24px 0 98px 0;
     }
 
+
+
+
     & .company-about {
         &__desc {
 
@@ -175,7 +178,7 @@
 }
 
 .stores-slider {
-    @media screen and (min-width: $w992) {
+    @media screen and (min-width: $w991) {
         display: flex;
         gap: 12px;
     }
@@ -195,7 +198,7 @@
             padding-bottom: 60px;
         }
 
-        @media screen and (min-width: $w992) {
+        @media screen and (min-width: $w991) {
             width: calc(22% - 12px);
 
             display: flex;
@@ -215,6 +218,11 @@
 
         @media screen and (min-width: $w1024) {
             padding-bottom: 30px;
+        }
+
+        @media screen and (min-width: $w991) and (max-width: $w1024) {
+            padding-bottom: 3px;
+            padding-top: 3px;
         }
 
         & a {
@@ -246,19 +254,27 @@
     &__right {
 
 
-        @media screen and (min-width: $w992) {
+        @media screen and (min-width: $w991) {
             width: 78%;
         }
+
 
         & picture {
             @include picture(65%, cover);
             border-radius: 8px;
             margin-top: 36px;
 
-            @media screen and (min-width: $w576) {
+            @media screen and (min-width: $w1024) {
                 padding-top: 43%;
                 margin-top: 0;
             }
+
+            @media screen and (min-width: $w991) {
+                padding-top: 57%;
+                margin-top: 0;
+            }
+
+
 
             & img {
                 border-radius: 8px
@@ -284,7 +300,7 @@
         padding-bottom: 25px;
         text-align: center;
 
-        @media screen and (min-width: $w992) {
+        @media screen and (min-width: $w991) {
             font-size: 21px;
             display: block;
         }
@@ -493,9 +509,7 @@
 
 @media screen and (min-width: 576px) {
     .stores-slider__address {
-
         font-size: 20px;
-
         font-weight: 500;
     }
 }
@@ -505,7 +519,7 @@
     padding-bottom: 13px;
 }
 
-@media screen and (min-width: 992.98px) {
+@media screen and (min-width: $w992) {
     .stores-slider__city {
         font-size: 18px;
 
@@ -513,6 +527,11 @@
 }
 
 .section-stores-slider--contacts {
+
+    @media screen and (min-width: $w991) and (max-width: $w1024) {
+        padding: 47px 0 42px 0;
+    }
+
     @media screen and (min-width: $w992) {
         padding-top: 55px;
         padding-bottom: 60px;
@@ -535,16 +554,50 @@
     @media screen and (min-width: $w1024) {
         & .stores-slider {
             &__left {
-                padding-bottom: 0;
+                padding-bottom: 24px;
+            }
+
+
+        }
+    }
+
+    @media screen and (min-width: $w991) {
+        & .stores-slider {
+
+
+            &__city {
+                padding-bottom: 20px;
             }
         }
     }
 
-    @media screen and (min-width: $w760) {
+    @media screen and (min-width: $w991) and (max-width: $w1024) {
         & .stores-slider {
+            &__address {
+                font-size: 20px;
+            }
+
+            &__phone a {
+                font-size: 18px;
+            }
+
+            &__worktime {
+                padding-bottom: 0;
+                font-size: 16px;
+                line-height: 170%;
+            }
+
+            &__right {
+                width: 75%;
+            }
+
             &__left {
-                padding-bottom: 24px;
+                width: calc(25% - 12px);
             }
         }
+
+
+
+
     }
 }

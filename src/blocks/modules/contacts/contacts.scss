@@ -3,16 +3,25 @@
         padding: 30px 0 56px;
     }
 
-    & .form {
-        &__subitem {
-            padding: 14px 10px !important;
-        }
+    & textarea {
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        min-height: 115px;
+    }
 
-        & textarea {
-            border: 1px solid rgba(0, 0, 0, 0.12);
-            min-height: 115px;
+    @media screen and (min-width: $w991) and (max-width: $w1024) {
+        & .form {
+            &__subitem {
+                padding: 14px 10px !important;
+            }
         }
     }
+
+
+}
+
+.contacts__mail-form .form .attach-file:not(.is-loaded) {
+    display: flex;
+    flex-wrap: nowrap
 }
 
 .section-page--contacts {
@@ -318,6 +327,19 @@
         width: 100%;
         padding-bottom: 40px;
     }
+
+    & .contacts-item {
+        &__title {
+            font-size: 16px;
+        }
+    }
+
+    & .contacts {
+        &__mail-title {
+            font-size: 16px;
+        }
+    }
+
 }
 
 .file-attach {

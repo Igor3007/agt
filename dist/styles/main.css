@@ -7811,10 +7811,6 @@ AGT восококлассный...
   height: 33px;
 }
 
-.minicard__bg > div:hover svg {
-  fill: var(--accent);
-}
-
 .minicard:hover .minicard__info {
   color: #fff;
 }
@@ -14461,13 +14457,14 @@ header.is-mobile .top-search.is-open {
   visibility: visible;
 }
 
-.section-contacts .form__subitem {
-  padding: 14px 10px !important;
-}
-
-.section-contacts .form textarea {
+.section-contacts textarea {
   border: 1px solid rgba(0, 0, 0, 0.12);
   min-height: 115px;
+}
+
+.contacts__mail-form .form .attach-file:not(.is-loaded) {
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .contacts .mb0 {
@@ -16783,11 +16780,6 @@ span[data-color=fff] {
     margin: unset;
   }
 
-  .stores-slider__right picture {
-    padding-top: 43%;
-    margin-top: 0;
-  }
-
   .stores-slider__title {
     font-size: 27px;
   }
@@ -17545,10 +17537,6 @@ span[data-color=fff] {
     width: 50%;
   }
 
-  .section-stores-slider--contacts .stores-slider__left {
-    padding-bottom: 24px;
-  }
-
   .reviews-slider__slider {
     padding-left: 80px;
   }
@@ -18128,6 +18116,36 @@ span[data-color=fff] {
 
   .section-product-slider--rec .product-slider__title {
     font-size: 27px;
+  }
+
+  .stores-slider {
+    display: flex;
+    gap: 12px;
+  }
+
+  .stores-slider__left {
+    width: calc(22% - 12px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .stores-slider__right {
+    width: 78%;
+  }
+
+  .stores-slider__right picture {
+    padding-top: 57%;
+    margin-top: 0;
+  }
+
+  .stores-slider__city {
+    font-size: 21px;
+    display: block;
+  }
+
+  .section-stores-slider--contacts .stores-slider__city {
+    padding-bottom: 20px;
   }
 
   .one-article__row {
@@ -18830,29 +18848,8 @@ span[data-color=fff] {
     margin: 24px 0;
   }
 
-  .stores-slider {
-    display: flex;
-    gap: 12px;
-  }
-
-  .stores-slider__left {
-    width: calc(22% - 12px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .stores-slider__right {
-    width: 78%;
-  }
-
   .stores-slider__title {
     font-size: 30px;
-  }
-
-  .stores-slider__city {
-    font-size: 21px;
-    display: block;
   }
 
   .stores-slider__city {
@@ -19444,8 +19441,17 @@ span[data-color=fff] {
     padding-bottom: 30px;
   }
 
+  .stores-slider__right picture {
+    padding-top: 43%;
+    margin-top: 0;
+  }
+
   .section-stores-slider--contacts .stores-slider__left {
-    padding-bottom: 0;
+    padding-bottom: 24px;
+  }
+
+  .minicard__bg > div:hover svg {
+    fill: var(--accent);
   }
 
   .catalog-category__subcat ul li {
@@ -21496,6 +21502,28 @@ span[data-color=fff] {
     height: 40px;
   }
 
+  .minicard:not(.minicard--large) .minicard__bg {
+    width: 68%;
+    padding: 0;
+  }
+
+  .minicard:not(.minicard--large) .minicard__tocart {
+    width: 32%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .minicard:not(.minicard--large) .minicard__compare svg {
+    margin-right: auto;
+  }
+
+  .minicard:not(.minicard--large) .minicard__compare,
+  .minicard:not(.minicard--large) .minicard__tofav {
+    margin: 0 !important;
+    width: 50% !important;
+  }
+
   .category-products .minicard__prop .minicard-prop {
     padding: 3px 5px;
   }
@@ -21675,6 +21703,43 @@ span[data-color=fff] {
   }
 }
 
+@media screen and (min-width: 991.98px) and (max-width: 1025px) {
+  .stores-slider__phone {
+    padding-bottom: 3px;
+    padding-top: 3px;
+  }
+
+  .section-stores-slider--contacts {
+    padding: 47px 0 42px 0;
+  }
+
+  .section-stores-slider--contacts .stores-slider__address {
+    font-size: 20px;
+  }
+
+  .section-stores-slider--contacts .stores-slider__phone a {
+    font-size: 18px;
+  }
+
+  .section-stores-slider--contacts .stores-slider__worktime {
+    padding-bottom: 0;
+    font-size: 16px;
+    line-height: 170%;
+  }
+
+  .section-stores-slider--contacts .stores-slider__right {
+    width: 75%;
+  }
+
+  .section-stores-slider--contacts .stores-slider__left {
+    width: calc(25% - 12px);
+  }
+
+  .section-contacts .form__subitem {
+    padding: 14px 10px !important;
+  }
+}
+
 @media screen and (min-width: 767px) and (max-width: 991.98px) {
   .one-article__image {
     display: none;
@@ -21722,6 +21787,14 @@ span[data-color=fff] {
   .contacts__mail {
     width: 100%;
     padding-bottom: 40px;
+  }
+
+  .contacts-item__title {
+    font-size: 16px;
+  }
+
+  .contacts__mail-title {
+    font-size: 16px;
   }
 
   .delivery .pickup-title {

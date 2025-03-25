@@ -538,9 +538,11 @@
                 height: 33px;
             }
 
-            &:hover {
-                & svg {
-                    fill: var(--accent);
+            @media screen and (min-width: $w1024) {
+                &:hover {
+                    & svg {
+                        fill: var(--accent);
+                    }
                 }
             }
         }
@@ -615,6 +617,41 @@
                     }
                 }
             }
+        }
+
+        & .minicard {
+
+            @media screen and (max-width: $w480) {
+                &__bg {
+                    width: 68%;
+                    padding: 0;
+                }
+
+                &__tocart {
+                    width: 32%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    & .btn-tocart {}
+                }
+
+                &__compare {
+                    & svg {
+                        margin-right: auto;
+                    }
+                }
+
+                &__compare,
+                &__tofav {
+
+                    margin: 0 !important;
+                    width: 50% !important;
+
+                }
+            }
+
+
         }
     }
 

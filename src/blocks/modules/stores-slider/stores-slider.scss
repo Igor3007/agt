@@ -540,12 +540,12 @@
     @media screen and (min-width: $w1440) {
         & .stores-slider {
             &__city {
-                font-size: 21px;
+                font-size: 27px;
                 padding-bottom: 25px;
             }
 
             &__address {
-                font-size: 27px;
+                font-size: 28px;
                 font-weight: 600;
             }
         }
@@ -567,6 +567,22 @@
 
             &__city {
                 padding-bottom: 20px;
+            }
+        }
+    }
+
+    @media screen and (min-width: $w760) and (max-width: $w991) {
+        & .stores-slider {
+            &__address {
+                font-size: 20px;
+            }
+
+            &__city {
+                font-size: 21px;
+            }
+
+            &__worktime {
+                font-size: 16px;
             }
         }
     }
@@ -598,6 +614,19 @@
 
 
 
+
+    }
+
+    @media screen and (max-width: $w576) {
+        & .stores-slider {
+            &__title {
+                font-size: 20px;
+            }
+
+            &__city {
+                font-size: 16px;
+            }
+        }
 
     }
 }

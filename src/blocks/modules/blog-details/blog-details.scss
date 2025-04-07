@@ -288,7 +288,7 @@
     }
 }
 
-@media screen and (min-width: $w992) {
+@media screen and (min-width: $w576) and (max-width: $w992) {
     .section-similar-product.section-similar-product--blog .tocart-text {
         display: none
     }
@@ -304,4 +304,12 @@
 
     }
 
+}
+
+.section-similar-product.section-similar-product--blog {
+    & .minicard {
+        &__desc span {
+            font-size: 14px;
+        }
+    }
 }

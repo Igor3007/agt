@@ -148,6 +148,9 @@
                 }
 
                 &:hover {
+
+                    text-decoration: underline;
+
                     & a {
                         color: var(--accent);
                     }
@@ -386,15 +389,11 @@
         padding-top: 20px;
 
         & .btn {
-            color: var(--accent);
-
-            font-size: 17px;
-
-            &:hover {
-                background-color: var(--accent);
-                color: #fff;
-            }
+            height: 46px;
+            font-size: 16px;
+            padding: 0.8em 1.05em 0.85em 1.05em;
         }
+
     }
 
     &__close {
@@ -496,11 +495,21 @@ header.is-mobile {
     top: 11px;
     cursor: pointer;
     display: none;
+    transition: 0.3s ease;
+
+    &:hover {
+
+        transform: translateX(5px);
+    }
 
     @media screen and (min-width: $w480) {
         right: 30px;
 
     }
+}
+
+.open-find-popup {
+    overflow: hidden;
 }
 
 .open-find-popup .find-enter {

@@ -557,8 +557,6 @@
 
             &__close {
                 margin-left: auto;
-                width: 18px;
-                height: 18px;
                 @include bgimage-contain;
                 background-size: 16px;
                 opacity: 0.4;
@@ -568,7 +566,23 @@
                 cursor: pointer;
                 transform: rotate(45deg);
                 opacity: 1;
-                filter: grayscale(1);
+                border: 2px solid var(--accent);
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 30px;
+                height: 30px;
+
+                &::before {
+                    width: 10px;
+                }
+
+                &::after {
+                    height: 10px;
+                    top: 8px;
+                }
+
 
                 &:hover {
                     opacity: 1;

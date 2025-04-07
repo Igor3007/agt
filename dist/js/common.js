@@ -252,7 +252,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
             }
         })
 
-
     }
 
     initMaska();
@@ -977,18 +976,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
             start: 0,
             perPage: 1,
             perMove: 1,
-            gap: 112,
+            gap: 60,
 
             breakpoints: {
 
                 1400: {
-                    gap: 112
-                },
-
-                1400: {
                     gap: 60
-                }
-
+                },
             },
 
         });
@@ -3716,24 +3710,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
         lockScroll(val) {
             if (val) {
-                //fix iOS body scroll
-                if (this.isiOS) {
-                    document.body.style.marginTop = `-${window.scrollY}px`
-                    document.documentElement.classList.add('safari-fixed')
-                }
                 document.documentElement.classList.add('page-hidden')
             } else {
-
-                //fix iOS body scroll
-                let documentBody = document.body
-
-                if (this.isiOS) {
-                    if (document.documentElement.classList.contains('safari-fixed')) document.documentElement.classList.remove('safari-fixed')
-                    const bodyMarginTop = parseInt(documentBody.style.marginTop, 10)
-                    documentBody.style.marginTop = ''
-                    if (bodyMarginTop || bodyMarginTop === 0) window.scrollTo(0, -bodyMarginTop)
-                }
-
                 document.documentElement.classList.remove('page-hidden')
             }
         }
@@ -3939,12 +3917,18 @@ document.addEventListener('DOMContentLoaded', function (event) {
             })
 
             this.input.addEventListener('keyup', e => this.debounce(keyupHahdler, 200, e))
+            this.input.addEventListener('input', e => this.changeInput(e))
 
             this.closeButton.forEach(button => {
                 button.addEventListener('click', e => {
                     this.closeFind()
                     this.input.value = ''
                 })
+            })
+
+            this.$el.addEventListener('scroll', () => {
+                this.input.blur()
+                document.activeElement.blur();
             })
 
             document.querySelector('.find-icon').addEventListener('click', (e) => {
@@ -4260,6 +4244,40 @@ document.addEventListener('DOMContentLoaded', function (event) {
     new TableSizes({
         el: '.sp-details__tablesize'
     });
+
+
+    /* =====================================
+    Lightgallery review
+    =====================================*/
+
+    if (document.querySelector('[data-lightgallery]')) {
+
+        const container = document.querySelector('[data-lightgallery]')
+        const items = container.querySelectorAll('a')
+        const galleryElems = []
+
+        items.forEach(item => {
+            galleryElems.push({
+                src: item.href,
+                thumb: item.querySelector('img').src,
+            })
+        })
+
+        const dynamicGallery = lightGallery(container, {
+            dynamic: true,
+            plugins: [lgZoom, lgThumbnail],
+            dynamicEl: galleryElems,
+            speed: 300,
+        });
+
+        items.forEach((item, i) => {
+            item.addEventListener('click', e => {
+                e.preventDefault()
+                dynamicGallery.openGallery(i);
+            })
+        })
+
+    }
 
 
 

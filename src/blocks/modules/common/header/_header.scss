@@ -133,6 +133,7 @@ header {
             background-repeat: no-repeat;
             font-size: 14px;
             transition: 0.3s ease;
+            padding-right: 60px;
 
             @media screen and (max-width: $w760) {
                 display: none;

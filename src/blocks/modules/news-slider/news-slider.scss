@@ -122,8 +122,13 @@
     }
 
     &__title {
-        @include font-h2;
+        font-size: 22px;
         padding-bottom: 15px;
+        font-weight: 600;
+
+        @media screen and (min-width: $w760) {
+            font-size: 28px;
+        }
     }
 
     &__all {

@@ -1073,6 +1073,13 @@
                     width: 100%;
 
                     & .minicard {
+
+
+                        &__tocart,
+                        &__bg {
+                            width: auto;
+                        }
+
                         &__prop {
                             display: block;
 
@@ -1201,6 +1208,31 @@
                         flex-direction: row;
                         position: relative;
 
+                        & .tocart-text {
+                            display: none;
+                        }
+
+                        & .minicard__tocart {
+                            &:not(.is-active) {
+
+
+
+                                & .btn-tocart {
+                                    background-color: var(--bg);
+                                }
+                            }
+                        }
+
+                        & .btn-tocart {
+                            padding: 0 12px 0 12px;
+
+
+
+                            & svg {
+                                margin-right: 0;
+                            }
+                        }
+
                         & .minicard {
 
 
@@ -1242,7 +1274,7 @@
 
                             &__brand {
                                 top: 10px;
-                                left: 80px;
+                                left: 100px;
                                 position: absolute;
                                 z-index: 4;
 

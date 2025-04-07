@@ -31,12 +31,13 @@
     &__brand {
         margin-left: auto;
         left: 0px;
-        top: 0px;
+        top: 9px;
         display: flex;
         width: 56px;
         height: 56px;
         justify-content: center;
         align-items: center;
+        position: relative;
     }
 
 
@@ -115,7 +116,8 @@
             height: 44px;
             display: block;
             @include bgimage-contain;
-            margin-top: -8px;
+
+            background-position: top right;
         }
     }
 
@@ -160,8 +162,8 @@
         transition: 0.5s ease;
 
         @media screen and (min-width: $w480) {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 42px;
         }
 
         & svg {
@@ -521,7 +523,7 @@
         justify-content: center;
         margin-right: auto;
         background-color: #fff;
-        border-radius: 50px;
+        border-radius: 38px;
         padding: 1px;
         opacity: 1;
         transition: 0.3s ease;

@@ -592,6 +592,63 @@
 
 .checkout-pay {
 
+    &__tab-item {
+        display: none;
+        margin-top: -24px;
+
+        &.is-active {
+            display: block;
+        }
+
+        & .formated-text {
+            max-width: 810px;
+
+            & p {
+                font-family: var(--font-montserrat);
+
+                @media screen and (min-width: $w1024) {
+                    font-size: 15px;
+                    margin: 24px 0;
+                }
+
+                &+ul {
+                    @media screen and (min-width: $w1024) {
+                        margin-top: -15px;
+                    }
+                }
+            }
+
+            & ul {
+
+                padding-left: 10px;
+
+                & li {
+                    padding-left: 16px;
+                    padding-bottom: 2px;
+
+                    &::before {
+                        width: 3px;
+                        height: 3px;
+                        border-radius: 50%;
+                        background-color: #000;
+                        top: 10px;
+                    }
+                }
+
+                &+p {
+                    @media screen and (min-width: $w1024) {
+                        margin-top: 44px;
+                    }
+                }
+
+            }
+
+            & h4 {
+                font-size: 18px;
+            }
+        }
+    }
+
     &__tabs {
 
         display: flex;
@@ -644,5 +701,81 @@
             display: none;
         }
     }
+
+}
+
+.accordion {
+    font-family: var(--font-montserrat);
+
+    @media screen and (min-width: $w1024) {
+        font-size: 15px;
+    }
+
+    &__title {
+        font-size: 15px;
+        font-weight: 600;
+        font-family: involve;
+    }
+
+    &__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__close {
+        border: 2px solid var(--accent);
+        width: 40px;
+        min-width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.3s ease;
+
+        & .icon-cross {
+            min-width: 12px;
+            width: 12px;
+            height: 12px;
+        }
+    }
+
+    &__content {
+        display: none;
+        opacity: 0;
+
+        & .formated-text {
+            &+p {
+                margin-top: 0px;
+            }
+        }
+    }
+
+    &__item {
+        border-bottom: 1px solid #eee;
+        padding: 12px 0;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        &.is-active {
+            & .accordion {
+                &__close {
+                    transform: rotate(45deg);
+                }
+
+                &__content {
+                    display: block;
+                    animation: fade-in 0.5s ease forwards;
+                }
+            }
+        }
+    }
+
+
+
 
 }

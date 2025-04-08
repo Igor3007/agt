@@ -438,6 +438,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
         })
     }
 
+    if (document.querySelector('.checkout-pay__tabs')) {
+        new TabsCheckout({
+            nav: '.checkout-pay__tabs',
+            container: '.checkout-pay__tab-content',
+
+        })
+    }
+
     /* ==================================
     select
     ==================================*/
@@ -455,6 +463,18 @@ document.addEventListener('DOMContentLoaded', function (event) {
     if (document.querySelector('.aside-dropdown__title')) {
         document.querySelector('.aside-dropdown__title').addEventListener('click', (e) => {
             e.target.closest('.aside-dropdown').classList.toggle('is-open')
+        })
+    }
+
+    /* ==================================
+    accordion 
+    ==================================*/
+
+    if (document.querySelector('.accordion')) {
+        document.querySelectorAll('.accordion__close').forEach(item => {
+            item.addEventListener('click', e => {
+                item.closest('.accordion__item').classList.toggle('is-active')
+            })
         })
     }
 

@@ -158,21 +158,60 @@ mixin checkout-pay
     .checkout-pay
         .checkout-pay__tabs
             label
-                input(type="radio" name="type-payment" checked)
+                input(type="radio"  name="type-payment" checked)
                 div.box-radio
                     div.box-radio__text Картой на сайте
                     div.box-radio__elem 
             label
-                input(type="radio" name="type-payment")
+                input(type="radio"  name="type-payment" )
                 div.box-radio
                     div.box-radio__text Наличными
                     div.box-radio__elem
             label
-                input(type="radio" name="type-payment")
+                input(type="radio"  name="type-payment" )
                 div.box-radio
                     div.box-radio__text Счет на оплату
-                    div.box-radio__elem
+                    div.box-radio__elem 
 
+
+        .checkout-pay__tab-content
+            .checkout-pay__tab-item.is-active
+                .formated-text
+                    p На основании Вашего заказа мы сформируем счет на оплату и отправим его на указанный Вами электронный адрес или другим удобным для вас способом.
+                    p
+                        strong Обратите внимание: все цены в счете указываются с НДС 20%
+                    p После выставления счета, товар из наличия по вашему заказу резервируется на 10 (десять) рабочих дней начиная с дня выставления счета.
+                    p Все необходимые для бухгалтерии документы (оригинал счета на оплату, УПД (универсальный передаточный документ)), выдаются вместе с заказом при получении.
+
+                    h4 Документы необходимые для получения товара:
+
+                .accordion
+                    .accordion__item.is-active
+                        .accordion__head
+                            .accordion__title Для юридических лиц
+                            .accordion__close: span.icon-cross
+                        .accordion__content
+                            .formated-text
+                                p Если товар получает Генеральный директор: 
+                                ul
+                                    li паспорт
+                                    li печать организации
+                                p Если товар получает Доверенное лицо: 
+                                ul
+                                    li доверенность по форме М2 или М2А, 
+                                    li заверенную печатью и подписью ответственных лиц (ген. директор, главный бухгалтер).
+                    .accordion__item.is-active
+                        .accordion__head
+                            .accordion__title Для индивидуальных предпринимателей
+                            .accordion__close: span.icon-cross
+                        .accordion__content
+                            .formated-text
+                                p Если товар получает ИП лично: 
+                                ul
+                                    li паспорт
+                                    li печать организации
+            .checkout-pay__tab-item
+            .checkout-pay__tab-item
         .checkout-pay__back
             button.btn.btn-gray(data-prev-step) Предыдущий шаг
             

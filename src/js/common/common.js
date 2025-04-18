@@ -859,6 +859,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
         let scrollPosition = window.scrollY - document.querySelector('.sp-details').clientHeight
         let detailsHeight = document.querySelector('.sp-details').clientHeight
 
+        const offsetDetails = () => {
+            document.documentElement.style.setProperty('--left-details-fixed', document.querySelector('.sp-head__details').getBoundingClientRect().left + 'px');
+        }
+
+        offsetDetails()
+
+        window.addEventListener('resize', offsetDetails)
+
         window.addEventListener('scroll', e => {
             let scrollHeight = document.querySelector('.section-single-product').clientHeight + document.querySelector('header').clientHeight
             scrollPosition = scrollHeight - (detailsHeight + 130)
@@ -3359,8 +3367,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
     popup ajax
     ====================================*/
 
-
-
     function initAjaxPopup(container) {
         container.querySelectorAll('[data-popup="ajax"]').forEach(item => {
             item.addEventListener('click', () => {
@@ -3372,14 +3378,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
                 popup.open('<div class="af-spiner" ></div>', false)
 
-
-
                 window.ajax({
                     type: 'GET',
                     url: item.dataset.url,
                 }, (status, response) => {
-
-
 
                     popup.changeContent(response)
 

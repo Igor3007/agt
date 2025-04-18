@@ -49,6 +49,13 @@
          padding-bottom: 32px;
      }
 
+     &__carousel {
+         & .splide:not(.is-overflow) .splide__list {
+             display: flex;
+             justify-content: center;
+         }
+     }
+
      &__wrp {
 
          display: flex;
@@ -178,6 +185,8 @@
          font-size: 14px;
          font-weight: bold;
          padding-bottom: 35px;
+         padding-right: 40px;
+         padding-left: 40px;
 
          @media screen and (min-width: $w760) and (max-width: $w991) {
              text-align: left;
@@ -402,12 +411,12 @@
 
          }
 
-         &:hover {
-             & .card-img-caption {
-                 &__caption span {
-                     color: var(--accent);
-                 }
-             }
-         }
+         //  &:hover {
+         //      & .card-img-caption {
+         //          &__caption span {
+         //              color: var(--accent);
+         //          }
+         //      }
+         //  }
      }
  }

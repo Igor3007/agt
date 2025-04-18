@@ -99,6 +99,7 @@
     padding: 40px 30px;
     background-color: #fff;
     border-radius: 9px;
+    height: 100%;
 
     @media screen and (min-width: $w760) {
         padding: 40px 52px;
@@ -140,7 +141,7 @@
         }
 
         & span {
-            @include line-clamp(5);
+            @include line-clamp(4);
         }
 
         &:not(.crop--text) {

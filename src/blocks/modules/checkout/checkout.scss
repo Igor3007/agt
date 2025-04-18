@@ -1,4 +1,4 @@
-@keyframes to-change-tab {
+@keyframes to-change-tab { 
     from {
         opacity: 0;
     }
@@ -10,7 +10,7 @@
 
 .checkout {
 
-    padding-bottom: 60px;
+    padding-bottom: 35px;
 
     & .multi-mask,
     & .input-material {
@@ -734,6 +734,10 @@
         border-radius: 50%;
         cursor: pointer;
         transition: 0.3s ease;
+
+        &:hover {
+            background-color: var(--bg);
+        }
 
         & .icon-cross {
             min-width: 12px;

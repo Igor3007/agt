@@ -252,6 +252,10 @@ footer {
         & a {
             font-size: 23px;
             font-weight: 600;
+
+            &:hover {
+                color: var(--accent);
+            }
         }
     }
 
@@ -269,6 +273,10 @@ footer {
             font-size: 15px;
             display: inline-flex;
             align-items: center;
+
+            &:hover {
+                text-decoration: underline;
+            }
 
             @media screen and (min-width: $w992) {
                 font-size: 13px;

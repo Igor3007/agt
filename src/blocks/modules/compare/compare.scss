@@ -231,16 +231,16 @@
                     border-left: 20px solid transparent;
                     border-right: 20px solid transparent;
 
-                    @media screen and (min-width: $w1024) {
-                        width: 290px;
-                        min-width: 290px;
-                        max-width: 290px;
+                    @media screen and (min-width: $w991) {
+                        width: 340px;
+                        min-width: 340px;
+                        max-width: 340px;
                     }
 
                     @media screen and (min-width: $w760) {
-                        width: 300px;
-                        min-width: 300px;
-                        max-width: 300px;
+                        width: 290px;
+                        min-width: 290px;
+                        max-width: 290px;
                     }
 
 
@@ -267,7 +267,7 @@
                         padding-top: 14px;
                         font-size: 15px;
 
-                        @media screen and (min-width: $w1440) {
+                        @media screen and (min-width: $w991) {
                             width: 340px;
                             max-width: 340px;
                             min-width: 340px;
@@ -384,7 +384,7 @@
                         opacity: 0;
                         word-wrap: break-word;
 
-                        @media screen and (min-width: $w1440) {
+                        @media screen and (min-width: $w991) {
                             width: 340px;
                             max-width: 340px;
                             min-width: 340px;

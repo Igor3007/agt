@@ -1284,10 +1284,11 @@
                             }
 
                             &__sticker {
-                                bottom: 16px;
+                                top: 0;
                                 left: 16px;
                                 position: absolute;
                                 z-index: 4;
+                                max-width: 122px;
 
                                 & span {
                                     background-color: var(--accent);

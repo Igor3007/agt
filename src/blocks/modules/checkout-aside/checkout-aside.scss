@@ -258,7 +258,6 @@
     }
 
     &__content {
-        background-color: #eee;
         padding: 12px;
         margin-top: 12px;
         display: none;
@@ -300,7 +299,7 @@
     }
 
     @media screen and (min-width: $w1440) {
-        margin-top: -150px;
+        margin-top: -67px;
     }
 
     & .checkout-aside {

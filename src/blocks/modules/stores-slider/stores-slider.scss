@@ -218,7 +218,8 @@
         }
 
         @media screen and (min-width: $w1024) {
-            padding-bottom: 30px;
+            padding-top: 6px;
+            padding-bottom: 10px;
         }
 
         @media screen and (min-width: $w991) and (max-width: $w1024) {
@@ -227,7 +228,7 @@
         }
 
         & a {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
 
             &:hover {

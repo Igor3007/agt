@@ -4,9 +4,13 @@
      top: 0;
      width: 100%;
      height: calc((var(--vh, 1vh) * 100));
-     background-color: #000;
+     background-color: rgba(0,0,0,0.65);
      z-index: 100;
      display: none;
+
+     @media screen and (min-width: $w576) {
+      background-color: #000;
+     }
 
      &.is-open {
          display: block;
@@ -132,10 +136,14 @@
      }
 
      &__video {
-         display: flex;
+         display: none;
          flex-direction: column;
          justify-content: flex-start;
          min-height: calc((var(--vh, 1vh) * 40));
+
+         @media screen and (min-width: $w576) {
+            display: flex;
+         }
 
          @media screen and (min-width: $w760) {
              min-height: 100vh;
@@ -247,11 +255,16 @@
 
 
          text-align: center;
-         height: calc((var(--vh, 1vh) * 100) - (100vw*0.56) - (var(--vh, 1vh) * 22) - 24px);
+         height: auto;
+         max-height: calc((var(--vh, 1vh) * 100) - (var(--vh, 1vh) * 22) - 24px);
          overflow-y: auto;
          overflow-x: auto;
          margin-bottom: 16px;
 
+
+         @media screen and (min-width: $w576) {
+         height: calc((var(--vh, 1vh) * 100) - (100vw*0.56) - (var(--vh, 1vh) * 22) - 24px);
+         }
 
          @media screen and (min-width: $w760) {
              margin-bottom: 40px;

@@ -1,4 +1,4 @@
-@keyframes to-change-tab { 
+@keyframes to-change-tab {
     from {
         opacity: 0;
     }
@@ -156,8 +156,7 @@
                         }
                     }
 
-                    &.is-complete,
-                    &:hover {
+                    &.is-complete {
                         & span {
                             color: #000;
 
@@ -165,6 +164,10 @@
                                 background-color: rgba(0, 0, 0, .8);
                             }
                         }
+                    }
+
+                    &:hover {
+                        opacity: 0.9;
                     }
                 }
             }

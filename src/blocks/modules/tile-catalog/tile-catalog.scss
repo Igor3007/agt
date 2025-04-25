@@ -180,27 +180,29 @@
 
     &__item {
         &:hover {
-            & .tile-catalog {
-                &__arrow {
-                    margin-left: -36px;
-                    opacity: 1;
-
-                }
-
-                &__text {
-                    margin-right: -80px;
-                }
-
-
-                &__image {
-                    & picture {
-                        @media screen and (max-width: $w992) {
-                            margin-left: -30px;
+            @media screen and (min-width: $w576) {
+                & .tile-catalog {
+                    &__arrow {
+                        margin-left: -36px;
+                        opacity: 1;
+    
+                    }
+    
+                    &__text {
+                        margin-right: -80px;
+                    }
+    
+    
+                    &__image {
+                        & picture {
+                            @media screen and (max-width: $w992) {
+                                margin-left: -30px;
+                            }
                         }
                     }
+    
+    
                 }
-
-
             }
         }
     }

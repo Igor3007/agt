@@ -20,13 +20,13 @@
         background-color: transparent;
     }
 
-    & .splide {
-        &__arrows {
-            @media screen and (min-width: $w992) {
-                display: none;
-            }
-        }
-    }
+    // & .splide {
+    //     &__arrows {
+    //         @media screen and (min-width: $w992) {
+    //             display: none;
+    //         }
+    //     }
+    // }
 
     &__item {
         width: 290px;

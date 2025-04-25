@@ -167,11 +167,11 @@
          }
 
          & a {
-             color: var(--green);
+             color: var(--accent);
+             text-decoration: underline;
 
              &:hover {
-                 text-decoration: underline;
-
+                 text-decoration: none
              }
          }
 
